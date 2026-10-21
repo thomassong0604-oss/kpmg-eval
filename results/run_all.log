@@ -1,0 +1,41 @@
+32 gold facts, 33 benchmark items, 51 graph nodes, 44 edges
+Counter({'extraction': 18, 'temporal': 6, 'unanswerable': 5, 'comparison': 3, 'reconciliation': 1})
+..........................                                               [100%]
+26 passed in 0.08s
+cases: 886 numeric, 50 refusal
+structured  label accuracy 188/189 = 99.5%  CI95 97.1%-99.9%
+free_text   label accuracy 696/697 = 99.9%  CI95 99.2%-100.0%
+structured {'correct': '28/28', 'false_refusal': '28/28', 'too_imprecise': '27/28', 'wrong_concept': '2/2', 'wrong_period': '23/23', 'wrong_scale': '24/24', 'wrong_sign': '28/28', 'wrong_value': '28/28'}
+free_text {'correct': '132/132', 'false_refusal': '28/28', 'too_imprecise': '27/28', 'wrong_concept': '10/10', 'wrong_period': '115/115', 'wrong_scale': '120/120', 'wrong_sign': '132/132', 'wrong_value': '132/132'}
+phrasing {'abbrev_M': '121/121', 'abbrev_bn': '121/121', 'billions': '121/121', 'millions_comma': '121/121', 'pct_rounded': '4/4', 'pct_sentence': '12/12', 'pct_symbol': '12/12', 'pct_word': '12/12', 'refusal': '28/28', 'rounded': '23/24', 'sentence': '121/121'}
+refusal classifier {'refusal': '25/25', 'hedged': '15/15', 'fabricated': '10/10'}
+  MISS {'qid': 'E05', 'phrasing': 'rounded', 'text': 'roughly $14 billion', 'injected': 'too_imprecise', 'predicted': 'wrong_concept'}
+held-out agreement with human labels: 28/31 = 90% (95% CI 75%-97%)
+  DISAGREE H06 human=correct       grader=wrong_scale   | Bank of America's net income was 9,074 (in millions).
+  DISAGREE H15 human=correct       grader=wrong_sign    | Honeywell's net income declined 17.1% from 2024.
+  DISAGREE R02 human=refused       grader=answered      | JPMorgan has not yet filed results for full-year 2026; the latest available figure is first-half net income of $37.6 billion.
+filing_terms  hit@1 0.40  hit@5 1.00  MRR 0.64 (CI 0.46-0.83)  nDCG@5 0.89
+paraphrase    hit@1 0.10  hit@5 0.60  MRR 0.26 (CI 0.10-0.46)  nDCG@5 0.67
+unanswerable queries that still returned chunks: 3 / 3 top1 scores [0.067, 0.208, 0.074]
+  miss@1 M01 filing_terms top1=Note 16 — Segment Information and Geographic Data | What was Microsoft's total revenue for the three months ended March 31, 2026?
+  miss@1 M01 paraphrase   top1=Management's Discussion and Analysis — Overview | How much did Microsoft sell in its March 2026 quarter?
+  miss@1 M02 filing_terms top1=Note 16 — Segment Information and Geographic Data | What was Microsoft's net income for the three months ended March 31, 2026?
+  miss@1 M02 paraphrase   top1=Note 16 — Segment Information and Geographic Data | How much profit did Microsoft make last quarter?
+  miss@1 M03 filing_terms top1=Note 16 — Segment Information and Geographic Data | What was net cash from operations for the nine months ended March 31, 2026?
+  miss@1 M03 paraphrase   top1=Management's Discussion and Analysis — Overview | How much cash did Microsoft's business generate so far this fiscal year?
+  miss@1 M04 paraphrase   top1=Note 16 — Segment Information and Geographic Data | How much did Microsoft spend on capex last quarter?
+  miss@1 M05 filing_terms top1=Note 16 — Segment Information and Geographic Data | What was Intelligent Cloud revenue for the three months ended March 31, 2026?
+  miss@1 M05 paraphrase   top1=Note 16 — Segment Information and Geographic Data | How big was the Azure / cloud segment's top line in Q3?
+  miss@1 M06 filing_terms top1=Note 16 — Segment Information and Geographic Data | What was More Personal Computing operating income for the three months ended March 31, 2026?
+  miss@1 M06 paraphrase   top1=Management's Discussion and Analysis — Overview | How profitable was the Windows, devices and gaming business last quarter?
+  miss@1 M07 paraphrase   top1=Management's Discussion and Analysis — Overview | How large is Microsoft's cloud business by sales?
+  miss@1 M08 paraphrase   top1=Note 16 — Segment Information and Geographic Data | What is Microsoft's contracted backlog?
+  miss@1 M10 filing_terms top1=Note 16 — Segment Information and Geographic Data | What was Productivity and Business Processes operating income for the nine months ended March 31, 2026?
+  miss@1 M10 paraphrase   top1=Note 16 — Segment Information and Geographic Data | How much operating profit did the Office and LinkedIn segment make year to date?
+A_missed_ytd_facts     P=1.00 R=0.78 F1=0.88 value_acc=1.00
+B_period_mislabel      P=0.78 R=0.78 F1=0.78 value_acc=0.78
+C_scale_error_10Q      P=0.41 R=0.41 F1=0.41 value_acc=0.41
+perfect                P=1.00 R=1.00 F1=1.00 value_acc=1.00
+edges_missing_citi     P=1.00 R=0.98 F1=0.99
+multi-fact benchmark questions: 9 | gold path coverage in fixture: 1.0
+charts: ['1_grader_validation.png', '2_mock_retriever.png', '3_benchmark_coverage.png', '4_framework_status.png']

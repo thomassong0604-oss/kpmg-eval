@@ -1,0 +1,369 @@
+{
+  "n_items": 28,
+  "n_unanswerable": 5,
+  "by_format": {
+    "structured": {
+      "correct": 188,
+      "n": 189,
+      "accuracy": 0.9947089947089947,
+      "ci95": [
+        0.9706423605812214,
+        0.9990654203125275
+      ]
+    },
+    "free_text": {
+      "correct": 696,
+      "n": 697,
+      "accuracy": 0.9985652797704447,
+      "ci95": [
+        0.9919181800848855,
+        0.9997466982556696
+      ]
+    }
+  },
+  "by_injected": {
+    "structured": {
+      "correct": {
+        "correct": 28,
+        "n": 28,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8793527963418923,
+          1.0
+        ]
+      },
+      "false_refusal": {
+        "correct": 28,
+        "n": 28,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8793527963418923,
+          1.0
+        ]
+      },
+      "too_imprecise": {
+        "correct": 27,
+        "n": 28,
+        "accuracy": 0.9642857142857143,
+        "ci95": [
+          0.8228742388150134,
+          0.9936676435024582
+        ]
+      },
+      "wrong_concept": {
+        "correct": 2,
+        "n": 2,
+        "accuracy": 1.0,
+        "ci95": [
+          0.3423719528896193,
+          1.0
+        ]
+      },
+      "wrong_period": {
+        "correct": 23,
+        "n": 23,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8568788745827373,
+          1.0000000000000002
+        ]
+      },
+      "wrong_scale": {
+        "correct": 24,
+        "n": 24,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8620194241710247,
+          1.0000000000000002
+        ]
+      },
+      "wrong_sign": {
+        "correct": 28,
+        "n": 28,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8793527963418923,
+          1.0
+        ]
+      },
+      "wrong_value": {
+        "correct": 28,
+        "n": 28,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8793527963418923,
+          1.0
+        ]
+      }
+    },
+    "free_text": {
+      "correct": {
+        "correct": 132,
+        "n": 132,
+        "accuracy": 1.0,
+        "ci95": [
+          0.9717200032979587,
+          1.0
+        ]
+      },
+      "false_refusal": {
+        "correct": 28,
+        "n": 28,
+        "accuracy": 1.0,
+        "ci95": [
+          0.8793527963418923,
+          1.0
+        ]
+      },
+      "too_imprecise": {
+        "correct": 27,
+        "n": 28,
+        "accuracy": 0.9642857142857143,
+        "ci95": [
+          0.8228742388150134,
+          0.9936676435024582
+        ]
+      },
+      "wrong_concept": {
+        "correct": 10,
+        "n": 10,
+        "accuracy": 1.0,
+        "ci95": [
+          0.7224598312333834,
+          1.0
+        ]
+      },
+      "wrong_period": {
+        "correct": 115,
+        "n": 115,
+        "accuracy": 1.0,
+        "ci95": [
+          0.9676746189886368,
+          0.9999999999999998
+        ]
+      },
+      "wrong_scale": {
+        "correct": 120,
+        "n": 120,
+        "accuracy": 1.0,
+        "ci95": [
+          0.9689797289440706,
+          1.0000000000000002
+        ]
+      },
+      "wrong_sign": {
+        "correct": 132,
+        "n": 132,
+        "accuracy": 1.0,
+        "ci95": [
+          0.9717200032979587,
+          1.0
+        ]
+      },
+      "wrong_value": {
+        "correct": 132,
+        "n": 132,
+        "accuracy": 1.0,
+        "ci95": [
+          0.9717200032979587,
+          1.0
+        ]
+      }
+    }
+  },
+  "confusion": {
+    "structured": {
+      "correct": {
+        "correct": 28
+      },
+      "wrong_period": {
+        "wrong_period": 23
+      },
+      "wrong_sign": {
+        "wrong_sign": 28
+      },
+      "wrong_scale": {
+        "wrong_scale": 24
+      },
+      "wrong_value": {
+        "wrong_value": 28
+      },
+      "too_imprecise": {
+        "too_imprecise": 27,
+        "wrong_concept": 1
+      },
+      "false_refusal": {
+        "false_refusal": 28
+      },
+      "wrong_concept": {
+        "wrong_concept": 2
+      }
+    },
+    "free_text": {
+      "correct": {
+        "correct": 132
+      },
+      "wrong_period": {
+        "wrong_period": 115
+      },
+      "wrong_sign": {
+        "wrong_sign": 132
+      },
+      "wrong_scale": {
+        "wrong_scale": 120
+      },
+      "wrong_value": {
+        "wrong_value": 132
+      },
+      "too_imprecise": {
+        "too_imprecise": 27,
+        "wrong_concept": 1
+      },
+      "false_refusal": {
+        "false_refusal": 28
+      },
+      "wrong_concept": {
+        "wrong_concept": 10
+      }
+    }
+  },
+  "free_text_by_phrasing": {
+    "abbrev_M": {
+      "correct": 121,
+      "n": 121,
+      "accuracy": 1.0,
+      "ci95": [
+        0.9692282059826209,
+        0.9999999999999998
+      ]
+    },
+    "abbrev_bn": {
+      "correct": 121,
+      "n": 121,
+      "accuracy": 1.0,
+      "ci95": [
+        0.9692282059826209,
+        0.9999999999999998
+      ]
+    },
+    "billions": {
+      "correct": 121,
+      "n": 121,
+      "accuracy": 1.0,
+      "ci95": [
+        0.9692282059826209,
+        0.9999999999999998
+      ]
+    },
+    "millions_comma": {
+      "correct": 121,
+      "n": 121,
+      "accuracy": 1.0,
+      "ci95": [
+        0.9692282059826209,
+        0.9999999999999998
+      ]
+    },
+    "pct_rounded": {
+      "correct": 4,
+      "n": 4,
+      "accuracy": 1.0,
+      "ci95": [
+        0.5100999795960008,
+        1.0
+      ]
+    },
+    "pct_sentence": {
+      "correct": 12,
+      "n": 12,
+      "accuracy": 1.0,
+      "ci95": [
+        0.7574992425007574,
+        0.9999999999999998
+      ]
+    },
+    "pct_symbol": {
+      "correct": 12,
+      "n": 12,
+      "accuracy": 1.0,
+      "ci95": [
+        0.7574992425007574,
+        0.9999999999999998
+      ]
+    },
+    "pct_word": {
+      "correct": 12,
+      "n": 12,
+      "accuracy": 1.0,
+      "ci95": [
+        0.7574992425007574,
+        0.9999999999999998
+      ]
+    },
+    "refusal": {
+      "correct": 28,
+      "n": 28,
+      "accuracy": 1.0,
+      "ci95": [
+        0.8793527963418923,
+        1.0
+      ]
+    },
+    "rounded": {
+      "correct": 23,
+      "n": 24,
+      "accuracy": 0.9583333333333334,
+      "ci95": [
+        0.7975777375115778,
+        0.9926067346451949
+      ]
+    },
+    "sentence": {
+      "correct": 121,
+      "n": 121,
+      "accuracy": 1.0,
+      "ci95": [
+        0.9692282059826209,
+        0.9999999999999998
+      ]
+    }
+  },
+  "refusal_classifier": {
+    "refusal": {
+      "correct": 25,
+      "n": 25,
+      "accuracy": 1.0,
+      "ci95": [
+        0.8668035060468212,
+        1.0
+      ]
+    },
+    "hedged": {
+      "correct": 15,
+      "n": 15,
+      "accuracy": 1.0,
+      "ci95": [
+        0.7961107336956521,
+        1.0
+      ]
+    },
+    "fabricated": {
+      "correct": 10,
+      "n": 10,
+      "accuracy": 1.0,
+      "ci95": [
+        0.7224598312333834,
+        1.0
+      ]
+    }
+  },
+  "free_text_misses": [
+    {
+      "qid": "E05",
+      "phrasing": "rounded",
+      "text": "roughly $14 billion",
+      "injected": "too_imprecise",
+      "predicted": "wrong_concept"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+# Meeting slides kept out of the repo
+Slides/

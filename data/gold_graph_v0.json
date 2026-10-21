@@ -1,0 +1,716 @@
+{
+ "nodes": [
+  {
+   "id": "0000019617",
+   "label": "Company",
+   "ticker": "JPM",
+   "name": "JPMorgan Chase & Co."
+  },
+  {
+   "id": "0001628280-26-008131",
+   "label": "Filing",
+   "form": "10-K",
+   "fy": 2025,
+   "fp": "FY",
+   "cik": "0000019617"
+  },
+  {
+   "id": "0000019617|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000019617",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": 57048000000,
+   "accession": "0001628280-26-008131"
+  },
+  {
+   "id": "0000019617|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD",
+   "label": "Fact",
+   "cik": "0000019617",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2024-01-01",
+   "period_end": "2024-12-31",
+   "unit": "USD",
+   "value": 58471000000,
+   "accession": "0001628280-26-008131"
+  },
+  {
+   "id": "0001628280-26-054343",
+   "label": "Filing",
+   "form": "10-Q",
+   "fy": 2026,
+   "fp": "Q2",
+   "cik": "0000019617"
+  },
+  {
+   "id": "0000019617|us-gaap:NetIncomeLoss|2026-04-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000019617",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-04-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 21155000000,
+   "accession": "0001628280-26-054343"
+  },
+  {
+   "id": "0000019617|us-gaap:NetIncomeLoss|2025-04-01|2025-06-30|USD",
+   "label": "Fact",
+   "cik": "0000019617",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-04-01",
+   "period_end": "2025-06-30",
+   "unit": "USD",
+   "value": 14987000000,
+   "accession": "0001628280-26-054343"
+  },
+  {
+   "id": "0000019617|us-gaap:NetIncomeLoss|2026-01-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000019617",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 37649000000,
+   "accession": "0001628280-26-054343"
+  },
+  {
+   "id": "0000070858",
+   "label": "Company",
+   "ticker": "BAC",
+   "name": "Bank of America Corp."
+  },
+  {
+   "id": "0000070858-26-000157",
+   "label": "Filing",
+   "form": "10-K",
+   "fy": 2025,
+   "fp": "FY",
+   "cik": "0000070858"
+  },
+  {
+   "id": "0000070858|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000070858",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": 30509000000,
+   "accession": "0000070858-26-000157"
+  },
+  {
+   "id": "0000070858|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD",
+   "label": "Fact",
+   "cik": "0000070858",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2024-01-01",
+   "period_end": "2024-12-31",
+   "unit": "USD",
+   "value": 26973000000,
+   "accession": "0000070858-26-000157"
+  },
+  {
+   "id": "0000070858-26-000394",
+   "label": "Filing",
+   "form": "10-Q",
+   "fy": 2026,
+   "fp": "Q2",
+   "cik": "0000070858"
+  },
+  {
+   "id": "0000070858|us-gaap:NetIncomeLoss|2026-04-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000070858",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-04-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 9074000000,
+   "accession": "0000070858-26-000394"
+  },
+  {
+   "id": "0000070858|us-gaap:NetIncomeLoss|2025-04-01|2025-06-30|USD",
+   "label": "Fact",
+   "cik": "0000070858",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-04-01",
+   "period_end": "2025-06-30",
+   "unit": "USD",
+   "value": 7170000000,
+   "accession": "0000070858-26-000394"
+  },
+  {
+   "id": "0000070858|us-gaap:NetIncomeLoss|2026-01-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000070858",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 17658000000,
+   "accession": "0000070858-26-000394"
+  },
+  {
+   "id": "0000831001",
+   "label": "Company",
+   "ticker": "C",
+   "name": "Citigroup Inc."
+  },
+  {
+   "id": "0000831001-26-000011",
+   "label": "Filing",
+   "form": "10-K",
+   "fy": 2025,
+   "fp": "FY",
+   "cik": "0000831001"
+  },
+  {
+   "id": "0000831001|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000831001",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": 14306000000,
+   "accession": "0000831001-26-000011"
+  },
+  {
+   "id": "0000831001|us-gaap:ProfitLoss|2025-01-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000831001",
+   "concept": "us-gaap:ProfitLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": 14452000000,
+   "accession": "0000831001-26-000011"
+  },
+  {
+   "id": "0000831001|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD",
+   "label": "Fact",
+   "cik": "0000831001",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2024-01-01",
+   "period_end": "2024-12-31",
+   "unit": "USD",
+   "value": 12682000000,
+   "accession": "0000831001-26-000011"
+  },
+  {
+   "id": "0000018230",
+   "label": "Company",
+   "ticker": "CAT",
+   "name": "Caterpillar Inc."
+  },
+  {
+   "id": "0000018230-26-000008",
+   "label": "Filing",
+   "form": "10-K",
+   "fy": 2025,
+   "fp": "FY",
+   "cik": "0000018230"
+  },
+  {
+   "id": "0000018230|us-gaap:ProfitLoss|2025-01-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000018230",
+   "concept": "us-gaap:ProfitLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": 8882000000,
+   "accession": "0000018230-26-000008"
+  },
+  {
+   "id": "0000018230-26-000046",
+   "label": "Filing",
+   "form": "10-Q",
+   "fy": 2026,
+   "fp": "Q2",
+   "cik": "0000018230"
+  },
+  {
+   "id": "0000018230|us-gaap:ProfitLoss|2026-04-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000018230",
+   "concept": "us-gaap:ProfitLoss",
+   "period_start": "2026-04-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 3593000000,
+   "accession": "0000018230-26-000046"
+  },
+  {
+   "id": "0000315189",
+   "label": "Company",
+   "ticker": "DE",
+   "name": "Deere & Company"
+  },
+  {
+   "id": "0001104659-25-122321",
+   "label": "Filing",
+   "form": "10-K",
+   "fy": 2025,
+   "fp": "FY",
+   "cik": "0000315189"
+  },
+  {
+   "id": "0000315189|us-gaap:NetIncomeLoss|2024-10-28|2025-11-02|USD",
+   "label": "Fact",
+   "cik": "0000315189",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2024-10-28",
+   "period_end": "2025-11-02",
+   "unit": "USD",
+   "value": 5027000000,
+   "accession": "0001104659-25-122321"
+  },
+  {
+   "id": "0000315189|us-gaap:NetIncomeLoss|2023-10-30|2024-10-27|USD",
+   "label": "Fact",
+   "cik": "0000315189",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2023-10-30",
+   "period_end": "2024-10-27",
+   "unit": "USD",
+   "value": 7100000000,
+   "accession": "0001104659-25-122321"
+  },
+  {
+   "id": "0001104659-26-102213",
+   "label": "Filing",
+   "form": "10-Q",
+   "fy": 2026,
+   "fp": "Q3",
+   "cik": "0000315189"
+  },
+  {
+   "id": "0000315189|us-gaap:NetIncomeLoss|2026-05-04|2026-08-02|USD",
+   "label": "Fact",
+   "cik": "0000315189",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-05-04",
+   "period_end": "2026-08-02",
+   "unit": "USD",
+   "value": 1379000000,
+   "accession": "0001104659-26-102213"
+  },
+  {
+   "id": "0000315189|us-gaap:NetIncomeLoss|2025-04-28|2025-07-27|USD",
+   "label": "Fact",
+   "cik": "0000315189",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-04-28",
+   "period_end": "2025-07-27",
+   "unit": "USD",
+   "value": 1289000000,
+   "accession": "0001104659-26-102213"
+  },
+  {
+   "id": "0000315189|us-gaap:NetIncomeLoss|2025-11-03|2026-08-02|USD",
+   "label": "Fact",
+   "cik": "0000315189",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-11-03",
+   "period_end": "2026-08-02",
+   "unit": "USD",
+   "value": 3808000000,
+   "accession": "0001104659-26-102213"
+  },
+  {
+   "id": "0000773840",
+   "label": "Company",
+   "ticker": "HON",
+   "name": "Honeywell International Inc."
+  },
+  {
+   "id": "0000773840-26-000013",
+   "label": "Filing",
+   "form": "10-K",
+   "fy": 2025,
+   "fp": "FY",
+   "cik": "0000773840"
+  },
+  {
+   "id": "0000773840|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000773840",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": 4729000000,
+   "accession": "0000773840-26-000013"
+  },
+  {
+   "id": "0000773840|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD",
+   "label": "Fact",
+   "cik": "0000773840",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2024-01-01",
+   "period_end": "2024-12-31",
+   "unit": "USD",
+   "value": 5705000000,
+   "accession": "0000773840-26-000013"
+  },
+  {
+   "id": "0000773840|us-gaap:NetIncomeLoss|2025-10-01|2025-12-31|USD",
+   "label": "Fact",
+   "cik": "0000773840",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-10-01",
+   "period_end": "2025-12-31",
+   "unit": "USD",
+   "value": -115000000,
+   "accession": "0000773840-26-000013"
+  },
+  {
+   "id": "0000773840-26-000124",
+   "label": "Filing",
+   "form": "10-Q",
+   "fy": 2026,
+   "fp": "Q2",
+   "cik": "0000773840"
+  },
+  {
+   "id": "0000773840|us-gaap:NetIncomeLoss|2026-04-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000773840",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-04-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 5682000000,
+   "accession": "0000773840-26-000124"
+  },
+  {
+   "id": "0000773840|us-gaap:NetIncomeLoss|2025-04-01|2025-06-30|USD",
+   "label": "Fact",
+   "cik": "0000773840",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-04-01",
+   "period_end": "2025-06-30",
+   "unit": "USD",
+   "value": 1570000000,
+   "accession": "0000773840-26-000124"
+  },
+  {
+   "id": "0000773840|us-gaap:NetIncomeLoss|2026-01-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000773840",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 6503000000,
+   "accession": "0000773840-26-000124"
+  },
+  {
+   "id": "0000320193",
+   "label": "Company",
+   "ticker": "AAPL",
+   "name": "Apple Inc."
+  },
+  {
+   "id": "0000320193-26-000020",
+   "label": "Filing",
+   "form": "10-Q",
+   "fy": 2026,
+   "fp": "Q3",
+   "cik": "0000320193"
+  },
+  {
+   "id": "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-03-29|2026-06-27|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-03-29",
+   "period_end": "2026-06-27",
+   "unit": "USD",
+   "value": 109417000000,
+   "accession": "0000320193-26-000020"
+  },
+  {
+   "id": "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-03-30|2025-06-28|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-03-30",
+   "period_end": "2025-06-28",
+   "unit": "USD",
+   "value": 94036000000,
+   "accession": "0000320193-26-000020"
+  },
+  {
+   "id": "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-09-28|2026-06-27|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-09-28",
+   "period_end": "2026-06-27",
+   "unit": "USD",
+   "value": 364357000000,
+   "accession": "0000320193-26-000020"
+  },
+  {
+   "id": "0000320193|us-gaap:NetIncomeLoss|2026-03-29|2026-06-27|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-03-29",
+   "period_end": "2026-06-27",
+   "unit": "USD",
+   "value": 29789000000,
+   "accession": "0000320193-26-000020"
+  },
+  {
+   "id": "0000320193|us-gaap:NetIncomeLoss|2025-09-28|2026-06-27|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-09-28",
+   "period_end": "2026-06-27",
+   "unit": "USD",
+   "value": 101464000000,
+   "accession": "0000320193-26-000020"
+  },
+  {
+   "id": "0000320193|us-gaap:NetIncomeLoss|2024-09-29|2025-06-28|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2024-09-29",
+   "period_end": "2025-06-28",
+   "unit": "USD",
+   "value": 84544000000,
+   "accession": "0000320193-26-000020"
+  }
+ ],
+ "edges": [
+  [
+   "0000018230",
+   "FILED",
+   "0000018230-26-000008"
+  ],
+  [
+   "0000018230",
+   "FILED",
+   "0000018230-26-000046"
+  ],
+  [
+   "0000018230-26-000008",
+   "REPORTS",
+   "0000018230|us-gaap:ProfitLoss|2025-01-01|2025-12-31|USD"
+  ],
+  [
+   "0000018230-26-000046",
+   "REPORTS",
+   "0000018230|us-gaap:ProfitLoss|2026-04-01|2026-06-30|USD"
+  ],
+  [
+   "0000019617",
+   "FILED",
+   "0001628280-26-008131"
+  ],
+  [
+   "0000019617",
+   "FILED",
+   "0001628280-26-054343"
+  ],
+  [
+   "0000070858",
+   "FILED",
+   "0000070858-26-000157"
+  ],
+  [
+   "0000070858",
+   "FILED",
+   "0000070858-26-000394"
+  ],
+  [
+   "0000070858-26-000157",
+   "REPORTS",
+   "0000070858|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD"
+  ],
+  [
+   "0000070858-26-000157",
+   "REPORTS",
+   "0000070858|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD"
+  ],
+  [
+   "0000070858-26-000394",
+   "REPORTS",
+   "0000070858|us-gaap:NetIncomeLoss|2025-04-01|2025-06-30|USD"
+  ],
+  [
+   "0000070858-26-000394",
+   "REPORTS",
+   "0000070858|us-gaap:NetIncomeLoss|2026-01-01|2026-06-30|USD"
+  ],
+  [
+   "0000070858-26-000394",
+   "REPORTS",
+   "0000070858|us-gaap:NetIncomeLoss|2026-04-01|2026-06-30|USD"
+  ],
+  [
+   "0000315189",
+   "FILED",
+   "0001104659-25-122321"
+  ],
+  [
+   "0000315189",
+   "FILED",
+   "0001104659-26-102213"
+  ],
+  [
+   "0000320193",
+   "FILED",
+   "0000320193-26-000020"
+  ],
+  [
+   "0000320193-26-000020",
+   "REPORTS",
+   "0000320193|us-gaap:NetIncomeLoss|2024-09-29|2025-06-28|USD"
+  ],
+  [
+   "0000320193-26-000020",
+   "REPORTS",
+   "0000320193|us-gaap:NetIncomeLoss|2025-09-28|2026-06-27|USD"
+  ],
+  [
+   "0000320193-26-000020",
+   "REPORTS",
+   "0000320193|us-gaap:NetIncomeLoss|2026-03-29|2026-06-27|USD"
+  ],
+  [
+   "0000320193-26-000020",
+   "REPORTS",
+   "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-03-30|2025-06-28|USD"
+  ],
+  [
+   "0000320193-26-000020",
+   "REPORTS",
+   "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-09-28|2026-06-27|USD"
+  ],
+  [
+   "0000320193-26-000020",
+   "REPORTS",
+   "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-03-29|2026-06-27|USD"
+  ],
+  [
+   "0000773840",
+   "FILED",
+   "0000773840-26-000013"
+  ],
+  [
+   "0000773840",
+   "FILED",
+   "0000773840-26-000124"
+  ],
+  [
+   "0000773840-26-000013",
+   "REPORTS",
+   "0000773840|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD"
+  ],
+  [
+   "0000773840-26-000013",
+   "REPORTS",
+   "0000773840|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD"
+  ],
+  [
+   "0000773840-26-000013",
+   "REPORTS",
+   "0000773840|us-gaap:NetIncomeLoss|2025-10-01|2025-12-31|USD"
+  ],
+  [
+   "0000773840-26-000124",
+   "REPORTS",
+   "0000773840|us-gaap:NetIncomeLoss|2025-04-01|2025-06-30|USD"
+  ],
+  [
+   "0000773840-26-000124",
+   "REPORTS",
+   "0000773840|us-gaap:NetIncomeLoss|2026-01-01|2026-06-30|USD"
+  ],
+  [
+   "0000773840-26-000124",
+   "REPORTS",
+   "0000773840|us-gaap:NetIncomeLoss|2026-04-01|2026-06-30|USD"
+  ],
+  [
+   "0000831001",
+   "FILED",
+   "0000831001-26-000011"
+  ],
+  [
+   "0000831001-26-000011",
+   "REPORTS",
+   "0000831001|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD"
+  ],
+  [
+   "0000831001-26-000011",
+   "REPORTS",
+   "0000831001|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD"
+  ],
+  [
+   "0000831001-26-000011",
+   "REPORTS",
+   "0000831001|us-gaap:ProfitLoss|2025-01-01|2025-12-31|USD"
+  ],
+  [
+   "0001104659-25-122321",
+   "REPORTS",
+   "0000315189|us-gaap:NetIncomeLoss|2023-10-30|2024-10-27|USD"
+  ],
+  [
+   "0001104659-25-122321",
+   "REPORTS",
+   "0000315189|us-gaap:NetIncomeLoss|2024-10-28|2025-11-02|USD"
+  ],
+  [
+   "0001104659-26-102213",
+   "REPORTS",
+   "0000315189|us-gaap:NetIncomeLoss|2025-04-28|2025-07-27|USD"
+  ],
+  [
+   "0001104659-26-102213",
+   "REPORTS",
+   "0000315189|us-gaap:NetIncomeLoss|2025-11-03|2026-08-02|USD"
+  ],
+  [
+   "0001104659-26-102213",
+   "REPORTS",
+   "0000315189|us-gaap:NetIncomeLoss|2026-05-04|2026-08-02|USD"
+  ],
+  [
+   "0001628280-26-008131",
+   "REPORTS",
+   "0000019617|us-gaap:NetIncomeLoss|2024-01-01|2024-12-31|USD"
+  ],
+  [
+   "0001628280-26-008131",
+   "REPORTS",
+   "0000019617|us-gaap:NetIncomeLoss|2025-01-01|2025-12-31|USD"
+  ],
+  [
+   "0001628280-26-054343",
+   "REPORTS",
+   "0000019617|us-gaap:NetIncomeLoss|2025-04-01|2025-06-30|USD"
+  ],
+  [
+   "0001628280-26-054343",
+   "REPORTS",
+   "0000019617|us-gaap:NetIncomeLoss|2026-01-01|2026-06-30|USD"
+  ],
+  [
+   "0001628280-26-054343",
+   "REPORTS",
+   "0000019617|us-gaap:NetIncomeLoss|2026-04-01|2026-06-30|USD"
+  ]
+ ]
+}

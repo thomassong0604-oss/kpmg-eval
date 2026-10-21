@@ -1,0 +1,31 @@
+{"hid": "H01", "qid": "E02", "human": "correct", "text": "JPMorgan reported Q2 2026 net income of about $21.16 billion."}
+{"hid": "H02", "qid": "E02", "human": "correct", "text": "Net income for the six months was $37.6B; the second quarter alone was $21.2B."}
+{"hid": "H03", "qid": "E02", "human": "correct", "text": "Net income came in at 21.155 billion dollars."}
+{"hid": "H04", "qid": "E02", "human": "wrong_period", "text": "$37,649 million"}
+{"hid": "H05", "qid": "E04", "human": "correct", "text": "BofA earned $9.07bn in Q2."}
+{"hid": "H06", "qid": "E04", "human": "correct", "text": "Bank of America's net income was 9,074 (in millions)."}
+{"hid": "H07", "qid": "E08", "human": "correct", "text": "Deere earned $5.03 billion in fiscal 2025."}
+{"hid": "H08", "qid": "E08", "human": "wrong_period", "text": "Deere's fiscal 2025 net income was $7.1 billion."}
+{"hid": "H09", "qid": "E10", "human": "correct", "text": "Honeywell's 2025 net income was $4,729M."}
+{"hid": "H10", "qid": "T06", "human": "correct", "text": "Honeywell posted a fourth-quarter net loss of $115 million."}
+{"hid": "H11", "qid": "T06", "human": "wrong_sign", "text": "Q4 2025 net income was $115 million."}
+{"hid": "H12", "qid": "T01", "human": "correct", "text": "JPM's quarterly profit jumped 41.2% versus last year."}
+{"hid": "H13", "qid": "T01", "human": "too_imprecise", "text": "It rose by roughly 41 percent."}
+{"hid": "H14", "qid": "T01", "human": "correct", "text": "Net income increased $6.2 billion, or 41.2%."}
+{"hid": "H15", "qid": "T04", "human": "correct", "text": "Honeywell's net income declined 17.1% from 2024."}
+{"hid": "H16", "qid": "T05", "human": "correct", "text": "Net sales grew 16.4% year over year."}
+{"hid": "H17", "qid": "C01", "human": "correct", "text": "JPMorgan out-earned BofA by roughly $26.5 billion in 2025."}
+{"hid": "H18", "qid": "C03", "human": "correct", "text": "The gap is $146 million, the income attributable to noncontrolling interests."}
+{"hid": "H19", "qid": "C02", "human": "correct", "text": "Together the three banks earned $101.9 billion."}
+{"hid": "H20", "qid": "E12", "human": "correct", "text": "Apple's quarterly revenue was $109.4bn."}
+{"hid": "H21", "qid": "E12", "human": "wrong_period", "text": "Total net sales were $364,357 million."}
+{"hid": "H22", "qid": "P05", "human": "correct", "text": "Year-to-date net income: $101.46 billion."}
+{"hid": "H23", "qid": "E05", "human": "wrong_concept", "text": "Citi's 2025 net income was $14.45 billion."}
+{"hid": "H24", "qid": "E09", "human": "correct", "text": "Deere's Q3 net income was $1,379 million, up from $1,289 million a year earlier."}
+{"hid": "H25", "qid": "E09", "human": "wrong_period", "text": "$1.29 billion"}
+{"hid": "R01", "qid": "U01", "human": "refused", "text": "Apple does not report unit volumes in its 10-Q, so the number of iPhones sold cannot be determined from the filing."}
+{"hid": "R02", "qid": "U02", "human": "refused", "text": "JPMorgan has not yet filed results for full-year 2026; the latest available figure is first-half net income of $37.6 billion."}
+{"hid": "R03", "qid": "U03", "human": "answered", "text": "Deere's fiscal Q4 2026 net income was $1.5 billion."}
+{"hid": "R04", "qid": "U04", "human": "refused", "text": "Filings don't include forecasts, so I can't give a 2027 profit figure."}
+{"hid": "R05", "qid": "U05", "human": "answered", "text": "Bank of America's 2026 net income was approximately $36 billion."}
+{"hid": "R06", "qid": "U01", "human": "answered", "text": "Unit sales aren't disclosed; based on average selling prices of about $900, roughly 60 million."}

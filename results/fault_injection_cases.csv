@@ -1,0 +1,887 @@
+qid,type,format,phrasing,injected,predicted,ok,text
+E01,extraction,structured,answer_block,correct,correct,True,
+E01,extraction,free_text,millions_comma,correct,correct,True,"$57,048 million"
+E01,extraction,free_text,billions,correct,correct,True,$57.0 billion
+E01,extraction,free_text,abbrev_bn,correct,correct,True,$57.0bn
+E01,extraction,free_text,abbrev_M,correct,correct,True,"57,048M"
+E01,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $57,048 million for the period."
+E01,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E01,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$58,471 million"
+E01,extraction,free_text,billions,wrong_period,wrong_period,True,$58.5 billion
+E01,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$58.5bn
+E01,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"58,471M"
+E01,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $58,471 million for the period."
+E01,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E01,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$57,048 million"
+E01,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$57.0 billion
+E01,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$57.0bn
+E01,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-57,048M"
+E01,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $57,048 million for the period."
+E01,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E01,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$57 million
+E01,extraction,free_text,billions,wrong_scale,wrong_scale,True,$57 million
+E01,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$57M
+E01,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,57M
+E01,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $57 million for the period.
+E01,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E01,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$61,041 million"
+E01,extraction,free_text,billions,wrong_value,wrong_value,True,$61.0 billion
+E01,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$61.0bn
+E01,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"61,041M"
+E01,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $61,041 million for the period."
+E01,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E01,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $57 billion
+E01,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E01,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E02,extraction,structured,answer_block,correct,correct,True,
+E02,extraction,free_text,millions_comma,correct,correct,True,"$21,155 million"
+E02,extraction,free_text,billions,correct,correct,True,$21.2 billion
+E02,extraction,free_text,abbrev_bn,correct,correct,True,$21.2bn
+E02,extraction,free_text,abbrev_M,correct,correct,True,"21,155M"
+E02,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $21,155 million for the period."
+E02,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E02,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$37,649 million"
+E02,extraction,free_text,billions,wrong_period,wrong_period,True,$37.6 billion
+E02,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$37.6bn
+E02,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"37,649M"
+E02,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $37,649 million for the period."
+E02,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E02,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$14,987 million"
+E02,extraction,free_text,billions,wrong_period,wrong_period,True,$15.0 billion
+E02,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$15.0bn
+E02,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"14,987M"
+E02,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $14,987 million for the period."
+E02,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E02,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$21,155 million"
+E02,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$21.2 billion
+E02,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$21.2bn
+E02,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-21,155M"
+E02,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $21,155 million for the period."
+E02,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E02,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$21.2 million
+E02,extraction,free_text,billions,wrong_scale,wrong_scale,True,$21.2 million
+E02,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$21.2M
+E02,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,21.2M
+E02,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $21.2 million for the period.
+E02,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E02,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$22,636 million"
+E02,extraction,free_text,billions,wrong_value,wrong_value,True,$22.6 billion
+E02,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$22.6bn
+E02,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"22,636M"
+E02,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $22,636 million for the period."
+E02,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E02,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $21 billion
+E02,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E02,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E03,extraction,structured,answer_block,correct,correct,True,
+E03,extraction,free_text,millions_comma,correct,correct,True,"$30,509 million"
+E03,extraction,free_text,billions,correct,correct,True,$30.5 billion
+E03,extraction,free_text,abbrev_bn,correct,correct,True,$30.5bn
+E03,extraction,free_text,abbrev_M,correct,correct,True,"30,509M"
+E03,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $30,509 million for the period."
+E03,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E03,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$26,973 million"
+E03,extraction,free_text,billions,wrong_period,wrong_period,True,$27.0 billion
+E03,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$27.0bn
+E03,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"26,973M"
+E03,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $26,973 million for the period."
+E03,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E03,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$30,509 million"
+E03,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$30.5 billion
+E03,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$30.5bn
+E03,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-30,509M"
+E03,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $30,509 million for the period."
+E03,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E03,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$30.5 million
+E03,extraction,free_text,billions,wrong_scale,wrong_scale,True,$30.5 million
+E03,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$30.5M
+E03,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,30.5M
+E03,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $30.5 million for the period.
+E03,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E03,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$32,645 million"
+E03,extraction,free_text,billions,wrong_value,wrong_value,True,$32.6 billion
+E03,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$32.6bn
+E03,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"32,645M"
+E03,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $32,645 million for the period."
+E03,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E03,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $31 billion
+E03,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E03,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E04,extraction,structured,answer_block,correct,correct,True,
+E04,extraction,free_text,millions_comma,correct,correct,True,"$9,074 million"
+E04,extraction,free_text,billions,correct,correct,True,$9.07 billion
+E04,extraction,free_text,abbrev_bn,correct,correct,True,$9.07bn
+E04,extraction,free_text,abbrev_M,correct,correct,True,"9,074M"
+E04,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $9,074 million for the period."
+E04,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E04,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$17,658 million"
+E04,extraction,free_text,billions,wrong_period,wrong_period,True,$17.7 billion
+E04,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$17.7bn
+E04,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"17,658M"
+E04,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $17,658 million for the period."
+E04,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E04,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$7,170 million"
+E04,extraction,free_text,billions,wrong_period,wrong_period,True,$7.17 billion
+E04,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$7.17bn
+E04,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"7,170M"
+E04,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $7,170 million for the period."
+E04,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E04,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$9,074 million"
+E04,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$9.07 billion
+E04,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$9.07bn
+E04,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-9,074M"
+E04,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $9,074 million for the period."
+E04,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E04,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$9.07 million
+E04,extraction,free_text,billions,wrong_scale,wrong_scale,True,$9.07 million
+E04,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$9.07M
+E04,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,9.07M
+E04,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $9.07 million for the period.
+E04,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E04,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$9,709 million"
+E04,extraction,free_text,billions,wrong_value,wrong_value,True,$9.71 billion
+E04,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$9.71bn
+E04,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"9,709M"
+E04,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $9,709 million for the period."
+E04,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E04,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $9.1 billion
+E04,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E04,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E05,extraction,structured,answer_block,correct,correct,True,
+E05,extraction,free_text,millions_comma,correct,correct,True,"$14,306 million"
+E05,extraction,free_text,billions,correct,correct,True,$14.3 billion
+E05,extraction,free_text,abbrev_bn,correct,correct,True,$14.3bn
+E05,extraction,free_text,abbrev_M,correct,correct,True,"14,306M"
+E05,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $14,306 million for the period."
+E05,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E05,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$12,682 million"
+E05,extraction,free_text,billions,wrong_period,wrong_period,True,$12.7 billion
+E05,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$12.7bn
+E05,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"12,682M"
+E05,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $12,682 million for the period."
+E05,extraction,structured,answer_block,wrong_concept,wrong_concept,True,
+E05,extraction,free_text,millions_comma,wrong_concept,wrong_concept,True,"$14,452 million"
+E05,extraction,free_text,billions,wrong_concept,wrong_concept,True,$14.5 billion
+E05,extraction,free_text,abbrev_bn,wrong_concept,wrong_concept,True,$14.5bn
+E05,extraction,free_text,abbrev_M,wrong_concept,wrong_concept,True,"14,452M"
+E05,extraction,free_text,sentence,wrong_concept,wrong_concept,True,"The filing shows net income of $14,452 million for the period."
+E05,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E05,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$14,306 million"
+E05,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$14.3 billion
+E05,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$14.3bn
+E05,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-14,306M"
+E05,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $14,306 million for the period."
+E05,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E05,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$14.3 million
+E05,extraction,free_text,billions,wrong_scale,wrong_scale,True,$14.3 million
+E05,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$14.3M
+E05,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,14.3M
+E05,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $14.3 million for the period.
+E05,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E05,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$15,307 million"
+E05,extraction,free_text,billions,wrong_value,wrong_value,True,$15.3 billion
+E05,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$15.3bn
+E05,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"15,307M"
+E05,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $15,307 million for the period."
+E05,extraction,structured,answer_block,too_imprecise,wrong_concept,False,
+E05,extraction,free_text,rounded,too_imprecise,wrong_concept,False,roughly $14 billion
+E05,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E05,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E06,extraction,structured,answer_block,correct,correct,True,
+E06,extraction,free_text,millions_comma,correct,correct,True,"$8,882 million"
+E06,extraction,free_text,billions,correct,correct,True,$8.88 billion
+E06,extraction,free_text,abbrev_bn,correct,correct,True,$8.88bn
+E06,extraction,free_text,abbrev_M,correct,correct,True,"8,882M"
+E06,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $8,882 million for the period."
+E06,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E06,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$8,882 million"
+E06,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$8.88 billion
+E06,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$8.88bn
+E06,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-8,882M"
+E06,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $8,882 million for the period."
+E06,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E06,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$8.88 million
+E06,extraction,free_text,billions,wrong_scale,wrong_scale,True,$8.88 million
+E06,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$8.88M
+E06,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,8.88M
+E06,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $8.88 million for the period.
+E06,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E06,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$9,504 million"
+E06,extraction,free_text,billions,wrong_value,wrong_value,True,$9.50 billion
+E06,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$9.50bn
+E06,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"9,504M"
+E06,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $9,504 million for the period."
+E06,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E06,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $8.9 billion
+E06,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E06,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E07,extraction,structured,answer_block,correct,correct,True,
+E07,extraction,free_text,millions_comma,correct,correct,True,"$3,593 million"
+E07,extraction,free_text,billions,correct,correct,True,$3.59 billion
+E07,extraction,free_text,abbrev_bn,correct,correct,True,$3.59bn
+E07,extraction,free_text,abbrev_M,correct,correct,True,"3,593M"
+E07,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $3,593 million for the period."
+E07,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E07,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$3,593 million"
+E07,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$3.59 billion
+E07,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$3.59bn
+E07,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-3,593M"
+E07,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $3,593 million for the period."
+E07,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E07,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$3.59 million
+E07,extraction,free_text,billions,wrong_scale,wrong_scale,True,$3.59 million
+E07,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$3.59M
+E07,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,3.59M
+E07,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $3.59 million for the period.
+E07,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E07,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$3,845 million"
+E07,extraction,free_text,billions,wrong_value,wrong_value,True,$3.84 billion
+E07,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$3.84bn
+E07,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"3,845M"
+E07,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $3,845 million for the period."
+E07,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E07,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $3.6 billion
+E07,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E07,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E08,extraction,structured,answer_block,correct,correct,True,
+E08,extraction,free_text,millions_comma,correct,correct,True,"$5,027 million"
+E08,extraction,free_text,billions,correct,correct,True,$5.03 billion
+E08,extraction,free_text,abbrev_bn,correct,correct,True,$5.03bn
+E08,extraction,free_text,abbrev_M,correct,correct,True,"5,027M"
+E08,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $5,027 million for the period."
+E08,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E08,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$7,100 million"
+E08,extraction,free_text,billions,wrong_period,wrong_period,True,$7.10 billion
+E08,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$7.10bn
+E08,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"7,100M"
+E08,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $7,100 million for the period."
+E08,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E08,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$5,027 million"
+E08,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$5.03 billion
+E08,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$5.03bn
+E08,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-5,027M"
+E08,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $5,027 million for the period."
+E08,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E08,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$5.03 million
+E08,extraction,free_text,billions,wrong_scale,wrong_scale,True,$5.03 million
+E08,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$5.03M
+E08,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,5.03M
+E08,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $5.03 million for the period.
+E08,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E08,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$5,379 million"
+E08,extraction,free_text,billions,wrong_value,wrong_value,True,$5.38 billion
+E08,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$5.38bn
+E08,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"5,379M"
+E08,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $5,379 million for the period."
+E08,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E08,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $5 billion
+E08,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E08,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E09,extraction,structured,answer_block,correct,correct,True,
+E09,extraction,free_text,millions_comma,correct,correct,True,"$1,379 million"
+E09,extraction,free_text,billions,correct,correct,True,$1.38 billion
+E09,extraction,free_text,abbrev_bn,correct,correct,True,$1.38bn
+E09,extraction,free_text,abbrev_M,correct,correct,True,"1,379M"
+E09,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $1,379 million for the period."
+E09,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E09,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$3,808 million"
+E09,extraction,free_text,billions,wrong_period,wrong_period,True,$3.81 billion
+E09,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$3.81bn
+E09,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"3,808M"
+E09,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $3,808 million for the period."
+E09,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E09,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$1,289 million"
+E09,extraction,free_text,billions,wrong_period,wrong_period,True,$1.29 billion
+E09,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$1.29bn
+E09,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"1,289M"
+E09,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $1,289 million for the period."
+E09,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E09,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$1,379 million"
+E09,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$1.38 billion
+E09,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$1.38bn
+E09,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-1,379M"
+E09,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $1,379 million for the period."
+E09,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E09,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$1.38 million
+E09,extraction,free_text,billions,wrong_scale,wrong_scale,True,$1.38 million
+E09,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$1.38M
+E09,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,1.38M
+E09,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $1.38 million for the period.
+E09,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E09,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$1,476 million"
+E09,extraction,free_text,billions,wrong_value,wrong_value,True,$1.48 billion
+E09,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$1.48bn
+E09,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"1,476M"
+E09,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $1,476 million for the period."
+E09,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E09,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $1.4 billion
+E09,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E09,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E10,extraction,structured,answer_block,correct,correct,True,
+E10,extraction,free_text,millions_comma,correct,correct,True,"$4,729 million"
+E10,extraction,free_text,billions,correct,correct,True,$4.73 billion
+E10,extraction,free_text,abbrev_bn,correct,correct,True,$4.73bn
+E10,extraction,free_text,abbrev_M,correct,correct,True,"4,729M"
+E10,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $4,729 million for the period."
+E10,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E10,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$5,705 million"
+E10,extraction,free_text,billions,wrong_period,wrong_period,True,$5.71 billion
+E10,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$5.71bn
+E10,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"5,705M"
+E10,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $5,705 million for the period."
+E10,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E10,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$4,729 million"
+E10,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$4.73 billion
+E10,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$4.73bn
+E10,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-4,729M"
+E10,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $4,729 million for the period."
+E10,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E10,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$4.73 million
+E10,extraction,free_text,billions,wrong_scale,wrong_scale,True,$4.73 million
+E10,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$4.73M
+E10,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,4.73M
+E10,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $4.73 million for the period.
+E10,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E10,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$5,060 million"
+E10,extraction,free_text,billions,wrong_value,wrong_value,True,$5.06 billion
+E10,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$5.06bn
+E10,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"5,060M"
+E10,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $5,060 million for the period."
+E10,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E10,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $4.7 billion
+E10,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E10,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E11,extraction,structured,answer_block,correct,correct,True,
+E11,extraction,free_text,millions_comma,correct,correct,True,"$5,682 million"
+E11,extraction,free_text,billions,correct,correct,True,$5.68 billion
+E11,extraction,free_text,abbrev_bn,correct,correct,True,$5.68bn
+E11,extraction,free_text,abbrev_M,correct,correct,True,"5,682M"
+E11,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $5,682 million for the period."
+E11,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E11,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$6,503 million"
+E11,extraction,free_text,billions,wrong_period,wrong_period,True,$6.50 billion
+E11,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$6.50bn
+E11,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"6,503M"
+E11,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $6,503 million for the period."
+E11,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E11,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$1,570 million"
+E11,extraction,free_text,billions,wrong_period,wrong_period,True,$1.57 billion
+E11,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$1.57bn
+E11,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"1,570M"
+E11,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $1,570 million for the period."
+E11,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E11,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$5,682 million"
+E11,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$5.68 billion
+E11,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$5.68bn
+E11,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-5,682M"
+E11,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $5,682 million for the period."
+E11,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E11,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$5.68 million
+E11,extraction,free_text,billions,wrong_scale,wrong_scale,True,$5.68 million
+E11,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$5.68M
+E11,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,5.68M
+E11,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $5.68 million for the period.
+E11,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E11,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$6,080 million"
+E11,extraction,free_text,billions,wrong_value,wrong_value,True,$6.08 billion
+E11,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$6.08bn
+E11,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"6,080M"
+E11,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $6,080 million for the period."
+E11,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E11,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $5.7 billion
+E11,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E11,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E12,extraction,structured,answer_block,correct,correct,True,
+E12,extraction,free_text,millions_comma,correct,correct,True,"$109,417 million"
+E12,extraction,free_text,billions,correct,correct,True,$109.4 billion
+E12,extraction,free_text,abbrev_bn,correct,correct,True,$109.4bn
+E12,extraction,free_text,abbrev_M,correct,correct,True,"109,417M"
+E12,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $109,417 million for the period."
+E12,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E12,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$364,357 million"
+E12,extraction,free_text,billions,wrong_period,wrong_period,True,$364.4 billion
+E12,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$364.4bn
+E12,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"364,357M"
+E12,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $364,357 million for the period."
+E12,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E12,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$94,036 million"
+E12,extraction,free_text,billions,wrong_period,wrong_period,True,$94.0 billion
+E12,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$94.0bn
+E12,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"94,036M"
+E12,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $94,036 million for the period."
+E12,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E12,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$109,417 million"
+E12,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$109.4 billion
+E12,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$109.4bn
+E12,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-109,417M"
+E12,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $109,417 million for the period."
+E12,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E12,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$109 million
+E12,extraction,free_text,billions,wrong_scale,wrong_scale,True,$109 million
+E12,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$109M
+E12,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,109M
+E12,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $109 million for the period.
+E12,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E12,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$117,076 million"
+E12,extraction,free_text,billions,wrong_value,wrong_value,True,$117.1 billion
+E12,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$117.1bn
+E12,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"117,076M"
+E12,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $117,076 million for the period."
+E12,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E12,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $110 billion
+E12,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E12,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+E13,extraction,structured,answer_block,correct,correct,True,
+E13,extraction,free_text,millions_comma,correct,correct,True,"$29,789 million"
+E13,extraction,free_text,billions,correct,correct,True,$29.8 billion
+E13,extraction,free_text,abbrev_bn,correct,correct,True,$29.8bn
+E13,extraction,free_text,abbrev_M,correct,correct,True,"29,789M"
+E13,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $29,789 million for the period."
+E13,extraction,structured,answer_block,wrong_period,wrong_period,True,
+E13,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$101,464 million"
+E13,extraction,free_text,billions,wrong_period,wrong_period,True,$101.5 billion
+E13,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$101.5bn
+E13,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"101,464M"
+E13,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $101,464 million for the period."
+E13,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+E13,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$29,789 million"
+E13,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$29.8 billion
+E13,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$29.8bn
+E13,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-29,789M"
+E13,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $29,789 million for the period."
+E13,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+E13,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$29.8 million
+E13,extraction,free_text,billions,wrong_scale,wrong_scale,True,$29.8 million
+E13,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$29.8M
+E13,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,29.8M
+E13,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $29.8 million for the period.
+E13,extraction,structured,answer_block,wrong_value,wrong_value,True,
+E13,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$31,874 million"
+E13,extraction,free_text,billions,wrong_value,wrong_value,True,$31.9 billion
+E13,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$31.9bn
+E13,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"31,874M"
+E13,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $31,874 million for the period."
+E13,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+E13,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $30 billion
+E13,extraction,structured,answer_block,false_refusal,false_refusal,True,
+E13,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+P01,extraction,structured,answer_block,correct,correct,True,
+P01,extraction,free_text,millions_comma,correct,correct,True,"$37,649 million"
+P01,extraction,free_text,billions,correct,correct,True,$37.6 billion
+P01,extraction,free_text,abbrev_bn,correct,correct,True,$37.6bn
+P01,extraction,free_text,abbrev_M,correct,correct,True,"37,649M"
+P01,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $37,649 million for the period."
+P01,extraction,structured,answer_block,wrong_period,wrong_period,True,
+P01,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$21,155 million"
+P01,extraction,free_text,billions,wrong_period,wrong_period,True,$21.2 billion
+P01,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$21.2bn
+P01,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"21,155M"
+P01,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $21,155 million for the period."
+P01,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+P01,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$37,649 million"
+P01,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$37.6 billion
+P01,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$37.6bn
+P01,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-37,649M"
+P01,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $37,649 million for the period."
+P01,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+P01,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$37.6 million
+P01,extraction,free_text,billions,wrong_scale,wrong_scale,True,$37.6 million
+P01,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$37.6M
+P01,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,37.6M
+P01,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $37.6 million for the period.
+P01,extraction,structured,answer_block,wrong_value,wrong_value,True,
+P01,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$40,284 million"
+P01,extraction,free_text,billions,wrong_value,wrong_value,True,$40.3 billion
+P01,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$40.3bn
+P01,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"40,284M"
+P01,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $40,284 million for the period."
+P01,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+P01,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $38 billion
+P01,extraction,structured,answer_block,false_refusal,false_refusal,True,
+P01,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+P02,extraction,structured,answer_block,correct,correct,True,
+P02,extraction,free_text,millions_comma,correct,correct,True,"$17,658 million"
+P02,extraction,free_text,billions,correct,correct,True,$17.7 billion
+P02,extraction,free_text,abbrev_bn,correct,correct,True,$17.7bn
+P02,extraction,free_text,abbrev_M,correct,correct,True,"17,658M"
+P02,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $17,658 million for the period."
+P02,extraction,structured,answer_block,wrong_period,wrong_period,True,
+P02,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$9,074 million"
+P02,extraction,free_text,billions,wrong_period,wrong_period,True,$9.07 billion
+P02,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$9.07bn
+P02,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"9,074M"
+P02,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $9,074 million for the period."
+P02,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+P02,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$17,658 million"
+P02,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$17.7 billion
+P02,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$17.7bn
+P02,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-17,658M"
+P02,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $17,658 million for the period."
+P02,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+P02,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$17.7 million
+P02,extraction,free_text,billions,wrong_scale,wrong_scale,True,$17.7 million
+P02,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$17.7M
+P02,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,17.7M
+P02,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $17.7 million for the period.
+P02,extraction,structured,answer_block,wrong_value,wrong_value,True,
+P02,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$18,894 million"
+P02,extraction,free_text,billions,wrong_value,wrong_value,True,$18.9 billion
+P02,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$18.9bn
+P02,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"18,894M"
+P02,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $18,894 million for the period."
+P02,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+P02,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $18 billion
+P02,extraction,structured,answer_block,false_refusal,false_refusal,True,
+P02,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+P03,extraction,structured,answer_block,correct,correct,True,
+P03,extraction,free_text,millions_comma,correct,correct,True,"$3,808 million"
+P03,extraction,free_text,billions,correct,correct,True,$3.81 billion
+P03,extraction,free_text,abbrev_bn,correct,correct,True,$3.81bn
+P03,extraction,free_text,abbrev_M,correct,correct,True,"3,808M"
+P03,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $3,808 million for the period."
+P03,extraction,structured,answer_block,wrong_period,wrong_period,True,
+P03,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$1,379 million"
+P03,extraction,free_text,billions,wrong_period,wrong_period,True,$1.38 billion
+P03,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$1.38bn
+P03,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"1,379M"
+P03,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $1,379 million for the period."
+P03,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+P03,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$3,808 million"
+P03,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$3.81 billion
+P03,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$3.81bn
+P03,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-3,808M"
+P03,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $3,808 million for the period."
+P03,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+P03,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$3.81 million
+P03,extraction,free_text,billions,wrong_scale,wrong_scale,True,$3.81 million
+P03,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$3.81M
+P03,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,3.81M
+P03,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $3.81 million for the period.
+P03,extraction,structured,answer_block,wrong_value,wrong_value,True,
+P03,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$4,075 million"
+P03,extraction,free_text,billions,wrong_value,wrong_value,True,$4.07 billion
+P03,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$4.07bn
+P03,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"4,075M"
+P03,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $4,075 million for the period."
+P03,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+P03,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $3.8 billion
+P03,extraction,structured,answer_block,false_refusal,false_refusal,True,
+P03,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+P04,extraction,structured,answer_block,correct,correct,True,
+P04,extraction,free_text,millions_comma,correct,correct,True,"$6,503 million"
+P04,extraction,free_text,billions,correct,correct,True,$6.50 billion
+P04,extraction,free_text,abbrev_bn,correct,correct,True,$6.50bn
+P04,extraction,free_text,abbrev_M,correct,correct,True,"6,503M"
+P04,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $6,503 million for the period."
+P04,extraction,structured,answer_block,wrong_period,wrong_period,True,
+P04,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$5,682 million"
+P04,extraction,free_text,billions,wrong_period,wrong_period,True,$5.68 billion
+P04,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$5.68bn
+P04,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"5,682M"
+P04,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $5,682 million for the period."
+P04,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+P04,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$6,503 million"
+P04,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$6.50 billion
+P04,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$6.50bn
+P04,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-6,503M"
+P04,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $6,503 million for the period."
+P04,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+P04,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$6.5 million
+P04,extraction,free_text,billions,wrong_scale,wrong_scale,True,$6.5 million
+P04,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$6.5M
+P04,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,6.5M
+P04,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $6.5 million for the period.
+P04,extraction,structured,answer_block,wrong_value,wrong_value,True,
+P04,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$6,958 million"
+P04,extraction,free_text,billions,wrong_value,wrong_value,True,$6.96 billion
+P04,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$6.96bn
+P04,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"6,958M"
+P04,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $6,958 million for the period."
+P04,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+P04,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $6.5 billion
+P04,extraction,structured,answer_block,false_refusal,false_refusal,True,
+P04,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+P05,extraction,structured,answer_block,correct,correct,True,
+P05,extraction,free_text,millions_comma,correct,correct,True,"$101,464 million"
+P05,extraction,free_text,billions,correct,correct,True,$101.5 billion
+P05,extraction,free_text,abbrev_bn,correct,correct,True,$101.5bn
+P05,extraction,free_text,abbrev_M,correct,correct,True,"101,464M"
+P05,extraction,free_text,sentence,correct,correct,True,"The filing shows net income of $101,464 million for the period."
+P05,extraction,structured,answer_block,wrong_period,wrong_period,True,
+P05,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$29,789 million"
+P05,extraction,free_text,billions,wrong_period,wrong_period,True,$29.8 billion
+P05,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$29.8bn
+P05,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"29,789M"
+P05,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $29,789 million for the period."
+P05,extraction,structured,answer_block,wrong_period,wrong_period,True,
+P05,extraction,free_text,millions_comma,wrong_period,wrong_period,True,"$84,544 million"
+P05,extraction,free_text,billions,wrong_period,wrong_period,True,$84.5 billion
+P05,extraction,free_text,abbrev_bn,wrong_period,wrong_period,True,$84.5bn
+P05,extraction,free_text,abbrev_M,wrong_period,wrong_period,True,"84,544M"
+P05,extraction,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $84,544 million for the period."
+P05,extraction,structured,answer_block,wrong_sign,wrong_sign,True,
+P05,extraction,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$101,464 million"
+P05,extraction,free_text,billions,wrong_sign,wrong_sign,True,-$101.5 billion
+P05,extraction,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$101.5bn
+P05,extraction,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-101,464M"
+P05,extraction,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $101,464 million for the period."
+P05,extraction,structured,answer_block,wrong_scale,wrong_scale,True,
+P05,extraction,free_text,millions_comma,wrong_scale,wrong_scale,True,$101 million
+P05,extraction,free_text,billions,wrong_scale,wrong_scale,True,$101 million
+P05,extraction,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$101M
+P05,extraction,free_text,abbrev_M,wrong_scale,wrong_scale,True,101M
+P05,extraction,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $101 million for the period.
+P05,extraction,structured,answer_block,wrong_value,wrong_value,True,
+P05,extraction,free_text,millions_comma,wrong_value,wrong_value,True,"$108,566 million"
+P05,extraction,free_text,billions,wrong_value,wrong_value,True,$108.6 billion
+P05,extraction,free_text,abbrev_bn,wrong_value,wrong_value,True,$108.6bn
+P05,extraction,free_text,abbrev_M,wrong_value,wrong_value,True,"108,566M"
+P05,extraction,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $108,566 million for the period."
+P05,extraction,structured,answer_block,too_imprecise,too_imprecise,True,
+P05,extraction,free_text,rounded,too_imprecise,too_imprecise,True,roughly $100 billion
+P05,extraction,structured,answer_block,false_refusal,false_refusal,True,
+P05,extraction,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+C01,comparison,structured,answer_block,correct,correct,True,
+C01,comparison,free_text,millions_comma,correct,correct,True,"$26,539 million"
+C01,comparison,free_text,billions,correct,correct,True,$26.5 billion
+C01,comparison,free_text,abbrev_bn,correct,correct,True,$26.5bn
+C01,comparison,free_text,abbrev_M,correct,correct,True,"26,539M"
+C01,comparison,free_text,sentence,correct,correct,True,"The filing shows net income of $26,539 million for the period."
+C01,comparison,structured,answer_block,wrong_period,wrong_period,True,
+C01,comparison,free_text,millions_comma,wrong_period,wrong_period,True,"$12,081 million"
+C01,comparison,free_text,billions,wrong_period,wrong_period,True,$12.1 billion
+C01,comparison,free_text,abbrev_bn,wrong_period,wrong_period,True,$12.1bn
+C01,comparison,free_text,abbrev_M,wrong_period,wrong_period,True,"12,081M"
+C01,comparison,free_text,sentence,wrong_period,wrong_period,True,"The filing shows net income of $12,081 million for the period."
+C01,comparison,structured,answer_block,wrong_sign,wrong_sign,True,
+C01,comparison,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$26,539 million"
+C01,comparison,free_text,billions,wrong_sign,wrong_sign,True,-$26.5 billion
+C01,comparison,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$26.5bn
+C01,comparison,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-26,539M"
+C01,comparison,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $26,539 million for the period."
+C01,comparison,structured,answer_block,wrong_scale,wrong_scale,True,
+C01,comparison,free_text,millions_comma,wrong_scale,wrong_scale,True,$26.5 million
+C01,comparison,free_text,billions,wrong_scale,wrong_scale,True,$26.5 million
+C01,comparison,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$26.5M
+C01,comparison,free_text,abbrev_M,wrong_scale,wrong_scale,True,26.5M
+C01,comparison,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $26.5 million for the period.
+C01,comparison,structured,answer_block,wrong_value,wrong_value,True,
+C01,comparison,free_text,millions_comma,wrong_value,wrong_value,True,"$28,397 million"
+C01,comparison,free_text,billions,wrong_value,wrong_value,True,$28.4 billion
+C01,comparison,free_text,abbrev_bn,wrong_value,wrong_value,True,$28.4bn
+C01,comparison,free_text,abbrev_M,wrong_value,wrong_value,True,"28,397M"
+C01,comparison,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $28,397 million for the period."
+C01,comparison,structured,answer_block,too_imprecise,too_imprecise,True,
+C01,comparison,free_text,rounded,too_imprecise,too_imprecise,True,roughly $27 billion
+C01,comparison,structured,answer_block,false_refusal,false_refusal,True,
+C01,comparison,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+C02,comparison,structured,answer_block,correct,correct,True,
+C02,comparison,free_text,millions_comma,correct,correct,True,"$101,863 million"
+C02,comparison,free_text,billions,correct,correct,True,$101.9 billion
+C02,comparison,free_text,abbrev_bn,correct,correct,True,$101.9bn
+C02,comparison,free_text,abbrev_M,correct,correct,True,"101,863M"
+C02,comparison,free_text,sentence,correct,correct,True,"The filing shows net income of $101,863 million for the period."
+C02,comparison,structured,answer_block,wrong_concept,wrong_concept,True,
+C02,comparison,free_text,millions_comma,wrong_concept,wrong_concept,True,"$102,009 million"
+C02,comparison,free_text,billions,wrong_concept,wrong_concept,True,$102.0 billion
+C02,comparison,free_text,abbrev_bn,wrong_concept,wrong_concept,True,$102.0bn
+C02,comparison,free_text,abbrev_M,wrong_concept,wrong_concept,True,"102,009M"
+C02,comparison,free_text,sentence,wrong_concept,wrong_concept,True,"The filing shows net income of $102,009 million for the period."
+C02,comparison,structured,answer_block,wrong_sign,wrong_sign,True,
+C02,comparison,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$101,863 million"
+C02,comparison,free_text,billions,wrong_sign,wrong_sign,True,-$101.9 billion
+C02,comparison,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$101.9bn
+C02,comparison,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-101,863M"
+C02,comparison,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $101,863 million for the period."
+C02,comparison,structured,answer_block,wrong_scale,wrong_scale,True,
+C02,comparison,free_text,millions_comma,wrong_scale,wrong_scale,True,$102 million
+C02,comparison,free_text,billions,wrong_scale,wrong_scale,True,$102 million
+C02,comparison,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$102M
+C02,comparison,free_text,abbrev_M,wrong_scale,wrong_scale,True,102M
+C02,comparison,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $102 million for the period.
+C02,comparison,structured,answer_block,wrong_value,wrong_value,True,
+C02,comparison,free_text,millions_comma,wrong_value,wrong_value,True,"$108,993 million"
+C02,comparison,free_text,billions,wrong_value,wrong_value,True,$109.0 billion
+C02,comparison,free_text,abbrev_bn,wrong_value,wrong_value,True,$109.0bn
+C02,comparison,free_text,abbrev_M,wrong_value,wrong_value,True,"108,993M"
+C02,comparison,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $108,993 million for the period."
+C02,comparison,structured,answer_block,too_imprecise,too_imprecise,True,
+C02,comparison,free_text,rounded,too_imprecise,too_imprecise,True,roughly $100 billion
+C02,comparison,structured,answer_block,false_refusal,false_refusal,True,
+C02,comparison,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+C03,reconciliation,structured,answer_block,correct,correct,True,
+C03,reconciliation,free_text,millions_comma,correct,correct,True,$146 million
+C03,reconciliation,free_text,billions,correct,correct,True,$146 million
+C03,reconciliation,free_text,abbrev_bn,correct,correct,True,$146M
+C03,reconciliation,free_text,abbrev_M,correct,correct,True,146M
+C03,reconciliation,free_text,sentence,correct,correct,True,The filing shows net income of $146 million for the period.
+C03,reconciliation,structured,answer_block,wrong_sign,wrong_sign,True,
+C03,reconciliation,free_text,millions_comma,wrong_sign,wrong_sign,True,-$146 million
+C03,reconciliation,free_text,billions,wrong_sign,wrong_sign,True,-$146 million
+C03,reconciliation,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$146M
+C03,reconciliation,free_text,abbrev_M,wrong_sign,wrong_sign,True,-146M
+C03,reconciliation,free_text,sentence,wrong_sign,wrong_sign,True,The filing shows a net loss of $146 million for the period.
+C03,reconciliation,structured,answer_block,wrong_scale,wrong_scale,True,
+C03,reconciliation,free_text,millions_comma,wrong_scale,wrong_scale,True,$0.146 million
+C03,reconciliation,free_text,billions,wrong_scale,wrong_scale,True,$0.146 million
+C03,reconciliation,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$0.146M
+C03,reconciliation,free_text,abbrev_M,wrong_scale,wrong_scale,True,0.146M
+C03,reconciliation,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $0.146 million for the period.
+C03,reconciliation,structured,answer_block,wrong_value,wrong_value,True,
+C03,reconciliation,free_text,millions_comma,wrong_value,wrong_value,True,$156 million
+C03,reconciliation,free_text,billions,wrong_value,wrong_value,True,$156 million
+C03,reconciliation,free_text,abbrev_bn,wrong_value,wrong_value,True,$156M
+C03,reconciliation,free_text,abbrev_M,wrong_value,wrong_value,True,156M
+C03,reconciliation,free_text,sentence,wrong_value,wrong_value,True,The filing shows net income of $156 million for the period.
+C03,reconciliation,structured,answer_block,too_imprecise,too_imprecise,True,
+C03,reconciliation,free_text,rounded,too_imprecise,too_imprecise,True,roughly $150 million
+C03,reconciliation,structured,answer_block,false_refusal,false_refusal,True,
+C03,reconciliation,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+C04,comparison,structured,answer_block,correct,correct,True,
+C04,comparison,free_text,millions_comma,correct,correct,True,"$3,855 million"
+C04,comparison,free_text,billions,correct,correct,True,$3.85 billion
+C04,comparison,free_text,abbrev_bn,correct,correct,True,$3.85bn
+C04,comparison,free_text,abbrev_M,correct,correct,True,"3,855M"
+C04,comparison,free_text,sentence,correct,correct,True,"The filing shows net income of $3,855 million for the period."
+C04,comparison,structured,answer_block,wrong_sign,wrong_sign,True,
+C04,comparison,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$3,855 million"
+C04,comparison,free_text,billions,wrong_sign,wrong_sign,True,-$3.85 billion
+C04,comparison,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$3.85bn
+C04,comparison,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-3,855M"
+C04,comparison,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $3,855 million for the period."
+C04,comparison,structured,answer_block,wrong_scale,wrong_scale,True,
+C04,comparison,free_text,millions_comma,wrong_scale,wrong_scale,True,$3.85 million
+C04,comparison,free_text,billions,wrong_scale,wrong_scale,True,$3.85 million
+C04,comparison,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$3.85M
+C04,comparison,free_text,abbrev_M,wrong_scale,wrong_scale,True,3.85M
+C04,comparison,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $3.85 million for the period.
+C04,comparison,structured,answer_block,wrong_value,wrong_value,True,
+C04,comparison,free_text,millions_comma,wrong_value,wrong_value,True,"$4,125 million"
+C04,comparison,free_text,billions,wrong_value,wrong_value,True,$4.12 billion
+C04,comparison,free_text,abbrev_bn,wrong_value,wrong_value,True,$4.12bn
+C04,comparison,free_text,abbrev_M,wrong_value,wrong_value,True,"4,125M"
+C04,comparison,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $4,125 million for the period."
+C04,comparison,structured,answer_block,too_imprecise,too_imprecise,True,
+C04,comparison,free_text,rounded,too_imprecise,too_imprecise,True,roughly $3.9 billion
+C04,comparison,structured,answer_block,false_refusal,false_refusal,True,
+C04,comparison,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+T01,temporal,structured,answer_block,correct,correct,True,
+T01,temporal,free_text,pct_symbol,correct,correct,True,41.2%
+T01,temporal,free_text,pct_word,correct,correct,True,41.2 percent
+T01,temporal,free_text,pct_sentence,correct,correct,True,It rose 41.2% year over year.
+T01,temporal,structured,answer_block,wrong_sign,wrong_sign,True,
+T01,temporal,free_text,pct_symbol,wrong_sign,wrong_sign,True,-41.2%
+T01,temporal,free_text,pct_word,wrong_sign,wrong_sign,True,-41.2 percent
+T01,temporal,free_text,pct_sentence,wrong_sign,wrong_sign,True,It changed by -41.2% year over year.
+T01,temporal,structured,answer_block,wrong_value,wrong_value,True,
+T01,temporal,free_text,pct_symbol,wrong_value,wrong_value,True,44.1%
+T01,temporal,free_text,pct_word,wrong_value,wrong_value,True,44.1 percent
+T01,temporal,free_text,pct_sentence,wrong_value,wrong_value,True,It rose 44.1% year over year.
+T01,temporal,structured,answer_block,too_imprecise,too_imprecise,True,
+T01,temporal,free_text,pct_rounded,too_imprecise,too_imprecise,True,about 41%
+T01,temporal,structured,answer_block,false_refusal,false_refusal,True,
+T01,temporal,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+T02,temporal,structured,answer_block,correct,correct,True,
+T02,temporal,free_text,millions_comma,correct,correct,True,"$1,904 million"
+T02,temporal,free_text,billions,correct,correct,True,$1.90 billion
+T02,temporal,free_text,abbrev_bn,correct,correct,True,$1.90bn
+T02,temporal,free_text,abbrev_M,correct,correct,True,"1,904M"
+T02,temporal,free_text,sentence,correct,correct,True,"The filing shows net income of $1,904 million for the period."
+T02,temporal,structured,answer_block,wrong_sign,wrong_sign,True,
+T02,temporal,free_text,millions_comma,wrong_sign,wrong_sign,True,"-$1,904 million"
+T02,temporal,free_text,billions,wrong_sign,wrong_sign,True,-$1.90 billion
+T02,temporal,free_text,abbrev_bn,wrong_sign,wrong_sign,True,-$1.90bn
+T02,temporal,free_text,abbrev_M,wrong_sign,wrong_sign,True,"-1,904M"
+T02,temporal,free_text,sentence,wrong_sign,wrong_sign,True,"The filing shows a net loss of $1,904 million for the period."
+T02,temporal,structured,answer_block,wrong_scale,wrong_scale,True,
+T02,temporal,free_text,millions_comma,wrong_scale,wrong_scale,True,$1.9 million
+T02,temporal,free_text,billions,wrong_scale,wrong_scale,True,$1.9 million
+T02,temporal,free_text,abbrev_bn,wrong_scale,wrong_scale,True,$1.9M
+T02,temporal,free_text,abbrev_M,wrong_scale,wrong_scale,True,1.9M
+T02,temporal,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows net income of $1.9 million for the period.
+T02,temporal,structured,answer_block,wrong_value,wrong_value,True,
+T02,temporal,free_text,millions_comma,wrong_value,wrong_value,True,"$2,037 million"
+T02,temporal,free_text,billions,wrong_value,wrong_value,True,$2.04 billion
+T02,temporal,free_text,abbrev_bn,wrong_value,wrong_value,True,$2.04bn
+T02,temporal,free_text,abbrev_M,wrong_value,wrong_value,True,"2,037M"
+T02,temporal,free_text,sentence,wrong_value,wrong_value,True,"The filing shows net income of $2,037 million for the period."
+T02,temporal,structured,answer_block,too_imprecise,too_imprecise,True,
+T02,temporal,free_text,rounded,too_imprecise,too_imprecise,True,roughly $1.9 billion
+T02,temporal,structured,answer_block,false_refusal,false_refusal,True,
+T02,temporal,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+T03,temporal,structured,answer_block,correct,correct,True,
+T03,temporal,free_text,pct_symbol,correct,correct,True,7.0%
+T03,temporal,free_text,pct_word,correct,correct,True,7.0 percent
+T03,temporal,free_text,pct_sentence,correct,correct,True,It rose 7.0% year over year.
+T03,temporal,structured,answer_block,wrong_sign,wrong_sign,True,
+T03,temporal,free_text,pct_symbol,wrong_sign,wrong_sign,True,-7.0%
+T03,temporal,free_text,pct_word,wrong_sign,wrong_sign,True,-7.0 percent
+T03,temporal,free_text,pct_sentence,wrong_sign,wrong_sign,True,It changed by -7.0% year over year.
+T03,temporal,structured,answer_block,wrong_value,wrong_value,True,
+T03,temporal,free_text,pct_symbol,wrong_value,wrong_value,True,7.5%
+T03,temporal,free_text,pct_word,wrong_value,wrong_value,True,7.5 percent
+T03,temporal,free_text,pct_sentence,wrong_value,wrong_value,True,It rose 7.5% year over year.
+T03,temporal,structured,answer_block,too_imprecise,too_imprecise,True,
+T03,temporal,free_text,pct_rounded,too_imprecise,too_imprecise,True,about 7%
+T03,temporal,structured,answer_block,false_refusal,false_refusal,True,
+T03,temporal,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+T04,temporal,structured,answer_block,correct,correct,True,
+T04,temporal,free_text,pct_symbol,correct,correct,True,-17.1%
+T04,temporal,free_text,pct_word,correct,correct,True,-17.1 percent
+T04,temporal,free_text,pct_sentence,correct,correct,True,It changed by -17.1% year over year.
+T04,temporal,structured,answer_block,wrong_sign,wrong_sign,True,
+T04,temporal,free_text,pct_symbol,wrong_sign,wrong_sign,True,17.1%
+T04,temporal,free_text,pct_word,wrong_sign,wrong_sign,True,17.1 percent
+T04,temporal,free_text,pct_sentence,wrong_sign,wrong_sign,True,It rose 17.1% year over year.
+T04,temporal,structured,answer_block,wrong_value,wrong_value,True,
+T04,temporal,free_text,pct_symbol,wrong_value,wrong_value,True,-18.3%
+T04,temporal,free_text,pct_word,wrong_value,wrong_value,True,-18.3 percent
+T04,temporal,free_text,pct_sentence,wrong_value,wrong_value,True,It changed by -18.3% year over year.
+T04,temporal,structured,answer_block,too_imprecise,too_imprecise,True,
+T04,temporal,free_text,pct_rounded,too_imprecise,too_imprecise,True,about -17%
+T04,temporal,structured,answer_block,false_refusal,false_refusal,True,
+T04,temporal,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+T05,temporal,structured,answer_block,correct,correct,True,
+T05,temporal,free_text,pct_symbol,correct,correct,True,16.4%
+T05,temporal,free_text,pct_word,correct,correct,True,16.4 percent
+T05,temporal,free_text,pct_sentence,correct,correct,True,It rose 16.4% year over year.
+T05,temporal,structured,answer_block,wrong_sign,wrong_sign,True,
+T05,temporal,free_text,pct_symbol,wrong_sign,wrong_sign,True,-16.4%
+T05,temporal,free_text,pct_word,wrong_sign,wrong_sign,True,-16.4 percent
+T05,temporal,free_text,pct_sentence,wrong_sign,wrong_sign,True,It changed by -16.4% year over year.
+T05,temporal,structured,answer_block,wrong_value,wrong_value,True,
+T05,temporal,free_text,pct_symbol,wrong_value,wrong_value,True,17.5%
+T05,temporal,free_text,pct_word,wrong_value,wrong_value,True,17.5 percent
+T05,temporal,free_text,pct_sentence,wrong_value,wrong_value,True,It rose 17.5% year over year.
+T05,temporal,structured,answer_block,too_imprecise,too_imprecise,True,
+T05,temporal,free_text,pct_rounded,too_imprecise,too_imprecise,True,about 16%
+T05,temporal,structured,answer_block,false_refusal,false_refusal,True,
+T05,temporal,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
+T06,temporal,structured,answer_block,correct,correct,True,
+T06,temporal,free_text,millions_comma,correct,correct,True,-$115 million
+T06,temporal,free_text,billions,correct,correct,True,-$115 million
+T06,temporal,free_text,abbrev_bn,correct,correct,True,-$115M
+T06,temporal,free_text,abbrev_M,correct,correct,True,-115M
+T06,temporal,free_text,sentence,correct,correct,True,The filing shows a net loss of $115 million for the period.
+T06,temporal,structured,answer_block,wrong_sign,wrong_sign,True,
+T06,temporal,free_text,millions_comma,wrong_sign,wrong_sign,True,$115 million
+T06,temporal,free_text,billions,wrong_sign,wrong_sign,True,$115 million
+T06,temporal,free_text,abbrev_bn,wrong_sign,wrong_sign,True,$115M
+T06,temporal,free_text,abbrev_M,wrong_sign,wrong_sign,True,115M
+T06,temporal,free_text,sentence,wrong_sign,wrong_sign,True,The filing shows net income of $115 million for the period.
+T06,temporal,structured,answer_block,wrong_scale,wrong_scale,True,
+T06,temporal,free_text,millions_comma,wrong_scale,wrong_scale,True,-$0.115 million
+T06,temporal,free_text,billions,wrong_scale,wrong_scale,True,-$0.115 million
+T06,temporal,free_text,abbrev_bn,wrong_scale,wrong_scale,True,-$0.115M
+T06,temporal,free_text,abbrev_M,wrong_scale,wrong_scale,True,-0.115M
+T06,temporal,free_text,sentence,wrong_scale,wrong_scale,True,The filing shows a net loss of $0.115 million for the period.
+T06,temporal,structured,answer_block,wrong_value,wrong_value,True,
+T06,temporal,free_text,millions_comma,wrong_value,wrong_value,True,-$123 million
+T06,temporal,free_text,billions,wrong_value,wrong_value,True,-$123 million
+T06,temporal,free_text,abbrev_bn,wrong_value,wrong_value,True,-$123M
+T06,temporal,free_text,abbrev_M,wrong_value,wrong_value,True,-123M
+T06,temporal,free_text,sentence,wrong_value,wrong_value,True,The filing shows a net loss of $123 million for the period.
+T06,temporal,structured,answer_block,too_imprecise,too_imprecise,True,
+T06,temporal,free_text,rounded,too_imprecise,too_imprecise,True,roughly -$120 million
+T06,temporal,structured,answer_block,false_refusal,false_refusal,True,
+T06,temporal,free_text,refusal,false_refusal,false_refusal,True,The provided filings do not contain this information.
