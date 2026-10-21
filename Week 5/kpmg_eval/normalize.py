@@ -81,7 +81,9 @@ def matches_at_written_precision(q: Quantity, truth: float, min_sig_figs: int = 
     """True if `truth`, rounded to the precision the writer used, equals what they wrote.
     Requires at least `min_sig_figs` significant figures so "$57 billion" can't pass a 57,048M fact
     unless the benchmark lowers the bar."""
-    if q.kind in ("percent", "pp"):          # rates: require at least one decimal (41.2%, 7.0%)
+    if q.kind in ("percent", "pp"):          # rates: require at least one decimal (41.2%, 7.0%) ...
+        if q.decimals == 0 and min_sig_figs <= 2:   # ... unless the benchmark says the filing states a whole percent (Week 5)
+            return round(truth) == round(q.value)
         return q.decimals >= 1 and round(truth, q.decimals) == round(q.value, q.decimals)
     if q.sig_figs() < min_sig_figs:
         return False

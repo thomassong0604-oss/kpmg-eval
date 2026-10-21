@@ -14,7 +14,9 @@ from ..normalize import extract_quantities
 
 
 def _numbers(text: str) -> list:
-    return [q for q in extract_quantities(text) if q.kind in ("money", "percent", "pp") or abs(q.value) >= 10]
+    qs = extract_quantities(text)
+    big = [q for q in qs if q.kind in ("money", "percent", "pp") or abs(q.value) >= 10]
+    return big or qs  # Week 5: a bare per-share answer ("4.27") is still a numeric claim
 
 
 def number_supported(q, passage: str) -> bool:
@@ -22,12 +24,14 @@ def number_supported(q, passage: str) -> bool:
         if (p.kind in ("percent", "pp")) != (q.kind in ("percent", "pp")):
             continue
         # compare at the precision the claim was written with
+        # Week 5: compare magnitudes. Statements print outflows as "( 30,876)"; whether the number is in the passage
+        # is the question here, the sign is graded by numeric accuracy.
         if q.kind in ("percent", "pp"):
-            if round(p.value, q.decimals) == round(q.value, q.decimals):
+            if round(abs(p.value), q.decimals) == round(abs(q.value), q.decimals):
                 return True
         else:
             for scale in (1.0, 1e3, 1e6, 1e9):  # filings state tables "in millions"
-                if round(p.value * scale / q.scale, q.decimals) == round(q.value / q.scale, q.decimals):
+                if round(abs(p.value) * scale / q.scale, q.decimals) == round(abs(q.value) / q.scale, q.decimals):
                     return True
     return False
 

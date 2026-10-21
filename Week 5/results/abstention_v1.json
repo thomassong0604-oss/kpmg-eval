@@ -1,0 +1,2503 @@
+{
+ "n_items": 142,
+ "n_answerable": 84,
+ "n_unanswerable": 58,
+ "suite_size": 56,
+ "suite_by_kind": {
+  "false_premise": 5,
+  "future_period": 26,
+  "not_disclosed": 9,
+  "outside_corpus": 16
+ },
+ "score_auroc_in_scope": 0.781,
+ "n_in_scope_unanswerable": 13,
+ "gates": {
+  "none": {
+   "appropriate_refusal_rate": 0.0,
+   "unnecessary_refusal_rate": 0.0,
+   "balanced_raa": 0.5,
+   "by_kind": {
+    "answerable": {
+     "n": 76,
+     "refused": 0
+    },
+    "benchmark_unanswerable": {
+     "n": 7,
+     "refused": 0
+    },
+    "false_premise": {
+     "n": 8,
+     "refused": 0
+    },
+    "future_period": {
+     "n": 26,
+     "refused": 0
+    },
+    "not_disclosed": {
+     "n": 9,
+     "refused": 0
+    },
+    "outside_corpus": {
+     "n": 16,
+     "refused": 0
+    }
+   }
+  },
+  "scope": {
+   "appropriate_refusal_rate": 0.776,
+   "unnecessary_refusal_rate": 0.0,
+   "balanced_raa": 0.888,
+   "by_kind": {
+    "answerable": {
+     "n": 76,
+     "refused": 0
+    },
+    "benchmark_unanswerable": {
+     "n": 7,
+     "refused": 3
+    },
+    "false_premise": {
+     "n": 8,
+     "refused": 0
+    },
+    "future_period": {
+     "n": 26,
+     "refused": 26
+    },
+    "not_disclosed": {
+     "n": 9,
+     "refused": 0
+    },
+    "outside_corpus": {
+     "n": 16,
+     "refused": 16
+    }
+   }
+  },
+  "score_balanced": {
+   "appropriate_refusal_rate": 0.672,
+   "unnecessary_refusal_rate": 0.393,
+   "balanced_raa": 0.64,
+   "by_kind": {
+    "answerable": {
+     "n": 76,
+     "refused": 28
+    },
+    "benchmark_unanswerable": {
+     "n": 7,
+     "refused": 7
+    },
+    "false_premise": {
+     "n": 8,
+     "refused": 5
+    },
+    "future_period": {
+     "n": 26,
+     "refused": 11
+    },
+    "not_disclosed": {
+     "n": 9,
+     "refused": 5
+    },
+    "outside_corpus": {
+     "n": 16,
+     "refused": 16
+    }
+   }
+  },
+  "score": {
+   "appropriate_refusal_rate": 0.328,
+   "unnecessary_refusal_rate": 0.048,
+   "balanced_raa": 0.64,
+   "by_kind": {
+    "answerable": {
+     "n": 76,
+     "refused": 4
+    },
+    "benchmark_unanswerable": {
+     "n": 7,
+     "refused": 2
+    },
+    "false_premise": {
+     "n": 8,
+     "refused": 0
+    },
+    "future_period": {
+     "n": 26,
+     "refused": 0
+    },
+    "not_disclosed": {
+     "n": 9,
+     "refused": 1
+    },
+    "outside_corpus": {
+     "n": 16,
+     "refused": 16
+    }
+   }
+  },
+  "scope+score": {
+   "appropriate_refusal_rate": 0.81,
+   "unnecessary_refusal_rate": 0.048,
+   "balanced_raa": 0.881,
+   "by_kind": {
+    "answerable": {
+     "n": 76,
+     "refused": 4
+    },
+    "benchmark_unanswerable": {
+     "n": 7,
+     "refused": 4
+    },
+    "false_premise": {
+     "n": 8,
+     "refused": 0
+    },
+    "future_period": {
+     "n": 26,
+     "refused": 26
+    },
+    "not_disclosed": {
+     "n": 9,
+     "refused": 1
+    },
+    "outside_corpus": {
+     "n": 16,
+     "refused": 16
+    }
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "GSv0-MSFT-001",
+   "group": "GSv0-MSFT-001",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 13.380278,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-002",
+   "group": "GSv0-MSFT-002",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.203857,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-003",
+   "group": "GSv0-MSFT-003",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.710837,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-004",
+   "group": "GSv0-MSFT-004",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 7.749771,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-005",
+   "group": "GSv0-MSFT-005",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 8.877161,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-006",
+   "group": "GSv0-MSFT-006",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 16.433109,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-007",
+   "group": "GSv0-MSFT-007",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.563875,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-008",
+   "group": "GSv0-MSFT-008",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 7.153978,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "GSv0-MSFT-009",
+   "group": "GSv0-MSFT-009",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 24.462509,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-010",
+   "group": "GSv0-MSFT-010",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 20.687088,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-011",
+   "group": "GSv0-MSFT-011",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 24.824577,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-012",
+   "group": "GSv0-MSFT-012",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 9.568743,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-013",
+   "group": "GSv0-MSFT-013",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.58219,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-014",
+   "group": "GSv0-MSFT-014",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 26.972282,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-015",
+   "group": "GSv0-MSFT-015",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 31.047983,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-016",
+   "group": "GSv0-MSFT-016",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 22.589359,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-017",
+   "group": "GSv0-MSFT-017",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 21.033203,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-018",
+   "group": "GSv0-MSFT-018",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.35083,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-019",
+   "group": "GSv0-MSFT-019",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.984773,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-020",
+   "group": "GSv0-MSFT-020",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 21.289553,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "GSv0-MSFT-021",
+   "group": "GSv0-MSFT-021",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.912895,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-022",
+   "group": "GSv0-MSFT-022",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 10.657427,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "GSv0-MSFT-023",
+   "group": "GSv0-MSFT-023",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 28.577946,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-024",
+   "group": "GSv0-MSFT-024",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 24.953114,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-025",
+   "group": "GSv0-MSFT-025",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.01874,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-026",
+   "group": "GSv0-MSFT-026",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 26.511627,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "GSv0-MSFT-027",
+   "group": "GSv0-MSFT-027",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.086969,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "GSv0-MSFT-028",
+   "group": "GSv0-MSFT-028",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 16.164009,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-029",
+   "group": "GSv0-MSFT-029",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.624357,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "GSv0-MSFT-030",
+   "group": "GSv0-MSFT-030",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 22.599792,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-001",
+   "group": "EV1-001",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 14.14557,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "EV1-002",
+   "group": "EV1-002",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 14.123091,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-003",
+   "group": "EV1-003",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.181944,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-004",
+   "group": "EV1-004",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 24.47407,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "EV1-005",
+   "group": "EV1-005",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.59234,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-006",
+   "group": "EV1-006",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.736732,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-007",
+   "group": "EV1-007",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.343241,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-008",
+   "group": "EV1-008",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 10.022241,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-009",
+   "group": "EV1-009",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.528757,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-010",
+   "group": "EV1-010",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 13.479192,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-011",
+   "group": "EV1-011",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 14.663605,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-012",
+   "group": "EV1-012",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 12.355089,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-013",
+   "group": "EV1-013",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.832455,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-014",
+   "group": "EV1-014",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.630022,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-015",
+   "group": "EV1-015",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 16.012035,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "EV1-016",
+   "group": "EV1-016",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 22.160564,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-017",
+   "group": "EV1-017",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.367815,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-018",
+   "group": "EV1-018",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 23.101313,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-019",
+   "group": "EV1-019",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 20.52492,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-020",
+   "group": "EV1-020",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.609186,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-021",
+   "group": "EV1-021",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 13.540374,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-022",
+   "group": "EV1-022",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 22.281935,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-023",
+   "group": "EV1-023",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 20.650354,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-024",
+   "group": "EV1-024",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 13.460699,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-025",
+   "group": "EV1-025",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.185524,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "EV1-026",
+   "group": "EV1-026",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 18.174593,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-027",
+   "group": "EV1-027",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 21.852398,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-028",
+   "group": "EV1-028",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 22.971809,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-029",
+   "group": "EV1-029",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 16.756313,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-030",
+   "group": "EV1-030",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.566539,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-031",
+   "group": "EV1-031",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.476748,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-032",
+   "group": "EV1-032",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 27.00675,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-033",
+   "group": "EV1-033",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.470383,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-034",
+   "group": "EV1-034",
+   "fold": 2,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.614121,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "EV1-035",
+   "group": "EV1-035",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 21.546991,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-036",
+   "group": "EV1-036",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 14.484436,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-040",
+   "group": "EV1-040",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 16.067684,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-041",
+   "group": "EV1-041",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.611109,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-042",
+   "group": "EV1-042",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 26.691696,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-043",
+   "group": "EV1-043",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 27.567747,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-044",
+   "group": "EV1-044",
+   "fold": 1,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 19.894283,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-045",
+   "group": "EV1-045",
+   "fold": 0,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 12.626494,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-046",
+   "group": "EV1-046",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.140242,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-047",
+   "group": "EV1-047",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 9.844067,
+   "filters": {
+    "ticker": "MSFT"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-048",
+   "group": "EV1-048",
+   "fold": 3,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 31.148018,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-049",
+   "group": "EV1-049",
+   "fold": 4,
+   "kind": "answerable",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 23.118742,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-061",
+   "group": "EV1-061",
+   "fold": 2,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 12.370253,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "EV1-062",
+   "group": "EV1-062",
+   "fold": 1,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 9.886029,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-063",
+   "group": "EV1-063",
+   "fold": 3,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 17.195076,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "FY"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-064",
+   "group": "EV1-064",
+   "fold": 4,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "TSLA",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-065",
+   "group": "EV1-065",
+   "fold": 4,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 13.684207,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-066",
+   "group": "EV1-066",
+   "fold": 4,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 5.895442,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-067",
+   "group": "EV1-067",
+   "fold": 1,
+   "kind": "benchmark_unanswerable",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 11.744071,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-068",
+   "group": "EV1-068",
+   "fold": 3,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 11.70233,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "EV1-069",
+   "group": "EV1-069",
+   "fold": 1,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 15.155181,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "EV1-070",
+   "group": "EV1-070",
+   "fold": 4,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.687433,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-001",
+   "group": "GSv0-MSFT-001",
+   "fold": 2,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 16.700722,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-002",
+   "group": "GSv0-MSFT-001",
+   "fold": 2,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ORCL",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-003",
+   "group": "GSv0-MSFT-002",
+   "fold": 3,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 16.329216,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-004",
+   "group": "GSv0-MSFT-002",
+   "fold": 3,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "CRM",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-005",
+   "group": "GSv0-MSFT-003",
+   "fold": 2,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 14.757567,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-006",
+   "group": "GSv0-MSFT-003",
+   "fold": 2,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "IBM",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-007",
+   "group": "EV1-001",
+   "fold": 2,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 13.558516,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-008",
+   "group": "EV1-001",
+   "fold": 2,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "INTC",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-009",
+   "group": "EV1-002",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 15.213241,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-010",
+   "group": "EV1-002",
+   "fold": 4,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ADBE",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-011",
+   "group": "EV1-003",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 16.307302,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-012",
+   "group": "EV1-003",
+   "fold": 4,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ORCL",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-013",
+   "group": "EV1-004",
+   "fold": 2,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 23.499144,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-014",
+   "group": "EV1-004",
+   "fold": 2,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "CRM",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-015",
+   "group": "EV1-005",
+   "fold": 1,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 14.617413,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-016",
+   "group": "EV1-005",
+   "fold": 1,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "IBM",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-017",
+   "group": "EV1-006",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 16.626163,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-018",
+   "group": "EV1-007",
+   "fold": 1,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 16.441589,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-019",
+   "group": "EV1-008",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 13.941809,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-020",
+   "group": "EV1-008",
+   "fold": 4,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "INTC",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-021",
+   "group": "EV1-009",
+   "fold": 3,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 18.016388,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-022",
+   "group": "EV1-009",
+   "fold": 3,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ADBE",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-023",
+   "group": "EV1-010",
+   "fold": 1,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 12.966824,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-024",
+   "group": "EV1-010",
+   "fold": 1,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ORCL",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-025",
+   "group": "EV1-011",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 18.624657,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-026",
+   "group": "EV1-011",
+   "fold": 4,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "CRM",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-027",
+   "group": "EV1-012",
+   "fold": 0,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 15.30853,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-028",
+   "group": "EV1-012",
+   "fold": 0,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "IBM",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-029",
+   "group": "EV1-013",
+   "fold": 3,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 18.845222,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-030",
+   "group": "EV1-013",
+   "fold": 3,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "INTC",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-031",
+   "group": "EV1-014",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 17.778238,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-032",
+   "group": "EV1-015",
+   "fold": 2,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 15.037107,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-033",
+   "group": "EV1-016",
+   "fold": 1,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 21.051823,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-034",
+   "group": "EV1-017",
+   "fold": 0,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 17.477242,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-035",
+   "group": "EV1-018",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 22.210739,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-036",
+   "group": "EV1-019",
+   "fold": 0,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 19.629416,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-037",
+   "group": "EV1-020",
+   "fold": 3,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 17.650978,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-038",
+   "group": "EV1-020",
+   "fold": 3,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ADBE",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-039",
+   "group": "EV1-021",
+   "fold": 0,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 14.275167,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-040",
+   "group": "EV1-022",
+   "fold": 4,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 21.323727,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-041",
+   "group": "EV1-023",
+   "fold": 3,
+   "kind": "future_period",
+   "answerable": false,
+   "scope_refusal": "period_not_in_corpus",
+   "top1_score": 19.51066,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2027,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-042",
+   "group": "EV1-023",
+   "fold": 3,
+   "kind": "outside_corpus",
+   "answerable": false,
+   "scope_refusal": "company_not_in_corpus",
+   "top1_score": 0.0,
+   "filters": {
+    "ticker": "ORCL",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q1"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-043",
+   "group": "AB-043",
+   "fold": 2,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 17.55784,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-044",
+   "group": "AB-044",
+   "fold": 0,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 15.308852,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-045",
+   "group": "AB-045",
+   "fold": 1,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 11.575369,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-046",
+   "group": "AB-046",
+   "fold": 4,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 16.207941,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-047",
+   "group": "AB-047",
+   "fold": 3,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 14.281765,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-048",
+   "group": "AB-048",
+   "fold": 4,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 5.944635,
+   "filters": {
+    "ticker": "MSFT",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-049",
+   "group": "AB-049",
+   "fold": 2,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 10.730268,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-050",
+   "group": "AB-050",
+   "fold": 2,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 24.593351,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 16.433109,
+   "threshold": 10.197301
+  },
+  {
+   "id": "AB-051",
+   "group": "AB-051",
+   "fold": 0,
+   "kind": "not_disclosed",
+   "answerable": false,
+   "scope_refusal": null,
+   "top1_score": 14.129879,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-052",
+   "group": "AB-052",
+   "fold": 0,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 12.377802,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-053",
+   "group": "AB-053",
+   "fold": 1,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 17.400406,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 17.687433,
+   "threshold": 9.844067
+  },
+  {
+   "id": "AB-054",
+   "group": "AB-054",
+   "fold": 4,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 24.47407,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 15.566539,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-055",
+   "group": "AB-055",
+   "fold": 0,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 10.197301,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  },
+  {
+   "id": "AB-056",
+   "group": "AB-056",
+   "fold": 0,
+   "kind": "false_premise",
+   "answerable": true,
+   "scope_refusal": null,
+   "top1_score": 16.781277,
+   "filters": {
+    "ticker": "MSFT",
+    "form": "10-Q",
+    "fiscal_year": 2026,
+    "fiscal_period": "Q3"
+   },
+   "threshold_balanced": 14.484436,
+   "threshold": 9.568743
+  }
+ ]
+}

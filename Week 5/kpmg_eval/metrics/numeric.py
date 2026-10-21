@@ -80,6 +80,11 @@ def score_numeric(item: dict, answer: dict | str) -> NumericResult:
     if not candidates:
         return NumericResult(qid, False, "no_value", None, truth)
 
+    if truth == 0:  # Week 5 fix: a zero answer to a zero truth was labelled wrong_sign (-0 == 0)
+        if any(abs(c.value) < 0.5 * (10 ** -c.decimals) * c.scale for c in candidates):
+            return NumericResult(qid, True, "correct", 0.0, truth)
+        return NumericResult(qid, False, "wrong_value", candidates[0].value, truth)
+
     # Free text: pass if any stated number is the truth (answers often quote the comparison period too).
     # Structured blocks have exactly one candidate, so this is strict where it matters.
     distractors = gold.get("distractors", [])

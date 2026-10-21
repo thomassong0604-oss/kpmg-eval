@@ -1,0 +1,18 @@
+{
+  "_doc": "Company scope for Gold Set v1. To swap tickers: edit `peers`, run `SEC_USER_AGENT='Name email' python scripts/refresh_peer_facts.py` (writes data/peer_facts_v1.jsonl from the SEC API), then `bash scripts/run_all.sh`. Cross-company questions are generated from this list.",
+  "mvp": {"ticker": "MSFT", "name": "Microsoft", "cik": "0000789019", "fye": "0630",
+          "filing_10q": "0001193125-26-191507", "filing_10k": "0001193125-26-323660",
+          "note": "Single-company MVP (Business/UI): Microsoft, Q3 FY2026 10-Q + FY2026 10-K"},
+  "comparison_frame": "CY2026Q1",
+  "comparison_phrase": "fiscal quarter that ended in March or April 2026",
+  "peers": [
+    {"ticker": "AAPL", "name": "Apple", "cik": "0000320193", "fye": "0927", "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+     "period_phrase": "fiscal Q2 2026 (quarter ended March 28, 2026)", "spotlight": ["REV", "total net sales (revenue)"]},
+    {"ticker": "AMZN", "name": "Amazon", "cik": "0001018724", "fye": "1231", "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+     "period_phrase": "Q1 2026 (quarter ended March 31, 2026)", "spotlight": ["NI", "net income"]},
+    {"ticker": "META", "name": "Meta", "cik": "0001326801", "fye": "1231", "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+     "period_phrase": "Q1 2026 (quarter ended March 31, 2026)", "spotlight": ["OI", "income from operations"]},
+    {"ticker": "NVDA", "name": "NVIDIA", "cik": "0001045810", "fye": "0126", "revenue_concept": "Revenues",
+     "period_phrase": "fiscal Q1 2027 (quarter ended April 26, 2026)", "spotlight": ["REV", "revenue"]}
+  ]
+}

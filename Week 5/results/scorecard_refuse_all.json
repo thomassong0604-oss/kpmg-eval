@@ -1,0 +1,54 @@
+{
+ "system": "refuse_all",
+ "versions": {
+  "benchmark_sha256": "d584962d6ef6c6b8",
+  "rag_commit": "1996e72",
+  "eval_commit": "82fa054",
+  "index_version": "ffaa8efb4d5d",
+  "embedder": "lsa",
+  "graded_at": "2026-10-21T18:35:22"
+ },
+ "n_items": 142,
+ "headline": {
+  "numeric_accuracy": {
+   "value": 0.0,
+   "n": 50,
+   "ci95": [
+    0.0,
+    0.071
+   ]
+  },
+  "evidence_recall@10": {
+   "value": null,
+   "n": 0
+  },
+  "refusal_balanced": {
+   "value": 0.5,
+   "appropriate_refusal_rate": 1.0,
+   "unnecessary_refusal_rate": 1.0,
+   "n_answerable": 76,
+   "n_unanswerable": 58
+  },
+  "citation_support": {
+   "value": null,
+   "n": 0
+  }
+ },
+ "diagnostics": {
+  "error_labels": {
+   "false_refusal": 50
+  },
+  "lookups_gold_in_top10": 0,
+  "lookups_gold_in_top10_but_wrong": 0,
+  "false_premise": {
+   "refused": 8
+  },
+  "narrative_points_coverage_provisional": 0.0,
+  "numeric_by_scope": {
+   "mvp_single_company|wrong": 50
+  },
+  "latency_ms_p50": 0.0,
+  "errors": 0
+ },
+ "n_pending_questions": 14
+}

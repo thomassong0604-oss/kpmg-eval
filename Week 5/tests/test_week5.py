@@ -156,3 +156,47 @@ def test_strip_period_and_jaccard():
     assert strip_period("What were Microsoft's total assets as of March 31, 2026, in USD millions?") == \
         "What were Microsoft's total assets, in USD millions?"
     assert jaccard_at_k(["a", "b"], ["b", "c"], 2) == pytest.approx(1 / 3)
+
+
+# ---------------- grader bugs found by the oracle run of the grading pipeline ----------------
+def test_zero_truth_is_not_wrong_sign():
+    q = next(q for q in BENCH if q["gold"] and q["gold"]["value"] == 0)
+    assert score_numeric_diagnosed(q, {"answered": True, "value": 0.0, "value_text": "0 million"}, INDEX).passed
+
+
+def test_trailing_zero_sig_figs():
+    q = next(q for q in BENCH if q["gold"] and q["gold"]["value"] == 93_500e6)
+    assert q["gold"]["min_sig_figs"] == 3
+    assert score_numeric_diagnosed(q, {"answered": True, "value": 93_500e6, "value_text": "93,500 million"}, INDEX).passed
+
+
+def test_whole_percent_when_filing_states_whole_percent():
+    q = next(q for q in BENCH if "effective tax rate did Microsoft report for the nine months" in q["question"])
+    assert score_numeric_diagnosed(q, {"answered": True, "value": 20.0, "value_text": "20%"}, INDEX).passed
+    assert not score_numeric_diagnosed(q, {"answered": True, "value": 19.0, "value_text": "19%"}, INDEX).passed
+
+
+def test_citation_support_per_share_and_parenthesised_outflows():
+    from kpmg_eval.metrics.citation import score_citations
+    assert score_citations([{"text": "4.27", "cites": ["c"]}], {"c": "| Diluted | $ 4.27 | $ 3.46 |"})["numeric_support"] == 1.0
+    assert score_citations([{"text": "30,876 million", "cites": ["c"]}], {"c": "| Additions | ( 30,876) | ( 16,745) |"})["numeric_support"] == 1.0
+    assert score_citations([{"text": "30,877 million", "cites": ["c"]}], {"c": "| Additions | ( 30,876) |"})["numeric_support"] == 0.0
+
+
+# ---------------- filters ----------------
+def test_filters_extraction_and_filing_pr():
+    import sys
+    sys.path.insert(0, str(DATA.parent / "scripts"))
+    from rag_fiscal import fiscal_label
+    from kpmg_eval.filters import extract_filters, filing_filter_pr
+    scope = json.loads((DATA.parent / "config" / "scope.json").read_text())
+    f = extract_filters("What was NVIDIA's revenue for its fiscal Q1 2027 (quarter ended April 26, 2026)?", scope, fiscal_label)
+    assert f["ticker"] == "NVDA" and f["fiscal_year"] == 2027 and f["fiscal_period"] == "Q1"
+    f = extract_filters("What was Microsoft's operating income for the three months ended March 31, 2026?", scope, fiscal_label)
+    assert (f["fiscal_year"], f["fiscal_period"]) == (2026, "Q3")
+    assert extract_filters("Which segment includes LinkedIn?", scope, fiscal_label) == {}
+    assert extract_filters("Which segment includes LinkedIn?", scope, fiscal_label, session_ticker="MSFT") == {"ticker": "MSFT"}
+    pool = [{"accession": "a", "ticker": "MSFT", "form": "10-Q", "fiscal_year": 2026, "fiscal_period": "Q3"},
+            {"accession": "b", "ticker": "MSFT", "form": "10-Q", "fiscal_year": 2026, "fiscal_period": "Q2"}]
+    assert filing_filter_pr({"ticker": "MSFT", "form": "10-Q"}, pool, {"a"}) == {"kept": 2, "gold_in_pool": 1, "recall": 1.0, "precision": 0.5}
+    assert filing_filter_pr({"ticker": "MSFT", "fiscal_period": "Q2"}, pool, {"a"})["recall"] == 0.0

@@ -6,7 +6,8 @@ RAG's real `retrieve()` code, the Data team's XBRL instance, and the Business/UI
 
 ```bash
 pip install -r requirements.txt
-./scripts/run_all.sh     # pins upstream repos, rebuilds Gold Set v1, validates, 42 tests, all evaluations (~10 s)
+./scripts/run_all.sh     # pins upstream repos, rebuilds Gold Set v1, validates, 47 tests, every evaluation + scorecards (~15 s)
+python scripts/run_harness.py --answers agent_output.jsonl   # grade the Agent's AnswerBlocks
 ```
 
 ## 1. Gold Set v1: 100 questions (`data/`)
@@ -97,7 +98,19 @@ The after-fix number comes from the same generator that found the bug, so read i
 consolidated facts (18 key collisions, recall 0.72); missing nine-month facts → recall 0.75; period mislabel → F1 0.88;
 10-Q scale error → F1 0.08.
 
-## 5. Findings for other teams
+## 5. Meeting action items (10/22 feedback)
+
+| Ask | What exists now | Result |
+|---|---|---|
+| **Narrow the metrics to 3-5** | `scripts/run_metric_selection.py` scores 18 candidates on 5 criteria (user-visible outcome, automatic, grader validated, points to an owner, works for RAG and GraphRAG), each mark backed by a results file; adds redundancy (Spearman) and sensitivity (paired bootstrap) checks | **4 headline metrics:** numeric answer accuracy (north star), evidence recall@10, balanced refusal accuracy, citation support. Fifth slot: narrative quality once an LLM judge is validated. MRR and nDCG move together (ρ = 0.84) and become diagnostics; RAG should keep MRR for ranker comparisons (most sensitive: +0.17 BM25 vs hybrid-LSA) |
+| **Build the automated grading pipeline** | `kpmg_eval/harness.py`, `scripts/run_harness.py`, `scripts/systems.py` (`AgentTemplate` for the Agent team). Wraps RAG's real `retrieve()` and logs every chunk a system saw; grades AnswerBlocks; scorecards record benchmark hash, RAG commit, index version, Eval commit | Perfect system 1.00 on all four (after its first run exposed 5 grader bugs, now fixed and tested); refuse-all 0.00 / 0.50; no-LLM baseline 0.32 numeric, 0.89 refusal, 0.92 citation |
+| **Work on abstention** | `scripts/run_abstention_v1.py`: 56-item paired suite (`data/abstention_suite_v1.jsonl`: future-period and outside-corpus twins of answerable questions, 9 verified not-disclosed figures, 5 false premises); two-stage gate with out-of-fold thresholds | Scope check (company + period in the corpus): 42/42 out-of-scope twins refused, 0/76 real questions refused. The score gate, capped at 5% wrong refusals, catches 1 of 9 not-disclosed figures; those need an evidence check (no number without a cited passage that holds it) |
+| **Help RAG measure filter accuracy** | `kpmg_eval/filters.py`, `scripts/run_filter_accuracy.py`, `data/filing_pool_v1.json` (17 pilot filings with SEC's own fiscal labels) | Fiscal labels 17/17 with RAG's year-end map, 9/17 without it. RAG Gold v0 filters (ticker + form) have filing precision 0.50 (every question also searches MSFT's other 10-Q); v1 filters 0.96, recall 1.00. 32 of 34 evidence chunks have no section label (94% lost to any section filter). 23 of 93 questions name no company: fine with the MVP session, ambiguous in comparison mode |
+| **Swap tickers once the list is final** | `config/scope.json` drives the comparison questions; `scripts/refresh_peer_facts.py` re-pulls facts from the SEC API (double-read) | Config-driven build reproduces the 100 questions byte for byte; `--check` verifies config vs facts offline |
+| **Run the real retriever** | Section 2 | BM25 recall@10 0.89 |
+| Business/UI: MVP vs comparison, numeric vs narrative | Every question tagged `scope` and `answer_type` | 89 single-company MVP / 11 comparison; 62 exact numeric / 26 narrative / 10 refusal or false premise / 2 exact text |
+
+## 6. Findings for other teams
 
 | Team | Finding | Ask |
 |---|---|---|
@@ -112,6 +125,6 @@ consolidated facts (18 key collisions, recall 0.72); missing nine-month facts �
 ```
 data/       Gold Set v1 + source facts           scripts/   build, validate, evaluate (run_all.sh)
 kpmg_eval/  metric library (Week 4 + Week 5)     results/   every number quoted above, as json/csv
-tests/      42 tests (26 Week 4, 16 Week 5)      upstream/  pinned clones of KPMG_RAG and data_engineering_kpmg (git-ignored)
+tests/      47 tests (26 Week 4, 21 Week 5)      upstream/  pinned clones of KPMG_RAG and data_engineering_kpmg (git-ignored)
 vendor/     RAG's mock retrieve() (MIT)
 ```

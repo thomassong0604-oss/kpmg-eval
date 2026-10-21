@@ -28,6 +28,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 RAG_GOLD = ROOT / "upstream" / "KPMG_RAG" / "eval" / "gold_v0_msft.jsonl"
+SCOPE = json.loads((ROOT / "config" / "scope.json").read_text())
+import sys as _sys
+_sys.path.insert(0, str(ROOT / "scripts"))
 
 MSFT = {"ticker": "MSFT", "cik": "0000789019", "accession": "0001193125-26-191507", "form": "10-Q",
         "fiscal_year": 2026, "fiscal_period": "Q3"}
@@ -154,6 +157,11 @@ def add(qid, qtype, tier, question, *, answer, facts=(), calc=None, evidence=(),
         "graph": _graph(facts, graph_pattern or ("single_fact" if len(facts) == 1 else "multi_fact")) if facts else None,
         "status": "auto_verified" if answer.get("kind") not in ("text",) else "needs_human_review",
         "notes": notes,
+        # Business/UI tags: single-company MVP vs future comparison scope; exact numeric vs narrative answers
+        "scope": "mvp_single_company" if set(tickers) <= {"MSFT", "TSLA"} else "comparison",
+        "answer_type": ("exact_numeric" if answer.get("value") is not None else
+                        {"refusal": "refusal", "false_premise": "false_premise"}.get(answer.get("kind"),
+                         "narrative" if route == "text" else "exact_categorical")),
     }
     if answer.get("value") is not None:  # Week-4 numeric grader format (kpmg_eval.metrics.numeric.score_numeric)
         rec["gold"] = {"value": answer["value"], "kind": answer["kind"], "min_sig_figs": answer.get("min_sig_figs", 3),
@@ -171,7 +179,8 @@ def ev(region, *contains, is_table=None, meta=MSFT):
 
 def money(v, extra_points=(), sf=None):
     disp = mm(v)
-    sig = sf or max(3, len(disp.replace(",", "").replace("-", "").lstrip("0")))
+    # significant figures as displayed, ignoring trailing zeros (93,500 has 3, not 5); Week 5 fix found by the oracle run
+    sig = sf or max(3, len(disp.replace(",", "").replace("-", "").replace(".", "").strip("0")) or 1)
     return {"kind": "money", "value": v, "unit": "USD", "display": f"USD {disp} million",
             "required_points": [disp, *extra_points], "min_sig_figs": sig, "tolerance": "exact at displayed USD millions"}
 
@@ -341,7 +350,7 @@ def build_new():
     f = F("us-gaap:EffectiveIncomeTaxRateContinuingOperations", "YTD")
     add(q(), "extraction", "basic", "What effective tax rate did Microsoft report for the nine months ended March 31, 2026?",
         answer={"kind": "percent", "value": round(f["value"] * 100, 2), "unit": "%", "display": "20%", "required_points": ["20%", "nine months"],
-                "min_sig_figs": 2, "tolerance": "exact as disclosed (whole percent)"},
+                "min_sig_figs": 1, "tolerance": "exact as disclosed (whole percent)"},
         facts=[f], evidence=[ev("tax", "effective tax rate was 19% and 18%", "20% and 18% for the nine months")],
         route="xbrl+text", traps=["quarter_vs_ytd"],
         distractors=[{"label": "wrong_period", "value": 19.0, "note": "3M FY26"}, {"label": "wrong_period", "value": 18.0, "note": "prior year"}])
@@ -528,10 +537,13 @@ def build_new():
             use_case="explain_term")
 
     # ---- F. cross-company, calendar Q1 2026 (13)
-    PEERS = {"AAPL": ("Apple", 2026, "Q2", "fiscal Q2 2026 (quarter ended March 28, 2026)"),
-             "AMZN": ("Amazon", 2026, "Q1", "Q1 2026 (quarter ended March 31, 2026)"),
-             "META": ("Meta", 2026, "Q1", "Q1 2026 (quarter ended March 31, 2026)"),
-             "NVDA": ("NVIDIA", 2027, "Q1", "fiscal Q1 2027 (quarter ended April 26, 2026)")}
+    from rag_fiscal import fiscal_label  # RAG's own rule (rag.ingest.fiscal_label), vendored as a pure function
+    PEERS = {}
+    for p in SCOPE["peers"]:
+        fid = f"{p['ticker']}_REV_{SCOPE['comparison_frame'].replace('2026', '26')}"
+        end = _peer[fid]["period_end"]
+        fy, fp = fiscal_label(end, p["fye"], "10-Q")
+        PEERS[p["ticker"]] = (p["name"], fy, fp, p["period_phrase"])
     acc = {t: _peer[f"{t}_REV_CY26Q1"]["accession"] for t in PEERS}
 
     def pmeta(t):
@@ -543,14 +555,14 @@ def build_new():
             return {"ticker": t, "form": "10-Q", "fiscal_year": PEERS[t][1], "fiscal_period": PEERS[t][2]}
         return {"ticker": list(ts), "form": "10-Q"}
 
-    for t, lab, kind in [("AAPL", "REV", "total net sales (revenue)"), ("AMZN", "NI", "net income"), ("META", "OI", "income from operations"),
-                         ("NVDA", "REV", "revenue")]:
+    for t, (lab, kind) in ((p["ticker"], p["spotlight"]) for p in SCOPE["peers"]):
         f = P(f"{t}_{lab}_CY26Q1")
         add(q(), "cross_company", "basic", f"What was {PEERS[t][0]}'s {kind} for its {PEERS[t][3]}, in USD millions?",
             answer=money(f["value"]), facts=[f], evidence=[ev("income", mm(f["value"]), meta=pmeta(t))], tickers=[t],
-            filters=pfilt([t]), corpus="peer_10q_cy26q1", traps=["fiscal_calendar"] if t in ("AAPL", "NVDA") else [],
+            filters=pfilt([t]), corpus="peer_10q_cy26q1", traps=["fiscal_calendar"] if PEERS[t][2] != "Q1" or PEERS[t][1] != 2026 else [],
             notes="Evidence anchor not yet checked against the RAG corpus (peer chunks are not public); verify once RAG shares chunks.jsonl.")
-    T5 = ["MSFT", "AAPL", "AMZN", "META", "NVDA"]
+    T5 = ["MSFT"] + list(PEERS)
+    NAMES = ", ".join(["Microsoft"] + [PEERS[t][0] for t in list(PEERS)[:-1]]) + " and " + PEERS[list(PEERS)[-1]][0]
     rev = {"MSFT": rq, **{t: P(f"{t}_REV_CY26Q1") for t in PEERS}}
     opi = {"MSFT": oiq, **{t: P(f"{t}_OI_CY26Q1") for t in PEERS}}
     nin = {"MSFT": ni, **{t: P(f"{t}_NI_CY26Q1") for t in PEERS}}
@@ -558,7 +570,7 @@ def build_new():
     cf = {"ticker": T5, "form": "10-Q"}
     best = max(T5, key=lambda t: rev[t]["value"])
     add(q(), "cross_company", "comparative",
-        "Among Microsoft, Apple, Amazon, Meta and NVIDIA, which company reported the highest revenue for its fiscal quarter that ended in March or April 2026, and how much?",
+        f"Among {NAMES}, which company reported the highest revenue for its fiscal quarter that ended in March or April 2026, and how much?",
         answer={**money(rev[best]["value"], [cname[best]]), "display": f"{cname[best]}, USD {mm(rev[best]['value'])} million"},
         facts=[rev[t] for t in T5], calc="argmax(REV)", tickers=T5, filters=cf, corpus="peer_10q_cy26q1",
         evidence=[ev("income", mm(rev[t]["value"]), meta=pmeta(t) if t != "MSFT" else MSFT) for t in T5],
@@ -567,7 +579,7 @@ def build_new():
     margins = {t: opi[t]["value"] / rev[t]["value"] for t in T5}
     order = sorted(T5, key=lambda t: -margins[t])
     add(q(), "cross_company", "deep",
-        "Rank Microsoft, Apple, Amazon, Meta and NVIDIA by operating margin (operating income / revenue) for their fiscal quarters that ended in March or April 2026. Which is highest, and what is its margin to two decimals?",
+        f"Rank {NAMES} by operating margin (operating income / revenue) for their fiscal quarters that ended in March or April 2026. Which is highest, and what is its margin to two decimals?",
         answer={**ratio(margins[order[0]], [cname[t] for t in order] + [pct(margins[t]) for t in order]),
                 "display": " > ".join(f"{cname[t]} {pct(margins[t])}" for t in order)},
         facts=[x for t in T5 for x in (opi[t], rev[t])], calc="sort(OI/REV)", tickers=T5, filters=cf, corpus="peer_10q_cy26q1",
@@ -575,7 +587,7 @@ def build_new():
         traps=["fiscal_calendar", "pct_vs_pp"], use_case="profitability", graph_pattern="cross_company")
     above = [t for t in T5 if nin[t]["value"] > opi[t]["value"]]
     add(q(), "cross_company", "deep",
-        "For the fiscal quarters ended in March or April 2026, which of Microsoft, Apple, Amazon, Meta and NVIDIA reported net income higher than operating income?",
+        f"For the fiscal quarters ended in March or April 2026, which of {NAMES} reported net income higher than operating income?",
         answer=text([cname[t] for t in above] + [f"{cname[t]}: NI {mm(nin[t]['value'])} vs OI {mm(opi[t]['value'])}" for t in above],
                     display=", ".join(cname[t] for t in above)),
         facts=[x for t in T5 for x in (nin[t], opi[t])], calc="NI > OI", tickers=T5, filters=cf, corpus="peer_10q_cy26q1",
@@ -583,7 +595,7 @@ def build_new():
         graph_pattern="cross_company")
     QUESTIONS[-1]["status"] = "auto_verified"
     add(q(), "cross_company", "comparative",
-        "What was the combined revenue of Microsoft, Apple, Amazon, Meta and NVIDIA for their fiscal quarters that ended in March or April 2026, in USD millions?",
+        f"What was the combined revenue of {NAMES} for their fiscal quarters that ended in March or April 2026, in USD millions?",
         answer=money(sum(rev[t]["value"] for t in T5), [mm(rev[t]["value"]) for t in T5]), facts=[rev[t] for t in T5], calc="sum(REV)",
         tickers=T5, filters=cf, corpus="peer_10q_cy26q1", traps=["fiscal_calendar"], graph_pattern="cross_company",
         evidence=[ev("income", mm(rev[t]["value"]), meta=pmeta(t) if t != "MSFT" else MSFT) for t in T5])

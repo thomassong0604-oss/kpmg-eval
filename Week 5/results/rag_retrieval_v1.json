@@ -35,7 +35,7 @@
    "ndcg@10": 0.8857,
    "answer_in_context@5": 0.88,
    "answer_in_context@10": 0.94,
-   "latency_ms": 0.5879,
+   "latency_ms": 0.6501,
    "evidence_recall@10_ci95": [
     0.831,
     0.948
@@ -144,7 +144,7 @@
     "n_unanswerable_with_results": 6,
     "n_unanswerable_empty": 0,
     "auroc_top1_score": 0.862,
-    "threshold": 14.12309,
+    "threshold": 14.123091,
     "balanced_accuracy": 0.8311403508771931,
     "answerable_kept": 0.8289473684210527,
     "unanswerable_blocked": 0.8333333333333334
@@ -161,7 +161,7 @@
    "ndcg@10": 0.7837,
    "answer_in_context@5": 0.38,
    "answer_in_context@10": 0.54,
-   "latency_ms": 2.0654,
+   "latency_ms": 1.8682,
    "evidence_recall@10_ci95": [
     0.523,
     0.734
@@ -287,7 +287,7 @@
    "ndcg@10": 0.8398,
    "answer_in_context@5": 0.58,
    "answer_in_context@10": 0.82,
-   "latency_ms": 2.2284,
+   "latency_ms": 1.9639,
    "evidence_recall@10_ci95": [
     0.759,
     0.909
