@@ -25,6 +25,12 @@
    "wrong_dimension": 2,
    "wrong_concept": 3,
    "wrong_cell": 5
+  },
+  "misses_where_breakdown": {
+   "n_misses": 10,
+   "gold_in_top5_reading_failed": 9,
+   "gold_not_retrieved": 1,
+   "correct_with_gold_in_top5": 15
   }
  },
  "detail": [
@@ -35,7 +41,11 @@
    "value_read": 82886.0,
    "gold": "USD 82,886 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1
+   ],
+   "rows_with_same_label_top5": 3
   },
   {
    "qid": "GSv0-MSFT-002",
@@ -44,7 +54,12 @@
    "value_read": 31778.0,
    "gold": "USD 31,778 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1,
+    2
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "GSv0-MSFT-003",
@@ -53,7 +68,11 @@
    "value_read": 127494.0,
    "gold": "USD 127,494 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    2
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-001",
@@ -62,7 +81,13 @@
    "value_read": 20973.0,
    "gold": "USD 38,398 million",
    "label": "wrong_dimension",
-   "detail": "OperatingIncomeLoss ['2026-01-01', '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']"
+   "detail": "OperatingIncomeLoss ['2026-01-01', '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']",
+   "gold_figure_ranks_top5": [
+    1,
+    2,
+    3
+   ],
+   "rows_with_same_label_top5": 9
   },
   {
    "qid": "EV1-002",
@@ -71,7 +96,13 @@
    "value_read": 61979.0,
    "gold": "USD 114,634 million",
    "label": "wrong_dimension",
-   "detail": "OperatingIncomeLoss ['2025-07-01', '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']"
+   "detail": "OperatingIncomeLoss ['2025-07-01', '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']",
+   "gold_figure_ranks_top5": [
+    1,
+    2,
+    3
+   ],
+   "rows_with_same_label_top5": 9
   },
   {
    "qid": "EV1-003",
@@ -80,7 +111,12 @@
    "value_read": 97983.0,
    "gold": "USD 97,983 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1,
+    2
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-004",
@@ -89,7 +125,14 @@
    "value_read": 4.27,
    "gold": "USD 4.27 per share",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-005",
@@ -98,7 +141,12 @@
    "value_read": 56058.0,
    "gold": "USD 56,058 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1,
+    3
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-006",
@@ -107,7 +155,12 @@
    "value_read": 8915.0,
    "gold": "USD 8,915 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1,
+    3
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-007",
@@ -116,7 +169,11 @@
    "value_read": -30876.0,
    "gold": "USD 30,876 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    3
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-008",
@@ -125,7 +182,11 @@
    "value_read": 694228.0,
    "gold": "USD 694,228 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    4
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-009",
@@ -134,7 +195,13 @@
    "value_read": 46167.0,
    "gold": "USD 32,105 million",
    "label": "wrong_concept",
-   "detail": "ShortTermInvestments [None, '2026-03-31'] []"
+   "detail": "ShortTermInvestments [None, '2026-03-31'] []",
+   "gold_figure_ranks_top5": [
+    1,
+    3,
+    4
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-010",
@@ -143,7 +210,12 @@
    "value_read": 414367.0,
    "gold": "USD 414,367 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1,
+    2
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-011",
@@ -152,7 +224,12 @@
    "value_read": 8839.0,
    "gold": "USD 31,423 million",
    "label": "wrong_concept",
-   "detail": "current portion"
+   "detail": "current portion",
+   "gold_figure_ranks_top5": [
+    3,
+    4
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-012",
@@ -161,7 +238,11 @@
    "value_read": -157030.0,
    "gold": "USD 50,924 million",
    "label": "wrong_cell",
-   "detail": "ContractWithCustomerLiabilityRevenueRecognizedIncludingAdditions ['2025-07-01', '2026-03-31'] []"
+   "detail": "ContractWithCustomerLiabilityRevenueRecognizedIncludingAdditions ['2025-07-01', '2026-03-31'] []",
+   "gold_figure_ranks_top5": [
+    3
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-013",
@@ -170,7 +251,11 @@
    "value_read": -84669.0,
    "gold": "USD -84,669 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    5
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-014",
@@ -179,7 +264,9 @@
    "value_read": -20277.0,
    "gold": "USD 17,692 million",
    "label": "wrong_cell",
-   "detail": "DividendsCommonStockCash ['2025-07-01', '2026-03-31'] ['us-gaap:RetainedEarningsMember']"
+   "detail": "DividendsCommonStockCash ['2025-07-01', '2026-03-31'] ['us-gaap:RetainedEarningsMember']",
+   "gold_figure_ranks_top5": [],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-015",
@@ -188,7 +275,11 @@
    "value_read": 4.27,
    "gold": "USD 0.91 per share",
    "label": "wrong_concept",
-   "detail": "EarningsPerShareDiluted ['2026-01-01', '2026-03-31'] []"
+   "detail": "EarningsPerShareDiluted ['2026-01-01', '2026-03-31'] []",
+   "gold_figure_ranks_top5": [
+    4
+   ],
+   "rows_with_same_label_top5": 2
   },
   {
    "qid": "EV1-017",
@@ -197,7 +288,12 @@
    "value_read": 10892.0,
    "gold": "USD 34,681 million",
    "label": "wrong_cell",
-   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:IntelligentCloudMember']"
+   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:IntelligentCloudMember']",
+   "gold_figure_ranks_top5": [
+    1,
+    3
+   ],
+   "rows_with_same_label_top5": 3
   },
   {
    "qid": "EV1-018",
@@ -206,7 +302,12 @@
    "value_read": 39904.0,
    "gold": "USD 20,973 million",
    "label": "wrong_cell",
-   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']"
+   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']",
+   "gold_figure_ranks_top5": [
+    1,
+    2
+   ],
+   "rows_with_same_label_top5": 3
   },
   {
    "qid": "EV1-019",
@@ -215,7 +316,12 @@
    "value_read": 2881.0,
    "gold": "USD 13,192 million",
    "label": "wrong_cell",
-   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:MorePersonalComputingMember']"
+   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:MorePersonalComputingMember']",
+   "gold_figure_ranks_top5": [
+    2,
+    3
+   ],
+   "rows_with_same_label_top5": 4
   },
   {
    "qid": "EV1-020",
@@ -224,7 +330,11 @@
    "value_read": 5341.0,
    "gold": "USD 5,341 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-021",
@@ -233,7 +343,11 @@
    "value_read": 14628.0,
    "gold": "USD 14,628 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-022",
@@ -242,7 +356,11 @@
    "value_read": 32592.0,
    "gold": "USD 32,592 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1
+   ],
+   "rows_with_same_label_top5": 1
   },
   {
    "qid": "EV1-023",
@@ -251,7 +369,11 @@
    "value_read": 42336.0,
    "gold": "USD 42,336 million",
    "label": "correct",
-   "detail": ""
+   "detail": "",
+   "gold_figure_ranks_top5": [
+    1
+   ],
+   "rows_with_same_label_top5": 1
   }
  ]
 }

@@ -290,59 +290,88 @@ def slide_retriever(s, rr):
 
 
 def slide_e2e(s, e2e, fi):
+    """Where the pipeline breaks: retrieval vs reading, on RAG's real top-5 output."""
     clear(s)
     sm = e2e["summary"]
-    lab = sm["by_label"]
-    header(s, "End-to-end floor", f"A no-LLM reader gets {sm['naa']:.0%} of lookups right; every miss reads the wrong table")
-    tb(s, 0.12, 1.0, 4.3, 0.17, [(f"{e2e['n']} single-fact questions, graded with the Week-5 error taxonomy", 9, True, INK)])
-    order = [("correct", "Correct"), ("wrong_cell", "Wrong cell"), ("wrong_concept", "Wrong line item"),
-             ("wrong_dimension", "Segment vs total"), ("wrong_period", "Wrong period"), ("wrong_value", "Unexplained")]
+    br = sm["misses_where_breakdown"]
+    n = e2e["n"]
+    retrieved = br["correct_with_gold_in_top5"] + br["gold_in_top5_reading_failed"]
+    header(s, "Where it breaks", f"The right number was in RAG's top 5 for {retrieved} of {n} lookups; picking the row lost {br['gold_in_top5_reading_failed']}")
+
+    # ---- left: outcome bar
+    tb(s, 0.12, 1.0, 4.25, 0.17, [(f"{n} single-number questions, RAG top 5 + simple reader", 9, True, INK)])
     cd = CategoryChartData()
-    cd.categories = [n for _, n in reversed(order)]
-    cd.add_series("Answers", [lab.get(k, 0) for k, _ in reversed(order)])
-    gf = s.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED, Inches(0.12), Inches(1.2), Inches(4.3), Inches(3.15), cd)
+    cd.categories = [""]
+    cd.add_series("Answered correctly", [sm["by_label"]["correct"]])
+    cd.add_series("Number retrieved, wrong row read", [br["gold_in_top5_reading_failed"]])
+    cd.add_series("Number not retrieved", [br["gold_not_retrieved"]])
+    gf = s.shapes.add_chart(XL_CHART_TYPE.BAR_STACKED, Inches(0.12), Inches(1.2), Inches(4.25), Inches(1.15), cd)
     ch = gf.chart
-    style_chart(ch, [PINK], legend=False)
+    style_chart(ch, [BLUE, PINK, "8A93A6"])
     ch.has_title = False
-    pts = ch.plots[0].series[0].points
-    pts[len(order) - 1].format.fill.solid()
-    pts[len(order) - 1].format.fill.fore_color.rgb = rgb(BLUE)
+    ch.legend.position = -4107  # bottom
+    ch.legend.font.size = Pt(8.5)
     pl = ch.plots[0]
-    pl.gap_width = 60
+    pl.gap_width, pl.overlap = 25, 100
     pl.has_data_labels = True
-    pl.data_labels.position = XL_LABEL_POSITION.OUTSIDE_END
-    pl.data_labels.font.size, pl.data_labels.font.color.rgb = Pt(9), rgb(INK)
-    ch.value_axis.has_major_gridlines = False
+    pl.data_labels.position = XL_LABEL_POSITION.CENTER
+    pl.data_labels.font.size, pl.data_labels.font.bold = Pt(11), True
+    pl.data_labels.font.color.rgb = rgb("FFFFFF")
     ch.value_axis.visible = False
-    det = {d["qid"]: d for d in e2e["detail"]}
-    ex = [("EV1-001", "Consolidated operating income, Q3", "Read the PBP segment row (20,973 vs 38,398)", "Segment vs total"),
-          ("EV1-017", "Intelligent Cloud revenue, Q3", "Read IC unearned revenue (10,892 vs 34,681)", "Wrong cell"),
-          ("EV1-011", "Long-term debt, Mar 31 2026", "Read the current portion (8,839 vs 31,423)", "Wrong line item")]
-    tb(s, 4.7, 1.0, 3.0, 0.17, [("What the misses actually read", 9, True, INK)])
-    y = 1.27
-    for qid, asked, read_, label in ex:
-        assert det[qid]["label"] != "correct"
-        box = s.shapes.add_shape(5, Inches(4.7), Inches(y), Inches(3.0), Inches(0.66))  # rounded rectangle
-        box.fill.solid()
-        box.fill.fore_color.rgb = rgb("F7F8FC")
-        box.line.fill.background()
-        box.shadow.inherit = False
-        box.adjustments[0] = 0.1
-        tb(s, 4.82, y + 0.07, 2.8, 0.55, [[(label, 8, True, PINK)], [(asked, 9, True, INK)], [(read_, 8.5, False, MUTED)]])
-        y += 0.76
-    k = fi["label_accuracy"]
-    tb(s, 4.7, y + 0.02, 3.0, 0.5, [[("Grader re-checked on Gold Set v1", 8.5, True, INK)],
-                                    [(f"{round(k * fi['n_cases'])}/{fi['n_cases']} fault-injected labels correct after one fix "
-                                      "(closest-distractor tie-break); 386/390 before.", 8, False, MUTED)]])
-    footer(s, "The reader finds the right row label in the wrong table.",
-           "Every miss maps to a real XBRL fact, so the taxonomy now names the cell that was read. This is the floor Agent v0 has to beat.",
-           "Source: Week 5/scripts/run_e2e_baseline.py (RAG BM25 top-5 + table reader, no LLM), kpmg_eval/metrics/diagnose.py, "
-           "scripts/run_fault_injection_v1.py.")
-    notes(s, f"There is no Agent v0 yet, so we built the dumbest reasonable reader to exercise the whole pipeline on real retrieval output: "
-             f"take RAG's top 5 chunks, find the table row whose label matches the question, pick the column from the period words. It gets "
-             f"{lab['correct']} of {e2e['n']} right. The interesting part is the misses: none is random. Each is a real number from the filing, "
-             f"from the wrong table, the wrong line or the wrong segment. The new diagnosis step finds that cell automatically, which is what "
-             f"the Agent team will need when they debug.")
+    ch.value_axis.has_major_gridlines = False
+    ch.value_axis.maximum_scale, ch.value_axis.minimum_scale = n, 0
+    ch.category_axis.visible = False
+    for ser in pl.series:   # 2px surface gap between segments
+        ser.format.line.color.rgb = rgb("FFFFFF")
+        ser.format.line.width = Pt(1.5)
+
+    # ---- left: what fixes it
+    tb(s, 0.12, 2.55, 4.25, 0.17, [("What fixes it", 9, True, INK)])
+    asks = [("RAG", "tag each table chunk with its table name (segment results, income statement). Today 89% of chunks carry no section label."),
+            ("Agents", "pick a row by table, segment and period, not by its label, and cite that table in the AnswerBlock."),
+            ("Eval", "now scores retrieval and reading separately, so each miss lands with the team that owns it.")]
+    y = 2.8
+    for who, what in asks:
+        tb(s, 0.12, y, 4.25, 0.42, [(who + ": ", 8.5, True, NAVY), (what, 8.5, False, INK)])
+        y += 0.47
+
+    # ---- right: the 9 identical labels
+    tb(s, 4.6, 1.0, 3.1, 0.3, [[("Asked: Microsoft's operating income, Q3 FY26", 9, True, INK)],
+                               [("Rows labelled 'Operating income' in RAG's top 5", 8, False, MUTED)]])
+    rows = [("1", "Segment note: PBP", "20,973", "read"), ("1", "Segment note: IC", "13,753", ""),
+            ("1", "Segment note: MPC", "3,672", ""), ("1", "Segment note: total", "38,398", "gold"),
+            ("2", "MD&A summary results", "38,398", "gold"), ("3", "MD&A segment results: PBP", "20,973", ""),
+            ("3", "MD&A segment results: IC", "13,753", ""), ("3", "MD&A segment results: MPC", "3,672", ""),
+            ("3", "MD&A segment results: total", "38,398", "gold")]
+    t = s.shapes.add_table(len(rows) + 1, 3, Inches(4.6), Inches(1.42), Inches(3.1), Inches(2.6)).table
+    t.first_row = False
+    t.columns[0].width, t.columns[1].width, t.columns[2].width = Inches(0.5), Inches(1.9), Inches(0.7)
+    for j, h in enumerate(["Rank", "Which table", "Q3 value"]):
+        cell(t.cell(0, j), h, size=8, bold=True, color="FFFFFF", fill=NAVY, align=PP_ALIGN.CENTER if j != 1 else PP_ALIGN.LEFT)
+    for i, (rk, where, val, tag) in enumerate(rows, 1):
+        fill = "FBE3EC" if tag == "read" else ("E8EBF7" if tag == "gold" else "FFFFFF")
+        color = PINK if tag == "read" else (NAVY if tag == "gold" else INK)
+        cell(t.cell(i, 0), rk, size=8, color=MUTED, fill=fill, align=PP_ALIGN.CENTER)
+        cell(t.cell(i, 1), where + ("  \u2190 picked" if tag == "read" else ""), size=8, bold=bool(tag), color=color, fill=fill)
+        cell(t.cell(i, 2), val, size=8, bold=bool(tag), color=color, fill=fill, align=PP_ALIGN.RIGHT)
+    for r in t.rows:
+        r.height = Inches(2.6 / (len(rows) + 1))
+    white_borders(t)
+
+    footer(s, "For lookups, search is not the bottleneck; choosing the row is.",
+           f"{sm['naa']:.0%} end-to-end is the floor Agent v0 must beat. {n} questions on one filing: this shows the failure pattern, not its rate.",
+           "Source: Week 5/scripts/run_e2e_baseline.py (results/e2e_baseline.json: gold figure position in the top 5, rows sharing the label read). "
+           "Error labels: kpmg_eval/metrics/diagnose.py.")
+    notes(s, f"Last week we could only test retrieval. This week we pushed real retrieval output all the way to an answer, using the simplest "
+             f"reader possible, to see where the pipeline breaks. The answer surprised us: for {retrieved} of {n} questions RAG already returned "
+             f"the right number in its top 5. Of the {br['n_misses']} wrong answers, {br['gold_in_top5_reading_failed']} had the right number sitting "
+             f"in the evidence; only {br['gold_not_retrieved']} was a retrieval miss. The table on the right shows why. Ask for Microsoft's operating "
+             f"income and the top 5 passages contain nine rows called 'Operating income': the total, each segment, twice over. The segment name "
+             f"sits on a separate row above, so the label alone cannot tell them apart. The reader took the first one, the PBP segment. So the fix "
+             f"is not better search. It is table identity in the chunk metadata, which RAG can add, and row selection by table, segment and "
+             f"period, which the Agent has to do. From now on Eval reports retrieval and reading separately, so each miss goes to the team that "
+             f"owns it. Caveat: 25 questions on one filing shows the pattern, not how often it happens across the system. The grader itself "
+             f"was re-checked on the new questions: {round(fi['label_accuracy'] * fi['n_cases'])} of {fi['n_cases']} planted errors labelled correctly.")
 
 
 def slide_asks(s, rr, g, bench):
