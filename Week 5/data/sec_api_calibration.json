@@ -1,0 +1,18 @@
+{
+ "purpose": "Check the SEC-API read channel against the local XBRL instance before trusting it for peers",
+ "checks": [
+  {
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period": "2026-01-01..2026-03-31",
+   "sec_api": 82886000000,
+   "local_xbrl": 82886000000
+  },
+  {
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period": "2025-07-01..2026-03-31",
+   "sec_api": 241832000000,
+   "local_xbrl": 241832000000
+  }
+ ],
+ "result": "2/2 identical"
+}

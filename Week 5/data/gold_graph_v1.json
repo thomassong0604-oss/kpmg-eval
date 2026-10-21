@@ -1,0 +1,1514 @@
+{
+ "schema": "GraphRAG 10/8: Company, Filing, Section, Fact, Segment (+ ProductOrService, Geography members)",
+ "nodes": [
+  {
+   "id": "0000789019",
+   "label": "Company",
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation"
+  },
+  {
+   "id": "0001193125-26-191507",
+   "label": "Filing",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 82886000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetIncomeLoss|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 31778000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetCashProvidedByUsedInOperatingActivities|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 127494000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 70066000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:PaymentsToAcquirePropertyPlantAndEquipment|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 80146000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetCashProvidedByUsedInOperatingActivities|2024-07-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "period_start": "2024-07-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 93515000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:PaymentsToAcquirePropertyPlantAndEquipment|2024-07-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+   "period_start": "2024-07-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 47472000000.0
+  },
+  {
+   "id": "msft:ProductivityAndBusinessProcessesMember",
+   "label": "Segment",
+   "axis": "us-gaap:StatementBusinessSegmentsAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:ProductivityAndBusinessProcessesMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 20973000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:ProductivityAndBusinessProcessesMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:ProductivityAndBusinessProcessesMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 35013000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:ProductivityAndBusinessProcessesMember"
+   }
+  },
+  {
+   "id": "msft:IntelligentCloudMember",
+   "label": "Segment",
+   "axis": "us-gaap:StatementBusinessSegmentsAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 13753000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:IntelligentCloudMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 34681000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:IntelligentCloudMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:CashCashEquivalentsAndShortTermInvestments|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 78272000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:CashCashEquivalentsAndShortTermInvestments|None|2025-06-30|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
+   "period_start": null,
+   "period_end": "2025-06-30",
+   "unit": "USD",
+   "value": 94565000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetCashProvidedByUsedInInvestingActivities|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": -84669000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetCashProvidedByUsedInFinancingActivities|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": -40767000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": -195000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:CashAndCashEquivalentsAtCarryingValue|None|2025-06-30|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "period_start": null,
+   "period_end": "2025-06-30",
+   "unit": "USD",
+   "value": 30242000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:CashAndCashEquivalentsAtCarryingValue|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 32105000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:ProductivityAndBusinessProcessesMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 29944000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:ProductivityAndBusinessProcessesMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:IntelligentCloudMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 26751000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:IntelligentCloudMember"
+   }
+  },
+  {
+   "id": "msft:MorePersonalComputingMember",
+   "label": "Segment",
+   "axis": "us-gaap:StatementBusinessSegmentsAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 13192000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 13371000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 241832000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2024-07-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2024-07-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 205283000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 38398000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 114634000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetIncomeLoss|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 97983000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:EarningsPerShareDiluted|2026-01-01|2026-03-31|USD/shares",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:EarningsPerShareDiluted",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD/shares",
+   "value": 4.27
+  },
+  {
+   "id": "0000789019|us-gaap:GrossProfit|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:GrossProfit",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 56058000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:ResearchAndDevelopmentExpense|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:ResearchAndDevelopmentExpense",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 8915000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:PaymentsToAcquirePropertyPlantAndEquipment|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 30876000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:Assets|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:Assets",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 694228000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:StockholdersEquity|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:StockholdersEquity",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 414367000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:LongTermDebtNoncurrent|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:LongTermDebtNoncurrent",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 31423000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:ContractWithCustomerLiabilityCurrent|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:ContractWithCustomerLiabilityCurrent",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 50924000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:PaymentsForRepurchaseOfCommonStock|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 17692000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:CommonStockDividendsPerShareDeclared|2026-01-01|2026-03-31|USD/shares",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CommonStockDividendsPerShareDeclared",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD/shares",
+   "value": 0.91
+  },
+  {
+   "id": "0000789019|us-gaap:EffectiveIncomeTaxRateContinuingOperations|2025-07-01|2026-03-31|pure",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:EffectiveIncomeTaxRateContinuingOperations",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "pure",
+   "value": 0.2
+  },
+  {
+   "id": "msft:GamingMember",
+   "label": "ProductOrService",
+   "axis": "srt:ProductOrServiceAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:GamingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 5341000000.0,
+   "dims": {
+    "srt:ProductOrServiceAxis": "msft:GamingMember"
+   }
+  },
+  {
+   "id": "msft:LinkedInCorporationMember",
+   "label": "ProductOrService",
+   "axis": "srt:ProductOrServiceAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:LinkedInCorporationMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 14628000000.0,
+   "dims": {
+    "srt:ProductOrServiceAxis": "msft:LinkedInCorporationMember"
+   }
+  },
+  {
+   "id": "msft:ServerProductsAndCloudServicesMember",
+   "label": "ProductOrService",
+   "axis": "srt:ProductOrServiceAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:ServerProductsAndCloudServicesMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 32592000000.0,
+   "dims": {
+    "srt:ProductOrServiceAxis": "msft:ServerProductsAndCloudServicesMember"
+   }
+  },
+  {
+   "id": "country:US",
+   "label": "Geography",
+   "axis": "srt:StatementGeographicalAxis",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|country:US",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 42336000000.0,
+   "dims": {
+    "srt:StatementGeographicalAxis": "country:US"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 3672000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 41198000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2024-07-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2024-07-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 41198000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2025-01-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 32000000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:GrossProfit|2025-01-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:GrossProfit",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 48147000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetIncomeLoss|2025-01-01|2025-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 25824000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:IncomeTaxExpenseBenefit|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 7562000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 39340000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 41017000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:IntelligentCloudMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 98485000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:IntelligentCloudMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:AssetsCurrent|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:AssetsCurrent",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 175329000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:LiabilitiesCurrent|None|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:LiabilitiesCurrent",
+   "period_start": null,
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 136661000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:PaymentsOfDividendsCommonStock|2025-07-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:PaymentsOfDividendsCommonStock",
+   "period_start": "2025-07-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 19687000000.0
+  },
+  {
+   "id": "0001193125-26-323660",
+   "label": "Filing",
+   "cik": "0000789019"
+  },
+  {
+   "id": "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-323660",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-07-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 331839000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-323660",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2025-07-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 155237000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:NetIncomeLoss|2025-07-01|2026-06-30|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-323660",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-07-01",
+   "period_end": "2026-06-30",
+   "unit": "USD",
+   "value": 133749000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:SellingAndMarketingExpense|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:SellingAndMarketingExpense",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 6814000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:GeneralAndAdministrativeExpense|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 1931000000.0
+  },
+  {
+   "id": "0000789019|us-gaap:OperatingIncomeLoss|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 3526000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:CostOfGoodsAndServicesSold|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CostOfGoodsAndServicesSold",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 5511000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000789019|us-gaap:CostOfGoodsAndServicesSold|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "label": "Fact",
+   "cik": "0000789019",
+   "accession": "0001193125-26-191507",
+   "concept": "us-gaap:CostOfGoodsAndServicesSold",
+   "period_start": "2025-01-01",
+   "period_end": "2025-03-31",
+   "unit": "USD",
+   "value": 6095000000.0,
+   "dims": {
+    "us-gaap:StatementBusinessSegmentsAxis": "msft:MorePersonalComputingMember"
+   }
+  },
+  {
+   "id": "0000320193",
+   "label": "Company",
+   "ticker": "AAPL",
+   "name": "Apple Inc."
+  },
+  {
+   "id": "0000320193-26-000013",
+   "label": "Filing",
+   "cik": "0000320193"
+  },
+  {
+   "id": "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-12-28|2026-03-28|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "accession": "0000320193-26-000013",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2025-12-28",
+   "period_end": "2026-03-28",
+   "unit": "USD",
+   "value": 111184000000.0
+  },
+  {
+   "id": "0001018724",
+   "label": "Company",
+   "ticker": "AMZN",
+   "name": "Amazon.com, Inc."
+  },
+  {
+   "id": "0001018724-26-000014",
+   "label": "Filing",
+   "cik": "0001018724"
+  },
+  {
+   "id": "0001018724|us-gaap:NetIncomeLoss|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0001018724",
+   "accession": "0001018724-26-000014",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 30255000000.0
+  },
+  {
+   "id": "0001326801",
+   "label": "Company",
+   "ticker": "META",
+   "name": "Meta Platforms, Inc."
+  },
+  {
+   "id": "0001628280-26-028526",
+   "label": "Filing",
+   "cik": "0001326801"
+  },
+  {
+   "id": "0001326801|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0001326801",
+   "accession": "0001628280-26-028526",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 22872000000.0
+  },
+  {
+   "id": "0001045810",
+   "label": "Company",
+   "ticker": "NVDA",
+   "name": "NVIDIA Corporation"
+  },
+  {
+   "id": "0001045810-26-000052",
+   "label": "Filing",
+   "cik": "0001045810"
+  },
+  {
+   "id": "0001045810|us-gaap:Revenues|2026-01-26|2026-04-26|USD",
+   "label": "Fact",
+   "cik": "0001045810",
+   "accession": "0001045810-26-000052",
+   "concept": "us-gaap:Revenues",
+   "period_start": "2026-01-26",
+   "period_end": "2026-04-26",
+   "unit": "USD",
+   "value": 81615000000.0
+  },
+  {
+   "id": "0001018724|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0001018724",
+   "accession": "0001018724-26-000014",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 181519000000.0
+  },
+  {
+   "id": "0001326801|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0001326801",
+   "accession": "0001628280-26-028526",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 56311000000.0
+  },
+  {
+   "id": "0000320193|us-gaap:OperatingIncomeLoss|2025-12-28|2026-03-28|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "accession": "0000320193-26-000013",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2025-12-28",
+   "period_end": "2026-03-28",
+   "unit": "USD",
+   "value": 35885000000.0
+  },
+  {
+   "id": "0001018724|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0001018724",
+   "accession": "0001018724-26-000014",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 23852000000.0
+  },
+  {
+   "id": "0001045810|us-gaap:OperatingIncomeLoss|2026-01-26|2026-04-26|USD",
+   "label": "Fact",
+   "cik": "0001045810",
+   "accession": "0001045810-26-000052",
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "period_start": "2026-01-26",
+   "period_end": "2026-04-26",
+   "unit": "USD",
+   "value": 53536000000.0
+  },
+  {
+   "id": "0000320193|us-gaap:NetIncomeLoss|2025-12-28|2026-03-28|USD",
+   "label": "Fact",
+   "cik": "0000320193",
+   "accession": "0000320193-26-000013",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2025-12-28",
+   "period_end": "2026-03-28",
+   "unit": "USD",
+   "value": 29578000000.0
+  },
+  {
+   "id": "0001326801|us-gaap:NetIncomeLoss|2026-01-01|2026-03-31|USD",
+   "label": "Fact",
+   "cik": "0001326801",
+   "accession": "0001628280-26-028526",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-01",
+   "period_end": "2026-03-31",
+   "unit": "USD",
+   "value": 26773000000.0
+  },
+  {
+   "id": "0001045810|us-gaap:NetIncomeLoss|2026-01-26|2026-04-26|USD",
+   "label": "Fact",
+   "cik": "0001045810",
+   "accession": "0001045810-26-000052",
+   "concept": "us-gaap:NetIncomeLoss",
+   "period_start": "2026-01-26",
+   "period_end": "2026-04-26",
+   "unit": "USD",
+   "value": 58321000000.0
+  }
+ ],
+ "edges": [
+  [
+   "0000320193",
+   "FILED",
+   "0000320193-26-000013"
+  ],
+  [
+   "0000320193-26-000013",
+   "REPORTS",
+   "0000320193|us-gaap:NetIncomeLoss|2025-12-28|2026-03-28|USD"
+  ],
+  [
+   "0000320193-26-000013",
+   "REPORTS",
+   "0000320193|us-gaap:OperatingIncomeLoss|2025-12-28|2026-03-28|USD"
+  ],
+  [
+   "0000320193-26-000013",
+   "REPORTS",
+   "0000320193|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-12-28|2026-03-28|USD"
+  ],
+  [
+   "0000789019",
+   "FILED",
+   "0001193125-26-191507"
+  ],
+  [
+   "0000789019",
+   "FILED",
+   "0001193125-26-323660"
+  ],
+  [
+   "0000789019",
+   "HAS_SEGMENT",
+   "msft:IntelligentCloudMember"
+  ],
+  [
+   "0000789019",
+   "HAS_SEGMENT",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019",
+   "HAS_SEGMENT",
+   "msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0000789019|us-gaap:CostOfGoodsAndServicesSold|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:CostOfGoodsAndServicesSold|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "FOR_MEMBER",
+   "msft:IntelligentCloudMember"
+  ],
+  [
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "FOR_MEMBER",
+   "msft:IntelligentCloudMember"
+  ],
+  [
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:ProductivityAndBusinessProcessesMember",
+   "FOR_MEMBER",
+   "msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2024-07-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:IntelligentCloudMember",
+   "FOR_MEMBER",
+   "msft:IntelligentCloudMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:ProductivityAndBusinessProcessesMember",
+   "FOR_MEMBER",
+   "msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "FOR_MEMBER",
+   "msft:IntelligentCloudMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:LinkedInCorporationMember",
+   "FOR_MEMBER",
+   "msft:LinkedInCorporationMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|country:US",
+   "FOR_MEMBER",
+   "country:US"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:GamingMember",
+   "FOR_MEMBER",
+   "msft:GamingMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:IntelligentCloudMember",
+   "FOR_MEMBER",
+   "msft:IntelligentCloudMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember",
+   "FOR_MEMBER",
+   "msft:MorePersonalComputingMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:ProductivityAndBusinessProcessesMember",
+   "FOR_MEMBER",
+   "msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:ServerProductsAndCloudServicesMember",
+   "FOR_MEMBER",
+   "msft:ServerProductsAndCloudServicesMember"
+  ],
+  [
+   "0001018724",
+   "FILED",
+   "0001018724-26-000014"
+  ],
+  [
+   "0001018724-26-000014",
+   "REPORTS",
+   "0001018724|us-gaap:NetIncomeLoss|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001018724-26-000014",
+   "REPORTS",
+   "0001018724|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001018724-26-000014",
+   "REPORTS",
+   "0001018724|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001045810",
+   "FILED",
+   "0001045810-26-000052"
+  ],
+  [
+   "0001045810-26-000052",
+   "REPORTS",
+   "0001045810|us-gaap:NetIncomeLoss|2026-01-26|2026-04-26|USD"
+  ],
+  [
+   "0001045810-26-000052",
+   "REPORTS",
+   "0001045810|us-gaap:OperatingIncomeLoss|2026-01-26|2026-04-26|USD"
+  ],
+  [
+   "0001045810-26-000052",
+   "REPORTS",
+   "0001045810|us-gaap:Revenues|2026-01-26|2026-04-26|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:AssetsCurrent|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:Assets|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CashAndCashEquivalentsAtCarryingValue|None|2025-06-30|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CashAndCashEquivalentsAtCarryingValue|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CashCashEquivalentsAndShortTermInvestments|None|2025-06-30|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CashCashEquivalentsAndShortTermInvestments|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CommonStockDividendsPerShareDeclared|2026-01-01|2026-03-31|USD/shares"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:ContractWithCustomerLiabilityCurrent|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CostOfGoodsAndServicesSold|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:CostOfGoodsAndServicesSold|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:EarningsPerShareDiluted|2026-01-01|2026-03-31|USD/shares"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:EffectiveIncomeTaxRateContinuingOperations|2025-07-01|2026-03-31|pure"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:GeneralAndAdministrativeExpense|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:GrossProfit|2025-01-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:GrossProfit|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:IncomeTaxExpenseBenefit|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:LiabilitiesCurrent|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:LongTermDebtNoncurrent|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetCashProvidedByUsedInFinancingActivities|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetCashProvidedByUsedInInvestingActivities|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetCashProvidedByUsedInOperatingActivities|2024-07-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetCashProvidedByUsedInOperatingActivities|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetIncomeLoss|2025-01-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetIncomeLoss|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:NetIncomeLoss|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-01-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-03-31|USD|msft:IntelligentCloudMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:IntelligentCloudMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD|msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:PaymentsForRepurchaseOfCommonStock|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:PaymentsOfDividendsCommonStock|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:PaymentsToAcquirePropertyPlantAndEquipment|2024-07-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:PaymentsToAcquirePropertyPlantAndEquipment|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:PaymentsToAcquirePropertyPlantAndEquipment|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:ResearchAndDevelopmentExpense|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2024-07-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2024-07-01|2025-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:IntelligentCloudMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-01-01|2025-03-31|USD|msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:IntelligentCloudMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:LinkedInCorporationMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|country:US"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:GamingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:IntelligentCloudMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:MorePersonalComputingMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:ProductivityAndBusinessProcessesMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD|msft:ServerProductsAndCloudServicesMember"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:SellingAndMarketingExpense|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-191507",
+   "REPORTS",
+   "0000789019|us-gaap:StockholdersEquity|None|2026-03-31|USD"
+  ],
+  [
+   "0001193125-26-323660",
+   "REPORTS",
+   "0000789019|us-gaap:NetIncomeLoss|2025-07-01|2026-06-30|USD"
+  ],
+  [
+   "0001193125-26-323660",
+   "REPORTS",
+   "0000789019|us-gaap:OperatingIncomeLoss|2025-07-01|2026-06-30|USD"
+  ],
+  [
+   "0001193125-26-323660",
+   "REPORTS",
+   "0000789019|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2025-07-01|2026-06-30|USD"
+  ],
+  [
+   "0001326801",
+   "FILED",
+   "0001628280-26-028526"
+  ],
+  [
+   "0001628280-26-028526",
+   "REPORTS",
+   "0001326801|us-gaap:NetIncomeLoss|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001628280-26-028526",
+   "REPORTS",
+   "0001326801|us-gaap:OperatingIncomeLoss|2026-01-01|2026-03-31|USD"
+  ],
+  [
+   "0001628280-26-028526",
+   "REPORTS",
+   "0001326801|us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax|2026-01-01|2026-03-31|USD"
+  ]
+ ]
+}

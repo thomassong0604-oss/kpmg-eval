@@ -1,0 +1,1507 @@
+{
+ "anchors": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "region": "income",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "region": "income",
+   "contains": [
+    "31,778"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "region": "cashflow",
+   "contains": [
+    "127,494"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-004",
+   "region": "segment_definitions",
+   "contains": [
+    "industry solutions, nuance professional"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-005",
+   "region": "segment_definitions",
+   "contains": [
+    "industry solutions, nuance professional"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-006",
+   "region": "segment_definitions",
+   "contains": [
+    "industry solutions, nuance professional"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-007",
+   "region": "segment_definitions",
+   "contains": [
+    "industry solutions, nuance professional"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-008",
+   "region": "cloud_definition",
+   "contains": [
+    "155.1"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-009",
+   "region": "rpo",
+   "contains": [
+    "of contracts. revenue allocated"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-010",
+   "region": "tax_nongaap",
+   "contains": [
+    "the information currently available,",
+    "not anticipate a significant",
+    "our income tax contingencies"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "region": "openai_accounting",
+   "contains": [
+    "partnership. additionally, openai formed"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-012",
+   "region": "cash_equivalents",
+   "contains": [
+    "liquid interest-earning investments with",
+    "short-term investments. investments with",
+    "classified as short-term investments."
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-013",
+   "region": "income",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-014",
+   "region": "cashflow",
+   "contains": [
+    "127,494"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-015",
+   "region": "segments",
+   "contains": [
+    "20,973"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-016",
+   "region": "balance",
+   "contains": [
+    "78,272"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "region": "quarter_overview",
+   "contains": [
+    "development across the portfolio."
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "region": "segment_quarter_a",
+   "contains": [
+    "7%, respectively. operating expenses"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-019",
+   "region": "quarter_overview",
+   "contains": [
+    "development across the portfolio."
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "region": "tax_nongaap",
+   "contains": [
+    "the information currently available,",
+    "not anticipate a significant",
+    "our income tax contingencies"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "region": "quarter_overview",
+   "contains": [
+    "development across the portfolio."
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "region": "reconciliation_liquidity",
+   "contains": [
+    "internally-developed models with unobservable",
+    "valued using internally-developed models",
+    "indirectly. this pricing methodology"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "region": "cash_drivers",
+   "contains": [
+    "increase in other investing"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "region": "cashflow",
+   "contains": [
+    "127,494"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "region": "balance",
+   "contains": [
+    "authorized 24,000; outstanding 7,429"
+   ],
+   "n_chunks": 0,
+   "status": "no_match"
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "region": "segments",
+   "contains": [
+    "34,681"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "region": "income",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "region": "segment_quarter_a",
+   "contains": [
+    "7%, respectively. operating expenses"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "region": "income",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "region": "quarter_overview",
+   "contains": [
+    "development across the portfolio."
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "region": "segment_quarter_b",
+   "contains": [
+    "first-party content performance. xbox"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "region": "income",
+   "contains": [
+    "194,370"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "region": "quarter_overview",
+   "contains": [
+    "development across the portfolio."
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "region": "cloud_definition",
+   "contains": [
+    "155.1"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "region": "segment_definitions",
+   "contains": [
+    "industry solutions, nuance professional"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "region": "segments",
+   "contains": [
+    "15,120",
+    "10,307",
+    "41,000"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "region": "openai_accounting",
+   "contains": [
+    "partnership. additionally, openai formed"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "region": "openai_gains",
+   "contains": [
+    "31, 2025, respectively, from",
+    "march 31, 2026 primarily",
+    "million of net losses"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "region": "reconciliation_liquidity",
+   "contains": [
+    "internally-developed models with unobservable",
+    "valued using internally-developed models",
+    "indirectly. this pricing methodology"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "region": "tax_nongaap",
+   "contains": [
+    "the information currently available,",
+    "not anticipate a significant",
+    "our income tax contingencies"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "region": "rpo",
+   "contains": [
+    "of contracts. revenue allocated"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "region": "unearned",
+   "contains": [
+    "cloud services and software",
+    "includes payments for other",
+    "for other offerings for"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "region": "balance",
+   "contains": [
+    "authorized 24,000; outstanding 7,429"
+   ],
+   "n_chunks": 0,
+   "status": "no_match"
+  },
+  {
+   "qid": "EV1-001",
+   "region": "income",
+   "contains": [
+    "Operating income",
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-002",
+   "region": "income",
+   "contains": [
+    "Operating income",
+    "114,634"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-003",
+   "region": "income",
+   "contains": [
+    "Net income",
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-004",
+   "region": "income",
+   "contains": [
+    "Diluted",
+    "4.27"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-005",
+   "region": "income",
+   "contains": [
+    "Gross margin",
+    "56,058"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-006",
+   "region": "income",
+   "contains": [
+    "Research and development",
+    "8,915"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-007",
+   "region": "cashflow",
+   "contains": [
+    "Additions to property and equipment",
+    "30,876"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-008",
+   "region": "balance",
+   "contains": [
+    "Total assets",
+    "694,228"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-009",
+   "region": "balance",
+   "contains": [
+    "Cash and cash equivalents",
+    "32,105"
+   ],
+   "n_chunks": 3,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-010",
+   "region": "balance",
+   "contains": [
+    "Total stockholders\u2019 equity",
+    "414,367"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-011",
+   "region": "balance",
+   "contains": [
+    "Long-term debt",
+    "31,423"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-012",
+   "region": "balance",
+   "contains": [
+    "Unearned revenue",
+    "50,924"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-013",
+   "region": "cashflow",
+   "contains": [
+    "Net cash used in investing",
+    "84,669"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-014",
+   "region": "cashflow",
+   "contains": [
+    "Common stock repurchased",
+    "17,692"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-015",
+   "region": "dividends",
+   "contains": [
+    "0.91",
+    "0.91"
+   ],
+   "n_chunks": 3,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-016",
+   "region": "tax",
+   "contains": [
+    "effective tax rate was 19% and 18%",
+    "20% and 18% for the nine months"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-017",
+   "region": "segments",
+   "contains": [
+    "Intelligent Cloud",
+    "34,681"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-018",
+   "region": "segments",
+   "contains": [
+    "Productivity and Business Processes",
+    "20,973"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-019",
+   "region": "segments",
+   "contains": [
+    "More Personal Computing",
+    "13,192"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-020",
+   "region": "revenue_by_product",
+   "contains": [
+    "Gaming",
+    "5,341"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-021",
+   "region": "revenue_by_product",
+   "contains": [
+    "LinkedIn",
+    "14,628"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-022",
+   "region": "revenue_by_product",
+   "contains": [
+    "Server products and cloud services",
+    "32,592"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-023",
+   "region": "revenue_by_geography",
+   "contains": [
+    "United States",
+    "42,336"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-024",
+   "region": "segments",
+   "contains": [
+    "Productivity and Business Processes",
+    "20,973",
+    "13,753",
+    "3,672"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-025",
+   "region": "segments",
+   "contains": [
+    "More Personal Computing",
+    "41,198"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-026",
+   "region": "income",
+   "contains": [
+    "Operating income",
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-026",
+   "region": "income",
+   "contains": [
+    "Total revenue",
+    "82,886"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-027",
+   "region": "income",
+   "contains": [
+    "Operating income",
+    "38,398",
+    "32,000"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-028",
+   "region": "income",
+   "contains": [
+    "Gross margin",
+    "56,058",
+    "48,147"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-029",
+   "region": "income",
+   "contains": [
+    "Net income",
+    "31,778",
+    "25,824"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-030",
+   "region": "income",
+   "contains": [
+    "Total revenue",
+    "241,832",
+    "205,283"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-031",
+   "region": "cashflow",
+   "contains": [
+    "Additions to property and equipment",
+    "30,876"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-031",
+   "region": "income",
+   "contains": [
+    "Total revenue",
+    "82,886"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-032",
+   "region": "income",
+   "contains": [
+    "Provision for income taxes",
+    "7,562"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-033",
+   "region": "segments",
+   "contains": [
+    "Intelligent Cloud",
+    "41,017",
+    "98,485"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-034",
+   "region": "balance",
+   "contains": [
+    "Total current assets",
+    "175,329"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-034",
+   "region": "balance",
+   "contains": [
+    "Total current liabilities",
+    "136,661"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-035",
+   "region": "cashflow",
+   "contains": [
+    "Common stock cash dividends paid",
+    "19,687"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-035",
+   "region": "cashflow",
+   "contains": [
+    "Common stock repurchased",
+    "17,692"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-036",
+   "region": "cloud_definition",
+   "contains": [
+    "Microsoft Cloud revenue",
+    "$54.5 billion"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-036",
+   "region": "income",
+   "contains": [
+    "Total revenue",
+    "82,886"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-037",
+   "region": "10k_income",
+   "status": "not_checkable_offline",
+   "accession": "0001193125-26-323660"
+  },
+  {
+   "qid": "EV1-037",
+   "region": "income",
+   "contains": [
+    "241,832"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-038",
+   "region": "10k_income",
+   "status": "not_checkable_offline",
+   "accession": "0001193125-26-323660"
+  },
+  {
+   "qid": "EV1-038",
+   "region": "income",
+   "contains": [
+    "114,634"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-039",
+   "region": "10k_income",
+   "status": "not_checkable_offline",
+   "accession": "0001193125-26-323660"
+  },
+  {
+   "qid": "EV1-039",
+   "region": "income",
+   "contains": [
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-040",
+   "region": "segments",
+   "contains": [
+    "20,973",
+    "13,753",
+    "3,672"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-041",
+   "region": "income",
+   "contains": [
+    "Gross margin",
+    "56,058"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-042",
+   "region": "tax_nongaap",
+   "contains": [
+    "Net (gains) losses from investments in OpenAI, net of tax",
+    "(4,483)"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-043",
+   "region": "segments",
+   "contains": [
+    "More Personal Computing",
+    "3,672"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-044",
+   "region": "quarter_overview",
+   "contains": [
+    "Azure and other cloud services revenue increased 40%"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-045",
+   "region": "quarter_overview",
+   "contains": [
+    "Microsoft Cloud revenue increased 29% to $54.5 billion"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-046",
+   "region": "quarter_overview",
+   "contains": [
+    "Commercial remaining performance obligation increased 99% to $627 billion"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-047",
+   "region": "openai_accounting",
+   "contains": [
+    "approximately 27 percent of OpenAI on an as-converted basis",
+    "equity method"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-048",
+   "region": "tax",
+   "contains": [
+    "lower than the U.S. federal statutory rate",
+    "foreign regional operations center in Ireland"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-049",
+   "region": "opex",
+   "contains": [
+    "Sales and marketing expenses increased $602 million or 10%",
+    "Copilot advertising"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-050",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0000320193-26-000013"
+  },
+  {
+   "qid": "EV1-051",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001018724-26-000014"
+  },
+  {
+   "qid": "EV1-052",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001628280-26-028526"
+  },
+  {
+   "qid": "EV1-053",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001045810-26-000052"
+  },
+  {
+   "qid": "EV1-054",
+   "region": "income",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-054",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0000320193-26-000013"
+  },
+  {
+   "qid": "EV1-054",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001018724-26-000014"
+  },
+  {
+   "qid": "EV1-054",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001628280-26-028526"
+  },
+  {
+   "qid": "EV1-054",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001045810-26-000052"
+  },
+  {
+   "qid": "EV1-055",
+   "region": "income",
+   "contains": [
+    "38,398",
+    "82,886"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-055",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0000320193-26-000013"
+  },
+  {
+   "qid": "EV1-055",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001018724-26-000014"
+  },
+  {
+   "qid": "EV1-055",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001628280-26-028526"
+  },
+  {
+   "qid": "EV1-055",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001045810-26-000052"
+  },
+  {
+   "qid": "EV1-056",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001018724-26-000014"
+  },
+  {
+   "qid": "EV1-056",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001628280-26-028526"
+  },
+  {
+   "qid": "EV1-056",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001045810-26-000052"
+  },
+  {
+   "qid": "EV1-057",
+   "region": "income",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-057",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0000320193-26-000013"
+  },
+  {
+   "qid": "EV1-057",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001018724-26-000014"
+  },
+  {
+   "qid": "EV1-057",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001628280-26-028526"
+  },
+  {
+   "qid": "EV1-057",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001045810-26-000052"
+  },
+  {
+   "qid": "EV1-058",
+   "region": "cover",
+   "status": "not_checkable_offline",
+   "accession": "0001045810-26-000052"
+  },
+  {
+   "qid": "EV1-059",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001018724-26-000014"
+  },
+  {
+   "qid": "EV1-060",
+   "region": "income",
+   "status": "not_checkable_offline",
+   "accession": "0001628280-26-028526"
+  },
+  {
+   "qid": "EV1-060",
+   "region": "income",
+   "contains": [
+    "Operating income",
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-061",
+   "region": "quarter_overview",
+   "contains": [
+    "Azure and other cloud services revenue increased 40%"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-066",
+   "region": "opex",
+   "contains": [
+    "headcount declined year-over-year"
+   ],
+   "n_chunks": 2,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-068",
+   "region": "income",
+   "contains": [
+    "Total revenue",
+    "82,886",
+    "70,066"
+   ],
+   "n_chunks": 1,
+   "status": "ok"
+  },
+  {
+   "qid": "EV1-069",
+   "region": "income",
+   "contains": [
+    "Net income",
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-070",
+   "region": "cloud_definition",
+   "contains": [
+    "Microsoft Cloud revenue"
+   ],
+   "n_chunks": 3,
+   "status": "ok"
+  }
+ ],
+ "answer_points": [
+  {
+   "qid": "EV1-044",
+   "point": "40%",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-045",
+   "point": "$54.5 billion",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-045",
+   "point": "29%",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-046",
+   "point": "$627 billion",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-046",
+   "point": "99%",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-047",
+   "point": "approximately 27 percent",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-047",
+   "point": "as-converted basis",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-047",
+   "point": "equity method",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-048",
+   "point": "earnings taxed at lower rates in foreign jurisdictions",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-048",
+   "point": "foreign regional operations center in Ireland",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-049",
+   "point": "higher Copilot advertising expenses",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-049",
+   "point": "$602 million",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-049",
+   "point": "10%",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-061",
+   "point": "40%",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-068",
+   "point": "82,886",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-068",
+   "point": "70,066",
+   "found_in_filing": true
+  },
+  {
+   "qid": "EV1-069",
+   "point": "97,983",
+   "found_in_filing": true
+  }
+ ],
+ "rag_audit": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "eval_value": "USD 82,886 million",
+   "checks": [
+    {
+     "point": "USD 82,886 million",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "eval_value": "USD 31,778 million",
+   "checks": [
+    {
+     "point": "USD 31,778 million",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "eval_value": "USD 127,494 million",
+   "checks": [
+    {
+     "point": "USD 127,494 million",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-013",
+   "eval_value": "18.30%",
+   "checks": [
+    {
+     "point": "18.30%",
+     "in_reference": true
+    },
+    {
+     "point": "12,820",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-014",
+   "eval_value": "USD 1,305 million",
+   "checks": [
+    {
+     "point": "USD 1,305 million",
+     "in_reference": true
+    },
+    {
+     "point": "47,348",
+     "in_reference": true
+    },
+    {
+     "point": "46,043",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-015",
+   "eval_value": "59.90%",
+   "checks": [
+    {
+     "point": "59.90%",
+     "in_reference": true
+    },
+    {
+     "point": "39.66%",
+     "in_reference": true
+    },
+    {
+     "point": "20.24 percentage points",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-016",
+   "eval_value": "USD -16,293 million",
+   "checks": [
+    {
+     "point": "USD -16,293 million",
+     "in_reference": true
+    },
+    {
+     "point": "-17.23%",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "eval_value": "USD 1,863 million",
+   "checks": [
+    {
+     "point": "USD 1,863 million",
+     "in_reference": true
+    },
+    {
+     "point": "30,242",
+     "in_reference": true
+    },
+    {
+     "point": "32,105",
+     "in_reference": true
+    },
+    {
+     "point": "(195)",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "eval_value": "61.86%",
+   "checks": [
+    {
+     "point": "61.86%",
+     "in_reference": true
+    },
+    {
+     "point": "5,069",
+     "in_reference": true
+    },
+    {
+     "point": "7,930",
+     "in_reference": true
+    },
+    {
+     "point": "-179",
+     "in_reference": true
+    },
+    {
+     "point": "12,820",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "eval_value": "17.55%",
+   "checks": [
+    {
+     "point": "17.55%",
+     "in_reference": true
+    },
+    {
+     "point": "158,946",
+     "in_reference": true
+    },
+    {
+     "point": "135,217",
+     "in_reference": true
+    },
+    {
+     "point": "July 1 - December 31",
+     "in_reference": true
+    }
+   ],
+   "agrees": true
+  }
+ ],
+ "identities": [
+  {
+   "identity": "segment revenue sums to total, 3M FY26",
+   "lhs": 82886000000.0,
+   "rhs": 82886000000.0,
+   "holds": true
+  },
+  {
+   "identity": "segment revenue sums to total, 3M FY25",
+   "lhs": 70066000000.0,
+   "rhs": 70066000000.0,
+   "holds": true
+  },
+  {
+   "identity": "segment operating income sums to total, 3M FY26",
+   "lhs": 38398000000.0,
+   "rhs": 38398000000.0,
+   "holds": true
+  },
+  {
+   "identity": "gross margin - opex = operating income, 3M FY26",
+   "lhs": 38398000000.0,
+   "rhs": 38398000000.0,
+   "holds": true
+  },
+  {
+   "identity": "cash roll-forward, 9M FY26",
+   "lhs": 32105000000.0,
+   "rhs": 32105000000.0,
+   "holds": true
+  },
+  {
+   "identity": "derived H1 FY26 revenue (9M - Q3) = separately filed Q2 10-Q YTD fact",
+   "lhs": 158946000000.0,
+   "rhs": 158946000000,
+   "holds": true
+  },
+  {
+   "identity": "SEC API = local XBRL, revenue 3M FY26",
+   "lhs": 82886000000.0,
+   "rhs": 82886000000.0,
+   "holds": true
+  }
+ ],
+ "summary": {
+  "n_questions": 100,
+  "anchors": {
+   "broad": 20,
+   "ok": 84,
+   "no_match": 2,
+   "not_checkable_offline": 25
+  },
+  "anchors_matching_pct": 98.1,
+  "answer_points_found": "17/17",
+  "rag_audit_agree": "10/10",
+  "identities_hold": "7/7"
+ }
+}

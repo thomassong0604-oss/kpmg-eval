@@ -5,6 +5,6 @@ Weekly work for the evaluation and testing workstream.
 | Folder | Contents |
 |---|---|
 | [`Week 4/`](Week%204/) | Metric library, benchmark v0, test harness, results and charts ([README](Week%204/README.md)) |
-| [`Week 5/`](Week%205/) | In progress |
+| [`Week 5/`](Week%205/) | Gold Set v1 (100 questions shared with RAG/GraphRAG), RAG's real retriever scored on the real 10-Q, end-to-end floor, 5 new metrics ([README](Week%205/README.md)) |
 
 Each week's folder is self-contained: `cd` into it and follow its README.

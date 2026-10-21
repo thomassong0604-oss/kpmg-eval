@@ -1,0 +1,257 @@
+{
+ "system": "RAG BM25 top-5 + naive table reader (no LLM)",
+ "n": 25,
+ "summary": {
+  "n": 25,
+  "naa": 0.6,
+  "by_label": {
+   "correct": 15,
+   "false_refusal": 0,
+   "wrong_period": 0,
+   "wrong_dimension": 2,
+   "wrong_concept": 3,
+   "wrong_cell": 5,
+   "wrong_sign": 0,
+   "wrong_scale": 0,
+   "too_imprecise": 0,
+   "wrong_value": 0,
+   "no_value": 0
+  },
+  "naa_ci95": [
+   0.407,
+   0.766
+  ],
+  "errors": {
+   "wrong_dimension": 2,
+   "wrong_concept": 3,
+   "wrong_cell": 5
+  }
+ },
+ "detail": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "question": "What was Microsoft\u2019s total revenue for the three months ended March 31, 2026? State the amount in USD millions.",
+   "row_label_read": "Total",
+   "value_read": 82886.0,
+   "gold": "USD 82,886 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "question": "What was Microsoft\u2019s GAAP net income for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Net income",
+   "value_read": 31778.0,
+   "gold": "USD 31,778 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "question": "What was Microsoft\u2019s net cash from operations for the nine months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Net cash from operations",
+   "value_read": 127494.0,
+   "gold": "USD 127,494 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-001",
+   "question": "What was Microsoft's operating income for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Operating income",
+   "value_read": 20973.0,
+   "gold": "USD 38,398 million",
+   "label": "wrong_dimension",
+   "detail": "OperatingIncomeLoss ['2026-01-01', '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']"
+  },
+  {
+   "qid": "EV1-002",
+   "question": "What was Microsoft's operating income for the nine months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Operating income",
+   "value_read": 61979.0,
+   "gold": "USD 114,634 million",
+   "label": "wrong_dimension",
+   "detail": "OperatingIncomeLoss ['2025-07-01', '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']"
+  },
+  {
+   "qid": "EV1-003",
+   "question": "What was Microsoft's GAAP net income for the nine months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Net income",
+   "value_read": 97983.0,
+   "gold": "USD 97,983 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-004",
+   "question": "What were Microsoft's diluted earnings per share for the three months ended March 31, 2026?",
+   "row_label_read": "Diluted earnings per share",
+   "value_read": 4.27,
+   "gold": "USD 4.27 per share",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-005",
+   "question": "What was Microsoft's gross margin in dollars for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Gross margin",
+   "value_read": 56058.0,
+   "gold": "USD 56,058 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-006",
+   "question": "How much did Microsoft spend on research and development in the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Research and development",
+   "value_read": 8915.0,
+   "gold": "USD 8,915 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-007",
+   "question": "How much cash did Microsoft spend on additions to property and equipment in the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Additions to property and equipment",
+   "value_read": -30876.0,
+   "gold": "USD 30,876 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-008",
+   "question": "What were Microsoft's total assets as of March 31, 2026, in USD millions?",
+   "row_label_read": "Total assets",
+   "value_read": 694228.0,
+   "gold": "USD 694,228 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-009",
+   "question": "What was Microsoft's balance of cash and cash equivalents (excluding short-term investments) as of March 31, 2026, in USD millions?",
+   "row_label_read": "Short-term investments",
+   "value_read": 46167.0,
+   "gold": "USD 32,105 million",
+   "label": "wrong_concept",
+   "detail": "ShortTermInvestments [None, '2026-03-31'] []"
+  },
+  {
+   "qid": "EV1-010",
+   "question": "What was Microsoft's total stockholders' equity as of March 31, 2026, in USD millions?",
+   "row_label_read": "Total stockholders\u2019 equity",
+   "value_read": 414367.0,
+   "gold": "USD 414,367 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-011",
+   "question": "What was Microsoft's long-term debt (the non-current portion shown on the balance sheet) as of March 31, 2026, in USD millions?",
+   "row_label_read": "Current portion of long-term debt",
+   "value_read": 8839.0,
+   "gold": "USD 31,423 million",
+   "label": "wrong_concept",
+   "detail": "current portion"
+  },
+  {
+   "qid": "EV1-012",
+   "question": "What was Microsoft's current unearned revenue as of March 31, 2026, in USD millions?",
+   "row_label_read": "Recognition of unearned revenue",
+   "value_read": -157030.0,
+   "gold": "USD 50,924 million",
+   "label": "wrong_cell",
+   "detail": "ContractWithCustomerLiabilityRevenueRecognizedIncludingAdditions ['2025-07-01', '2026-03-31'] []"
+  },
+  {
+   "qid": "EV1-013",
+   "question": "What was Microsoft's net cash flow from investing activities for the nine months ended March 31, 2026? Give the amount with its sign in USD millions.",
+   "row_label_read": "Net cash used in investing",
+   "value_read": -84669.0,
+   "gold": "USD -84,669 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-014",
+   "question": "How much cash did Microsoft spend repurchasing common stock in the nine months ended March 31, 2026, according to the cash flow statement?",
+   "row_label_read": "Common stock cash dividends",
+   "value_read": -20277.0,
+   "gold": "USD 17,692 million",
+   "label": "wrong_cell",
+   "detail": "DividendsCommonStockCash ['2025-07-01', '2026-03-31'] ['us-gaap:RetainedEarningsMember']"
+  },
+  {
+   "qid": "EV1-015",
+   "question": "What dividend per share did Microsoft declare for the three months ended March 31, 2026?",
+   "row_label_read": "Diluted earnings per share",
+   "value_read": 4.27,
+   "gold": "USD 0.91 per share",
+   "label": "wrong_concept",
+   "detail": "EarningsPerShareDiluted ['2026-01-01', '2026-03-31'] []"
+  },
+  {
+   "qid": "EV1-017",
+   "question": "What was Intelligent Cloud segment revenue for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Intelligent Cloud",
+   "value_read": 10892.0,
+   "gold": "USD 34,681 million",
+   "label": "wrong_cell",
+   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:IntelligentCloudMember']"
+  },
+  {
+   "qid": "EV1-018",
+   "question": "What was operating income of the Productivity and Business Processes segment for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Productivity and Business Processes",
+   "value_read": 39904.0,
+   "gold": "USD 20,973 million",
+   "label": "wrong_cell",
+   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:ProductivityAndBusinessProcessesMember']"
+  },
+  {
+   "qid": "EV1-019",
+   "question": "What was More Personal Computing segment revenue for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "More Personal Computing",
+   "value_read": 2881.0,
+   "gold": "USD 13,192 million",
+   "label": "wrong_cell",
+   "detail": "ContractWithCustomerLiability [None, '2026-03-31'] ['msft:MorePersonalComputingMember']"
+  },
+  {
+   "qid": "EV1-020",
+   "question": "How much revenue did Microsoft's Gaming products and services generate in the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Gaming",
+   "value_read": 5341.0,
+   "gold": "USD 5,341 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-021",
+   "question": "What was LinkedIn revenue for the nine months ended March 31, 2026, in USD millions?",
+   "row_label_read": "LinkedIn",
+   "value_read": 14628.0,
+   "gold": "USD 14,628 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-022",
+   "question": "What was revenue from Server products and cloud services for the three months ended March 31, 2026, in USD millions?",
+   "row_label_read": "Server products and cloud services",
+   "value_read": 32592.0,
+   "gold": "USD 32,592 million",
+   "label": "correct",
+   "detail": ""
+  },
+  {
+   "qid": "EV1-023",
+   "question": "How much of Microsoft's revenue for the three months ended March 31, 2026 came from the United States, in USD millions?",
+   "row_label_read": "United States (a)",
+   "value_read": 42336.0,
+   "gold": "USD 42,336 million",
+   "label": "correct",
+   "detail": ""
+  }
+ ]
+}

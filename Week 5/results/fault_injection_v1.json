@@ -1,0 +1,37 @@
+{
+ "n_cases": 389,
+ "n_questions": 62,
+ "label_accuracy": 1.0,
+ "ci95": [
+  0.9902,
+  1.0
+ ],
+ "by_injected_label": {
+  "correct": {
+   "correct": 62
+  },
+  "wrong_scale": {
+   "wrong_scale": 61
+  },
+  "wrong_sign": {
+   "wrong_sign": 61
+  },
+  "wrong_dimension": {
+   "wrong_dimension": 135
+  },
+  "wrong_period": {
+   "wrong_period": 56
+  },
+  "wrong_concept": {
+   "wrong_concept": 14
+  }
+ },
+ "per_label_accuracy": {
+  "correct": 1.0,
+  "wrong_scale": 1.0,
+  "wrong_sign": 1.0,
+  "wrong_dimension": 1.0,
+  "wrong_period": 1.0,
+  "wrong_concept": 1.0
+ }
+}

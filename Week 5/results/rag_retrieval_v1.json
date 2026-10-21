@@ -1,0 +1,1096 @@
+{
+ "index": {
+  "index_version": "ffaa8efb4d5d",
+  "embedder": "lsa",
+  "n_chunks": 158
+ },
+ "rag_commit": "1996e72",
+ "n_answerable_scored": 76,
+ "n_unanswerable": 6,
+ "pending_corpus_qids": [
+  "EV1-037",
+  "EV1-038",
+  "EV1-039",
+  "EV1-050",
+  "EV1-051",
+  "EV1-052",
+  "EV1-053",
+  "EV1-054",
+  "EV1-055",
+  "EV1-056",
+  "EV1-057",
+  "EV1-058",
+  "EV1-059",
+  "EV1-060"
+ ],
+ "summary": {
+  "bm25": {
+   "n": 76,
+   "evidence_recall@1": 0.4748,
+   "evidence_recall@5": 0.8103,
+   "evidence_recall@10": 0.8936,
+   "hit@5": 0.8684,
+   "hit@10": 0.9474,
+   "mrr": 0.6605,
+   "ndcg@10": 0.8857,
+   "answer_in_context@5": 0.88,
+   "answer_in_context@10": 0.94,
+   "latency_ms": 0.5879,
+   "evidence_recall@10_ci95": [
+    0.831,
+    0.948
+   ],
+   "by_type": {
+    "calculation": {
+     "n": 15,
+     "evidence_recall@10": 0.8667,
+     "mrr": 0.5494
+    },
+    "comparison": {
+     "n": 2,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.75
+    },
+    "definition": {
+     "n": 9,
+     "evidence_recall@10": 0.8889,
+     "mrr": 0.6481
+    },
+    "derived": {
+     "n": 1,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.125
+    },
+    "extraction": {
+     "n": 19,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.7035
+    },
+    "narrative": {
+     "n": 17,
+     "evidence_recall@10": 0.75,
+     "mrr": 0.5765
+    },
+    "reconciliation": {
+     "n": 6,
+     "evidence_recall@10": 0.8611,
+     "mrr": 0.8056
+    },
+    "segment": {
+     "n": 7,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.9286
+    }
+   },
+   "by_route": {
+    "text": {
+     "n": 26,
+     "evidence_recall@10": 0.7981,
+     "mrr": 0.6013
+    },
+    "xbrl": {
+     "n": 46,
+     "evidence_recall@10": 0.9493,
+     "mrr": 0.6964
+    },
+    "xbrl+text": {
+     "n": 4,
+     "evidence_recall@10": 0.875,
+     "mrr": 0.6333
+    }
+   },
+   "by_source": {
+    "eval_v1": {
+     "n": 46,
+     "evidence_recall@10": 0.913,
+     "mrr": 0.6835
+    },
+    "rag_gold_v0": {
+     "n": 30,
+     "evidence_recall@10": 0.8639,
+     "mrr": 0.6253
+    }
+   },
+   "by_tier": {
+    "basic": {
+     "n": 41,
+     "evidence_recall@10": 0.9268,
+     "mrr": 0.7081
+    },
+    "comparative": {
+     "n": 22,
+     "evidence_recall@10": 0.9091,
+     "mrr": 0.517
+    },
+    "deep": {
+     "n": 13,
+     "evidence_recall@10": 0.7628,
+     "mrr": 0.7532
+    }
+   },
+   "quarter_vs_ytd_items": {
+    "n": 31,
+    "evidence_recall@10": 0.9516
+   },
+   "evidence_position": {
+    "n": 76,
+    "found@10": 72,
+    "median_rank": 1.0,
+    "share_rank1": 0.5131578947368421,
+    "share_rank_gt3": 0.15789473684210525
+   },
+   "abstention": {
+    "n_answerable": 76,
+    "n_unanswerable_with_results": 6,
+    "n_unanswerable_empty": 0,
+    "auroc_top1_score": 0.862,
+    "threshold": 14.12309,
+    "balanced_accuracy": 0.8311403508771931,
+    "answerable_kept": 0.8289473684210527,
+    "unanswerable_blocked": 0.8333333333333334
+   }
+  },
+  "dense": {
+   "n": 76,
+   "evidence_recall@1": 0.148,
+   "evidence_recall@5": 0.4682,
+   "evidence_recall@10": 0.6283,
+   "hit@5": 0.5132,
+   "hit@10": 0.6711,
+   "mrr": 0.296,
+   "ndcg@10": 0.7837,
+   "answer_in_context@5": 0.38,
+   "answer_in_context@10": 0.54,
+   "latency_ms": 2.0654,
+   "evidence_recall@10_ci95": [
+    0.523,
+    0.734
+   ],
+   "by_type": {
+    "calculation": {
+     "n": 15,
+     "evidence_recall@10": 0.5,
+     "mrr": 0.0985
+    },
+    "comparison": {
+     "n": 2,
+     "evidence_recall@10": 0.0,
+     "mrr": 0.0
+    },
+    "definition": {
+     "n": 9,
+     "evidence_recall@10": 0.8889,
+     "mrr": 0.4583
+    },
+    "derived": {
+     "n": 1,
+     "evidence_recall@10": 0.0,
+     "mrr": 0.0
+    },
+    "extraction": {
+     "n": 19,
+     "evidence_recall@10": 0.5263,
+     "mrr": 0.3754
+    },
+    "narrative": {
+     "n": 17,
+     "evidence_recall@10": 0.75,
+     "mrr": 0.3865
+    },
+    "reconciliation": {
+     "n": 6,
+     "evidence_recall@10": 0.5833,
+     "mrr": 0.2738
+    },
+    "segment": {
+     "n": 7,
+     "evidence_recall@10": 0.8571,
+     "mrr": 0.2206
+    }
+   },
+   "by_route": {
+    "text": {
+     "n": 26,
+     "evidence_recall@10": 0.7981,
+     "mrr": 0.4114
+    },
+    "xbrl": {
+     "n": 46,
+     "evidence_recall@10": 0.5435,
+     "mrr": 0.213
+    },
+    "xbrl+text": {
+     "n": 4,
+     "evidence_recall@10": 0.5,
+     "mrr": 0.5
+    }
+   },
+   "by_source": {
+    "eval_v1": {
+     "n": 46,
+     "evidence_recall@10": 0.5978,
+     "mrr": 0.2728
+    },
+    "rag_gold_v0": {
+     "n": 30,
+     "evidence_recall@10": 0.675,
+     "mrr": 0.3315
+    }
+   },
+   "by_tier": {
+    "basic": {
+     "n": 41,
+     "evidence_recall@10": 0.6829,
+     "mrr": 0.372
+    },
+    "comparative": {
+     "n": 22,
+     "evidence_recall@10": 0.5909,
+     "mrr": 0.1495
+    },
+    "deep": {
+     "n": 13,
+     "evidence_recall@10": 0.5192,
+     "mrr": 0.304
+    }
+   },
+   "quarter_vs_ytd_items": {
+    "n": 31,
+    "evidence_recall@10": 0.5645
+   },
+   "evidence_position": {
+    "n": 76,
+    "found@10": 51,
+    "median_rank": 3,
+    "share_rank1": 0.15789473684210525,
+    "share_rank_gt3": 0.3026315789473684
+   },
+   "abstention": {
+    "n_answerable": 76,
+    "n_unanswerable_with_results": 6,
+    "n_unanswerable_empty": 0,
+    "auroc_top1_score": 0.522,
+    "threshold": 0.619318,
+    "balanced_accuracy": 0.6052631578947368,
+    "answerable_kept": 0.21052631578947367,
+    "unanswerable_blocked": 1.0
+   }
+  },
+  "hybrid": {
+   "n": 76,
+   "evidence_recall@1": 0.2961,
+   "evidence_recall@5": 0.6107,
+   "evidence_recall@10": 0.8366,
+   "hit@5": 0.6579,
+   "hit@10": 0.8947,
+   "mrr": 0.4869,
+   "ndcg@10": 0.8398,
+   "answer_in_context@5": 0.58,
+   "answer_in_context@10": 0.82,
+   "latency_ms": 2.2284,
+   "evidence_recall@10_ci95": [
+    0.759,
+    0.909
+   ],
+   "by_type": {
+    "calculation": {
+     "n": 15,
+     "evidence_recall@10": 0.8,
+     "mrr": 0.3087
+    },
+    "comparison": {
+     "n": 2,
+     "evidence_recall@10": 0.5,
+     "mrr": 0.0714
+    },
+    "definition": {
+     "n": 9,
+     "evidence_recall@10": 0.8889,
+     "mrr": 0.6362
+    },
+    "derived": {
+     "n": 1,
+     "evidence_recall@10": 0.0,
+     "mrr": 0.0
+    },
+    "extraction": {
+     "n": 19,
+     "evidence_recall@10": 0.9474,
+     "mrr": 0.5147
+    },
+    "narrative": {
+     "n": 17,
+     "evidence_recall@10": 0.75,
+     "mrr": 0.5133
+    },
+    "reconciliation": {
+     "n": 6,
+     "evidence_recall@10": 0.8056,
+     "mrr": 0.6389
+    },
+    "segment": {
+     "n": 7,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.5952
+    }
+   },
+   "by_route": {
+    "text": {
+     "n": 26,
+     "evidence_recall@10": 0.7981,
+     "mrr": 0.5559
+    },
+    "xbrl": {
+     "n": 46,
+     "evidence_recall@10": 0.8551,
+     "mrr": 0.4419
+    },
+    "xbrl+text": {
+     "n": 4,
+     "evidence_recall@10": 0.875,
+     "mrr": 0.5563
+    }
+   },
+   "by_source": {
+    "eval_v1": {
+     "n": 46,
+     "evidence_recall@10": 0.8478,
+     "mrr": 0.4693
+    },
+    "rag_gold_v0": {
+     "n": 30,
+     "evidence_recall@10": 0.8194,
+     "mrr": 0.5138
+    }
+   },
+   "by_tier": {
+    "basic": {
+     "n": 41,
+     "evidence_recall@10": 0.9024,
+     "mrr": 0.5611
+    },
+    "comparative": {
+     "n": 22,
+     "evidence_recall@10": 0.8182,
+     "mrr": 0.2984
+    },
+    "deep": {
+     "n": 13,
+     "evidence_recall@10": 0.6603,
+     "mrr": 0.5718
+    }
+   },
+   "quarter_vs_ytd_items": {
+    "n": 31,
+    "evidence_recall@10": 0.8871
+   },
+   "evidence_position": {
+    "n": 76,
+    "found@10": 68,
+    "median_rank": 2.0,
+    "share_rank1": 0.3157894736842105,
+    "share_rank_gt3": 0.3157894736842105
+   },
+   "abstention": {
+    "n_answerable": 76,
+    "n_unanswerable_with_results": 6,
+    "n_unanswerable_empty": 0,
+    "auroc_top1_score": 0.492,
+    "threshold": 0.031545,
+    "balanced_accuracy": 0.6140350877192983,
+    "answerable_kept": 0.8947368421052632,
+    "unanswerable_blocked": 0.3333333333333333
+   }
+  },
+  "paired_bm25_minus_hybridLSA_recall@10": {
+   "mean_diff": 0.05701842105263158,
+   "ci95": [
+    0.013157894736842105,
+    0.10964999999999998
+   ],
+   "p_a_better": 0.9952
+  },
+  "vs_rag_experiment1": {
+   "note": "Exp 1: RDS chunks, 5 companies (1,780 chunks), bge-small dense. Eval offline: RAG chunker on the Data team's HTML, 1 filing (158 chunks), LSA dense. BM25 rows are the like-for-like comparison.",
+   "by_method": {
+    "bm25": {
+     "eval_offline": {
+      "n": 30,
+      "evidence_recall@10": 0.8639,
+      "mrr": 0.6253,
+      "evidence_recall@5": 0.7194
+     },
+     "rag_exp1_reported": {
+      "n": 30,
+      "evidence_recall@10": 0.6111,
+      "mrr": 0.4187,
+      "evidence_recall@5": 0.5
+     }
+    },
+    "dense": {
+     "eval_offline": {
+      "n": 30,
+      "evidence_recall@10": 0.675,
+      "mrr": 0.3315,
+      "evidence_recall@5": 0.5361
+     },
+     "rag_exp1_reported": {
+      "n": 30,
+      "evidence_recall@10": 0.5889,
+      "mrr": 0.3618,
+      "evidence_recall@5": 0.4806
+     }
+    },
+    "hybrid": {
+     "eval_offline": {
+      "n": 30,
+      "evidence_recall@10": 0.8194,
+      "mrr": 0.5138,
+      "evidence_recall@5": 0.5972
+     },
+     "rag_exp1_reported": {
+      "n": 30,
+      "evidence_recall@10": 0.6889,
+      "mrr": 0.4175,
+      "evidence_recall@5": 0.5556
+     }
+    }
+   }
+  },
+  "robustness_bm25": {
+   "n": 25,
+   "summary": {
+    "filing_wording": {
+     "evidence_recall@5": 0.96,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.7547,
+     "jaccard@10_vs_original": 1.0
+    },
+    "no_period": {
+     "evidence_recall@5": 0.92,
+     "evidence_recall@10": 1.0,
+     "mrr": 0.744,
+     "jaccard@10_vs_original": 0.4518
+    },
+    "analyst": {
+     "evidence_recall@5": 0.4,
+     "evidence_recall@10": 0.52,
+     "mrr": 0.2432,
+     "jaccard@10_vs_original": 0.1924
+    }
+   }
+  },
+  "corpus_findings": {
+   "n_chunks": 158,
+   "n_table_chunks": 60,
+   "share_section_unlabeled": 0.886,
+   "negative_number_rendering": "'( 84,669)' (space after parenthesis) \u2014 anchors written as '(84,669)' never match",
+   "rag_gold_v0_anchor_misses": [
+    "GSv0-MSFT-023 balance: 'authorized 24,000; outstanding 7,429' (chunker emits '24,000 ; outstanding')",
+    "GSv0-MSFT-030 balance: same anchor"
+   ]
+  }
+ },
+ "robustness_detail": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "filing_wording": {
+    "query": "What was Microsoft\u2019s total revenue for the three months ended March 31, 2026? State the amount in USD millions.",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft\u2019s total revenue? State the amount in USD millions.",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.125,
+    "jaccard@10_vs_original": 0.111
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 revenue",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.053
+   }
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "filing_wording": {
+    "query": "What was Microsoft\u2019s GAAP net income for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft\u2019s GAAP net income, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.429
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 GAAP earnings",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.176
+   }
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "filing_wording": {
+    "query": "What was Microsoft\u2019s net cash from operations for the nine months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft\u2019s net cash from operations, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.333
+   },
+   "analyst": {
+    "query": "MSFT YTD FY26 operating cash flow",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.14285714285714285,
+    "jaccard@10_vs_original": 0.429
+   }
+  },
+  {
+   "qid": "EV1-001",
+   "filing_wording": {
+    "query": "What was Microsoft's operating income for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's operating income, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.429
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 EBIT",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.0
+   }
+  },
+  {
+   "qid": "EV1-002",
+   "filing_wording": {
+    "query": "What was Microsoft's operating income for the nine months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's operating income, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.429
+   },
+   "analyst": {
+    "query": "MSFT FY26 YTD EBIT",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.0
+   }
+  },
+  {
+   "qid": "EV1-003",
+   "filing_wording": {
+    "query": "What was Microsoft's GAAP net income for the nine months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's GAAP net income, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.429
+   },
+   "analyst": {
+    "query": "MSFT FY26 YTD earnings",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.176
+   }
+  },
+  {
+   "qid": "EV1-004",
+   "filing_wording": {
+    "query": "What were Microsoft's diluted earnings per share for the three months ended March 31, 2026?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What were Microsoft's diluted earnings per share?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.538
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 EPS",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.2,
+    "jaccard@10_vs_original": 0.176
+   }
+  },
+  {
+   "qid": "EV1-005",
+   "filing_wording": {
+    "query": "What was Microsoft's gross margin in dollars for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's gross margin in dollars, in USD millions?",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.14285714285714285,
+    "jaccard@10_vs_original": 0.25
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 gross profit",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.111
+   }
+  },
+  {
+   "qid": "EV1-006",
+   "filing_wording": {
+    "query": "How much did Microsoft spend on research and development in the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "How much did Microsoft spend on research and development, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.176
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 R&D spend",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.0
+   }
+  },
+  {
+   "qid": "EV1-007",
+   "filing_wording": {
+    "query": "How much cash did Microsoft spend on additions to property and equipment in the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "How much cash did Microsoft spend on additions to property and equipment, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.538
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 capex",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.0
+   }
+  },
+  {
+   "qid": "EV1-008",
+   "filing_wording": {
+    "query": "What were Microsoft's total assets as of March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.25,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What were Microsoft's total assets, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.667
+   },
+   "analyst": {
+    "query": "MSFT balance sheet size March 2026",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.111
+   }
+  },
+  {
+   "qid": "EV1-009",
+   "filing_wording": {
+    "query": "What was Microsoft's balance of cash and cash equivalents (excluding short-term investments) as of March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's balance of cash and cash equivalents (excluding short-term investments), in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "analyst": {
+    "query": "MSFT cash on hand March 2026",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.25
+   }
+  },
+  {
+   "qid": "EV1-010",
+   "filing_wording": {
+    "query": "What was Microsoft's total stockholders' equity as of March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's total stockholders' equity, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.538
+   },
+   "analyst": {
+    "query": "MSFT book value March 2026",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.053
+   }
+  },
+  {
+   "qid": "EV1-011",
+   "filing_wording": {
+    "query": "What was Microsoft's long-term debt (the non-current portion shown on the balance sheet) as of March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's long-term debt (the non-current portion shown on the balance sheet), in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.818
+   },
+   "analyst": {
+    "query": "MSFT long-term borrowings March 2026",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.538
+   }
+  },
+  {
+   "qid": "EV1-012",
+   "filing_wording": {
+    "query": "What was Microsoft's current unearned revenue as of March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's current unearned revenue, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.667
+   },
+   "analyst": {
+    "query": "MSFT deferred revenue March 2026",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.333
+   }
+  },
+  {
+   "qid": "EV1-013",
+   "filing_wording": {
+    "query": "What was Microsoft's net cash flow from investing activities for the nine months ended March 31, 2026? Give the amount with its sign in USD millions.",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.2,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Microsoft's net cash flow from investing activities? Give the amount with its sign in USD millions.",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.333
+   },
+   "analyst": {
+    "query": "MSFT FY26 YTD investing cash flow",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.429
+   }
+  },
+  {
+   "qid": "EV1-014",
+   "filing_wording": {
+    "query": "How much cash did Microsoft spend repurchasing common stock in the nine months ended March 31, 2026, according to the cash flow statement?",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.16666666666666666,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "How much cash did Microsoft spend repurchasing common stock, according to the cash flow statement?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.538
+   },
+   "analyst": {
+    "query": "MSFT FY26 YTD buybacks",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.0
+   }
+  },
+  {
+   "qid": "EV1-015",
+   "filing_wording": {
+    "query": "What dividend per share did Microsoft declare for the three months ended March 31, 2026?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.25,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What dividend per share did Microsoft declare?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.538
+   },
+   "analyst": {
+    "query": "MSFT Q3 FY26 dividend per share",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.538
+   }
+  },
+  {
+   "qid": "EV1-017",
+   "filing_wording": {
+    "query": "What was Intelligent Cloud segment revenue for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was Intelligent Cloud segment revenue, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.333
+   },
+   "analyst": {
+    "query": "MSFT Intelligent Cloud sales Q3 FY26",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.176
+   }
+  },
+  {
+   "qid": "EV1-018",
+   "filing_wording": {
+    "query": "What was operating income of the Productivity and Business Processes segment for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was operating income of the Productivity and Business Processes segment, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.429
+   },
+   "analyst": {
+    "query": "MSFT PBP segment profit Q3 FY26",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.125,
+    "jaccard@10_vs_original": 0.25
+   }
+  },
+  {
+   "qid": "EV1-019",
+   "filing_wording": {
+    "query": "What was More Personal Computing segment revenue for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was More Personal Computing segment revenue, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.667
+   },
+   "analyst": {
+    "query": "MSFT MPC sales Q3 FY26",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.111
+   }
+  },
+  {
+   "qid": "EV1-020",
+   "filing_wording": {
+    "query": "How much revenue did Microsoft's Gaming products and services generate in the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "How much revenue did Microsoft's Gaming products and services generate, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.25
+   },
+   "analyst": {
+    "query": "Xbox and gaming sales Q3 FY26",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.25
+   }
+  },
+  {
+   "qid": "EV1-021",
+   "filing_wording": {
+    "query": "What was LinkedIn revenue for the nine months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was LinkedIn revenue, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.176
+   },
+   "analyst": {
+    "query": "LinkedIn sales FY26 YTD",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.1111111111111111,
+    "jaccard@10_vs_original": 0.111
+   }
+  },
+  {
+   "qid": "EV1-022",
+   "filing_wording": {
+    "query": "What was revenue from Server products and cloud services for the three months ended March 31, 2026, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "What was revenue from Server products and cloud services, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 0.429
+   },
+   "analyst": {
+    "query": "MSFT server and cloud sales Q3 FY26",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.3333333333333333,
+    "jaccard@10_vs_original": 0.429
+   }
+  },
+  {
+   "qid": "EV1-023",
+   "filing_wording": {
+    "query": "How much of Microsoft's revenue for the three months ended March 31, 2026 came from the United States, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 1.0,
+    "jaccard@10_vs_original": 1.0
+   },
+   "no_period": {
+    "query": "How much of Microsoft's revenue came from the United States, in USD millions?",
+    "evidence_recall@5": 1.0,
+    "evidence_recall@10": 1.0,
+    "mrr": 0.5,
+    "jaccard@10_vs_original": 0.25
+   },
+   "analyst": {
+    "query": "MSFT US sales Q3 FY26",
+    "evidence_recall@5": 0.0,
+    "evidence_recall@10": 0.0,
+    "mrr": 0.0,
+    "jaccard@10_vs_original": 0.111
+   }
+  }
+ ]
+}

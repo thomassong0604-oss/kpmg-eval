@@ -1,0 +1,2 @@
+mock_retrieval_tool.py is copied unchanged from github.com/Rachel-xs/KPMG_RAG PR #3 (kpmg-rag-retrieval/mock/).
+MIT License, Copyright (c) 2026 QMSS Practicum x KPMG - Retrieval & RAG Workstream.

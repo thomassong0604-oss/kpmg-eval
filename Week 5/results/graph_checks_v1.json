@@ -1,0 +1,98 @@
+{
+ "note": "Fault injection on the gold graph; not GraphRAG output.",
+ "n_nodes": 93,
+ "n_fact_nodes": 75,
+ "n_edges": 104,
+ "node_labels": {
+  "Company": 5,
+  "Filing": 6,
+  "Fact": 75,
+  "Segment": 3,
+  "ProductOrService": 3,
+  "Geography": 1
+ },
+ "questions_with_graph_paths": 64,
+ "multi_fact_questions": 31,
+ "patterns": {
+  "single_fact": 31,
+  "multi_fact_same_filing": 23,
+  "text_plus_fact": 2,
+  "cross_filing": 3,
+  "cross_company": 5
+ },
+ "facts_per_question": {
+  "1": 33,
+  "2": 15,
+  "3": 1,
+  "4": 8,
+  "5": 2,
+  "6+": 5
+ },
+ "gold_path_coverage": 1.0,
+ "text_only_questions": 29,
+ "scenarios": {
+  "perfect": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "tp": 75,
+   "n_pred": 75,
+   "n_gold": 75,
+   "key_recall": 1.0,
+   "value_accuracy": 1.0,
+   "n_pred_collisions": 0
+  },
+  "A_missed_ytd_facts": {
+   "precision": 1.0,
+   "recall": 0.747,
+   "f1": 0.855,
+   "tp": 56,
+   "n_pred": 56,
+   "n_gold": 75,
+   "key_recall": 0.747,
+   "value_accuracy": 1.0,
+   "n_pred_collisions": 0
+  },
+  "B_period_mislabel": {
+   "precision": 0.88,
+   "recall": 0.88,
+   "f1": 0.88,
+   "tp": 66,
+   "n_pred": 75,
+   "n_gold": 75,
+   "key_recall": 1.0,
+   "value_accuracy": 0.88,
+   "n_pred_collisions": 0
+  },
+  "C_scale_error_10Q": {
+   "precision": 0.08,
+   "recall": 0.08,
+   "f1": 0.08,
+   "tp": 6,
+   "n_pred": 75,
+   "n_gold": 75,
+   "key_recall": 1.0,
+   "value_accuracy": 0.08,
+   "n_pred_collisions": 0
+  },
+  "D_dimension_dropped": {
+   "precision": 0.947,
+   "recall": 0.72,
+   "f1": 0.818,
+   "tp": 54,
+   "n_pred": 57,
+   "n_gold": 75,
+   "key_recall": 0.733,
+   "value_accuracy": 0.982,
+   "n_pred_collisions": 18
+  },
+  "edges_missing_FOR_MEMBER": {
+   "precision": 1.0,
+   "recall": 0.808,
+   "f1": 0.894,
+   "tp": 84,
+   "n_pred": 84,
+   "n_gold": 104
+  }
+ }
+}
