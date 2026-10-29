@@ -107,7 +107,13 @@ def grade(bench: dict, suite: dict, answers: list[dict], rlog: dict, fact_index:
     for qid, a in A.items():
         q = bench.get(qid)
         chunks = [r for call in rlog.get(qid, []) for r in call["results"]]
-        seen = {provenance_key(c): c["text"] for c in chunks if provenance_key(c)}  # Week 6: provenance key, not chunk_id
+        # Week 6: provenance key, not chunk_id. Keys can repeat (GraphRAG's mock returns two rows with one section_id),
+        # so texts under one key are joined rather than overwritten.
+        seen: dict[str, str] = {}
+        for c in chunks:
+            k = provenance_key(c)
+            if k:
+                seen[k] = (seen[k] + "\n" + c["text"]) if k in seen and c["text"] not in seen[k] else seen.get(k, c["text"])
         refused = a.get("answered") is False
         if q is None:  # abstention-suite item
             s = suite[qid]

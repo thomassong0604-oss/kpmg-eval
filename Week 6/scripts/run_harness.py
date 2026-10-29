@@ -34,10 +34,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--system", choices=["oracle", "refuse_all", "baseline", "all"], default="all")
     ap.add_argument("--answers", help="grade a jsonl of AnswerBlocks (with qid) instead of running a system")
+    ap.add_argument("--benchmark", choices=["v1", "scope10"], default="v1",
+                    help="v1: Gold Set v1 (100, frozen); scope10: Week 6 round-1 set (v1 in scope + EV2 10-company questions)")
     ap.add_argument("--with-relationship-draft", action="store_true",
                     help="Week 6: also run the draft relationship tranche (data/benchmark_v1_relationship_draft.jsonl)")
     a = ap.parse_args()
-    bench_path = DATA / "benchmark_v1.jsonl"
+    bench_path = DATA / ("benchmark_v1.jsonl" if a.benchmark == "v1" else "benchmark_scope10.jsonl")
     bench = {q["qid"]: q for q in map(json.loads, open(bench_path))}
     if a.with_relationship_draft:
         bench.update({q["qid"]: q for q in map(json.loads, open(DATA / "benchmark_v1_relationship_draft.jsonl"))})
@@ -56,17 +58,18 @@ def main():
     else:
         for name in (systems if a.system == "all" else [a.system]):
             answers, rlog = run(systems[name], items, retr)
-            (RES / f"answers_{name}.jsonl").write_text("".join(json.dumps(x) + "\n" for x in answers))
+            tag = "" if a.benchmark == "v1" else "_scope10"
+            (RES / f"answers_{name}{tag}.jsonl").write_text("".join(json.dumps(x) + "\n" for x in answers))
             card = grade(bench, suite, answers, rlog, fi, versions(ROOT, bench_path, retr, rlog), systems[name].name)
             card["n_pending_questions"] = pending
             cards.append(card)
-            (RES / f"scorecard_{name}.json").write_text(json.dumps(card, indent=1))
+            (RES / f"scorecard_{name}{tag}.json").write_text(json.dumps(card, indent=1))
             hl = card["headline"]
             print(f"[harness] {card['system']:16s} numeric={hl['numeric_accuracy']['value']} (n={hl['numeric_accuracy']['n']}) "
                   f"recall@10={hl['evidence_recall@10']['value']} refusal_bal={hl['refusal_balanced']['value']} "
                   f"(refuse un={hl['refusal_balanced']['appropriate_refusal_rate']}, ans={hl['refusal_balanced']['unnecessary_refusal_rate']}) "
                   f"citation={hl['citation_support']['value']} | {json.dumps(card['diagnostics'])}")
-    (RES / "scorecard.md").write_text(scorecard_markdown(cards, pending))
+    (RES / ("scorecard.md" if a.benchmark == "v1" else "scorecard_scope10.md")).write_text(scorecard_markdown(cards, pending))
     print(f"[harness] items {len(items)}, pending {pending}; versions {json.dumps(ver)}")
 
 

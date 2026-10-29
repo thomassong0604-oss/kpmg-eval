@@ -1,0 +1,519 @@
+{
+ "read1_rows": 134,
+ "read2_rows": 55,
+ "agree": [
+  [
+   "CASY",
+   "NetIncomeLoss",
+   "2025-05-01",
+   "2026-04-30"
+  ],
+  [
+   "CASY",
+   "NetIncomeLoss",
+   "2026-05-01",
+   "2026-07-31"
+  ],
+  [
+   "CASY",
+   "NetIncomeLoss",
+   "2024-05-01",
+   "2025-04-30"
+  ],
+  [
+   "CASY",
+   "Revenues",
+   "2025-05-01",
+   "2026-04-30"
+  ],
+  [
+   "CASY",
+   "Revenues",
+   "2024-05-01",
+   "2025-04-30"
+  ],
+  [
+   "CASY",
+   "Revenues",
+   "2026-05-01",
+   "2026-07-31"
+  ],
+  [
+   "MCK",
+   "NetIncomeLoss",
+   "2025-04-01",
+   "2026-03-31"
+  ],
+  [
+   "MCK",
+   "NetIncomeLoss",
+   "2024-04-01",
+   "2025-03-31"
+  ],
+  [
+   "MCK",
+   "NetIncomeLoss",
+   "2026-04-01",
+   "2026-06-30"
+  ],
+  [
+   "MCK",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-04-01",
+   "2026-03-31"
+  ],
+  [
+   "MCK",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-04-01",
+   "2025-03-31"
+  ],
+  [
+   "MCK",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2026-04-01",
+   "2026-06-30"
+  ],
+  [
+   "MDT",
+   "NetIncomeLoss",
+   "2025-04-26",
+   "2026-04-24"
+  ],
+  [
+   "MDT",
+   "NetIncomeLoss",
+   "2024-04-27",
+   "2025-04-25"
+  ],
+  [
+   "MDT",
+   "NetIncomeLoss",
+   "2026-04-25",
+   "2026-07-31"
+  ],
+  [
+   "MDT",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-04-26",
+   "2026-04-24"
+  ],
+  [
+   "MDT",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-04-27",
+   "2025-04-25"
+  ],
+  [
+   "MDT",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2026-04-25",
+   "2026-07-31"
+  ],
+  [
+   "MU",
+   "NetIncomeLoss",
+   "2024-08-30",
+   "2025-08-28"
+  ],
+  [
+   "MU",
+   "NetIncomeLoss",
+   "2023-09-01",
+   "2024-08-29"
+  ],
+  [
+   "MU",
+   "NetIncomeLoss",
+   "2026-02-27",
+   "2026-05-28"
+  ],
+  [
+   "MU",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-08-30",
+   "2025-08-28"
+  ],
+  [
+   "MU",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2023-09-01",
+   "2024-08-29"
+  ],
+  [
+   "MU",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2026-02-27",
+   "2026-05-28"
+  ],
+  [
+   "MU",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-08-29",
+   "2026-05-28"
+  ],
+  [
+   "NKE",
+   "NetIncomeLoss",
+   "2025-06-01",
+   "2026-05-31"
+  ],
+  [
+   "NKE",
+   "NetIncomeLoss",
+   "2024-06-01",
+   "2025-05-31"
+  ],
+  [
+   "NKE",
+   "NetIncomeLoss",
+   "2026-06-01",
+   "2026-08-31"
+  ],
+  [
+   "NKE",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-06-01",
+   "2026-05-31"
+  ],
+  [
+   "NKE",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-06-01",
+   "2025-05-31"
+  ],
+  [
+   "NTAP",
+   "NetIncomeLoss",
+   "2025-04-26",
+   "2026-04-24"
+  ],
+  [
+   "NTAP",
+   "NetIncomeLoss",
+   "2024-04-27",
+   "2025-04-25"
+  ],
+  [
+   "NTAP",
+   "NetIncomeLoss",
+   "2026-04-25",
+   "2026-07-31"
+  ],
+  [
+   "NTAP",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-04-26",
+   "2026-04-24"
+  ],
+  [
+   "NTAP",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-04-27",
+   "2025-04-25"
+  ],
+  [
+   "PH",
+   "ProfitLoss",
+   "2025-07-01",
+   "2026-06-30"
+  ],
+  [
+   "PH",
+   "ProfitLoss",
+   "2024-07-01",
+   "2025-06-30"
+  ],
+  [
+   "PH",
+   "ProfitLoss",
+   "2026-01-01",
+   "2026-03-31"
+  ],
+  [
+   "PH",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-07-01",
+   "2026-06-30"
+  ],
+  [
+   "PH",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-07-01",
+   "2025-06-30"
+  ],
+  [
+   "PH",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2026-01-01",
+   "2026-03-31"
+  ],
+  [
+   "TTWO",
+   "NetIncomeLoss",
+   "2025-04-01",
+   "2026-03-31"
+  ],
+  [
+   "TTWO",
+   "NetIncomeLoss",
+   "2024-04-01",
+   "2025-03-31"
+  ],
+  [
+   "TTWO",
+   "NetIncomeLoss",
+   "2026-04-01",
+   "2026-06-30"
+  ],
+  [
+   "TTWO",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-04-01",
+   "2026-03-31"
+  ],
+  [
+   "TTWO",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-04-01",
+   "2025-03-31"
+  ],
+  [
+   "TTWO",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2026-04-01",
+   "2026-06-30"
+  ],
+  [
+   "AAPL",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2024-09-29",
+   "2025-09-27"
+  ],
+  [
+   "AAPL",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2026-03-29",
+   "2026-06-27"
+  ],
+  [
+   "AAPL",
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "2025-09-28",
+   "2026-06-27"
+  ],
+  [
+   "AAPL",
+   "NetIncomeLoss",
+   "2024-09-29",
+   "2025-09-27"
+  ],
+  [
+   "AAPL",
+   "NetIncomeLoss",
+   "2026-03-29",
+   "2026-06-27"
+  ],
+  [
+   "AAPL",
+   "NetIncomeLoss",
+   "2025-09-28",
+   "2026-06-27"
+  ]
+ ],
+ "read_once": [
+  {
+   "ticker": "AAPL",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "accn": "0000320193-25-000079",
+   "start": "2023-10-01",
+   "end": "2024-09-28",
+   "val": 391035000000,
+   "note": "read once (only in read 2)",
+   "why": "read once (only in read 2)"
+  },
+  {
+   "ticker": "AAPL",
+   "concept": "NetIncomeLoss",
+   "accn": "0000320193-25-000079",
+   "start": "2023-10-01",
+   "end": "2024-09-28",
+   "val": 93736000000,
+   "note": "read once (only in read 2)",
+   "why": "read once (only in read 2)"
+  }
+ ],
+ "disagree": [],
+ "duplicate_periods_disagree": [],
+ "quarter_sums": [
+  {
+   "ticker": "CASY",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2026-01-31",
+   "ytd": 551764000,
+   "sum_of_quarters": 551764000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "CASY",
+   "concept": "Revenues",
+   "ytd_end": "2026-01-31",
+   "ytd": 12989322000,
+   "sum_of_quarters": 12989322000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "MCK",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2025-12-31",
+   "ytd": 3080000000,
+   "sum_of_quarters": 3080000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "MCK",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2025-12-31",
+   "ytd": 307135000000,
+   "sum_of_quarters": 307135000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "MDT",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2026-01-23",
+   "ytd": 3557000000,
+   "sum_of_quarters": 3557000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "MDT",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2026-01-23",
+   "ytd": 26557000000,
+   "sum_of_quarters": 26556000000,
+   "diff": 1000000,
+   "holds": true
+  },
+  {
+   "ticker": "MU",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2026-05-28",
+   "ytd": 47268000000,
+   "sum_of_quarters": 47268000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "MU",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2026-05-28",
+   "ytd": 78959000000,
+   "sum_of_quarters": 78959000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "NKE",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2026-02-28",
+   "ytd": 2039000000,
+   "sum_of_quarters": 2039000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "NKE",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2026-02-28",
+   "ytd": 35426000000,
+   "sum_of_quarters": 35426000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "NTAP",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2026-01-23",
+   "ytd": 872000000,
+   "sum_of_quarters": 872000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "NTAP",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2026-01-23",
+   "ytd": 4977000000,
+   "sum_of_quarters": 4977000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "PH",
+   "concept": "ProfitLoss",
+   "ytd_end": "2026-03-31",
+   "ytd": 2557000000,
+   "sum_of_quarters": 2557000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "PH",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2026-03-31",
+   "ytd": 15744000000,
+   "sum_of_quarters": 15744000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "TTWO",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2025-12-31",
+   "ytd": -238700000,
+   "sum_of_quarters": -238700000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "TTWO",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2025-12-31",
+   "ytd": 4976600000,
+   "sum_of_quarters": 4976600000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "AAPL",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "ytd_end": "2026-06-27",
+   "ytd": 364357000000,
+   "sum_of_quarters": 364357000000,
+   "diff": 0,
+   "holds": true
+  },
+  {
+   "ticker": "AAPL",
+   "concept": "NetIncomeLoss",
+   "ytd_end": "2026-06-27",
+   "ytd": 101464000000,
+   "sum_of_quarters": 101464000000,
+   "diff": 0,
+   "holds": true
+  }
+ ],
+ "summary": {
+  "read2_agrees_with_read1": "53/53",
+  "read_once": 2,
+  "disagreements": 0,
+  "duplicate_period_conflicts": 0,
+  "quarter_sums_hold": "18/18"
+ }
+}

@@ -1,0 +1,226 @@
+{
+ "_doc": "Data rows of GraphRAG's INT-0 mock (mock/mock_retrieval_tools.py @ b574100), transcribed into the evidence envelope the mock builds (_envelope). Used by Eval's tests and by run_graphrag_wiring.py --fixture; the mock's own code is not executed. Scores and ranks are filled at query time.",
+ "graph": [
+  {
+   "ticker": "MSFT",
+   "cik": "0000789019",
+   "company_name": "Microsoft Corporation",
+   "form": "10-Q",
+   "accession_number": "0001193125-26-191507",
+   "filing_date": "2026-04-29",
+   "reporting_period_end": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+   "rank": 0,
+   "chunk_id": null,
+   "section_id": "sec-msft-26q3-note16",
+   "text": "Microsoft reports three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing.",
+   "quote": "Productivity and Business Processes, Intelligent Cloud, and More Personal Computing",
+   "score": 0.0,
+   "section": "Part I Item 1",
+   "chunking_version": null,
+   "extraction_version": "mock-v0",
+   "index_version": "mock-int0",
+   "metadata": {
+    "trace_id": null,
+    "section_title": "Segment Information and Geographic Data",
+    "corpus_version": "mock",
+    "path": [
+     "Microsoft Corporation",
+     "HAS_SEGMENT",
+     "Intelligent Cloud"
+    ],
+    "hops": 1,
+    "edge_types": [
+     "HAS_SEGMENT"
+    ],
+    "graph_version": "mock-int0",
+    "retrieval_method": "mock_keyword_overlap"
+   }
+  },
+  {
+   "ticker": "MSFT",
+   "cik": "0000789019",
+   "company_name": "Microsoft Corporation",
+   "form": "10-Q",
+   "accession_number": "0001193125-26-191507",
+   "filing_date": "2026-04-29",
+   "reporting_period_end": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+   "rank": 0,
+   "chunk_id": null,
+   "section_id": "sec-msft-26q3-note16",
+   "text": "Intelligent Cloud revenue was $34,681 million for the three months ended March 31, 2026, with operating income of $13,753 million.",
+   "quote": "Intelligent Cloud Revenue $ 34,681",
+   "score": 0.0,
+   "section": "Part I Item 1",
+   "chunking_version": null,
+   "extraction_version": "mock-v0",
+   "index_version": "mock-int0",
+   "metadata": {
+    "trace_id": null,
+    "section_title": "Segment Information and Geographic Data",
+    "corpus_version": "mock",
+    "path": [
+     "Intelligent Cloud",
+     "SCOPES",
+     "Revenue FY2026 Q3"
+    ],
+    "hops": 2,
+    "edge_types": [
+     "HAS_SEGMENT",
+     "SCOPES"
+    ],
+    "graph_version": "mock-int0",
+    "retrieval_method": "mock_keyword_overlap"
+   }
+  },
+  {
+   "ticker": "MSFT",
+   "cik": "0000789019",
+   "company_name": "Microsoft Corporation",
+   "form": "10-Q",
+   "accession_number": "0001193125-26-191507",
+   "filing_date": "2026-04-29",
+   "reporting_period_end": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+   "rank": 0,
+   "chunk_id": null,
+   "section_id": "sec-msft-26q3-mda",
+   "text": "Microsoft Cloud revenue grew across Azure and other cloud services, Office 365 Commercial, and the commercial portion of LinkedIn.",
+   "quote": "Microsoft Cloud revenue grew across Azure and other cloud services",
+   "score": 0.0,
+   "section": "Part I Item 2",
+   "chunking_version": null,
+   "extraction_version": "mock-v0",
+   "index_version": "mock-int0",
+   "metadata": {
+    "trace_id": null,
+    "section_title": "Management's Discussion and Analysis",
+    "corpus_version": "mock",
+    "path": [
+     "Microsoft Corporation",
+     "DISCUSSES",
+     "Microsoft Cloud"
+    ],
+    "hops": 1,
+    "edge_types": [
+     "DISCUSSES"
+    ],
+    "graph_version": "mock-int0",
+    "retrieval_method": "mock_keyword_overlap"
+   }
+  }
+ ],
+ "structured": [
+  {
+   "ticker": "MSFT",
+   "cik": "0000789019",
+   "company_name": "Microsoft Corporation",
+   "form": "10-Q",
+   "accession_number": "0001193125-26-191507",
+   "filing_date": "2026-04-29",
+   "reporting_period_end": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+   "rank": 0,
+   "chunk_id": null,
+   "section_id": null,
+   "text": "Total revenue, three months ended 2026-03-31: USD 82,886 million",
+   "quote": null,
+   "score": 0.0,
+   "section": "Part I Item 1",
+   "chunking_version": null,
+   "extraction_version": "mock-v0",
+   "index_version": "mock-int0",
+   "metadata": {
+    "trace_id": null,
+    "section_title": "Financial Statements",
+    "corpus_version": "mock",
+    "fact_id": "fact-msft-26q3-revenue-total",
+    "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "context_ref": "c-14",
+    "unit_ref": "iso4217:USD",
+    "basis": "as_filed",
+    "value_raw": "82,886",
+    "value_num": 82886,
+    "period_start": "2026-01-01",
+    "period_end": "2026-03-31",
+    "dimensions": {},
+    "retrieval_method": "mock_keyword_overlap"
+   }
+  },
+  {
+   "ticker": "MSFT",
+   "cik": "0000789019",
+   "company_name": "Microsoft Corporation",
+   "form": "10-Q",
+   "accession_number": "0001193125-26-191507",
+   "filing_date": "2026-04-29",
+   "reporting_period_end": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+   "rank": 0,
+   "chunk_id": null,
+   "section_id": null,
+   "text": "Intelligent Cloud revenue, three months ended 2026-03-31: USD 34,681 million",
+   "quote": null,
+   "score": 0.0,
+   "section": "Part I Item 1",
+   "chunking_version": null,
+   "extraction_version": "mock-v0",
+   "index_version": "mock-int0",
+   "metadata": {
+    "trace_id": null,
+    "section_title": "Financial Statements",
+    "corpus_version": "mock",
+    "fact_id": "fact-msft-26q3-revenue-ic",
+    "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "context_ref": "c-14",
+    "unit_ref": "iso4217:USD",
+    "basis": "as_filed",
+    "value_raw": "34,681",
+    "value_num": 34681,
+    "period_start": "2026-01-01",
+    "period_end": "2026-03-31",
+    "dimensions": {
+     "StatementBusinessSegmentsAxis": "Intelligent Cloud"
+    },
+    "retrieval_method": "mock_keyword_overlap"
+   }
+  },
+  {
+   "ticker": "MSFT",
+   "cik": "0000789019",
+   "company_name": "Microsoft Corporation",
+   "form": "10-Q",
+   "accession_number": "0001193125-26-191507",
+   "filing_date": "2026-04-29",
+   "reporting_period_end": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+   "rank": 0,
+   "chunk_id": null,
+   "section_id": null,
+   "text": "Research and development, three months ended 2026-03-31: USD 8,915 million",
+   "quote": null,
+   "score": 0.0,
+   "section": "Part I Item 1",
+   "chunking_version": null,
+   "extraction_version": "mock-v0",
+   "index_version": "mock-int0",
+   "metadata": {
+    "trace_id": null,
+    "section_title": "Financial Statements",
+    "corpus_version": "mock",
+    "fact_id": "fact-msft-26q3-rnd",
+    "concept": "us-gaap:ResearchAndDevelopmentExpense",
+    "context_ref": "c-14",
+    "unit_ref": "iso4217:USD",
+    "basis": "as_filed",
+    "value_raw": "8,915",
+    "value_num": 8915,
+    "period_start": "2026-01-01",
+    "period_end": "2026-03-31",
+    "dimensions": {},
+    "retrieval_method": "mock_keyword_overlap"
+   }
+  }
+ ]
+}

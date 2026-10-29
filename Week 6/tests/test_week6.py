@@ -1,4 +1,5 @@
 """Week 6: provenance-key joins, three-field version keys, whitespace-normalised anchors, relationship draft."""
+import csv
 import json
 from pathlib import Path
 
@@ -91,4 +92,70 @@ def test_hops_sidecar_covers_every_question():
     rows = list(csv.DictReader(open(DATA / "hops_v1.csv")))
     v1 = {json.loads(l)["qid"] for l in open(DATA / "benchmark_v1.jsonl")}
     draft = {json.loads(l)["qid"] for l in open(DATA / "benchmark_v1_relationship_draft.jsonl")}
-    assert {r["qid"] for r in rows} == v1 | draft
+    v2 = {json.loads(l)["qid"] for l in open(DATA / "benchmark_scope10_new.jsonl")}
+    assert {r["qid"] for r in rows} == v1 | draft | v2
+
+
+# ---------------- Week 6 (10/29): GraphRAG wiring, XBRL dimensions, 10-company scope ----------------
+from kpmg_eval.graphrag_adapter import GraphRAGRetriever, adapter, contract_checks, evidence_key, fixture_tools  # noqa: E402
+from kpmg_eval.keys import Level, matches  # noqa: E402
+from kpmg_eval.metrics.retrieval import score_retrieval  # noqa: E402
+
+FIX = Path(__file__).resolve().parent / "fixtures" / "graphrag_int0_mock_evidence.json"
+TOTAL_REV_GOLD = {"cik": "0000789019", "accession": "0001193125-26-191507",
+                  "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+                  "period_start": "2026-01-01", "period_end": "2026-03-31", "unit": "USD", "level": "FACT"}
+
+
+def test_segment_fact_does_not_satisfy_total_gold():
+    gs, ss = fixture_tools(FIX)
+    rows = ss("Intelligent Cloud revenue three months", {"ticker": "MSFT"}, 10, "q")
+    ic = [r for r in rows if r["metadata"]["dimensions"]][0]
+    k = evidence_key(ic)
+    assert k.dims == (("statementbusinesssegments", "intelligentcloud"),)
+    assert not matches(k, EvalKey(**{x: y for x, y in TOTAL_REV_GOLD.items() if x != "level"}), Level.FACT)
+    seg_gold = {**TOTAL_REV_GOLD, "dims": {"us-gaap:StatementBusinessSegmentsAxis": "msft:IntelligentCloudMember"}}
+    assert matches(k, EvalKey(**{x: y for x, y in seg_gold.items() if x != "level"}), Level.FACT)  # label == QName
+
+
+def test_structured_arm_scores_at_fact_level():
+    gs, ss = fixture_tools(FIX)
+    rows = ss("Microsoft total revenue three months ended March 31 2026", {"ticker": "MSFT"}, 10, "GSv0-MSFT-001")
+    s = score_retrieval([TOTAL_REV_GOLD], adapter(rows), ks=(1, 10))
+    assert s["hit@10"] == 1.0
+
+
+def test_graphrag_envelope_and_contract_checks():
+    gs, ss = fixture_tools(FIX)
+    env = GraphRAGRetriever(gs, ss, "both").search("Intelligent Cloud revenue", {"ticker": "MSFT"}, 10, trace_id="t1")
+    assert env["results"] and env["extraction_version"] == "mock-v0"
+    c = contract_checks(env["results"], "t1")
+    assert all(v for k, v in c.items() if k != "n")
+    assert {r["metadata"]["arm"] for r in env["results"]} == {"graph", "structured"}
+    assert ss("revenue", {"ticker": "AAPL"}, 10, None) == []  # filters honoured
+
+
+def test_repeated_section_id_keeps_both_texts():
+    """Two graph rows share section_id sec-msft-26q3-note16; the harness must not drop one when joining citations."""
+    rows = json.loads(FIX.read_text())["graph"]
+    keys = [provenance_key(r) for r in rows]
+    assert keys.count("section:sec-msft-26q3-note16") == 2
+
+
+def test_scope10_gold_is_computed_and_verified():
+    new = [json.loads(l) for l in open(DATA / "benchmark_scope10_new.jsonl")]
+    status = list(csv.DictReader(open(DATA / "benchmark_scope10_status.csv")))
+    assert sum(r["status"] == "retired" for r in status) == 10
+    assert all(set(r["tickers"].split()) & {"AMZN", "META", "NVDA"} for r in status if r["status"] == "retired")
+    assert {t for q in new for t in q["tickers"]} == {"AAPL", "CASY", "MCK", "MDT", "MSFT", "MU", "NKE", "NTAP", "PH", "TTWO"}
+    checks = json.load(open(DATA.parent / "results" / "scope10_checks.json"))
+    assert not checks["disagree"] and all(x["holds"] for x in checks["quarter_sums"])
+    facts = {f["fact_id"]: f for f in map(json.loads, open(DATA / "scope10_facts.jsonl"))}
+    for q in new:  # every numeric answer equals a fact or a computation over the question's own facts
+        if q["answer_type"] == "exact_numeric" and q["type"] == "extraction":
+            assert q["answer"]["value"] in {facts[fid]["value"] for fid in q["fact_values"]}
+
+
+def test_scope10_numeric_grader_check_is_clean():
+    r = json.load(open(DATA.parent / "results" / "scope10_grader_check.json"))
+    assert r["graded"] == 4 * r["numeric_items"] and not r["mismatches"]

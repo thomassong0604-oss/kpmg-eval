@@ -35,7 +35,7 @@
    "ndcg@10": 0.8857,
    "answer_in_context@5": 0.88,
    "answer_in_context@10": 0.94,
-   "latency_ms": 0.6692,
+   "latency_ms": 0.6705,
    "evidence_recall@10_ci95": [
     0.831,
     0.948
@@ -161,7 +161,7 @@
    "ndcg@10": 0.7837,
    "answer_in_context@5": 0.38,
    "answer_in_context@10": 0.54,
-   "latency_ms": 1.9825,
+   "latency_ms": 2.1341,
    "evidence_recall@10_ci95": [
     0.523,
     0.734
@@ -287,7 +287,7 @@
    "ndcg@10": 0.8398,
    "answer_in_context@5": 0.58,
    "answer_in_context@10": 0.82,
-   "latency_ms": 2.4774,
+   "latency_ms": 2.0779,
    "evidence_recall@10_ci95": [
     0.759,
     0.909

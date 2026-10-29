@@ -51,6 +51,24 @@ def norm_section(v: Any) -> str | None:
     return " ".join(str(v).upper().replace(".", " ").split())
 
 
+def _dim_token(v: Any) -> str:
+    """'msft:IntelligentCloudMember', 'Intelligent Cloud', 'us-gaap:StatementBusinessSegmentsAxis' -> comparable token."""
+    s = str(v).split(":")[-1]
+    for suffix in ("Member", "Axis"):
+        if s.endswith(suffix):
+            s = s[: -len(suffix)]
+    return "".join(ch for ch in s.lower() if ch.isalnum())
+
+
+def norm_dims(v: Any) -> tuple:
+    """dict or tuple of (axis, member) -> sorted tuple of normalised tokens; None/{} -> () (consolidated total).
+    GraphRAG's structured arm reports members as labels ("Intelligent Cloud"); gold uses XBRL QNames."""
+    if not v:
+        return ()
+    items = v.items() if isinstance(v, dict) else v
+    return tuple(sorted((_dim_token(a), _dim_token(m)) for a, m in items))
+
+
 @dataclass(frozen=True)
 class EvalKey:
     cik: str | None = None
@@ -61,8 +79,12 @@ class EvalKey:
     period_end: str | None = None
     unit: str | None = None             # USD, USD/shares, pure
     ticker: str | None = field(default=None, compare=False)  # display only; CIK is the identity
+    # Week 6: XBRL axis -> member for segment/product facts. Without it, at FACT level "Intelligent Cloud revenue"
+    # matched the gold "total revenue" (same concept and period): a false hit for any arm returning segment facts.
+    dims: tuple | None = None
 
     def __post_init__(self):
+        object.__setattr__(self, "dims", norm_dims(self.dims))
         object.__setattr__(self, "cik", norm_cik(self.cik))
         object.__setattr__(self, "accession", norm_accession(self.accession))
         object.__setattr__(self, "section", norm_section(self.section))
@@ -78,7 +100,7 @@ class EvalKey:
         return Level.COMPANY
 
     def to_dict(self) -> dict:
-        return {k: v for k, v in asdict(self).items() if v is not None}
+        return {k: v for k, v in asdict(self).items() if v is not None and v != ()}
 
     # ---------------- constructors from each team's format ----------------
     @classmethod
@@ -92,7 +114,8 @@ class EvalKey:
         """GraphRAG Fact node (properties per the 10/8 schema) -> key (fact level)."""
         return cls(cik=node.get("cik"), accession=node.get("accession"), section=node.get("section"),
                    concept=node.get("concept"), period_start=node.get("period_start"),
-                   period_end=node.get("period_end"), unit=node.get("unit"), ticker=node.get("ticker"))
+                   period_end=node.get("period_end"), unit=node.get("unit"), ticker=node.get("ticker"),
+                   dims=node.get("dims") or node.get("dimensions"))
 
     @classmethod
     def from_xbrl_fact(cls, cik: str, concept: str, fact: dict, unit: str = "USD", ticker: str | None = None) -> "EvalKey":
@@ -123,6 +146,8 @@ def matches(candidate: EvalKey, gold: EvalKey, level: Level | None = None) -> bo
             g = getattr(gold, attr)
             if g is not None and getattr(candidate, attr) != g:
                 return False
+        if candidate.dims != gold.dims:  # Week 6: segment fact != consolidated total
+            return False
     return True
 
 

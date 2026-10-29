@@ -9,7 +9,7 @@ gold evidence and validates it against the filing; Business/UI checks each is a 
 Gold Set v1 itself is not modified (its hash stays the frozen one). These items are run only with
 `run_harness.py --with-relationship-draft` until the team signs them off.
 
-Stage 1 (now): questions answerable from filings already in, or about to be in, the Microsoft corpus.
+Stage 1 (now): questions answerable from the 5 filings GraphRAG builds on this week (AAPL x3, MSFT x2); all 6 use\nthe MSFT Q3 FY2026 10-Q or the MSFT FY2026 10-K. EV1R-006 moved to the FY2026 10-K on 10/29.
   M01 -> EV1R-001   M04 -> EV1R-002   M09 -> EV1R-003   M14 family -> EV1R-004, EV1R-005   M17 -> EV1R-006
 Not yet written:
   M06 (new Item 1A risk factors, FY25 vs FY26): Eval could not read both Item 1A sections in full yet, so the
@@ -105,6 +105,10 @@ def build() -> list[dict]:
     d_gaming = g25[2025] - g25[2024]
     pct_gaming = 100 * d_gaming / g25[2024]
     assert d_gaming == 1_952 and round(pct_gaming) == 9
+    x26 = SEC_READS["products_fy26_10k"]["XBOX"]
+    x_drop = x26[2025] - x26[2026]
+    x_pct = 100 * x_drop / x26[2025]
+    assert x_drop == 1_665 and round(x_pct, 1) == 7.1
 
     items = [
         _item("EV1R-001", "M01", "relationship", "comparative",
@@ -195,25 +199,25 @@ def build() -> list[dict]:
               "auto_verified", "Anchor checked against RAG's chunks of the Q3 FY2026 10-Q by this script.", route="refusal"),
         _item("EV1R-006", "M17", "relationship", "deep",
               "Microsoft acquired Activision Blizzard in October 2023. Which reportable segment includes the product "
-              "category that Activision's games fall under, and how did that category's revenue change in fiscal year 2025?",
+              "category that Activision's games fall under, and how did that category's revenue change in fiscal year 2026?",
               {"kind": "text", "value": None, "unit": None,
-               "display": f"More Personal Computing. Gaming revenue rose from USD 21,503 million in fiscal 2024 to "
-                          f"USD 23,455 million in fiscal 2025, up USD 1,952 million or {pct_gaming:.1f}%. The filing gives no "
-                          "revenue line for Activision Blizzard alone.",
-               "required_points": ["More Personal Computing", "Gaming", "23,455", "21,503", "1,952", "9%",
-                                   "no separate Activision revenue figure"]},
-              "narrative", "msft_10k_fy25",
-              [{"region": "item1_segment_description", "ticker": "MSFT", "form": "10-K", "accession": ACC_10K25,
-                "contains": ["Gaming, including Xbox hardware and Xbox content and services"]},
-               {"region": "exhibit_21", "ticker": "MSFT", "form": "10-K", "accession": ACC_10K25,
+               "display": f"More Personal Computing. XBOX (formerly Gaming) revenue fell from USD 23,455 million in fiscal "
+                          f"2025 to USD 21,790 million in fiscal 2026, down USD {x_drop:,} million or {x_pct:.1f}%. The filing "
+                          "gives no revenue line for Activision Blizzard alone.",
+               "required_points": ["More Personal Computing", "XBOX", "21,790", "23,455", f"{x_drop:,}",
+                                   f"{x_pct:.1f}%", "no separate Activision revenue figure"]},
+              "narrative", "msft_10k_fy26",
+              [{"region": "item1_segment_description", "ticker": "MSFT", "form": "10-K", "accession": ACC_10K26,
+                "contains": ["XBOX (formerly Gaming)"]},
+               {"region": "exhibit_21", "ticker": "MSFT", "form": "10-K", "accession": ACC_10K26,
                 "contains": ["Activision Blizzard, Inc."]}],
-              ["no_subsidiary_revenue_line", "acquisition_year_vs_report_year"],
-              {"pattern": "multi_hop", "path": "Exhibit 21 -LISTS-> Activision Blizzard -PART_OF-> Gaming (product line) "
-                                               "-IN_SEGMENT-> More Personal Computing -REPORTS-> revenue FY24, FY25"},
+              ["no_subsidiary_revenue_line", "acquisition_year_vs_report_year", "renamed_category"],
+              {"pattern": "multi_hop", "path": "Exhibit 21 -LISTS-> Activision Blizzard -PART_OF-> XBOX (product line, "
+                                               "formerly Gaming) -IN_SEGMENT-> More Personal Computing -REPORTS-> revenue FY25, FY26"},
               "needs_human_review",
-              f"Figures from {SEC_READS['products_fy25_10k']['url']}; segment membership from Item 1 of the FY2025 10-K. "
-              "The MD&A sentence attributing Xbox content growth to Activision (quoted in GraphRAG's eval-ask) is not yet "
-              "checked by Eval. Needs the FY2025 10-K in the corpus (merge decision)."),
+              f"Week 6 (10/29): moved from the FY2025 10-K to the FY2026 10-K ({ACC_10K26}), which is in the DB this week "
+              f"(GraphRAG's 5 filings); its product table carries FY2025 as the comparative. Figures from "
+              f"{SEC_READS['products_fy26_10k']['url']}; segment membership from Item 1 of the FY2026 10-K."),
     ]
     return items
 
@@ -241,7 +245,9 @@ def check_10q(items: list[dict]) -> list[str]:
 
 def write_hops_sidecar(items: list[dict]) -> None:
     v1 = [json.loads(l) for l in open(DATA / "benchmark_v1.jsonl") if l.strip()]
-    rows = [(q["qid"], q["type"], q["tier"], q["question"]) for q in v1 + items]
+    new = DATA / "benchmark_scope10_new.jsonl"  # Week 6 10-company questions (build_scope10.py runs first)
+    v2 = [json.loads(l) for l in open(new) if l.strip()] if new.exists() else []
+    rows = [(q["qid"], q["type"], q["tier"], q["question"]) for q in v1 + items + v2]
     with open(DATA / "hops_v1.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["qid", "type", "tier", "question", "hops", "proposed_by", "reviewed_by", "note"])
