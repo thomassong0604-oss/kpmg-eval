@@ -1,0 +1,413 @@
+{
+ "A_fiscal_labels": {
+  "n_filings": 17,
+  "correct_with_rag_map": 17,
+  "correct_without_map": 9,
+  "wrong_without_map": [
+   "MSFT 2025-12-31: (2025, 'Q1') vs SEC (2026, 'Q2')",
+   "MSFT 2026-03-31: (2026, 'Q1') vs SEC (2026, 'Q3')",
+   "NVDA 2026-04-26: (2026, 'Q1') vs SEC (2027, 'Q1')",
+   "NVDA 2026-07-26: (2026, 'Q2') vs SEC (2027, 'Q2')",
+   "AAPL 2025-06-28: (2025, 'Q2') vs SEC (2025, 'Q3')",
+   "AAPL 2025-12-27: (2025, 'Q1') vs SEC (2026, 'Q1')",
+   "AAPL 2026-03-28: (2026, 'Q1') vs SEC (2026, 'Q2')",
+   "AAPL 2026-06-27: (2026, 'Q2') vs SEC (2026, 'Q3')"
+  ],
+  "missing_from_rag_map": [],
+  "detail": [
+   {
+    "ticker": "MSFT",
+    "accession": "0001193125-26-027207",
+    "period_end": "2025-12-31",
+    "sec": [
+     2026,
+     "Q2"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2025,
+     "Q1"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "MSFT",
+    "accession": "0001193125-26-191507",
+    "period_end": "2026-03-31",
+    "sec": [
+     2026,
+     "Q3"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q3"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "MSFT",
+    "accession": "0001193125-26-323660",
+    "period_end": "2026-06-30",
+    "sec": [
+     2026,
+     "FY"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "FY"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "FY"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "AMZN",
+    "accession": "0001018724-26-000004",
+    "period_end": "2025-12-31",
+    "sec": [
+     2025,
+     "FY"
+    ],
+    "rag_with_fye_map": [
+     2025,
+     "FY"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2025,
+     "FY"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "AMZN",
+    "accession": "0001018724-26-000014",
+    "period_end": "2026-03-31",
+    "sec": [
+     2026,
+     "Q1"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "AMZN",
+    "accession": "0001018724-26-000026",
+    "period_end": "2026-06-30",
+    "sec": [
+     2026,
+     "Q2"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "META",
+    "accession": "0001628280-26-003942",
+    "period_end": "2025-12-31",
+    "sec": [
+     2025,
+     "FY"
+    ],
+    "rag_with_fye_map": [
+     2025,
+     "FY"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2025,
+     "FY"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "META",
+    "accession": "0001628280-26-028526",
+    "period_end": "2026-03-31",
+    "sec": [
+     2026,
+     "Q1"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "META",
+    "accession": "0001628280-26-050705",
+    "period_end": "2026-06-30",
+    "sec": [
+     2026,
+     "Q2"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "NVDA",
+    "accession": "0001045810-26-000021",
+    "period_end": "2026-01-25",
+    "sec": [
+     2026,
+     "FY"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "FY"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "FY"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "NVDA",
+    "accession": "0001045810-26-000052",
+    "period_end": "2026-04-26",
+    "sec": [
+     2027,
+     "Q1"
+    ],
+    "rag_with_fye_map": [
+     2027,
+     "Q1"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "NVDA",
+    "accession": "0001045810-26-000075",
+    "period_end": "2026-07-26",
+    "sec": [
+     2027,
+     "Q2"
+    ],
+    "rag_with_fye_map": [
+     2027,
+     "Q2"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "AAPL",
+    "accession": "0000320193-25-000073",
+    "period_end": "2025-06-28",
+    "sec": [
+     2025,
+     "Q3"
+    ],
+    "rag_with_fye_map": [
+     2025,
+     "Q3"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2025,
+     "Q2"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "AAPL",
+    "accession": "0000320193-25-000079",
+    "period_end": "2025-09-27",
+    "sec": [
+     2025,
+     "FY"
+    ],
+    "rag_with_fye_map": [
+     2025,
+     "FY"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2025,
+     "FY"
+    ],
+    "ok_without_map": true
+   },
+   {
+    "ticker": "AAPL",
+    "accession": "0000320193-26-000006",
+    "period_end": "2025-12-27",
+    "sec": [
+     2026,
+     "Q1"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2025,
+     "Q1"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "AAPL",
+    "accession": "0000320193-26-000013",
+    "period_end": "2026-03-28",
+    "sec": [
+     2026,
+     "Q2"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q1"
+    ],
+    "ok_without_map": false
+   },
+   {
+    "ticker": "AAPL",
+    "accession": "0000320193-26-000020",
+    "period_end": "2026-06-27",
+    "sec": [
+     2026,
+     "Q3"
+    ],
+    "rag_with_fye_map": [
+     2026,
+     "Q3"
+    ],
+    "ok_with_map": true,
+    "rag_without_map": [
+     2026,
+     "Q2"
+    ],
+    "ok_without_map": false
+   }
+  ]
+ },
+ "B_filing_filter_pr": {
+  "rag_gold_v0_filters": {
+   "n": 30,
+   "recall": 1.0,
+   "precision": 0.5,
+   "mean_filings_kept": 2.0,
+   "questions_losing_a_gold_filing": 0
+  },
+  "gold_v1_filters": {
+   "n": 93,
+   "recall": 1.0,
+   "precision": 0.964,
+   "mean_filings_kept": 1.55,
+   "questions_losing_a_gold_filing": 0
+  },
+  "extracted_baseline": {
+   "n": 93,
+   "recall": 1.0,
+   "precision": 0.66,
+   "mean_filings_kept": 5.71,
+   "questions_losing_a_gold_filing": 0
+  }
+ },
+ "C_extraction_baseline": {
+  "n": 93,
+  "exact_match": 0.505,
+  "any_wrong_key": 0,
+  "per_key": {
+   "fiscal_period": {
+    "correct": 51,
+    "wrong": 0,
+    "missing": 36
+   },
+   "fiscal_year": {
+    "correct": 51,
+    "wrong": 0,
+    "missing": 36
+   },
+   "form": {
+    "correct": 51,
+    "wrong": 0,
+    "missing": 39
+   },
+   "ticker": {
+    "correct": 70,
+    "wrong": 0,
+    "missing": 23
+   }
+  },
+  "no_company_named": 23,
+  "with_mvp_session_context": {
+   "exact_match": 0.624,
+   "ticker_correct": 93,
+   "any_wrong_key": 0
+  },
+  "questions_without_period_words": 36,
+  "wrong_examples": []
+ },
+ "D_retrieval_effect": {
+  "n": 76,
+  "gold_filters": 0.8936,
+  "extracted_filters": 0.8936,
+  "no_filters": 0.8936,
+  "note": "Single-filing index: filters cannot remove distractor filings here, only evidence (when wrong)."
+ },
+ "D_section_hazard": {
+  "evidence_bearing_chunks": 34,
+  "labelled_unlabeled": 32,
+  "share_lost_to_any_section_filter": 0.941
+ }
+}

@@ -1,0 +1,297 @@
+{
+ "criteria": [
+  "outcome",
+  "automatic",
+  "validated",
+  "owner",
+  "any_arch"
+ ],
+ "headline": [
+  "Balanced refusal accuracy",
+  "Numerical answer accuracy (NAA)",
+  "Citation support",
+  "Evidence recall@10"
+ ],
+ "north_star": "Numerical answer accuracy (NAA)",
+ "fifth_slot": "Narrative answer quality, once an LLM judge is validated against human labels (26 narrative questions)",
+ "candidates": [
+  {
+   "metric": "Balanced refusal accuracy",
+   "stage": "Answer",
+   "outcome": 2,
+   "automatic": 2,
+   "validated": 2,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 10,
+   "evidence": "142-item paired suite; oracle 1.00, refuse-all 0.50; scope gate 0.89 vs no gate 0.50 (abstention_v1)",
+   "role": "headline"
+  },
+  {
+   "metric": "Numerical answer accuracy (NAA)",
+   "stage": "Answer",
+   "outcome": 2,
+   "automatic": 2,
+   "validated": 2,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 10,
+   "evidence": "389/389 planted errors labelled (fault_injection_v1); oracle 1.00, refuse-all 0.00 (scorecards); 8 error labels name the failing cell",
+   "role": "headline"
+  },
+  {
+   "metric": "Citation support",
+   "stage": "Grounding",
+   "outcome": 2,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 9,
+   "evidence": "oracle 1.00 after 2 scorer fixes; baseline 0.92; planted-error check still to do",
+   "role": "headline"
+  },
+  {
+   "metric": "Error taxonomy (8 labels)",
+   "stage": "Answer",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 2,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 9,
+   "evidence": "explains NAA; part of the NAA report, not a separate score",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Evidence recall@10",
+   "stage": "Retrieval",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 2,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 9,
+   "evidence": "RAG's own definition (rag.evaluate); 98% of anchors match RAG chunks; ceiling on answers: gold figure in top 10 for 94% of numeric questions",
+   "role": "headline"
+  },
+  {
+   "metric": "Answer-in-context@k",
+   "stage": "Retrieval to answer",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 8,
+   "evidence": "splits retrieval vs reading failures (24 of 25 lookups retrieved)",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Hit@k",
+   "stage": "Retrieval",
+   "outcome": 0,
+   "automatic": 2,
+   "validated": 2,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 8,
+   "evidence": "saturates (1.00 on lookups); weaker than recall for multi-evidence questions",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "MRR@10",
+   "stage": "Retrieval",
+   "outcome": 0,
+   "automatic": 2,
+   "validated": 2,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 8,
+   "evidence": "redundant with nDCG@10 (see redundancy)",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Query-wording robustness",
+   "stage": "Retrieval",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 8,
+   "evidence": "recall 1.00 -> 0.52 under analyst wording",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Reasoning-step accuracy",
+   "stage": "Calculation",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 8,
+   "evidence": "needs the Agent's step trace; tested on constructed traces only",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Latency, errors, cost/query",
+   "stage": "System",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 1,
+   "any_arch": 2,
+   "score": 7,
+   "evidence": "operational, reported beside the scorecard",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Provenance@k",
+   "stage": "Retrieval",
+   "outcome": 0,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 7,
+   "evidence": "1.00 whenever filters are set; only informative unfiltered",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Run-to-run consistency",
+   "stage": "System",
+   "outcome": 1,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 1,
+   "any_arch": 2,
+   "score": 7,
+   "evidence": "needs repeated Agent runs",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "nDCG@10 (graded)",
+   "stage": "Retrieval",
+   "outcome": 0,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 2,
+   "score": 7,
+   "evidence": "redundant with MRR",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Filter accuracy",
+   "stage": "Retrieval",
+   "outcome": 0,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 1,
+   "score": 6,
+   "evidence": "17/17 fiscal labels with RAG's map; filing-level P/R",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Fact extraction P/R/F1, edges, paths",
+   "stage": "Graph",
+   "outcome": 0,
+   "automatic": 2,
+   "validated": 1,
+   "owner": 2,
+   "any_arch": 0,
+   "score": 5,
+   "evidence": "GraphRAG-only; fault-injected only (no graph yet)",
+   "role": "diagnostic"
+  },
+  {
+   "metric": "Narrative faithfulness (LLM judge)",
+   "stage": "Answer",
+   "outcome": 2,
+   "automatic": 0,
+   "validated": 0,
+   "owner": 1,
+   "any_arch": 2,
+   "score": 5,
+   "evidence": "26 narrative questions need it; judge not validated yet",
+   "role": "deferred"
+  },
+  {
+   "metric": "Answer relevance (LLM judge)",
+   "stage": "Answer",
+   "outcome": 1,
+   "automatic": 0,
+   "validated": 0,
+   "owner": 1,
+   "any_arch": 2,
+   "score": 4,
+   "evidence": "LLM judge, not validated",
+   "role": "deferred"
+  }
+ ],
+ "redundancy_spearman_bm25": {
+  "evidence_recall@10 vs hit@10": 0.59,
+  "evidence_recall@10 vs mrr": 0.26,
+  "evidence_recall@10 vs ndcg@10": 0.54,
+  "hit@10 vs mrr": 0.42,
+  "hit@10 vs ndcg@10": 0.37,
+  "mrr vs ndcg@10": 0.84
+ },
+ "sensitivity_bm25_vs_hybridLSA": {
+  "evidence_recall@10": {
+   "bm25_minus_hybridLSA": 0.057,
+   "ci95": [
+    0.013,
+    0.11
+   ],
+   "separates": true
+  },
+  "hit@10": {
+   "bm25_minus_hybridLSA": 0.053,
+   "ci95": [
+    0.013,
+    0.105
+   ],
+   "separates": true
+  },
+  "mrr": {
+   "bm25_minus_hybridLSA": 0.174,
+   "ci95": [
+    0.109,
+    0.242
+   ],
+   "separates": true
+  },
+  "ndcg@10": {
+   "bm25_minus_hybridLSA": 0.046,
+   "ci95": [
+    0.03,
+    0.062
+   ],
+   "separates": true
+  }
+ },
+ "separation": {
+  "oracle": {
+   "numeric_accuracy": 1.0,
+   "evidence_recall@10": 0.894,
+   "refusal_balanced": 1.0,
+   "citation_support": 1.0
+  },
+  "baseline_no_llm": {
+   "numeric_accuracy": 0.32,
+   "evidence_recall@10": 0.81,
+   "refusal_balanced": 0.888,
+   "citation_support": 0.92
+  },
+  "refuse_all": {
+   "numeric_accuracy": 0.0,
+   "evidence_recall@10": null,
+   "refusal_balanced": 0.5,
+   "citation_support": null
+  }
+ }
+}

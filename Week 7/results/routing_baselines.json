@@ -1,0 +1,415 @@
+{
+ "n": 155,
+ "expected_routes": {
+  "sql": 104,
+  "text": 31,
+  "none": 8,
+  "graph": 11,
+  "multi": 1
+ },
+ "routers": {
+  "text_only": {
+   "n": 155,
+   "required_tools_called": 0.2,
+   "exact_route": 0.2,
+   "tool_calls_per_question": 1.0,
+   "unneeded_calls_per_question": 0.79,
+   "required_tools_called_by_route": {
+    "graph": 0.0,
+    "multi": 0.0,
+    "none": 0.0,
+    "sql": 0.0,
+    "text": 1.0
+   },
+   "n_not_exact": 124,
+   "examples_not_exact": [
+    {
+     "qid": "GSv0-MSFT-001",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-002",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-003",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-013",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-014",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-015",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-016",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-023",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-024",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-025",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "EV1-001",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "EV1-002",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "EV1-003",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "EV1-004",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    },
+    {
+     "qid": "EV1-005",
+     "expected": "sql",
+     "called": [
+      "text"
+     ]
+    }
+   ]
+  },
+  "combined": {
+   "n": 155,
+   "required_tools_called": 0.948,
+   "exact_route": 0.0,
+   "tool_calls_per_question": 3.0,
+   "unneeded_calls_per_question": 2.05,
+   "required_tools_called_by_route": {
+    "graph": 1.0,
+    "multi": 1.0,
+    "none": 0.0,
+    "sql": 1.0,
+    "text": 1.0
+   },
+   "n_not_exact": 155,
+   "examples_not_exact": [
+    {
+     "qid": "GSv0-MSFT-001",
+     "expected": "sql",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-002",
+     "expected": "sql",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-003",
+     "expected": "sql",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-004",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-005",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-006",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-007",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-008",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-009",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-010",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-011",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-012",
+     "expected": "text",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-013",
+     "expected": "sql",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-014",
+     "expected": "sql",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-015",
+     "expected": "sql",
+     "called": [
+      "graph",
+      "sql",
+      "text"
+     ]
+    }
+   ]
+  },
+  "keyword": {
+   "n": 155,
+   "required_tools_called": 0.839,
+   "exact_route": 0.748,
+   "tool_calls_per_question": 1.05,
+   "unneeded_calls_per_question": 0.25,
+   "required_tools_called_by_route": {
+    "graph": 1.0,
+    "multi": 0.0,
+    "none": 0.875,
+    "sql": 0.933,
+    "text": 0.484
+   },
+   "n_not_exact": 39,
+   "examples_not_exact": [
+    {
+     "qid": "GSv0-MSFT-008",
+     "expected": "text",
+     "called": [
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-009",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-010",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-011",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-012",
+     "expected": "text",
+     "called": [
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-014",
+     "expected": "sql",
+     "called": [
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-017",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-018",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-019",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-020",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-021",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-022",
+     "expected": "text",
+     "called": [
+      "sql"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-024",
+     "expected": "sql",
+     "called": [
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-026",
+     "expected": "text",
+     "called": [
+      "sql",
+      "text"
+     ]
+    },
+    {
+     "qid": "GSv0-MSFT-027",
+     "expected": "text",
+     "called": [
+      "sql",
+      "text"
+     ]
+    }
+   ]
+  }
+ },
+ "note": "Expected routes are Eval's labels; keyword is a regex stand-in for the orchestrator."
+}

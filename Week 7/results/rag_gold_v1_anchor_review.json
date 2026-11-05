@@ -1,0 +1,581 @@
+{
+ "source": "data/upstream_snapshots/rag_gold_v1_6f0894a.jsonl",
+ "coverage": {
+  "eval_questions": 100,
+  "rag_rows": 100,
+  "missing_in_rag": [],
+  "extra_in_rag": []
+ },
+ "inputs": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-013",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-014",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-015",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-016",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "n_inputs": 6,
+   "missing": [
+    "CashAndCashEquivalentsAtCarryingValue|BSP|",
+    "CashAndCashEquivalentsAtCarryingValue|BS|"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "n_inputs": 6,
+   "missing": []
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "EV1-001",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-002",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-003",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-004",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-005",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-006",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-007",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-008",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-009",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-010",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-011",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-012",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-013",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-014",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-015",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-016",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-017",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-018",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-019",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-020",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-021",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-022",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-023",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-024",
+   "n_inputs": 3,
+   "missing": []
+  },
+  {
+   "qid": "EV1-025",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-026",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-027",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "EV1-028",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "EV1-029",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-030",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-031",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-032",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-033",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-034",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-035",
+   "n_inputs": 2,
+   "missing": []
+  },
+  {
+   "qid": "EV1-036",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-040",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "EV1-041",
+   "n_inputs": 4,
+   "missing": []
+  },
+  {
+   "qid": "EV1-042",
+   "n_inputs": 1,
+   "missing": []
+  },
+  {
+   "qid": "EV1-043",
+   "n_inputs": 6,
+   "missing": []
+  }
+ ],
+ "matching": {
+  "broad": 33,
+  "ok": 88,
+  "no_match": 2
+ },
+ "match_detail": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "contains": [
+    "31,778"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-013",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "contains": [
+    "authorized 24,000; outstanding 7,429"
+   ],
+   "n_chunks": 0,
+   "status": "no_match"
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "contains": [
+    "authorized 24,000; outstanding 7,429"
+   ],
+   "n_chunks": 0,
+   "status": "no_match"
+  },
+  {
+   "qid": "EV1-001",
+   "contains": [
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-002",
+   "contains": [
+    "114,634"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-003",
+   "contains": [
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-004",
+   "contains": [
+    "4.27"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-026",
+   "contains": [
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-026",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-027",
+   "contains": [
+    "38,398",
+    "32,000"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-027",
+   "contains": [
+    "82,886",
+    "70,066"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-028",
+   "contains": [
+    "82,886",
+    "70,066"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-029",
+   "contains": [
+    "31,778",
+    "25,824"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-030",
+   "contains": [
+    "241,832",
+    "205,283"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-031",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-036",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-037",
+   "contains": [
+    "241,832"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-038",
+   "contains": [
+    "114,634"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-039",
+   "contains": [
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-040",
+   "contains": [
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-042",
+   "contains": [
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-054",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-055",
+   "contains": [
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-055",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-056",
+   "contains": [
+    "31,778"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-056",
+   "contains": [
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-057",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-060",
+   "contains": [
+    "38,398"
+   ],
+   "n_chunks": 4,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-060",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-068",
+   "contains": [
+    "82,886"
+   ],
+   "n_chunks": 6,
+   "status": "broad"
+  },
+  {
+   "qid": "EV1-069",
+   "contains": [
+    "97,983"
+   ],
+   "n_chunks": 7,
+   "status": "broad"
+  }
+ ],
+ "retired_in_rag_file": [
+  "EV1-051",
+  "EV1-052",
+  "EV1-053",
+  "EV1-054",
+  "EV1-055",
+  "EV1-056",
+  "EV1-057",
+  "EV1-058",
+  "EV1-059",
+  "EV1-060"
+ ],
+ "filters_ticker_form_only": 47,
+ "summary": {
+  "coverage": "100/100 Eval questions present",
+  "numeric_questions_with_all_inputs_anchored": "49/50",
+  "inputs_in_anchored_chunks": "97/99",
+  "anchors_vs_chunks": {
+   "broad": 33,
+   "ok": 88,
+   "no_match": 2
+  },
+  "retired_questions_still_in_rag_file": 10,
+  "rows_with_ticker_form_filters_only": 47
+ }
+}

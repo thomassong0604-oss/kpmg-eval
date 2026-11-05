@@ -1,0 +1,719 @@
+{
+ "what_this_measures": "plumbing on GraphRAG's 4-row INT-0 mock; not the graph",
+ "tools": "Eval stand-in over the mock's transcribed rows (tests/fixtures/graphrag_int0_mock_evidence.json)",
+ "questions": 87,
+ "calls": 174,
+ "errors": {},
+ "contract_checks": {
+  "trace_id_echoed:ok": 87,
+  "one_provenance_key:ok": 87,
+  "provenance_resolves:ok": 87,
+  "has_extraction_version:ok": 87,
+  "fact_has_period_and_concept:ok": 87
+ },
+ "scored": {
+  "structured_arm_fact_level": {
+   "n": 53,
+   "hit@10": 0.245
+  },
+  "graph_arm_filing_level": {
+   "n": 87,
+   "hit@10": 0.034
+  }
+ },
+ "segment_fact_vs_total_pairs_rejected_by_dims": 27,
+ "demo_GSv0_MSFT_001": {
+  "qid": "GSv0-MSFT-001",
+  "n_graph": 3,
+  "n_structured": 3,
+  "extraction_version": "mock-v0",
+  "structured_hit@10": 1.0,
+  "graph_hit@10": 0.0
+ },
+ "findings_for_graphrag": [
+  {
+   "finding": "structured arm value_num is in USD millions (82886) while the fact unit is USD",
+   "evidence": [
+    {
+     "fact_id": "fact-msft-26q3-revenue-total",
+     "value_num": 82886,
+     "unit_ref": "iso4217:USD"
+    }
+   ],
+   "ask": "return the value in the XBRL unit, or add a scale field"
+  },
+  {
+   "finding": "dimension members are labels ('Intelligent Cloud'), not XBRL members (msft:IntelligentCloudMember)",
+   "evidence": [
+    {
+     "StatementBusinessSegmentsAxis": "Intelligent Cloud"
+    }
+   ],
+   "ask": "carry the member QName; Eval normalises labels for now"
+  }
+ ],
+ "per_question": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-004",
+   "n_graph": 2,
+   "n_structured": 0,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-005",
+   "n_graph": 3,
+   "n_structured": 0,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-006",
+   "n_graph": 3,
+   "n_structured": 2,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-007",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-008",
+   "n_graph": 3,
+   "n_structured": 2,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-009",
+   "n_graph": 2,
+   "n_structured": 2,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-010",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-012",
+   "n_graph": 2,
+   "n_structured": 0,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-013",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-014",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-015",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-016",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "n_graph": 3,
+   "n_structured": 2,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-019",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 1.0
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "n_graph": 2,
+   "n_structured": 0,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-001",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-002",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-003",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-004",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-005",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-006",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-007",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-008",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-009",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-010",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-011",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-012",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-013",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-014",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-015",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-016",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-017",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 1.0
+  },
+  {
+   "qid": "EV1-018",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-019",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-020",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-021",
+   "n_graph": 2,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-022",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-023",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-024",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-025",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-026",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-027",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-028",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-029",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-030",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-031",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-032",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-033",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-034",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-035",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-036",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-037",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-038",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-039",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-040",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-041",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 1.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-042",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-043",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "structured_hit@10": 0.0,
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-044",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-045",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-046",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-047",
+   "n_graph": 3,
+   "n_structured": 1,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-048",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-049",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-068",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-069",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1-070",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 1.0
+  },
+  {
+   "qid": "EV1R-001",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1R-002",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1R-003",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1R-005",
+   "n_graph": 3,
+   "n_structured": 2,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  },
+  {
+   "qid": "EV1R-006",
+   "n_graph": 3,
+   "n_structured": 3,
+   "extraction_version": "mock-v0",
+   "graph_hit@10": 0.0
+  }
+ ]
+}

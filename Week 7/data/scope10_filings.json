@@ -1,0 +1,207 @@
+{
+ "_doc": "Filings Eval assumes are in Data's DB for the 10 companies (see build_scope10.py docstring). Confirm with Data.",
+ "n_10k": 10,
+ "n_10q": 11,
+ "filings": [
+  {
+   "ticker": "AAPL",
+   "company": "Apple",
+   "cik": "0000320193",
+   "fiscal_year_end": "last Saturday of September",
+   "form": "10-K",
+   "accession": "0000320193-25-000079",
+   "fiscal_year": 2025
+  },
+  {
+   "ticker": "CASY",
+   "company": "Casey's",
+   "cik": "0000726958",
+   "fiscal_year_end": "April 30",
+   "form": "10-K",
+   "accession": "0000726958-26-000046",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "MCK",
+   "company": "McKesson",
+   "cik": "0000927653",
+   "fiscal_year_end": "March 31",
+   "form": "10-K",
+   "accession": "0000927653-26-000069",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "MDT",
+   "company": "Medtronic",
+   "cik": "0001613103",
+   "fiscal_year_end": "last Friday of April",
+   "form": "10-K",
+   "accession": "0001628280-26-044354",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "cik": "0000789019",
+   "fiscal_year_end": "June 30",
+   "form": "10-K",
+   "accession": "0001193125-26-323660",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "MU",
+   "company": "Micron",
+   "cik": "0000723125",
+   "fiscal_year_end": "Thursday closest to August 31",
+   "form": "10-K",
+   "accession": "0000723125-26-000023",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "NKE",
+   "company": "Nike",
+   "cik": "0000320187",
+   "fiscal_year_end": "May 31",
+   "form": "10-K",
+   "accession": "0000320187-26-000088",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "NTAP",
+   "company": "NetApp",
+   "cik": "0001002047",
+   "fiscal_year_end": "last Friday of April",
+   "form": "10-K",
+   "accession": "0001193125-26-259683",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "PH",
+   "company": "Parker-Hannifin",
+   "cik": "0000076334",
+   "fiscal_year_end": "June 30",
+   "form": "10-K",
+   "accession": "0000076334-26-000105",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "TTWO",
+   "company": "Take-Two",
+   "cik": "0000946581",
+   "fiscal_year_end": "March 31",
+   "form": "10-K",
+   "accession": "0001628280-26-037434",
+   "fiscal_year": 2026
+  },
+  {
+   "ticker": "AAPL",
+   "company": "Apple",
+   "cik": "0000320193",
+   "fiscal_year_end": "last Saturday of September",
+   "form": "10-Q",
+   "accession": "0000320193-26-000013",
+   "fiscal_year": 2026,
+   "fiscal_period": "Q2"
+  },
+  {
+   "ticker": "AAPL",
+   "company": "Apple",
+   "cik": "0000320193",
+   "fiscal_year_end": "last Saturday of September",
+   "form": "10-Q",
+   "accession": "0000320193-26-000020",
+   "fiscal_year": 2026,
+   "fiscal_period": "Q3"
+  },
+  {
+   "ticker": "CASY",
+   "company": "Casey's",
+   "cik": "0000726958",
+   "fiscal_year_end": "April 30",
+   "form": "10-Q",
+   "accession": "0000726958-26-000085",
+   "fiscal_year": 2027,
+   "fiscal_period": "Q1"
+  },
+  {
+   "ticker": "MCK",
+   "company": "McKesson",
+   "cik": "0000927653",
+   "fiscal_year_end": "March 31",
+   "form": "10-Q",
+   "accession": "0000927653-26-000234",
+   "fiscal_year": 2027,
+   "fiscal_period": "Q1"
+  },
+  {
+   "ticker": "MDT",
+   "company": "Medtronic",
+   "cik": "0001613103",
+   "fiscal_year_end": "last Friday of April",
+   "form": "10-Q",
+   "accession": "0001628280-26-060473",
+   "fiscal_year": 2027,
+   "fiscal_period": "Q1"
+  },
+  {
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "cik": "0000789019",
+   "fiscal_year_end": "June 30",
+   "form": "10-Q",
+   "accession": "0001193125-26-191507",
+   "fiscal_year": 2026,
+   "fiscal_period": "Q3"
+  },
+  {
+   "ticker": "MU",
+   "company": "Micron",
+   "cik": "0000723125",
+   "fiscal_year_end": "Thursday closest to August 31",
+   "form": "10-Q",
+   "accession": "0000723125-26-000015",
+   "fiscal_year": 2026,
+   "fiscal_period": "Q3"
+  },
+  {
+   "ticker": "NKE",
+   "company": "Nike",
+   "cik": "0000320187",
+   "fiscal_year_end": "May 31",
+   "form": "10-Q",
+   "accession": "0000320187-26-000193",
+   "fiscal_year": 2027,
+   "fiscal_period": "Q1"
+  },
+  {
+   "ticker": "NTAP",
+   "company": "NetApp",
+   "cik": "0001002047",
+   "fiscal_year_end": "last Friday of April",
+   "form": "10-Q",
+   "accession": "0001193125-26-380207",
+   "fiscal_year": 2027,
+   "fiscal_period": "Q1"
+  },
+  {
+   "ticker": "PH",
+   "company": "Parker-Hannifin",
+   "cik": "0000076334",
+   "fiscal_year_end": "June 30",
+   "form": "10-Q",
+   "accession": "0000076334-26-000073",
+   "fiscal_year": 2026,
+   "fiscal_period": "Q3"
+  },
+  {
+   "ticker": "TTWO",
+   "company": "Take-Two",
+   "cik": "0000946581",
+   "fiscal_year_end": "March 31",
+   "form": "10-Q",
+   "accession": "0001628280-26-054870",
+   "fiscal_year": 2027,
+   "fiscal_period": "Q1"
+  }
+ ]
+}

@@ -1,0 +1,247 @@
+method,qid,route,source,tier,type,answer_in_context@10,answer_in_context@5,evidence_recall@1,evidence_recall@10,evidence_recall@3,evidence_recall@5,first_relevant_rank,hit@1,hit@10,hit@3,hit@5,latency_ms,mrr,n_returned,ndcg@10,provenance@1,provenance@10,provenance@3,provenance@5,top1_score,traps
+bm25,GSv0-MSFT-001,xbrl,rag_gold_v0,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.83,1.0,,0.9192,1.0,1.0,1.0,1.0,13.380278,quarter_vs_ytd
+bm25,GSv0-MSFT-002,xbrl,rag_gold_v0,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.65,1.0,,0.9581,1.0,1.0,1.0,1.0,17.203859,quarter_vs_ytd gaap_vs_non_gaap
+bm25,GSv0-MSFT-003,xbrl,rag_gold_v0,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.55,0.5,,0.8872,1.0,1.0,1.0,1.0,15.710837,quarter_vs_ytd
+bm25,GSv0-MSFT-004,text,rag_gold_v0,basic,definition,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.57,0.3333,,0.8472,1.0,1.0,1.0,1.0,7.749771,
+bm25,GSv0-MSFT-005,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.44,1.0,,1.0,1.0,1.0,1.0,1.0,8.877161,
+bm25,GSv0-MSFT-006,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.63,1.0,,1.0,1.0,1.0,1.0,1.0,16.433109,
+bm25,GSv0-MSFT-007,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.58,1.0,,1.0,1.0,1.0,1.0,1.0,18.563875,
+bm25,GSv0-MSFT-008,text,rag_gold_v0,basic,definition,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,0.57,0.0,,0.6944,1.0,1.0,1.0,1.0,7.153978,
+bm25,GSv0-MSFT-009,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.5,1.0,,1.0,1.0,1.0,1.0,1.0,24.462509,
+bm25,GSv0-MSFT-010,text,rag_gold_v0,basic,definition,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.7,0.3333,,0.8472,1.0,1.0,1.0,1.0,20.687088,
+bm25,GSv0-MSFT-011,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.72,1.0,,1.0,1.0,1.0,1.0,1.0,24.824575,
+bm25,GSv0-MSFT-012,text,rag_gold_v0,basic,definition,,,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,0.52,0.1667,,0.8032,1.0,1.0,1.0,1.0,9.568743,
+bm25,GSv0-MSFT-013,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.63,0.5,,0.8209,1.0,1.0,1.0,1.0,18.582191,pct_vs_pp
+bm25,GSv0-MSFT-014,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.69,0.3333,,0.8472,1.0,1.0,1.0,1.0,26.972282,non_gaap_definition
+bm25,GSv0-MSFT-015,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.74,0.5,,0.8719,1.0,1.0,1.0,1.0,31.047981,pct_vs_pp segment_vs_total
+bm25,GSv0-MSFT-016,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.74,1.0,,1.0,1.0,1.0,1.0,1.0,22.589361,instant_vs_duration sign
+bm25,GSv0-MSFT-017,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.67,0.5,,0.8872,1.0,1.0,1.0,1.0,21.033205,
+bm25,GSv0-MSFT-018,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,0.0,10,0.0,1.0,0.0,0.0,0.66,0.1,,0.7827,1.0,1.0,1.0,1.0,19.350826,
+bm25,GSv0-MSFT-019,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,0.6,0.2,,0.8126,1.0,1.0,1.0,1.0,15.984774,
+bm25,GSv0-MSFT-020,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.65,0.5,,0.8719,1.0,1.0,1.0,1.0,21.289551,
+bm25,GSv0-MSFT-021,text,rag_gold_v0,comparative,narrative,,,0.0,0.5,0.5,0.5,2,0.0,1.0,1.0,1.0,0.58,0.5,,0.7438,1.0,1.0,1.0,1.0,19.912895,
+bm25,GSv0-MSFT-022,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,0.52,0.1667,,0.8032,1.0,1.0,1.0,1.0,10.657427,
+bm25,GSv0-MSFT-023,xbrl,rag_gold_v0,deep,reconciliation,1.0,1.0,0.5,0.5,0.5,0.5,1,1.0,1.0,1.0,1.0,0.65,1.0,,0.8383,1.0,1.0,1.0,1.0,28.577948,sign fx_included
+bm25,GSv0-MSFT-024,xbrl,rag_gold_v0,deep,reconciliation,1.0,1.0,0.0,0.6667,0.3333,0.6667,2,0.0,1.0,1.0,1.0,0.83,0.5,,0.8228,1.0,1.0,1.0,1.0,24.953114,segment_vs_total
+bm25,GSv0-MSFT-025,xbrl,rag_gold_v0,deep,derived,1.0,0.0,0.0,1.0,0.0,0.0,8,0.0,1.0,0.0,0.0,0.87,0.125,,0.7908,1.0,1.0,1.0,1.0,15.01874,quarter_vs_ytd double_counting
+bm25,GSv0-MSFT-026,text,rag_gold_v0,deep,narrative,,,0.5,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.83,1.0,,0.9665,1.0,1.0,1.0,1.0,26.511625,
+bm25,GSv0-MSFT-027,text,rag_gold_v0,deep,narrative,,,0.5,0.5,0.5,0.5,1,1.0,1.0,1.0,1.0,0.69,1.0,,0.8383,1.0,1.0,1.0,1.0,19.086969,
+bm25,GSv0-MSFT-028,text,rag_gold_v0,deep,narrative,,,0.3333,0.6667,0.3333,0.3333,1,1.0,1.0,1.0,1.0,0.6,1.0,,0.8188,1.0,1.0,1.0,1.0,16.164009,
+bm25,GSv0-MSFT-029,text,rag_gold_v0,deep,narrative,,,0.25,0.75,0.5,0.75,1,1.0,1.0,1.0,1.0,0.69,1.0,,0.9368,1.0,1.0,1.0,1.0,18.624357,
+bm25,GSv0-MSFT-030,text,rag_gold_v0,deep,narrative,,,0.0,0.3333,0.3333,0.3333,2,0.0,1.0,1.0,1.0,0.71,0.5,,0.6593,1.0,1.0,1.0,1.0,22.599792,
+bm25,EV1-001,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.65,1.0,,0.9762,1.0,1.0,1.0,1.0,14.14557,quarter_vs_ytd
+bm25,EV1-002,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.58,1.0,,0.9762,1.0,1.0,1.0,1.0,14.123091,quarter_vs_ytd
+bm25,EV1-003,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.82,1.0,,0.9581,1.0,1.0,1.0,1.0,17.181944,quarter_vs_ytd gaap_vs_non_gaap
+bm25,EV1-004,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.65,1.0,,1.0,1.0,1.0,1.0,1.0,24.474072,quarter_vs_ytd
+bm25,EV1-005,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.59,1.0,,0.9665,1.0,1.0,1.0,1.0,15.59234,quarter_vs_ytd
+bm25,EV1-006,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.59,1.0,,0.9665,1.0,1.0,1.0,1.0,17.736732,quarter_vs_ytd
+bm25,EV1-007,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.6,0.3333,,0.8472,1.0,1.0,1.0,1.0,17.343241,quarter_vs_ytd sign
+bm25,EV1-008,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,0.56,0.25,,0.826,1.0,1.0,1.0,1.0,10.022242,instant_vs_duration
+bm25,EV1-009,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.72,1.0,,0.9545,1.0,1.0,1.0,1.0,18.528759,instant_vs_duration concept_sibling
+bm25,EV1-010,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.55,1.0,,1.0,1.0,1.0,1.0,1.0,13.479192,instant_vs_duration
+bm25,EV1-011,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.71,0.3333,,0.8206,1.0,1.0,1.0,1.0,14.663604,instant_vs_duration concept_sibling
+bm25,EV1-012,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.51,0.3333,,0.8472,1.0,1.0,1.0,1.0,12.355089,instant_vs_duration concept_sibling
+bm25,EV1-013,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,0.65,0.2,,0.8126,1.0,1.0,1.0,1.0,19.832455,quarter_vs_ytd sign
+bm25,EV1-014,xbrl,eval_v1,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,0.58,0.1667,,0.8032,1.0,1.0,1.0,1.0,18.630024,quarter_vs_ytd
+bm25,EV1-015,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,0.54,0.25,,0.7664,1.0,1.0,1.0,1.0,16.012035,quarter_vs_ytd
+bm25,EV1-016,xbrl+text,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.73,1.0,,1.0,1.0,1.0,1.0,1.0,22.160564,quarter_vs_ytd
+bm25,EV1-017,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.57,1.0,,0.9665,1.0,1.0,1.0,1.0,18.367817,quarter_vs_ytd segment_vs_total
+bm25,EV1-018,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.55,1.0,,1.0,1.0,1.0,1.0,1.0,23.101315,quarter_vs_ytd segment_vs_total
+bm25,EV1-019,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.71,0.5,,0.8719,1.0,1.0,1.0,1.0,20.52492,quarter_vs_ytd segment_vs_total
+bm25,EV1-020,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.58,1.0,,1.0,1.0,1.0,1.0,1.0,18.609184,quarter_vs_ytd
+bm25,EV1-021,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.72,1.0,,1.0,1.0,1.0,1.0,1.0,13.540373,quarter_vs_ytd
+bm25,EV1-022,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.61,1.0,,1.0,1.0,1.0,1.0,1.0,22.281933,quarter_vs_ytd
+bm25,EV1-023,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.56,1.0,,1.0,1.0,1.0,1.0,1.0,20.650354,quarter_vs_ytd
+bm25,EV1-024,xbrl,eval_v1,comparative,comparison,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.64,0.5,,0.8429,1.0,1.0,1.0,1.0,13.460702,segment_vs_total
+bm25,EV1-025,xbrl,eval_v1,comparative,comparison,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.6,1.0,,1.0,1.0,1.0,1.0,1.0,19.185524,quarter_vs_ytd
+bm25,EV1-026,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.59,0.5,,0.8731,1.0,1.0,1.0,1.0,18.174591,quarter_vs_ytd
+bm25,EV1-027,xbrl,eval_v1,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.63,1.0,,0.9375,1.0,1.0,1.0,1.0,21.852398,pct_vs_pp
+bm25,EV1-028,xbrl,eval_v1,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.63,1.0,,1.0,1.0,1.0,1.0,1.0,22.971809,pct_vs_pp dollars_vs_ratio
+bm25,EV1-029,xbrl,eval_v1,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.56,1.0,,0.9376,1.0,1.0,1.0,1.0,16.756311,quarter_vs_ytd
+bm25,EV1-030,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,0.0,0.0,8,0.0,1.0,0.0,0.0,0.61,0.125,,0.7908,1.0,1.0,1.0,1.0,15.566539,quarter_vs_ytd
+bm25,EV1-031,xbrl,eval_v1,comparative,calculation,1.0,0.0,0.0,0.5,0.0,0.5,4,0.0,1.0,0.0,1.0,0.62,0.25,,0.6925,1.0,1.0,1.0,1.0,19.476746,quarter_vs_ytd
+bm25,EV1-032,xbrl+text,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,0.67,0.2,,0.8126,1.0,1.0,1.0,1.0,27.006752,rounding_disclosed_vs_computed
+bm25,EV1-033,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,0.57,0.5,,0.8719,1.0,1.0,1.0,1.0,19.470385,quarter_vs_ytd segment_vs_total
+bm25,EV1-034,xbrl,eval_v1,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.53,1.0,,0.8383,1.0,1.0,1.0,1.0,15.614122,instant_vs_duration
+bm25,EV1-035,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,0.7,0.0,,0.5821,1.0,1.0,1.0,1.0,21.546989,paid_vs_declared
+bm25,EV1-036,xbrl+text,eval_v1,deep,calculation,0.0,0.0,0.0,0.5,0.5,0.5,3,0.0,1.0,1.0,1.0,0.61,0.3333,,0.7102,1.0,1.0,1.0,1.0,14.484437,cross_cutting_vs_segment
+bm25,EV1-040,xbrl,eval_v1,deep,reconciliation,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.6,0.3333,,0.7956,1.0,1.0,1.0,1.0,16.067684,segment_vs_total
+bm25,EV1-041,xbrl,eval_v1,deep,reconciliation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.74,1.0,,0.9665,1.0,1.0,1.0,1.0,19.611109,
+bm25,EV1-042,xbrl+text,eval_v1,deep,reconciliation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.71,1.0,,1.0,1.0,1.0,1.0,1.0,26.691696,gaap_vs_non_gaap quarter_vs_ytd
+bm25,EV1-043,xbrl,eval_v1,deep,reconciliation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.69,1.0,,1.0,1.0,1.0,1.0,1.0,27.567747,segment_vs_total sign
+bm25,EV1-044,text,eval_v1,basic,narrative,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,0.66,0.0,,0.6944,1.0,1.0,1.0,1.0,19.894281,quarter_vs_ytd
+bm25,EV1-045,text,eval_v1,basic,narrative,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,0.57,0.0,,0.6944,1.0,1.0,1.0,1.0,12.626494,
+bm25,EV1-046,text,eval_v1,basic,narrative,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,0.77,0.3333,,0.8472,1.0,1.0,1.0,1.0,17.140242,concept_sibling
+bm25,EV1-047,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.66,1.0,,1.0,1.0,1.0,1.0,1.0,9.844067,
+bm25,EV1-048,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.64,1.0,,1.0,1.0,1.0,1.0,1.0,31.148014,
+bm25,EV1-049,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,0.58,1.0,,1.0,1.0,1.0,1.0,1.0,23.11874,quarter_vs_ytd
+bm25,EV1-061,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,12.370255,not_disclosed
+bm25,EV1-062,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,9.88603,out_of_scope
+bm25,EV1-063,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,17.195076,out_of_scope future_period
+bm25,EV1-065,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,13.684207,future_period wrong_period_bait
+bm25,EV1-066,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,5.895442,not_disclosed
+bm25,EV1-067,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,11.744071,out_of_scope advice
+dense,GSv0-MSFT-001,xbrl,rag_gold_v0,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,3.59,0.0,,0.6944,1.0,1.0,1.0,1.0,0.482852,quarter_vs_ytd
+dense,GSv0-MSFT-002,xbrl,rag_gold_v0,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.8,1.0,,0.9219,1.0,1.0,1.0,1.0,0.510718,quarter_vs_ytd gaap_vs_non_gaap
+dense,GSv0-MSFT-003,xbrl,rag_gold_v0,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.35,0.0,,0.6944,1.0,1.0,1.0,1.0,0.570261,quarter_vs_ytd
+dense,GSv0-MSFT-004,text,rag_gold_v0,basic,definition,,,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,2.03,0.25,,0.826,1.0,1.0,1.0,1.0,0.550815,
+dense,GSv0-MSFT-005,text,rag_gold_v0,basic,definition,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,1.82,0.5,,0.8872,1.0,1.0,1.0,1.0,0.423639,
+dense,GSv0-MSFT-006,text,rag_gold_v0,basic,definition,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,1.57,0.5,,0.8872,1.0,1.0,1.0,1.0,0.592448,
+dense,GSv0-MSFT-007,text,rag_gold_v0,basic,definition,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,1.52,0.5,,0.8872,1.0,1.0,1.0,1.0,0.696167,
+dense,GSv0-MSFT-008,text,rag_gold_v0,basic,definition,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.45,0.0,,0.6944,1.0,1.0,1.0,1.0,0.511939,
+dense,GSv0-MSFT-009,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.52,1.0,,1.0,1.0,1.0,1.0,1.0,0.68607,
+dense,GSv0-MSFT-010,text,rag_gold_v0,basic,definition,,,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,1.47,0.25,,0.826,1.0,1.0,1.0,1.0,0.619072,
+dense,GSv0-MSFT-011,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.51,1.0,,1.0,1.0,1.0,1.0,1.0,0.610362,
+dense,GSv0-MSFT-012,text,rag_gold_v0,basic,definition,,,0.0,1.0,0.0,0.0,8,0.0,1.0,0.0,0.0,1.67,0.125,,0.7908,1.0,1.0,1.0,1.0,0.527093,
+dense,GSv0-MSFT-013,xbrl,rag_gold_v0,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.56,0.0,,0.6944,1.0,1.0,1.0,1.0,0.492553,pct_vs_pp
+dense,GSv0-MSFT-014,xbrl,rag_gold_v0,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.71,0.0,,0.6944,1.0,1.0,1.0,1.0,0.426626,non_gaap_definition
+dense,GSv0-MSFT-015,xbrl,rag_gold_v0,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,1.74,0.1667,,0.7474,1.0,1.0,1.0,1.0,0.53065,pct_vs_pp segment_vs_total
+dense,GSv0-MSFT-016,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,2.12,0.2,,0.8126,1.0,1.0,1.0,1.0,0.440165,instant_vs_duration sign
+dense,GSv0-MSFT-017,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,1.96,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.627875,
+dense,GSv0-MSFT-018,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,1.76,0.2,,0.8126,1.0,1.0,1.0,1.0,0.590049,
+dense,GSv0-MSFT-019,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,0.0,9,0.0,1.0,0.0,0.0,1.65,0.1111,,0.7864,1.0,1.0,1.0,1.0,0.732093,
+dense,GSv0-MSFT-020,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,1.62,0.5,,0.8292,1.0,1.0,1.0,1.0,0.586427,
+dense,GSv0-MSFT-021,text,rag_gold_v0,comparative,narrative,,,0.0,0.5,0.5,0.5,3,0.0,1.0,1.0,1.0,1.64,0.3333,,0.7102,1.0,1.0,1.0,1.0,0.584302,
+dense,GSv0-MSFT-022,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,1.57,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.408351,
+dense,GSv0-MSFT-023,xbrl,rag_gold_v0,deep,reconciliation,1.0,1.0,0.0,0.5,0.5,0.5,3,0.0,1.0,1.0,1.0,1.57,0.3333,,0.7102,1.0,1.0,1.0,1.0,0.57232,sign fx_included
+dense,GSv0-MSFT-024,xbrl,rag_gold_v0,deep,reconciliation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.24,0.0,,0.516,1.0,1.0,1.0,1.0,0.439878,segment_vs_total
+dense,GSv0-MSFT-025,xbrl,rag_gold_v0,deep,derived,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.22,0.0,,0.6944,1.0,1.0,1.0,1.0,0.610584,quarter_vs_ytd double_counting
+dense,GSv0-MSFT-026,text,rag_gold_v0,deep,narrative,,,0.0,1.0,0.5,1.0,3,0.0,1.0,1.0,1.0,2.19,0.3333,,0.8206,1.0,1.0,1.0,1.0,0.572426,
+dense,GSv0-MSFT-027,text,rag_gold_v0,deep,narrative,,,0.0,0.5,0.5,0.5,3,0.0,1.0,1.0,1.0,2.43,0.3333,,0.7102,1.0,1.0,1.0,1.0,0.590135,
+dense,GSv0-MSFT-028,text,rag_gold_v0,deep,narrative,,,0.0,0.3333,0.0,0.0,7,0.0,1.0,0.0,0.0,2.2,0.1429,,0.5917,1.0,1.0,1.0,1.0,0.436783,
+dense,GSv0-MSFT-029,text,rag_gold_v0,deep,narrative,,,0.25,0.75,0.25,0.25,1,1.0,1.0,1.0,1.0,2.15,1.0,,0.9374,1.0,1.0,1.0,1.0,0.500026,
+dense,GSv0-MSFT-030,text,rag_gold_v0,deep,narrative,,,0.0,0.6667,0.3333,0.3333,2,0.0,1.0,1.0,1.0,2.19,0.5,,0.7277,1.0,1.0,1.0,1.0,0.707573,
+dense,EV1-001,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.18,0.0,,0.6944,1.0,1.0,1.0,1.0,0.548945,quarter_vs_ytd
+dense,EV1-002,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.17,0.0,,0.6944,1.0,1.0,1.0,1.0,0.548945,quarter_vs_ytd
+dense,EV1-003,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.87,1.0,,0.9219,1.0,1.0,1.0,1.0,0.510718,quarter_vs_ytd gaap_vs_non_gaap
+dense,EV1-004,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.75,1.0,,0.9588,1.0,1.0,1.0,1.0,0.582038,quarter_vs_ytd
+dense,EV1-005,xbrl,eval_v1,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,10,0.0,1.0,0.0,0.0,1.69,0.1,,0.7827,1.0,1.0,1.0,1.0,0.475871,quarter_vs_ytd
+dense,EV1-006,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.74,1.0,,1.0,1.0,1.0,1.0,1.0,0.6644,quarter_vs_ytd
+dense,EV1-007,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.81,0.0,,0.6944,1.0,1.0,1.0,1.0,0.641202,quarter_vs_ytd sign
+dense,EV1-008,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.69,0.0,,0.6944,1.0,1.0,1.0,1.0,0.532257,instant_vs_duration
+dense,EV1-009,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.77,1.0,,0.9581,1.0,1.0,1.0,1.0,0.592091,instant_vs_duration concept_sibling
+dense,EV1-010,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,1.86,0.2,,0.7621,1.0,1.0,1.0,1.0,0.439523,instant_vs_duration
+dense,EV1-011,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,1.73,0.5,,0.8429,1.0,1.0,1.0,1.0,0.54942,instant_vs_duration concept_sibling
+dense,EV1-012,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.7,0.0,,0.6944,1.0,1.0,1.0,1.0,0.5957,instant_vs_duration concept_sibling
+dense,EV1-013,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.68,0.0,,0.6944,1.0,1.0,1.0,1.0,0.665632,quarter_vs_ytd sign
+dense,EV1-014,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.64,0.0,,0.6944,1.0,1.0,1.0,1.0,0.533806,quarter_vs_ytd
+dense,EV1-015,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,1.59,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.636306,quarter_vs_ytd
+dense,EV1-016,xbrl+text,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.62,1.0,,1.0,1.0,1.0,1.0,1.0,0.531397,quarter_vs_ytd
+dense,EV1-017,xbrl,eval_v1,basic,segment,1.0,0.0,0.0,1.0,0.0,0.0,10,0.0,1.0,0.0,0.0,1.66,0.1,,0.7827,1.0,1.0,1.0,1.0,0.50185,quarter_vs_ytd segment_vs_total
+dense,EV1-018,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,1.7,0.25,,0.7779,1.0,1.0,1.0,1.0,0.472834,quarter_vs_ytd segment_vs_total
+dense,EV1-019,xbrl,eval_v1,basic,segment,1.0,0.0,0.0,1.0,0.0,0.0,9,0.0,1.0,0.0,0.0,1.72,0.1111,,0.7864,1.0,1.0,1.0,1.0,0.66111,quarter_vs_ytd segment_vs_total
+dense,EV1-020,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,1.72,0.25,,0.826,1.0,1.0,1.0,1.0,0.474322,quarter_vs_ytd
+dense,EV1-021,xbrl,eval_v1,basic,segment,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.76,0.0,,0.6944,1.0,1.0,1.0,1.0,0.510283,quarter_vs_ytd
+dense,EV1-022,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,1.63,0.5,,0.8872,1.0,1.0,1.0,1.0,0.467939,quarter_vs_ytd
+dense,EV1-023,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,1.58,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.640744,quarter_vs_ytd
+dense,EV1-024,xbrl,eval_v1,comparative,comparison,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.45,0.0,,0.6944,1.0,1.0,1.0,1.0,0.492415,segment_vs_total
+dense,EV1-025,xbrl,eval_v1,comparative,comparison,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.54,0.0,,0.6944,1.0,1.0,1.0,1.0,0.606698,quarter_vs_ytd
+dense,EV1-026,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,0.5,0.0,0.5,5,0.0,1.0,0.0,1.0,1.49,0.2,,0.7621,1.0,1.0,1.0,1.0,0.443045,quarter_vs_ytd
+dense,EV1-027,xbrl,eval_v1,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,1.61,0.1667,,0.8032,1.0,1.0,1.0,1.0,0.594469,pct_vs_pp
+dense,EV1-028,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,1.68,0.2,,0.8126,1.0,1.0,1.0,1.0,0.605071,pct_vs_pp dollars_vs_ratio
+dense,EV1-029,xbrl,eval_v1,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,10,0.0,1.0,0.0,0.0,1.75,0.1,,0.7827,1.0,1.0,1.0,1.0,0.490313,quarter_vs_ytd
+dense,EV1-030,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.72,0.0,,0.6944,1.0,1.0,1.0,1.0,0.4501,quarter_vs_ytd
+dense,EV1-031,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.74,0.0,,0.5821,1.0,1.0,1.0,1.0,0.60717,quarter_vs_ytd
+dense,EV1-032,xbrl+text,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.79,0.0,,0.6944,1.0,1.0,1.0,1.0,0.548863,rounding_disclosed_vs_computed
+dense,EV1-033,xbrl,eval_v1,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,9,0.0,1.0,0.0,0.0,1.7,0.1111,,0.7864,1.0,1.0,1.0,1.0,0.460329,quarter_vs_ytd segment_vs_total
+dense,EV1-034,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,1.75,0.3333,,0.7102,1.0,1.0,1.0,1.0,0.591254,instant_vs_duration
+dense,EV1-035,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.85,0.0,,0.5821,1.0,1.0,1.0,1.0,0.575071,paid_vs_declared
+dense,EV1-036,xbrl+text,eval_v1,deep,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.78,0.0,,0.5821,1.0,1.0,1.0,1.0,0.441913,cross_cutting_vs_segment
+dense,EV1-040,xbrl,eval_v1,deep,reconciliation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.73,0.0,,0.6944,1.0,1.0,1.0,1.0,0.537071,segment_vs_total
+dense,EV1-041,xbrl,eval_v1,deep,reconciliation,0.0,0.0,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,1.64,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.488813,
+dense,EV1-042,xbrl+text,eval_v1,deep,reconciliation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.78,1.0,,1.0,1.0,1.0,1.0,1.0,0.611444,gaap_vs_non_gaap quarter_vs_ytd
+dense,EV1-043,xbrl,eval_v1,deep,reconciliation,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,2.02,0.1667,,0.7588,1.0,1.0,1.0,1.0,0.549085,segment_vs_total sign
+dense,EV1-044,text,eval_v1,basic,narrative,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.07,0.0,,0.6944,1.0,1.0,1.0,1.0,0.556433,quarter_vs_ytd
+dense,EV1-045,text,eval_v1,basic,narrative,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.96,0.0,,0.6944,1.0,1.0,1.0,1.0,0.53858,
+dense,EV1-046,text,eval_v1,basic,narrative,,,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,2.06,0.2,,0.8126,1.0,1.0,1.0,1.0,0.776926,concept_sibling
+dense,EV1-047,text,eval_v1,basic,narrative,,,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,1.72,0.25,,0.826,1.0,1.0,1.0,1.0,0.621811,
+dense,EV1-048,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.63,1.0,,0.9665,1.0,1.0,1.0,1.0,0.686084,
+dense,EV1-049,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.55,1.0,,1.0,1.0,1.0,1.0,1.0,0.693432,quarter_vs_ytd
+dense,EV1-061,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.539177,not_disclosed
+dense,EV1-062,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.415512,out_of_scope
+dense,EV1-063,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.617793,out_of_scope future_period
+dense,EV1-065,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.606219,future_period wrong_period_bait
+dense,EV1-066,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.489412,not_disclosed
+dense,EV1-067,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.587306,out_of_scope advice
+hybrid,GSv0-MSFT-001,xbrl,rag_gold_v0,basic,extraction,1.0,1.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,1.85,0.2,,0.8126,1.0,1.0,1.0,1.0,0.031746,quarter_vs_ytd
+hybrid,GSv0-MSFT-002,xbrl,rag_gold_v0,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.92,1.0,,0.9673,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd gaap_vs_non_gaap
+hybrid,GSv0-MSFT-003,xbrl,rag_gold_v0,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,1.81,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd
+hybrid,GSv0-MSFT-004,text,rag_gold_v0,basic,definition,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,1.87,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-005,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.79,1.0,,1.0,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-006,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.78,1.0,,1.0,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-007,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.79,1.0,,1.0,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-008,text,rag_gold_v0,basic,definition,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,1.93,0.0,,0.6944,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-009,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.76,1.0,,1.0,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-010,text,rag_gold_v0,basic,definition,,,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,1.74,0.25,,0.826,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-011,text,rag_gold_v0,basic,definition,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,1.86,1.0,,1.0,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-012,text,rag_gold_v0,basic,definition,,,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,1.74,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-013,xbrl,rag_gold_v0,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,1.85,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.032018,pct_vs_pp
+hybrid,GSv0-MSFT-014,xbrl,rag_gold_v0,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,2.0,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.032522,non_gaap_definition
+hybrid,GSv0-MSFT-015,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.35,0.5,,0.8292,1.0,1.0,1.0,1.0,0.032522,pct_vs_pp segment_vs_total
+hybrid,GSv0-MSFT-016,xbrl,rag_gold_v0,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.89,1.0,,1.0,1.0,1.0,1.0,1.0,0.031778,instant_vs_duration sign
+hybrid,GSv0-MSFT-017,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.66,0.5,,0.8872,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-018,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,2.38,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-019,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,2.21,0.1667,,0.8032,1.0,1.0,1.0,1.0,0.032002,
+hybrid,GSv0-MSFT-020,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.1,0.5,,0.8429,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-021,text,rag_gold_v0,comparative,narrative,,,0.0,0.5,0.5,0.5,3,0.0,1.0,1.0,1.0,2.0,0.3333,,0.7102,1.0,1.0,1.0,1.0,0.032787,
+hybrid,GSv0-MSFT-022,text,rag_gold_v0,comparative,narrative,,,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,1.93,0.25,,0.826,1.0,1.0,1.0,1.0,0.032522,
+hybrid,GSv0-MSFT-023,xbrl,rag_gold_v0,deep,reconciliation,1.0,1.0,0.5,0.5,0.5,0.5,1,1.0,1.0,1.0,1.0,2.02,1.0,,0.8383,1.0,1.0,1.0,1.0,0.032266,sign fx_included
+hybrid,GSv0-MSFT-024,xbrl,rag_gold_v0,deep,reconciliation,0.0,0.0,0.0,0.3333,0.0,0.0,6,0.0,1.0,0.0,0.0,3.26,0.1667,,0.5969,1.0,1.0,1.0,1.0,0.032522,segment_vs_total
+hybrid,GSv0-MSFT-025,xbrl,rag_gold_v0,deep,derived,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.91,0.0,,0.6944,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd double_counting
+hybrid,GSv0-MSFT-026,text,rag_gold_v0,deep,narrative,,,0.5,1.0,0.5,1.0,1,1.0,1.0,1.0,1.0,2.86,1.0,,0.9487,1.0,1.0,1.0,1.0,0.032266,
+hybrid,GSv0-MSFT-027,text,rag_gold_v0,deep,narrative,,,0.5,0.5,0.5,0.5,1,1.0,1.0,1.0,1.0,2.87,1.0,,0.8383,1.0,1.0,1.0,1.0,0.032266,
+hybrid,GSv0-MSFT-028,text,rag_gold_v0,deep,narrative,,,0.0,0.6667,0.3333,0.3333,2,0.0,1.0,1.0,1.0,3.13,0.5,,0.731,1.0,1.0,1.0,1.0,0.031754,
+hybrid,GSv0-MSFT-029,text,rag_gold_v0,deep,narrative,,,0.0,0.75,0.25,0.75,2,0.0,1.0,1.0,1.0,2.78,0.5,,0.8661,1.0,1.0,1.0,1.0,0.032002,
+hybrid,GSv0-MSFT-030,text,rag_gold_v0,deep,narrative,,,0.0,0.3333,0.3333,0.3333,2,0.0,1.0,1.0,1.0,2.45,0.5,,0.6593,1.0,1.0,1.0,1.0,0.032787,
+hybrid,EV1-001,xbrl,eval_v1,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,2.49,0.1667,,0.7505,1.0,1.0,1.0,1.0,0.031514,quarter_vs_ytd
+hybrid,EV1-002,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,0.0,1.0,5,0.0,1.0,0.0,1.0,2.35,0.2,,0.7621,1.0,1.0,1.0,1.0,0.031514,quarter_vs_ytd
+hybrid,EV1-003,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.28,1.0,,0.9673,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd gaap_vs_non_gaap
+hybrid,EV1-004,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.22,1.0,,1.0,1.0,1.0,1.0,1.0,0.032522,quarter_vs_ytd
+hybrid,EV1-005,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.4,0.5,,0.8872,1.0,1.0,1.0,1.0,0.031754,quarter_vs_ytd
+hybrid,EV1-006,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.44,1.0,,1.0,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd
+hybrid,EV1-007,xbrl,eval_v1,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,3.07,0.1667,,0.8032,1.0,1.0,1.0,1.0,0.032258,quarter_vs_ytd sign
+hybrid,EV1-008,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,4.18,0.0,,0.6944,1.0,1.0,1.0,1.0,0.032522,instant_vs_duration
+hybrid,EV1-009,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.08,1.0,,0.9743,1.0,1.0,1.0,1.0,0.032522,instant_vs_duration concept_sibling
+hybrid,EV1-010,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,3.09,0.5,,0.8429,1.0,1.0,1.0,1.0,0.032018,instant_vs_duration
+hybrid,EV1-011,xbrl,eval_v1,basic,extraction,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,3.39,0.5,,0.8719,1.0,1.0,1.0,1.0,0.032787,instant_vs_duration concept_sibling
+hybrid,EV1-012,xbrl,eval_v1,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,3.49,0.1667,,0.8032,1.0,1.0,1.0,1.0,0.032787,instant_vs_duration concept_sibling
+hybrid,EV1-013,xbrl,eval_v1,basic,extraction,0.0,0.0,0.0,1.0,0.0,0.0,8,0.0,1.0,0.0,0.0,3.11,0.125,,0.7908,1.0,1.0,1.0,1.0,0.032522,quarter_vs_ytd sign
+hybrid,EV1-014,xbrl,eval_v1,basic,extraction,1.0,0.0,0.0,1.0,0.0,0.0,9,0.0,1.0,0.0,0.0,3.02,0.1111,,0.7864,1.0,1.0,1.0,1.0,0.032018,quarter_vs_ytd
+hybrid,EV1-015,xbrl,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.01,1.0,,0.9124,1.0,1.0,1.0,1.0,0.031498,quarter_vs_ytd
+hybrid,EV1-016,xbrl+text,eval_v1,basic,extraction,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.07,1.0,,1.0,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd
+hybrid,EV1-017,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.66,0.5,,0.8292,1.0,1.0,1.0,1.0,0.032522,quarter_vs_ytd segment_vs_total
+hybrid,EV1-018,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,3.04,0.5,,0.8719,1.0,1.0,1.0,1.0,0.032266,quarter_vs_ytd segment_vs_total
+hybrid,EV1-019,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.62,0.5,,0.835,1.0,1.0,1.0,1.0,0.032522,quarter_vs_ytd segment_vs_total
+hybrid,EV1-020,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.58,1.0,,1.0,1.0,1.0,1.0,1.0,0.032018,quarter_vs_ytd
+hybrid,EV1-021,xbrl,eval_v1,basic,segment,1.0,0.0,0.0,1.0,0.0,0.0,6,0.0,1.0,0.0,0.0,2.38,0.1667,,0.8032,1.0,1.0,1.0,1.0,0.032002,quarter_vs_ytd
+hybrid,EV1-022,xbrl,eval_v1,basic,segment,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.08,1.0,,1.0,1.0,1.0,1.0,1.0,0.032522,quarter_vs_ytd
+hybrid,EV1-023,xbrl,eval_v1,basic,segment,1.0,1.0,0.0,1.0,1.0,1.0,2,0.0,1.0,1.0,1.0,2.16,0.5,,0.8872,1.0,1.0,1.0,1.0,0.032522,quarter_vs_ytd
+hybrid,EV1-024,xbrl,eval_v1,comparative,comparison,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.12,0.0,,0.6944,1.0,1.0,1.0,1.0,0.031319,segment_vs_total
+hybrid,EV1-025,xbrl,eval_v1,comparative,comparison,1.0,0.0,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,2.33,0.1429,,0.7962,1.0,1.0,1.0,1.0,0.031498,quarter_vs_ytd
+hybrid,EV1-026,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,0.5,0.5,2,0.0,1.0,1.0,1.0,2.36,0.5,,0.8286,1.0,1.0,1.0,1.0,0.032266,quarter_vs_ytd
+hybrid,EV1-027,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,2.56,0.25,,0.826,1.0,1.0,1.0,1.0,0.032258,pct_vs_pp
+hybrid,EV1-028,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,2.73,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.032258,pct_vs_pp dollars_vs_ratio
+hybrid,EV1-029,xbrl,eval_v1,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,7,0.0,1.0,0.0,0.0,2.78,0.1429,,0.7317,1.0,1.0,1.0,1.0,0.031054,quarter_vs_ytd
+hybrid,EV1-030,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.71,0.0,,0.6944,1.0,1.0,1.0,1.0,0.031778,quarter_vs_ytd
+hybrid,EV1-031,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.5,0.0,0.0,7,0.0,1.0,0.0,0.0,2.91,0.1429,,0.6675,1.0,1.0,1.0,1.0,0.032266,quarter_vs_ytd
+hybrid,EV1-032,xbrl+text,eval_v1,comparative,calculation,1.0,0.0,0.0,1.0,0.0,0.0,8,0.0,1.0,0.0,0.0,2.71,0.125,,0.7908,1.0,1.0,1.0,1.0,0.032787,rounding_disclosed_vs_computed
+hybrid,EV1-033,xbrl,eval_v1,comparative,calculation,1.0,1.0,0.0,1.0,0.0,1.0,4,0.0,1.0,0.0,1.0,2.73,0.25,,0.7916,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd segment_vs_total
+hybrid,EV1-034,xbrl,eval_v1,comparative,calculation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,2.59,1.0,,0.8383,1.0,1.0,1.0,1.0,0.032266,instant_vs_duration
+hybrid,EV1-035,xbrl,eval_v1,comparative,calculation,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,2.83,0.0,,0.5821,1.0,1.0,1.0,1.0,0.031778,paid_vs_declared
+hybrid,EV1-036,xbrl+text,eval_v1,deep,calculation,0.0,0.0,0.0,0.5,0.0,0.0,10,0.0,1.0,0.0,0.0,2.73,0.1,,0.6562,1.0,1.0,1.0,1.0,0.030886,cross_cutting_vs_segment
+hybrid,EV1-040,xbrl,eval_v1,deep,reconciliation,1.0,1.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,2.45,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.032787,segment_vs_total
+hybrid,EV1-041,xbrl,eval_v1,deep,reconciliation,1.0,0.0,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,3.07,0.3333,,0.7874,1.0,1.0,1.0,1.0,0.031754,
+hybrid,EV1-042,xbrl+text,eval_v1,deep,reconciliation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.88,1.0,,1.0,1.0,1.0,1.0,1.0,0.032787,gaap_vs_non_gaap quarter_vs_ytd
+hybrid,EV1-043,xbrl,eval_v1,deep,reconciliation,1.0,1.0,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,4.25,1.0,,0.9665,1.0,1.0,1.0,1.0,0.031545,segment_vs_total sign
+hybrid,EV1-044,text,eval_v1,basic,narrative,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,3.17,0.0,,0.6944,1.0,1.0,1.0,1.0,0.032266,quarter_vs_ytd
+hybrid,EV1-045,text,eval_v1,basic,narrative,,,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,4.27,0.0,,0.6944,1.0,1.0,1.0,1.0,0.031281,
+hybrid,EV1-046,text,eval_v1,basic,narrative,,,0.0,1.0,1.0,1.0,3,0.0,1.0,1.0,1.0,3.8,0.3333,,0.8472,1.0,1.0,1.0,1.0,0.032787,concept_sibling
+hybrid,EV1-047,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.66,1.0,,1.0,1.0,1.0,1.0,1.0,0.032018,
+hybrid,EV1-048,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.82,1.0,,0.9665,1.0,1.0,1.0,1.0,0.032787,
+hybrid,EV1-049,text,eval_v1,basic,narrative,,,1.0,1.0,1.0,1.0,1,1.0,1.0,1.0,1.0,3.88,1.0,,1.0,1.0,1.0,1.0,1.0,0.032787,quarter_vs_ytd
+hybrid,EV1-061,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.031514,not_disclosed
+hybrid,EV1-062,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.032787,out_of_scope
+hybrid,EV1-063,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.032787,out_of_scope future_period
+hybrid,EV1-065,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.032787,future_period wrong_period_bait
+hybrid,EV1-066,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.030798,not_disclosed
+hybrid,EV1-067,refusal,eval_v1,basic,unanswerable,,,,,,,,,,,,,,10,,,,,,0.032266,out_of_scope advice

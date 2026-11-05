@@ -1,0 +1,266 @@
+{
+ "_doc": "Exhibit 21 of each company's latest 10-K, read 2026-11-05. Short lists transcribed in full and read twice (read 1: full table; read 2: grouped by jurisdiction); both reads agree. Long lists (MCK, MDT, NKE, PH, TTWO; NTAP 76+) only for targeted lookups. Microsoft from the Week 6 read (10/26).",
+ "lists": {
+  "AAPL": {
+   "accession": "0000320193-25-000079",
+   "file": "a10-kexhibit21109272025.htm",
+   "total": 19,
+   "us": 3,
+   "non_us": 16,
+   "subsidiaries": [
+    [
+     "Apple Asia Limited",
+     "Hong Kong"
+    ],
+    [
+     "Apple Asia LLC",
+     "Delaware, U.S."
+    ],
+    [
+     "Apple Canada Inc.",
+     "Canada"
+    ],
+    [
+     "Apple Computer Trading (Shanghai) Co., Ltd.",
+     "China"
+    ],
+    [
+     "Apple Distribution International Limited",
+     "Ireland"
+    ],
+    [
+     "Apple India Private Limited",
+     "India"
+    ],
+    [
+     "Apple Insurance Company, Inc.",
+     "Arizona, U.S."
+    ],
+    [
+     "Apple Japan, Inc.",
+     "Japan"
+    ],
+    [
+     "Apple Korea Limited",
+     "South Korea"
+    ],
+    [
+     "Apple Operations International Limited",
+     "Ireland"
+    ],
+    [
+     "Apple Operations Limited",
+     "Ireland"
+    ],
+    [
+     "Apple Operations Mexico, S.A. de C.V.",
+     "Mexico"
+    ],
+    [
+     "Apple Pty Limited",
+     "Australia"
+    ],
+    [
+     "Apple Services Pte. Ltd.",
+     "Singapore"
+    ],
+    [
+     "Apple South Asia (Thailand) Limited",
+     "Thailand"
+    ],
+    [
+     "Apple South Asia Pte. Ltd.",
+     "Singapore"
+    ],
+    [
+     "Apple Vietnam Limited Liability Company",
+     "Vietnam"
+    ],
+    [
+     "Braeburn Capital, Inc.",
+     "Nevada, U.S."
+    ],
+    [
+     "iTunes K.K.",
+     "Japan"
+    ]
+   ]
+  },
+  "CASY": {
+   "accession": "0000726958-26-000046",
+   "file": "casy-ex211_2026430xq4.htm",
+   "total": 9,
+   "us": 9,
+   "non_us": 0,
+   "subsidiaries": [
+    [
+     "Casey's Marketing Company",
+     "Iowa"
+    ],
+    [
+     "Casey's Services Company",
+     "Iowa"
+    ],
+    [
+     "Casey's Retail Company",
+     "Iowa"
+    ],
+    [
+     "CGS Stores, LLC",
+     "Iowa"
+    ],
+    [
+     "Casey's Holdings, LLC",
+     "Iowa"
+    ],
+    [
+     "Fikes Wholesale, LLC",
+     "Texas"
+    ],
+    [
+     "CEFCO Stores, LLC",
+     "Texas"
+    ],
+    [
+     "Heartland Property Company, LLC",
+     "Delaware"
+    ],
+    [
+     "CARES Captive Insurance Company",
+     "Iowa"
+    ]
+   ]
+  },
+  "MU": {
+   "accession": "0000723125-26-000023",
+   "file": "a2026q4ex211-subsidiarieso.htm",
+   "total": 21,
+   "us": 6,
+   "non_us": 15,
+   "subsidiaries": [
+    [
+     "Micron Europe Limited",
+     "United Kingdom"
+    ],
+    [
+     "Micron Idaho Semiconductor Manufacturing (Triton) LLC",
+     "Delaware"
+    ],
+    [
+     "Micron Japan, Ltd.",
+     "Japan"
+    ],
+    [
+     "Micron Memory Japan Facilities, K.K.",
+     "Japan"
+    ],
+    [
+     "Micron Memory Japan, K.K.",
+     "Japan"
+    ],
+    [
+     "Micron Memory Malaysia Sdn. Bhd.",
+     "Malaysia"
+    ],
+    [
+     "Micron Memory Taiwan Co., Ltd.",
+     "Taiwan"
+    ],
+    [
+     "Micron New York Semiconductor Manufacturing LLC",
+     "Delaware"
+    ],
+    [
+     "Micron Semiconductor Asia, LLC",
+     "Delaware"
+    ],
+    [
+     "Micron Semiconductor Asia Operations Pte. Ltd.",
+     "Singapore"
+    ],
+    [
+     "Micron Semiconductor Asia Pte. Ltd.",
+     "Singapore"
+    ],
+    [
+     "Micron Semiconductor International, Ltd.",
+     "Cayman Islands, B.W.I."
+    ],
+    [
+     "Micron Semiconductor Products, Inc.",
+     "Idaho"
+    ],
+    [
+     "Micron Semiconductor Technology India Private Limited",
+     "India"
+    ],
+    [
+     "Micron Semiconductor (Xi'an) Co., Ltd.",
+     "China"
+    ],
+    [
+     "Micron Technology B.V.",
+     "Netherlands"
+    ],
+    [
+     "Micron Technology Finance LLC",
+     "Delaware"
+    ],
+    [
+     "Micron Technology Operations India LLP",
+     "India"
+    ],
+    [
+     "Micron Technology Taiwan, Inc.",
+     "Taiwan"
+    ],
+    [
+     "Micron Technology Taiwan Logistics Co., Ltd.",
+     "Taiwan"
+    ],
+    [
+     "S-Squared Insurance Company, Inc.",
+     "Hawaii"
+    ]
+   ]
+  },
+  "MSFT": {
+   "accession": "0001193125-26-323660",
+   "file": "msft-ex21.htm",
+   "total": 8,
+   "us": 4,
+   "non_us": 4,
+   "read": "2026-10-26"
+  }
+ },
+ "lookups": {
+  "NTAP": {
+   "accession": "0001193125-26-259683",
+   "file": "ntap-ex21_1.htm",
+   "israel": [
+    "Cognigo Research Ltd",
+    "NetApp Israel R&D Ltd.",
+    "NetApp Israel Sales Limited",
+    "Plexistor Ltd.",
+    "Spotinst Ltd."
+   ],
+   "singapore": [
+    "NetApp Singapore Pte. Ltd."
+   ],
+   "total_read1": 76,
+   "total_note": "count from one summarised read; not used in questions"
+  },
+  "TTWO": {
+   "accession": "0001628280-26-037434",
+   "file": "ex-21103312026.htm",
+   "total_read1": 144,
+   "total_note": "not used: list too long to transcribe reliably"
+  }
+ },
+ "other_files": {
+  "MCK": "mck_exhibit21x3312026.htm",
+  "MDT": "mdt-202610kxex21.htm",
+  "NKE": "nke-5312026exhibit21.htm",
+  "PH": "ph6302026ex2110-k.htm"
+ }
+}
