@@ -1,0 +1,8 @@
+numpy
+matplotlib
+pytest
+pandas
+duckdb
+beautifulsoup4
+lxml
+python-pptx

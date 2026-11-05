@@ -1,0 +1,81 @@
+{
+ "filings_assumed_in_db": {
+  "10-K": 10,
+  "10-Q": 11,
+  "matches_data_team_counts": true,
+  "basis": "latest 10-K + latest 10-Q per company filed by 2026-10-13; AAPL x3 and MSFT x2 as listed by GraphRAG. Confirm accessions with Data."
+ },
+ "fiscal_year_end_month": {
+  "AAPL": "September",
+  "CASY": "April",
+  "MCK": "March",
+  "MDT": "April",
+  "MSFT": "June",
+  "MU": "September",
+  "NKE": "May",
+  "NTAP": "April",
+  "PH": "June",
+  "TTWO": "March"
+ },
+ "distinct_fiscal_year_end_months": 5,
+ "latest_10q_period_end": {
+  "AAPL": "2026-06-27",
+  "CASY": "2026-07-31",
+  "MCK": "2026-06-30",
+  "MDT": "2026-07-31",
+  "MSFT": "2026-03-31",
+  "MU": "2026-05-28",
+  "NKE": "2026-08-31",
+  "NTAP": "2026-07-31",
+  "PH": "2026-03-31",
+  "TTWO": "2026-06-30"
+ },
+ "latest_10q_calendar_quarter": {
+  "AAPL": "2026Q2",
+  "CASY": "2026Q3",
+  "MCK": "2026Q2",
+  "MDT": "2026Q3",
+  "MSFT": "2026Q1",
+  "MU": "2026Q2",
+  "NKE": "2026Q3",
+  "NTAP": "2026Q3",
+  "PH": "2026Q1",
+  "TTWO": "2026Q2"
+ },
+ "companies_sharing_a_calendar_quarter": {
+  "2026Q2": 4,
+  "2026Q3": 4,
+  "2026Q1": 2
+ },
+ "supports": {
+  "single_company_lookups": "yes, all 10 (one 10-K and at least one 10-Q each)",
+  "cross_company_latest_fiscal_year": "yes, but fiscal years end in 5 different months; questions must name each period",
+  "same_calendar_quarter_for_all_10": "no: the latest 10-Qs fall in 3 calendar quarters",
+  "year_over_year": "yes, from each 10-K's prior-year comparatives (2 years); not 3+ year trends",
+  "multi_year_trends_and_segment_history": "no until historical filings are loaded",
+  "subsidiary_relationship_questions": "yes once Exhibit 21 is cleaned for the 10 10-Ks",
+  "amendment_restatement_questions": "no: amendments (10-K/A) are excluded by Data's config"
+ },
+ "gold_set": {
+  "v1_in_scope": 90,
+  "v1_retired": 10,
+  "new_eval_scope10": 50,
+  "total_round1": 140,
+  "new_by_type": {
+   "extraction": 34,
+   "fiscal_calendar": 3,
+   "calculation": 2,
+   "cross_company": 5,
+   "derived": 1,
+   "unanswerable": 3,
+   "false_premise": 2
+  }
+ },
+ "fact_checks": {
+  "read2_agrees_with_read1": "55/55",
+  "read_once": 2,
+  "disagreements": 0,
+  "duplicate_period_conflicts": 0,
+  "quarter_sums_hold": "18/18"
+ }
+}

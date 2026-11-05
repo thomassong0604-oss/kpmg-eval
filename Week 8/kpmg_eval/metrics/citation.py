@@ -1,0 +1,71 @@
+"""Metric B (code-checkable half): Claim-level citation support. Precedents: ALCE, Ragas faithfulness.
+
+The numeric half of faithfulness needs no LLM: every number in a claim must appear in a passage the
+claim cites. Narrative claims ("driven by Azure growth") go to a calibrated LLM judge, out of scope here.
+
+  citation_validity   share of citations that point to evidence actually retrieved in this trace
+                      (catches fabricated or stale chunk ids)
+  numeric_support     share of numeric claims whose every number appears in at least one cited passage
+  citation_recall     share of gold evidence items cited by the answer
+"""
+from __future__ import annotations
+
+from ..keys import as_provenance
+from ..normalize import extract_quantities
+
+
+def _numbers(text: str) -> list:
+    qs = extract_quantities(text)
+    big = [q for q in qs if q.kind in ("money", "percent", "pp") or abs(q.value) >= 10]
+    return big or qs  # Week 5: a bare per-share answer ("4.27") is still a numeric claim
+
+
+def number_supported(q, passage: str) -> bool:
+    for p in extract_quantities(passage):
+        if (p.kind in ("percent", "pp")) != (q.kind in ("percent", "pp")):
+            continue
+        # compare at the precision the claim was written with
+        # Week 5: compare magnitudes. Statements print outflows as "( 30,876)"; whether the number is in the passage
+        # is the question here, the sign is graded by numeric accuracy.
+        if q.kind in ("percent", "pp"):
+            if round(abs(p.value), q.decimals) == round(abs(q.value), q.decimals):
+                return True
+        else:
+            for scale in (1.0, 1e3, 1e6, 1e9):  # filings state tables "in millions"
+                if round(abs(p.value) * scale / q.scale, q.decimals) == round(abs(q.value) / q.scale, q.decimals):
+                    return True
+    return False
+
+
+def score_citations(claims: list[dict], retrieved: dict[str, str], gold_ids: set[str] | None = None) -> dict:
+    """claims: [{"text": str, "cites": [id, ...]}]; retrieved: {provenance_key: text} for this trace.
+
+    Week 6: joins on the provenance key (keys.provenance_key), not chunk_id, so evidence from GraphRAG's graph arm
+    (section_id) and structured arm (fact_id) counts. Cite ids may be prefixed ("section:...") or bare RAG chunk ids;
+    retrieved keys may be either form too. Both sides are normalised before matching."""
+    retrieved = {as_provenance(k): v for k, v in retrieved.items()}
+    claims = [{**cl, "cites": [as_provenance(c) for c in cl.get("cites", [])]} for cl in claims]
+    if gold_ids:
+        gold_ids = {as_provenance(g) for g in gold_ids}
+    all_cites = [c for cl in claims for c in cl.get("cites", [])]
+    valid = [c for c in all_cites if c in retrieved]
+    numeric_claims = supported = 0
+    unsupported: list[str] = []
+    for cl in claims:
+        nums = _numbers(cl["text"])
+        if not nums:
+            continue
+        numeric_claims += 1
+        passages = [retrieved[c] for c in cl.get("cites", []) if c in retrieved]
+        if passages and all(any(number_supported(q, p) for p in passages) for q in nums):
+            supported += 1
+        else:
+            unsupported.append(cl["text"])
+    out = {
+        "citation_validity": len(valid) / len(all_cites) if all_cites else None,
+        "numeric_support": supported / numeric_claims if numeric_claims else None,
+        "unsupported_claims": unsupported,
+    }
+    if gold_ids:
+        out["citation_recall"] = len(gold_ids & set(all_cites)) / len(gold_ids)
+    return out

@@ -1,0 +1,225 @@
+{
+ "_doc": "Income statements (SEC rendered R pages) of the latest 10-K of each company, read 2026-11-05 via the SEC Archives. Values as printed, in the statement's scale. 'reads' = number of independent reads that agree.",
+ "statements": [
+  {
+   "ticker": "AAPL",
+   "accession": "0000320193-25-000079",
+   "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/R3.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Net sales": [
+     "416,161",
+     2
+    ],
+    "Operating income": [
+     "133,050",
+     1
+    ],
+    "Net income": [
+     "112,010",
+     2
+    ]
+   }
+  },
+  {
+   "ticker": "CASY",
+   "accession": "0000726958-26-000046",
+   "url": "https://www.sec.gov/Archives/edgar/data/726958/000072695826000046/R5.htm",
+   "scale": "$ in Thousands",
+   "lines": {
+    "Total revenue": [
+     "17,561,101",
+     1
+    ],
+    "Net income": [
+     "714,448",
+     1
+    ]
+   }
+  },
+  {
+   "ticker": "MCK",
+   "accession": "0000927653-26-000069",
+   "url": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000069/R3.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Revenues": [
+     "403,430",
+     1
+    ],
+    "Operating income": [
+     "6,212",
+     1
+    ],
+    "Net income": [
+     "5,099",
+     2
+    ],
+    "Net income attributable to noncontrolling interests": [
+     "(337)",
+     1
+    ],
+    "Net income attributable to McKesson Corporation": [
+     "4,762",
+     2
+    ]
+   }
+  },
+  {
+   "ticker": "MDT",
+   "accession": "0001628280-26-044354",
+   "url": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026044354/R3.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Net sales": [
+     "36,364",
+     1
+    ],
+    "Operating profit": [
+     "6,467",
+     1
+    ],
+    "Net income": [
+     "4,837",
+     2
+    ],
+    "Net income attributable to noncontrolling interests": [
+     "(37)",
+     1
+    ],
+    "Net income attributable to Medtronic": [
+     "4,801",
+     2
+    ]
+   }
+  },
+  {
+   "ticker": "MU",
+   "accession": "0000723125-26-000023",
+   "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/R3.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Revenue": [
+     "133,188",
+     2
+    ],
+    "Gross margin": [
+     "107,504",
+     1
+    ],
+    "Operating income": [
+     "99,340",
+     1
+    ],
+    "Net income": [
+     "84,969",
+     2
+    ]
+   },
+   "prior_year_columns": {
+    "Revenue FY2025": "37,378",
+    "Net income FY2025": "8,539",
+    "Revenue FY2024": "25,111",
+    "Net income FY2024": "778"
+   }
+  },
+  {
+   "ticker": "NKE",
+   "accession": "0000320187-26-000088",
+   "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000088/R3.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Revenues": [
+     "46,398",
+     1
+    ],
+    "NET INCOME": [
+     "3,108",
+     1
+    ]
+   }
+  },
+  {
+   "ticker": "NTAP",
+   "accession": "0001193125-26-259683",
+   "url": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/R4.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Net revenues": [
+     "6,925",
+     1
+    ],
+    "Income from operations": [
+     "1,674",
+     1
+    ],
+    "Net income": [
+     "1,276",
+     1
+    ]
+   }
+  },
+  {
+   "ticker": "PH",
+   "accession": "0000076334-26-000105",
+   "url": "https://www.sec.gov/Archives/edgar/data/76334/000007633426000105/R3.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Net sales": [
+     "21,499",
+     1
+    ],
+    "Net income": [
+     "3,649",
+     1
+    ],
+    "Net income attributable to common shareholders": [
+     "3,648",
+     2
+    ],
+    "Noncontrolling interest in subsidiaries' earnings": [
+     "1",
+     1
+    ]
+   }
+  },
+  {
+   "ticker": "TTWO",
+   "accession": "0001628280-26-037434",
+   "url": "https://www.sec.gov/Archives/edgar/data/946581/000162828026037434/R5.htm",
+   "scale": "$ in Millions",
+   "lines": {
+    "Total net revenue": [
+     "6,656.4",
+     1
+    ],
+    "Income (loss) from operations": [
+     "(104.2)",
+     1
+    ],
+    "Net loss": [
+     "(298.2)",
+     1
+    ]
+   }
+  }
+ ],
+ "cross_check": "Every revenue and net income value above equals the SEC companyconcept value used in the gold set (read twice on 10/29), so each is effectively read 3 times; exceptions are the Micron FY2026 values (filing read twice; API has none) and the noncontrolling-interest lines (filing only).",
+ "netapp_fiscal_label": {
+  "accession": "0001193125-26-380207",
+  "dei": {
+   "DocumentPeriodEndDate": "2026-07-31",
+   "DocumentFiscalYearFocus": "2026",
+   "DocumentFiscalPeriodFocus": "Q1"
+  },
+  "filing_text": [
+   "In the first three months of fiscal 2027, management approved a restructuring plan",
+   "Fiscal 2027, ending on April 30, 2027, is a 53-week year, with 14 weeks included in its first quarter",
+   "Our fiscal year is reported on a 52- or 53-week year ending on the last Friday in April."
+  ],
+  "urls": [
+   "https://www.sec.gov/Archives/edgar/data/1002047/000119312526380207/R1.htm",
+   "https://www.sec.gov/Archives/edgar/data/1002047/000119312526380207/ntap-20260731.htm"
+  ]
+ }
+}

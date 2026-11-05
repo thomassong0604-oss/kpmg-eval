@@ -1,0 +1,245 @@
+[
+ {
+  "qid": "GSv0-MSFT-001",
+  "label": "number from a statement",
+  "question": "What was Microsoft\u2019s total revenue for the three months ended March 31, 2026? State the amount in USD millions.",
+  "expected_route": "sql",
+  "needs": [
+   "sql"
+  ],
+  "keyword_reason": "number word 'total' -> SQL",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 1
+   },
+   "keyword": {
+    "called": [
+     "sql"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 0
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 2
+   }
+  }
+ },
+ {
+  "qid": "GSv0-MSFT-004",
+  "label": "explanation from the text",
+  "question": "Name Microsoft\u2019s reportable segments in this filing.",
+  "expected_route": "text",
+  "needs": [
+   "text"
+  ],
+  "keyword_reason": "no number word -> RAG text search",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 0
+   },
+   "keyword": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 0
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 2
+   }
+  }
+ },
+ {
+  "qid": "EV3-001",
+  "label": "relationship (Exhibit 21)",
+  "question": "In the Exhibit 21 of its fiscal 2026 annual report, how many subsidiaries does Micron list, and how many of them are organized outside the United States?",
+  "expected_route": "graph",
+  "needs": [
+   "graph"
+  ],
+  "keyword_reason": "relationship word 'Exhibit 21' -> GraphRAG",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 1
+   },
+   "keyword": {
+    "called": [
+     "graph"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 0
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 2
+   }
+  }
+ },
+ {
+  "qid": "EV1R-003",
+  "label": "number plus its explanation: keyword router misses SQL",
+  "question": "How did Microsoft's net gains or losses from its investments in OpenAI change between the nine months ended March 31, 2025 and the nine months ended March 31, 2026, and what event drove the change?",
+  "expected_route": "multi",
+  "needs": [
+   "sql",
+   "text"
+  ],
+  "keyword_reason": "no number word -> RAG text search",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 0
+   },
+   "keyword": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 0
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 1
+   }
+  }
+ },
+ {
+  "qid": "EV1-062",
+  "label": "out of scope: market data",
+  "question": "What was Microsoft's share price at the close on March 31, 2026?",
+  "expected_route": "none",
+  "needs": [],
+  "keyword_reason": "scope gate decides 'abstain', no tool",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 1
+   },
+   "keyword": {
+    "called": [],
+    "needed_tools_called": true,
+    "unneeded": 0
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 3
+   }
+  }
+ },
+ {
+  "qid": "GSv0-MSFT-009",
+  "label": "keyword router gets it wrong",
+  "question": "What does revenue allocated to remaining performance obligations include?",
+  "expected_route": "text",
+  "needs": [
+   "text"
+  ],
+  "keyword_reason": "number word 'revenue' -> SQL",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 0
+   },
+   "keyword": {
+    "called": [
+     "sql"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 1
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 2
+   }
+  }
+ },
+ {
+  "qid": "GSv0-MSFT-014",
+  "label": "keyword router calls one extra tool",
+  "question": "For the nine months ended March 31 in 2026 and 2025, calculate operating cash flow less cash additions to property and equipment. Use that specific definition, not a company-defined non-GAAP measure. Did this cash surplus increase or decrease?",
+  "expected_route": "sql",
+  "needs": [
+   "sql"
+  ],
+  "keyword_reason": "number word 'calculate' and explanation word 'defin' -> SQL + RAG",
+  "routers": {
+   "text_only": {
+    "called": [
+     "text"
+    ],
+    "needed_tools_called": false,
+    "unneeded": 1
+   },
+   "keyword": {
+    "called": [
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 1
+   },
+   "combined": {
+    "called": [
+     "graph",
+     "sql",
+     "text"
+    ],
+    "needed_tools_called": true,
+    "unneeded": 2
+   }
+  }
+ }
+]

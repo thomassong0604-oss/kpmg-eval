@@ -1,0 +1,141 @@
+{
+ "_doc": "Pilot-company filings with SEC's own fiscal labels (fy/fp of each filing in the companyconcept API, read 2026-10-21). Ground truth for RAG's fiscal_label() and the candidate pool for filter precision/recall. Microsoft's Q1 FY2026 10-Q was not read and is absent.",
+ "filings": [
+  {
+   "ticker": "MSFT",
+   "accession": "0001193125-26-027207",
+   "form": "10-Q",
+   "reporting_period_end": "2025-12-31",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q2"
+  },
+  {
+   "ticker": "MSFT",
+   "accession": "0001193125-26-191507",
+   "form": "10-Q",
+   "reporting_period_end": "2026-03-31",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q3"
+  },
+  {
+   "ticker": "MSFT",
+   "accession": "0001193125-26-323660",
+   "form": "10-K",
+   "reporting_period_end": "2026-06-30",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "FY"
+  },
+  {
+   "ticker": "AMZN",
+   "accession": "0001018724-26-000004",
+   "form": "10-K",
+   "reporting_period_end": "2025-12-31",
+   "sec_fiscal_year": 2025,
+   "sec_fiscal_period": "FY"
+  },
+  {
+   "ticker": "AMZN",
+   "accession": "0001018724-26-000014",
+   "form": "10-Q",
+   "reporting_period_end": "2026-03-31",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q1"
+  },
+  {
+   "ticker": "AMZN",
+   "accession": "0001018724-26-000026",
+   "form": "10-Q",
+   "reporting_period_end": "2026-06-30",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q2"
+  },
+  {
+   "ticker": "META",
+   "accession": "0001628280-26-003942",
+   "form": "10-K",
+   "reporting_period_end": "2025-12-31",
+   "sec_fiscal_year": 2025,
+   "sec_fiscal_period": "FY"
+  },
+  {
+   "ticker": "META",
+   "accession": "0001628280-26-028526",
+   "form": "10-Q",
+   "reporting_period_end": "2026-03-31",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q1"
+  },
+  {
+   "ticker": "META",
+   "accession": "0001628280-26-050705",
+   "form": "10-Q",
+   "reporting_period_end": "2026-06-30",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q2"
+  },
+  {
+   "ticker": "NVDA",
+   "accession": "0001045810-26-000021",
+   "form": "10-K",
+   "reporting_period_end": "2026-01-25",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "FY"
+  },
+  {
+   "ticker": "NVDA",
+   "accession": "0001045810-26-000052",
+   "form": "10-Q",
+   "reporting_period_end": "2026-04-26",
+   "sec_fiscal_year": 2027,
+   "sec_fiscal_period": "Q1"
+  },
+  {
+   "ticker": "NVDA",
+   "accession": "0001045810-26-000075",
+   "form": "10-Q",
+   "reporting_period_end": "2026-07-26",
+   "sec_fiscal_year": 2027,
+   "sec_fiscal_period": "Q2"
+  },
+  {
+   "ticker": "AAPL",
+   "accession": "0000320193-25-000073",
+   "form": "10-Q",
+   "reporting_period_end": "2025-06-28",
+   "sec_fiscal_year": 2025,
+   "sec_fiscal_period": "Q3"
+  },
+  {
+   "ticker": "AAPL",
+   "accession": "0000320193-25-000079",
+   "form": "10-K",
+   "reporting_period_end": "2025-09-27",
+   "sec_fiscal_year": 2025,
+   "sec_fiscal_period": "FY"
+  },
+  {
+   "ticker": "AAPL",
+   "accession": "0000320193-26-000006",
+   "form": "10-Q",
+   "reporting_period_end": "2025-12-27",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q1"
+  },
+  {
+   "ticker": "AAPL",
+   "accession": "0000320193-26-000013",
+   "form": "10-Q",
+   "reporting_period_end": "2026-03-28",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q2"
+  },
+  {
+   "ticker": "AAPL",
+   "accession": "0000320193-26-000020",
+   "form": "10-Q",
+   "reporting_period_end": "2026-06-27",
+   "sec_fiscal_year": 2026,
+   "sec_fiscal_period": "Q3"
+  }
+ ]
+}

@@ -1,0 +1,201 @@
+{
+ "_doc": "One frozen snapshot for RAG, GraphRAG, Agents and Eval (RAG asked Data the same on 10/28). Questions name periods explicitly; 'latest' means latest in this snapshot.",
+ "snapshot_id": "data_db_2026-11-03",
+ "source": "GraphRAG extraction_pipeline/config/filings.yaml @ 97eeba5 (Data database, 2026-11-03)",
+ "filings": [
+  {
+   "ticker": "AAPL",
+   "form": "10-K",
+   "period_end": "2025-09-27",
+   "accession": "0000320193-25-000079",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "AAPL",
+   "form": "10-Q",
+   "period_end": "2026-03-28",
+   "accession": "0000320193-26-000013",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "AAPL",
+   "form": "10-Q",
+   "period_end": "2026-06-27",
+   "accession": "0000320193-26-000020",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "CASY",
+   "form": "10-K",
+   "period_end": "2026-04-30",
+   "accession": "0000726958-26-000046",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "CASY",
+   "form": "10-Q",
+   "period_end": "2026-07-31",
+   "accession": "0000726958-26-000085",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MCK",
+   "form": "10-K",
+   "period_end": "2026-03-31",
+   "accession": "0000927653-26-000069",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MCK",
+   "form": "10-Q",
+   "period_end": "2026-06-30",
+   "accession": "0000927653-26-000234",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MDT",
+   "form": "10-K",
+   "period_end": "2026-04-24",
+   "accession": "0001628280-26-044354",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MDT",
+   "form": "10-Q",
+   "period_end": "2026-07-31",
+   "accession": "0001628280-26-060473",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MSFT",
+   "form": "10-Q",
+   "period_end": "2026-03-31",
+   "accession": "0001193125-26-191507",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MSFT",
+   "form": "10-K",
+   "period_end": "2026-06-30",
+   "accession": "0001193125-26-323660",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MU",
+   "form": "10-Q",
+   "period_end": "2026-05-28",
+   "accession": "0000723125-26-000015",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "MU",
+   "form": "10-K",
+   "period_end": "2026-09-03",
+   "accession": "0000723125-26-000023",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "NKE",
+   "form": "10-K",
+   "period_end": "2026-05-31",
+   "accession": "0000320187-26-000088",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "NKE",
+   "form": "10-Q",
+   "period_end": "2026-08-31",
+   "accession": "0000320187-26-000193",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "NTAP",
+   "form": "10-K",
+   "period_end": "2026-04-24",
+   "accession": "0001193125-26-259683",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "NTAP",
+   "form": "10-Q",
+   "period_end": "2026-07-31",
+   "accession": "0001193125-26-380207",
+   "db_status": "review_required"
+  },
+  {
+   "ticker": "PH",
+   "form": "10-Q",
+   "period_end": "2026-03-31",
+   "accession": "0000076334-26-000073",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "PH",
+   "form": "10-K",
+   "period_end": "2026-06-30",
+   "accession": "0000076334-26-000105",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "TTWO",
+   "form": "10-K",
+   "period_end": "2026-03-31",
+   "accession": "0001628280-26-037434",
+   "db_status": "passed"
+  },
+  {
+   "ticker": "TTWO",
+   "form": "10-Q",
+   "period_end": "2026-06-30",
+   "accession": "0001628280-26-054870",
+   "db_status": "passed"
+  }
+ ],
+ "counts": {
+  "10-K": 10,
+  "10-Q": 11
+ },
+ "match": {
+  "eval_week6_list": {
+   "same": 20,
+   "of": 21,
+   "differs": [
+    "0000723125-25-000028",
+    "0000723125-26-000023"
+   ],
+   "note": "Week 6 assumed Micron's FY2025 10-K (0000723125-25-000028); the DB holds FY2026 (0000723125-26-000023, filed 2026-10-09). Week 7 uses the DB's."
+  },
+  "data_inventory_2021_2026": {
+   "filings": 233,
+   "contains_all_snapshot_filings": true,
+   "newer_than_snapshot": [
+    [
+     "MSFT",
+     "10-Q",
+     "2026-09-30",
+     "0001193125-26-436133"
+    ]
+   ],
+   "source": "data_engineering_kpmg docs/validation/fact-coverage-2021-2026.csv @ f8d18e2"
+  },
+  "graphrag_filings": {
+   "same": 20,
+   "of": 21,
+   "note": "GraphRAG extracts the 20 passed filings; NetApp's 10-Q is excluded as review_required"
+  },
+  "rag_v2_index": {
+   "tickers": [
+    "AAPL",
+    "AMZN",
+    "META",
+    "MSFT",
+    "NVDA"
+   ],
+   "covers_of_ten": [
+    "AAPL",
+    "MSFT"
+   ],
+   "note": "RAG's v2 index covers 2 of the ten companies; the other 8 need indexing for round 1"
+  }
+ }
+}

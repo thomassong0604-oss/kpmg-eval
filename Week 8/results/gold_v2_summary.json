@@ -1,0 +1,108 @@
+{
+ "gold_set_v2": {
+  "questions": 155,
+  "sha256_16": "ed4b42db6fc25ee5",
+  "answerable": 143,
+  "by_source": {
+   "rag_gold_v0": 30,
+   "eval_v1": 60,
+   "eval_scope10": 50,
+   "eval_v1_relationship": 6,
+   "eval_w7": 9
+  },
+  "by_type": {
+   "extraction": 53,
+   "definition": 9,
+   "calculation": 17,
+   "narrative": 17,
+   "reconciliation": 6,
+   "derived": 5,
+   "segment": 7,
+   "comparison": 2,
+   "cross_company": 6,
+   "unanswerable": 10,
+   "false_premise": 6,
+   "fiscal_calendar": 5,
+   "relationship": 8,
+   "event": 1,
+   "fabricated_relationship": 3
+  },
+  "by_route_expected": {
+   "sql": 104,
+   "text": 31,
+   "none": 8,
+   "graph": 11,
+   "multi": 1
+  },
+  "by_snapshot_status": {
+   "in_snapshot": 144,
+   "out_of_snapshot_by_design": 8,
+   "review_required": 3
+  },
+  "answerable_questions_per_company": {
+   "AAPL": 12,
+   "CASY": 11,
+   "MCK": 9,
+   "MDT": 10,
+   "MSFT": 92,
+   "MU": 16,
+   "NKE": 10,
+   "NTAP": 12,
+   "PH": 9,
+   "TTWO": 11
+  },
+  "companies_outside_ten_in_answerable_questions": 0
+ },
+ "changes_from_week6": [
+  "Micron's 10-K is now FY2026 (in Data's DB): EV2-017/018/038 recomputed, comparisons EV2-040..043 recomputed",
+  "EV2-045 was a refusal ('FY2026 10-K not in corpus'); it is now a derived Q4 FY2026 revenue question",
+  "EV2-050 added: Micron Q1 FY2027 is outside the snapshot (refusal)",
+  "McKesson and Medtronic net income questions name 'excluding noncontrolling interests'; statement totals added as distractors",
+  "Comparison questions name the snapshot instead of 'the corpus'",
+  "EV3-001..009 added: Exhibit 21 relationships across the ten companies (incl. 2 invented-relationship checks) and NetApp's fiscal labels",
+  "route_expected on every question"
+ ],
+ "snapshot_match": {
+  "eval_week6_list": {
+   "same": 20,
+   "of": 21,
+   "differs": [
+    "0000723125-25-000028",
+    "0000723125-26-000023"
+   ],
+   "note": "Week 6 assumed Micron's FY2025 10-K (0000723125-25-000028); the DB holds FY2026 (0000723125-26-000023, filed 2026-10-09). Week 7 uses the DB's."
+  },
+  "data_inventory_2021_2026": {
+   "filings": 233,
+   "contains_all_snapshot_filings": true,
+   "newer_than_snapshot": [
+    [
+     "MSFT",
+     "10-Q",
+     "2026-09-30",
+     "0001193125-26-436133"
+    ]
+   ],
+   "source": "data_engineering_kpmg docs/validation/fact-coverage-2021-2026.csv @ f8d18e2"
+  },
+  "graphrag_filings": {
+   "same": 20,
+   "of": 21,
+   "note": "GraphRAG extracts the 20 passed filings; NetApp's 10-Q is excluded as review_required"
+  },
+  "rag_v2_index": {
+   "tickers": [
+    "AAPL",
+    "AMZN",
+    "META",
+    "MSFT",
+    "NVDA"
+   ],
+   "covers_of_ten": [
+    "AAPL",
+    "MSFT"
+   ],
+   "note": "RAG's v2 index covers 2 of the ten companies; the other 8 need indexing for round 1"
+  }
+ }
+}

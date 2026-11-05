@@ -1,0 +1,385 @@
+{
+ "_doc": "Clean vs messy wording on Gold Set v2 (155 questions). Gate and router are Eval's reference rules.",
+ "n_variants": 427,
+ "per_perturbation": {
+  "typo_company": 129,
+  "typo_terms": 143,
+  "casual": 155
+ },
+ "gate": {
+  "typo_company|no_session": {
+   "n": 129,
+   "clean_acc": 0.977,
+   "messy_acc": 0.194,
+   "decision_flipped": 104
+  },
+  "typo_company|with_session": {
+   "n": 129,
+   "clean_acc": 0.977,
+   "messy_acc": 0.93,
+   "decision_flipped": 8
+  },
+  "typo_company|no_session_fuzzy_names": {
+   "n": 129,
+   "clean_acc": 0.977,
+   "messy_acc": 0.938,
+   "decision_flipped": 5
+  },
+  "typo_terms|no_session": {
+   "n": 143,
+   "clean_acc": 0.825,
+   "messy_acc": 0.818,
+   "decision_flipped": 14
+  },
+  "typo_terms|with_session": {
+   "n": 143,
+   "clean_acc": 0.986,
+   "messy_acc": 0.895,
+   "decision_flipped": 14
+  },
+  "typo_terms|no_session_fuzzy_names": {
+   "n": 143,
+   "clean_acc": 0.825,
+   "messy_acc": 0.818,
+   "decision_flipped": 14
+  },
+  "casual|no_session": {
+   "n": 155,
+   "clean_acc": 0.819,
+   "messy_acc": 0.09,
+   "decision_flipped": 116
+  },
+  "casual|with_session": {
+   "n": 155,
+   "clean_acc": 0.968,
+   "messy_acc": 0.903,
+   "decision_flipped": 12
+  },
+  "casual|no_session_fuzzy_names": {
+   "n": 155,
+   "clean_acc": 0.819,
+   "messy_acc": 0.794,
+   "decision_flipped": 4
+  }
+ },
+ "router": {
+  "typo_company": {
+   "n": 129,
+   "clean_required_called": 0.86,
+   "messy_required_called": 0.814,
+   "route_changed": 8
+  },
+  "typo_terms": {
+   "n": 143,
+   "clean_required_called": 0.846,
+   "messy_required_called": 0.783,
+   "route_changed": 25
+  },
+  "casual": {
+   "n": 155,
+   "clean_required_called": 0.839,
+   "messy_required_called": 0.774,
+   "route_changed": 12
+  }
+ },
+ "retrieval_msft_10q": {
+  "typo_company|rag_bm25": {
+   "n": 54,
+   "clean": 0.889,
+   "messy": 0.889,
+   "lost": 0,
+   "gained": 0
+  },
+  "typo_company|graphrag_structured": {
+   "n": 54,
+   "clean": 0.37,
+   "messy": 0.37,
+   "lost": 0,
+   "gained": 0
+  },
+  "typo_terms|rag_bm25": {
+   "n": 70,
+   "clean": 0.857,
+   "messy": 0.729,
+   "lost": 9,
+   "gained": 0
+  },
+  "typo_terms|graphrag_structured": {
+   "n": 70,
+   "clean": 0.3,
+   "messy": 0.171,
+   "lost": 9,
+   "gained": 0
+  },
+  "casual|rag_bm25": {
+   "n": 77,
+   "clean": 0.87,
+   "messy": 0.857,
+   "lost": 1,
+   "gained": 0
+  },
+  "casual|graphrag_structured": {
+   "n": 77,
+   "clean": 0.325,
+   "messy": 0.325,
+   "lost": 0,
+   "gained": 0
+  }
+ },
+ "gate_examples": [
+  {
+   "vid": "GSv0-MSFT-001~typo_company",
+   "qid": "GSv0-MSFT-001",
+   "perturbation": "typo_company",
+   "clean": "What was Microsoft\u2019s total revenue for the three months ended March 31, 2026? State the amount in USD millions.",
+   "messy": "What was Microsfot\u2019s total revenue for the three months ended March 31, 2026? State the amount in USD millions.",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-001~casual",
+   "qid": "GSv0-MSFT-001",
+   "perturbation": "casual",
+   "clean": "What was Microsoft\u2019s total revenue for the three months ended March 31, 2026? State the amount in USD millions.",
+   "messy": "what was msft total revenue for the three months ended march 31 2026",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-002~typo_company",
+   "qid": "GSv0-MSFT-002",
+   "perturbation": "typo_company",
+   "clean": "What was Microsoft\u2019s GAAP net income for the three months ended March 31, 2026, in USD millions?",
+   "messy": "What was Microsfot\u2019s GAAP net income for the three months ended March 31, 2026, in USD millions?",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-002~casual",
+   "qid": "GSv0-MSFT-002",
+   "perturbation": "casual",
+   "clean": "What was Microsoft\u2019s GAAP net income for the three months ended March 31, 2026, in USD millions?",
+   "messy": "what was msft gaap net income for the three months ended march 31 2026 in usd millions",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-003~typo_company",
+   "qid": "GSv0-MSFT-003",
+   "perturbation": "typo_company",
+   "clean": "What was Microsoft\u2019s net cash from operations for the nine months ended March 31, 2026, in USD millions?",
+   "messy": "What was Microsfot\u2019s net cash from operations for the nine months ended March 31, 2026, in USD millions?",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-003~casual",
+   "qid": "GSv0-MSFT-003",
+   "perturbation": "casual",
+   "clean": "What was Microsoft\u2019s net cash from operations for the nine months ended March 31, 2026, in USD millions?",
+   "messy": "what was msft net cash from operations for the nine months ended march 31 2026 in usd millions",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-004~typo_company",
+   "qid": "GSv0-MSFT-004",
+   "perturbation": "typo_company",
+   "clean": "Name Microsoft\u2019s reportable segments in this filing.",
+   "messy": "Name Microsfot\u2019s reportable segments in this filing.",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-004~casual",
+   "qid": "GSv0-MSFT-004",
+   "perturbation": "casual",
+   "clean": "Name Microsoft\u2019s reportable segments in this filing.",
+   "messy": "name msft reportable segments in this filing",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-008~typo_company",
+   "qid": "GSv0-MSFT-008",
+   "perturbation": "typo_company",
+   "clean": "What categories make up Microsoft Cloud revenue as defined in the filing?",
+   "messy": "What categories make up Microsfot Cloud revenue as defined in the filing?",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-008~casual",
+   "qid": "GSv0-MSFT-008",
+   "perturbation": "casual",
+   "clean": "What categories make up Microsoft Cloud revenue as defined in the filing?",
+   "messy": "what categories make up msft cloud revenue as defined in the filing",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-011~typo_company",
+   "qid": "GSv0-MSFT-011",
+   "perturbation": "typo_company",
+   "clean": "What accounting method does Microsoft use for its OpenAI investment, and what method is used to calculate its equity-method income or loss?",
+   "messy": "What accounting method does Microsfot use for its OpenAI investment, and what method is used to calculate its equity-method income or loss?",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  },
+  {
+   "vid": "GSv0-MSFT-011~casual",
+   "qid": "GSv0-MSFT-011",
+   "perturbation": "casual",
+   "clean": "What accounting method does Microsoft use for its OpenAI investment, and what method is used to calculate its equity-method income or loss?",
+   "messy": "what accounting method does msft use for its openai investment and what method is used to calculate its equity-method income or loss",
+   "expected": "answer",
+   "messy_decision": "clarify"
+  }
+ ],
+ "router_examples": [
+  {
+   "vid": "GSv0-MSFT-005~typo_terms",
+   "qid": "GSv0-MSFT-005",
+   "perturbation": "typo_terms",
+   "clean": "Which reportable segment includes LinkedIn?",
+   "messy": "Which reportible segmnet includes LinkedIn?",
+   "expected": "text",
+   "clean_route": [
+    "text"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "GSv0-MSFT-006~typo_terms",
+   "qid": "GSv0-MSFT-006",
+   "perturbation": "typo_terms",
+   "clean": "Which reportable segment includes Azure and other cloud services?",
+   "messy": "Which reportible segmnet includes Azure and other cloud services?",
+   "expected": "text",
+   "clean_route": [
+    "text"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "GSv0-MSFT-007~typo_terms",
+   "qid": "GSv0-MSFT-007",
+   "perturbation": "typo_terms",
+   "clean": "Which reportable segment includes Xbox hardware and Xbox content and services?",
+   "messy": "Which reportible segmnet includes Xbox hardware and Xbox content and services?",
+   "expected": "text",
+   "clean_route": [
+    "text"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-006~typo_company",
+   "qid": "EV1-006",
+   "perturbation": "typo_company",
+   "clean": "How much did Microsoft spend on research and development in the three months ended March 31, 2026, in USD millions?",
+   "messy": "How much did Microsfot spend on research and development in the three months ended March 31, 2026, in USD millions?",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-006~casual",
+   "qid": "EV1-006",
+   "perturbation": "casual",
+   "clean": "How much did Microsoft spend on research and development in the three months ended March 31, 2026, in USD millions?",
+   "messy": "how much did msft spend on research and development in the three months ended march 31 2026 in usd millions",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-010~typo_company",
+   "qid": "EV1-010",
+   "perturbation": "typo_company",
+   "clean": "What was Microsoft's total stockholders' equity as of March 31, 2026, in USD millions?",
+   "messy": "What was Microsfot's total stockholders' equity as of March 31, 2026, in USD millions?",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-010~casual",
+   "qid": "EV1-010",
+   "perturbation": "casual",
+   "clean": "What was Microsoft's total stockholders' equity as of March 31, 2026, in USD millions?",
+   "messy": "what was msft total stockholders' equity as of march 31 2026 in usd millions",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-017~typo_terms",
+   "qid": "EV1-017",
+   "perturbation": "typo_terms",
+   "clean": "What was Intelligent Cloud segment revenue for the three months ended March 31, 2026, in USD millions?",
+   "messy": "What was Intelligent Cloud segmnet revnue for the three months ended March 31, 2026, in USD millions?",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-019~typo_terms",
+   "qid": "EV1-019",
+   "perturbation": "typo_terms",
+   "clean": "What was More Personal Computing segment revenue for the three months ended March 31, 2026, in USD millions?",
+   "messy": "What was More Personal Computing segmnet revnue for the three months ended March 31, 2026, in USD millions?",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-021~typo_terms",
+   "qid": "EV1-021",
+   "perturbation": "typo_terms",
+   "clean": "What was LinkedIn revenue for the nine months ended March 31, 2026, in USD millions?",
+   "messy": "What was LinkedIn revnue for the nine monhts ended March 31, 2026, in USD millions?",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-022~typo_terms",
+   "qid": "EV1-022",
+   "perturbation": "typo_terms",
+   "clean": "What was revenue from Server products and cloud services for the three months ended March 31, 2026, in USD millions?",
+   "messy": "What was revnue from Server products and cloud services for the three monhts ended March 31, 2026, in USD millions?",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  },
+  {
+   "vid": "EV1-025~typo_terms",
+   "qid": "EV1-025",
+   "perturbation": "typo_terms",
+   "clean": "How did More Personal Computing revenue for the nine months ended March 31, 2026 compare with the same period a year earlier? Give the change in USD millions.",
+   "messy": "How did More Personal Computing revnue for the nine monhts ended March 31, 2026 compare with the same period a year earlier? Give the change in USD millions.",
+   "expected": "sql",
+   "clean_route": [
+    "sql"
+   ],
+   "messy_route": []
+  }
+ ]
+}

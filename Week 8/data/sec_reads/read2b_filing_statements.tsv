@@ -1,0 +1,3 @@
+ticker	concept	accn	start	end	val	note
+MU	RevenueFromContractWithCustomerExcludingAssessedTax	0000723125-26-000023	2025-08-29	2026-09-03	133188000000	read 2 of R3 (statement of operations), 2026-11-05
+MU	NetIncomeLoss	0000723125-26-000023	2025-08-29	2026-09-03	84969000000	read 2 of R3 (statement of operations), 2026-11-05
