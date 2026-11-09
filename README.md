@@ -12,4 +12,6 @@ Weekly work for the evaluation and testing workstream.
 
 **Current gold set:** Gold Set v2.1 (155 questions, ten companies, 21 filings; v2 with corrected text anchors, 11/9), see [`Week 8/GOLD_SET_V2.md`](Week%208/GOLD_SET_V2.md). Gold Set v1 (100 questions) stays frozen in every week folder.
 
+**Slides:** each week's Eval slides (pptx and PDF) are in `Week N/deck/` (Weeks 6–8). **Check-ins** for the course are in [`Check-ins/`](Check-ins/). **Messages** sent to other teams start in `Week 8/COMMS_W8.md`.
+
 Each week's folder is self-contained: `cd` into it and follow its README.

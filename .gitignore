@@ -6,5 +6,5 @@ venv/
 .env
 .DS_Store
 .ipynb_checkpoints/
-# Meeting slides kept out of the repo
+# The full team meeting deck stays out of the repo; Eval's own slides are in Week N/deck/
 Slides/
