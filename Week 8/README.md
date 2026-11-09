@@ -13,6 +13,9 @@ python scripts/routing_examples.py                       # demo walkthrough -> R
 python scripts/build_deck_w8.py <base.pptx> <out.pptx>   # this week's seven Eval slides
 ```
 
+**Gold Set v2** (the round-1 questions): [`GOLD_SET_V2.md`](GOLD_SET_V2.md), with the jsonl, a filterable spreadsheet
+(`data/benchmark_v2_questions.xlsx`) and a Word version (`data/benchmark_v2_questions.docx`).
+
 Start with [`FOR_TEAMS_W8.md`](FOR_TEAMS_W8.md) (one section per team) and [`ROUTING_EXAMPLES.md`](ROUTING_EXAMPLES.md).
 
 ## 11/5 action items → what exists now

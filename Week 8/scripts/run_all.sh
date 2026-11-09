@@ -16,6 +16,8 @@ python3 scripts/build_gold_v2.py
 python3 scripts/run_decision_baselines.py
 python3 scripts/run_routing_baselines.py
 python3 scripts/routing_examples.py
+python3 scripts/export_gold_v2_xlsx.py
+command -v node >/dev/null && node scripts/export_gold_v2_docx.js || echo '[docx] node not found, skipped'
 python3 scripts/review_rag_gold_v1_anchors.py
 python3 scripts/review_rag_gold_v1_anchors.py --fixes
 python3 -m pytest -q
