@@ -118,8 +118,8 @@ def s_scope(s, sbs, rt, mw):
                                 [("104 finance data, 31 text, 11 relationship, 8 no tool, 1 both. Microsoft has 92 of them, "
                                   "so per-route numbers on 1-11 questions are examples, not estimates. They will move as "
                                   "questions are added.", 8.5, False, INK)]])
-    footer(s, "Pinned:", "RAG @ 11f8b42, GraphRAG @ 1980a79 (demo/walkthrough), Data @ f8d18e2. No LLM is used in any "
-                         "result here, so every number re-runs exactly.",
+    footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 7bcbdaf and Exhibit 21 branch @ c21fe89 (11/8), Data @ "
+                         "f8d18e2. No LLM is used in any result here, so every number re-runs exactly.",
            "Source: Week 8/README.md; scripts/run_all.sh (82 tests pass)", y=4.42, w=7.6)
     notes(s, "These are the seven Eval items from last week's minutes. Each one has a script and a result file in the Week 8 "
              "folder, and the slide number on the right says where it's covered. One caveat for everything that follows: the "
@@ -146,9 +146,10 @@ def s_side_by_side(s, sbs):
             [("RAG misses", {"bold": True}), (str(h.get("graphrag_only", 0)), C["center"]), (str(h.get("neither", 0)), C["center"])]]
     table(s, x, 1.25, 3.7, [1.1, 1.3, 1.3], rows, row_h=0.27, name="Head to head")
     tb(s, x, 2.2, 3.8, 1.9, [[("How it was run. ", 8, True, INK),
-                              ("RAG: its chunker, index and Retriever.search with the question's filters. GraphRAG: its fact loader "
-                               "built the store from Data's copy of the filing (1,317 facts), then structured_search. Its graph "
-                               "arm needs Neo4j and has no claims for this filing yet, so it is not in this chart.", 8, False, INK)],
+                              ("RAG: its chunker, index and Retriever.search with the question's filters. GraphRAG (main, "
+                               "11/8): its fact loader built the store from Data's copy of the filing (1,317 facts), then "
+                               "structured_search. Its graph arm needs a Neo4j database we cannot reach, so it is not in this "
+                               "chart.", 8, False, INK)],
                              [(" ", 4, False, INK)],
                              [("Neither side returned an empty result ", 8, True, INK),
                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable questions, so abstaining stays "
@@ -174,17 +175,20 @@ def s_better(s, sbs):
     d = g["number_miss_diagnosis"]["counts"]
     header(s, "Where each does better", "GraphRAG on relationships across filings, RAG on reading the filing itself")
     label(s, 0.12, 1.0, 4.6, f"{b['n_questions']} relationship questions (Exhibit 21)", NAVY)
-    tile(s, 0.12, 1.25, f"{b['graph_correct']}/{b['n_questions']}", "answered exactly by traversal of GraphRAG's agreed "
-         "shape (Company OWNS Subsidiary): counts, joins, ownership checks", w_big=0.85, w_lab=3.6, color=NAVY)
-    tile(s, 0.12, 1.8, f"0/{b['n_questions']}", "reachable by RAG today: it indexes each filing's main document, and "
+    tile(s, 0.12, 1.25, f"{b['graph_correct']}/{b['n_questions']}", "answered exactly by traversal of GraphRAG's own "
+         "Exhibit 21 rows (parent HAS_SUBSIDIARY subsidiary): counts, joins, ownership checks", w_big=0.85, w_lab=3.6, color=NAVY)
+    tile(s, 0.12, 1.8, f"0/{b['n_questions']}", "reachable by RAG today: it indexes each filing's main report, and "
          "Exhibit 21 is a separate document", w_big=0.85, w_lab=3.6, color=PINK)
     tile(s, 0.12, 2.35, f"{b['rag_with_ex21_all_rows_in_top8']}/{b['rag_with_ex21_tested']}",
          "with Exhibit 21 added as text, RAG's search brings every needed row; the counting and joining is then left "
          "to the reader (Apple and Micron's shared countries: 15 of 31 rows)", w_big=0.85, w_lab=3.6, color=BLUE)
-    tb(s, 0.12, 3.05, 4.6, 1.2, [[("Note: ", 8, True, MUTED),
-                                  ("GraphRAG has not loaded the ten companies' Exhibit 21 yet, so the graph here is Eval's reads "
-                                   "of Exhibit 21 in their agreed shape, not their production graph. It shows what the design can "
-                                   "answer.", 8, False, MUTED)]])
+    agr = b["eval_vs_graphrag_rows"]
+    same = sum(v["same_jurisdiction"] for v in agr.values())
+    ours = sum(v["eval_rows"] for v in agr.values())
+    tb(s, 0.12, 3.05, 4.6, 1.2, [[("Cross-check: ", 8, True, MUTED),
+                                  (f"GraphRAG's Exhibit 21 pipeline (11/8) and our gold reads agree on {same} of {ours} rows, names "
+                                   "and jurisdictions. Rows are GraphRAG's; the traversal ran in memory here, since their Neo4j "
+                                   "is not reachable from our side.", 8, False, MUTED)]])
     rows = [["", "Better at", "Evidence (Microsoft 10-Q, top 8)"],
             [("GraphRAG", {"bold": True, "color": PINK}), "Relationship questions", "Counts and joins come out exact (left)"],
             ["", "Exact periods on numbers", f"Wrong-period figure shown {pct(g['distractor_shown_on_numbers']['rate'])} vs RAG "
@@ -198,8 +202,8 @@ def s_better(s, sbs):
     tb(s, 4.95, 2.95, 4.85, 1.3, [[(f"Where GraphRAG's {g['numbers']['n'] - g['numbers']['hits']} number misses come from (each has a fix)",
                                     8.5, True, INK)],
                                   [(f"{d.get('in_top50_ranked_below_8', 0)} ranked below 8: ", 8, True, INK),
-                                   ("e.g. total revenue: 'Microsoft' in the question matches the Microsoft 365 product-line "
-                                    "rows, so the total ranks 10th", 8, False, INK)],
+                                   (f"in {d.get('ranked_below_8_period_word_matches_member', 0)}, 'three months' or 'six months' "
+                                    "matches Microsoft 365 ('ThreeSixFive') rows, so total revenue ranks 10th", 8, False, INK)],
                                   [(f"{d.get('multi_input_not_all_in_top50', 0)} calculations: ", 8, True, INK),
                                    ("one call cannot fetch every input; one call per input would", 8, False, INK)],
                                   [(f"{d.get('single_input_not_in_top50', 0)} wording: ", 8, True, INK),
@@ -207,14 +211,15 @@ def s_better(s, sbs):
                                     8, False, INK)]])
     footer(s, "Together:", "route relationship questions to GraphRAG and narrative ones to RAG; numbers can use either once "
                            "GraphRAG's ranking fix lands, with GraphRAG's period labels as the check.",
-           "Source: Week 8/results/side_by_side.json (part_b, number_miss_diagnosis); data/sec_reads/exhibit21_2026-11-05.json; "
-           "GraphRAG docs/ontology-reconciliation.md 2.6; RAG rag/ingest.py", y=4.38, w=7.6)
+           "Source: Week 8/results/side_by_side.json (part_b, number_miss_diagnosis); GraphRAG ex21_pipeline/output/graph_edges.csv "
+           "@ c21fe89; data/sec_reads/exhibit21_2026-11-05.json; RAG rag/ingest.py", y=4.38, w=7.6)
     notes(s, "Where does GraphRAG do better? On relationship questions. All of them depend on Exhibit 21, which RAG doesn't index "
-             "today. Put into GraphRAG's agreed shape, the graph answers all nine exactly, including counts and cross-company "
-             "joins. Even when we add Exhibit 21 to RAG's index as text, the counting is left to the language model. And on "
-             "numbers, GraphRAG's period labels help. Where does RAG do better? Prose, and finding the right number in the "
-             "filing. Most of GraphRAG's misses have a clear fix: the right fact is often in its results, just ranked below the "
-             "top 8, and calculations need one call per input.")
+             "today. GraphRAG's new Exhibit 21 pipeline covers all ten companies, and its rows agree with our gold reads on every "
+             "row we checked. Traversing those rows answers all nine questions exactly, including counts and cross-company joins. "
+             "Even when we add Exhibit 21 to RAG's index as text, the counting is left to the language model. And on numbers, "
+             "GraphRAG's period labels help. Where does RAG do better? Prose, and finding the right number in the filing. Most of "
+             "GraphRAG's misses have a clear fix: in six of them the words 'three months' match the Microsoft 365 product rows, "
+             "and calculations need one call per input.")
 
 
 def s_routing(s, rt):
@@ -346,18 +351,18 @@ def s_next(s):
     clear(s)
     header(s, "Next steps", "round 1 (week 8), and one ask per team")
     rows = [["Team", "Ask (from this week's results)"],
-            [("RAG", {"bold": True}), "Index Exhibit 21 (or route relationship questions to GraphRAG); index the other 8 "
-                                      "companies; an API key for the fixed reader so round 1 scores answers, not only evidence"],
-            [("GraphRAG", {"bold": True}), "Rank totals above product-line rows unless a segment is named; one call per input "
-                                           "for calculations; load the ten companies' Exhibit 21; a Neo4j endpoint to score the graph arm"],
+            [("RAG", {"bold": True}), "Share the round-1 chunks (21 filings) so we can add anchors and run the side by side on all "
+                                      "ten; route relationship questions to GraphRAG; an API key for the fixed reader"],
+            [("GraphRAG", {"bold": True}), "Treat 'three/six/nine months' as period words, not segment names; one call per input "
+                                           "for calculations; merge the Exhibit 21 pipeline; a Neo4j endpoint to score the graph arm"],
             [("Agents", {"bold": True}), "Match tickers and near-miss names in the scope check; run your orchestrator through "
                                          "run_routing_baselines.py; review our expected routes"],
-            [("Data", {"bold": True}), "Chunks for the 21 filings, so we can add text anchors to the new questions"],
+            [("Data", {"bold": True}), "Keep the 11/03 freeze (round1_filings.csv, which matches our 21/21) fixed through round 1"],
             [("Eval", {"bold": True}), "Text anchors once chunks land; round 1 on the frozen snapshot; rerun side by side with "
                                        "readers; grow the routing set beyond 1 'both' and 8 'no tool' questions"]]
     table(s, 0.12, 1.0, 9.68, [1.0, 8.68], rows, row_h=0.46, sizes={0: 8.5, 1: 8}, name="Asks")
-    footer(s, "Thanks:", "RAG's retriever and GraphRAG's fact loader both ran here unchanged from their repos, which is "
-                         "what made this week's side by side possible.",
+    footer(s, "Thanks:", "RAG's retriever and GraphRAG's fact loader ran here unchanged from their repos, and GraphRAG's "
+                         "new Exhibit 21 output fed the relationship check. That is what made this week's side by side possible.",
            "Source: Week 8/FOR_TEAMS_W8.md (one section per team, with file paths)", y=4.42, w=7.6)
     notes(s, "One ask per team for round 1, each tied to a result from today. Both RAG and GraphRAG's code ran here unchanged, "
              "which is what made the side-by-side possible this week.")

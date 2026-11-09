@@ -4,13 +4,13 @@
 
 Part A: the Microsoft Q3 FY2026 10-Q question set (all 84 Gold Set v2 questions on that filing). It is the one filing
 both teams' code can load here without a network or a database server. Each system runs its own code on the same filing:
-  RAG       KPMG_RAG @ 11f8b42: rag.chunk.chunk_filing (158 chunks) -> rag.index.build_index -> Retriever.search,
-            filters = the question's filters, top 8. "bm25" is RAG's production BM25 exactly. RAG's dense model cannot
-            be downloaded here, so "hybrid" uses RAG's own offline LSA stand-in (a lower bound for real hybrid).
-  GraphRAG  KPMG-GraphRAG @ 1980a79 (demo/walkthrough): structured/fact_loader_v1.py builds the DuckDB fact store from
-            Data's copy of the same filing (1,317 facts), then structured_query_v1.structured_search(question,
-            {ticker, accession_number}, top_k=8). This is GraphRAG's structured arm. Its graph arm needs Neo4j and has
-            no claims loaded for this filing, so it is not run in Part A.
+  RAG       KPMG_RAG @ 5bfafeb (main, 11/5): rag.chunk.chunk_filing (158 chunks) -> rag.index.build_index ->
+            Retriever.search, filters = the question's filters, top 8. "bm25" is RAG's production BM25 exactly. RAG's
+            dense model cannot be downloaded here, so "hybrid" uses RAG's own offline LSA stand-in (a lower bound).
+  GraphRAG  KPMG-GraphRAG @ 7bcbdaf (main, 11/8, incl. their 11/5 concept-matching and consolidated-fact changes):
+            structured/fact_loader_v1.py builds the DuckDB fact store from Data's copy of the same filing (1,317 facts),
+            then structured_query_v1.structured_search(question, {ticker, accession_number}, top_k=8). This is
+            GraphRAG's structured arm. Its graph arm needs Neo4j, which is not reachable from here.
 Scored at the evidence level (no reader model, so nothing depends on an LLM):
   needed_in_evidence   numbers: every input number of the gold answer is in the top 8 (RAG: the figure as printed,
                        e.g. "82,886"; GraphRAG: a returned fact has that value). Prose: every gold text anchor is in
@@ -18,14 +18,14 @@ Scored at the evidence level (no reader model, so nothing depends on an LLM):
   distractor_shown     a known wrong-period number for the same line item is also in the top 8 (the reader can pick it)
   returned_nothing     the system returned no evidence (GraphRAG's contract allows an empty list)
 
-Part B: the relationship (traversal) questions, all built on Exhibit 21. RAG ingests each filing's primary document
-only (rag/ingest.py reads `primaryDocument`), and Exhibit 21 is a separate document, so RAG's index cannot hold these
-answers today. GraphRAG's agreed ontology (docs/ontology-reconciliation.md, decision 2.6) models them as
-Company -[:OWNS]-> Subsidiary from Exhibit 21. GraphRAG has not loaded the ten companies' Exhibit 21 yet, so Part B
-loads Eval's Exhibit 21 reads (data/sec_reads/exhibit21_2026-11-05.json) into that shape in memory and answers each
-question by traversal; and, for comparison, adds the same rows to RAG's index as text through RAG's own chunker and
-checks whether BM25's top 8 holds every row the answer needs. Part B shows what each design can do with the same rows;
-it is not GraphRAG's production graph.
+Part B: the relationship (traversal) questions, all built on Exhibit 21. RAG indexes each filing's main report
+(rag/ingest.py reads `primaryDocument`; its round-1 corpus is Data's report chunks, and Data archives Exhibit 21 files
+without chunking them, docs/shortlist-acquisition.md), so RAG's index cannot hold these answers today. GraphRAG's own
+Exhibit 21 pipeline (branch alina/ex21-pipeline @ c21fe89, output/graph_edges.csv) gives Parent -HAS_SUBSIDIARY->
+Subsidiary rows for all ten companies. Part B loads those rows in memory, answers each question by traversal (Neo4j is
+not reachable here), and, for comparison, adds the same rows to RAG's index as text through RAG's own chunker and
+checks whether BM25's top 8 holds every row the answer needs. It also checks GraphRAG's rows against Eval's own gold
+reads (data/sec_reads/exhibit21_2026-11-05.json), row by row.
 """
 from __future__ import annotations
 
@@ -46,14 +46,15 @@ UP = ROOT / "upstream"
 DATA, RES = ROOT / "data", ROOT / "results"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(UP / "KPMG_RAG"))
-sys.path.insert(0, str(UP / "KPMG-GraphRAG-demo" / "structured"))
+sys.path.insert(0, str(UP / "KPMG-GraphRAG" / "structured"))
 
 ACC = "0001193125-26-191507"
 CORPUS = "msft_10q_q3fy26"
 K = 8
 STORE = UP / "graphrag_store_msft_10q.duckdb"
 HTM = UP / "data_engineering_kpmg" / "data" / "raw" / "sec" / ACC / "msft-20260331.htm"
-COMMITS = {"KPMG_RAG": "11f8b42", "KPMG-GraphRAG": "1980a79 (demo/walkthrough)", "data_engineering_kpmg": "f8d18e2"}
+COMMITS = {"KPMG_RAG": "5bfafeb (main, 11/5)", "KPMG-GraphRAG": "7bcbdaf (main, 11/8)",
+           "KPMG-GraphRAG ex21": "c21fe89 (alina/ex21-pipeline, 11/8)", "data_engineering_kpmg": "f8d18e2"}
 
 
 def norm(s: str) -> str:
@@ -148,6 +149,9 @@ def score_gr(q, ev):
     return out
 
 
+PERIOD_WORDS = {"three", "six", "nine", "twelve", "months", "quarter"}
+
+
 def rate(rows, key):
     xs = [r[key] for r in rows if r.get(key) is not None]
     return {"rate": round(sum(xs) / len(xs), 3) if xs else None, "n": len(xs), "hits": sum(xs)}
@@ -188,6 +192,7 @@ def part_a(gold):
                 by_type[r["type"]].append(r)
         summ[s]["by_question_type"] = {t: rate(v, "needed_in_evidence") for t, v in sorted(by_type.items())}
     # why GraphRAG's structured arm missed a number: ranked below 8, or its question words never reach the concept
+    import concept_match
     import structured_query_v1 as sq
     diag = Counter()
     diag_q = defaultdict(list)
@@ -201,6 +206,16 @@ def part_a(gold):
                "multi_input_not_all_in_top50" if len(q["fact_values"]) > 1 else "single_input_not_in_top50")
         diag[why] += 1
         diag_q[why].append(q["qid"])
+        if found:
+            # which question words lifted the rows above the needed fact? Period words ("three months") match
+            # Microsoft's "Microsoft 365" members (msft:MicrosoftThreeSixFive...), which is not what the user asked
+            terms = concept_match.question_terms(q["question"])
+            filer = concept_match.filer_words("MSFT", "Microsoft Corporation")
+            lifted = {t for e in deep[:K] for d in e["metadata"]["dimensions"] for t in terms
+                      if t not in filer and concept_match._matches(t, concept_match.concept_words(d.get("member", "")))}
+            if lifted & PERIOD_WORDS:
+                diag["ranked_below_8_period_word_matches_member"] += 1
+                diag_q["ranked_below_8_period_word_matches_member"].append(q["qid"])
     summ["graphrag_structured"]["number_miss_diagnosis"] = {"counts": dict(diag), "qids": dict(diag_q)}
     # head to head on answerable questions
     idx = {(r["qid"], r["system"]): r for r in rows}
@@ -263,11 +278,34 @@ class Ex21Graph:
         return False
 
 
+EX21_EDGES = UP / "KPMG-GraphRAG-ex21" / "ex21_pipeline" / "output" / "graph_edges.csv"
+EX21_ACC = {"AAPL": "0000320193-25-000079", "CASY": "0000726958-26-000046", "MU": "0000723125-26-000023",
+            "MSFT": "0001193125-26-323660", "NTAP": "0001193125-26-259683"}       # each company's 10-K in the snapshot
+
+
+def graphrag_ex21() -> dict:
+    """GraphRAG's own Exhibit 21 output (alina/ex21-pipeline): Parent -HAS_SUBSIDIARY-> Subsidiary rows."""
+    rows = [e for e in csv.DictReader(open(EX21_EDGES)) if e["relation"] == "HAS_SUBSIDIARY"]
+    return {t: [(e["target"], e["target_jurisdiction"]) for e in rows if a in e["evidence"]] for t, a in EX21_ACC.items()}
+
+
+def ex21_agreement(ours: dict, theirs: dict) -> dict:
+    """Row-level check of Eval's gold reads against GraphRAG's parse: same names, same jurisdictions."""
+    out = {}
+    for t, rows in ours.items():
+        on, tn = {norm(n): norm(j) for n, j in rows}, {norm(n): norm(j) for n, j in theirs[t]}
+        out[t] = {"eval_rows": len(on), "graphrag_rows": len(tn), "names_in_both": len(set(on) & set(tn)),
+                  "same_jurisdiction": sum(on[n] == tn.get(n) for n in on)}
+    return out
+
+
 def part_b(gold, ex21):
-    lists = {t: [tuple(x) for x in v["subsidiaries"]] for t, v in ex21["lists"].items() if v.get("subsidiaries")}
-    lists["MSFT"] = MSFT_EX21
+    ours = {t: [tuple(x) for x in v["subsidiaries"]] for t, v in ex21["lists"].items() if v.get("subsidiaries")}
+    ours["MSFT"] = MSFT_EX21
     ntap_isr = ex21["lookups"]["NTAP"]["israel"]
-    lists["NTAP"] = [(n, "Israel") for n in ntap_isr]            # partial: only the Israel rows were read
+    ours["NTAP"] = [(n, "Israel") for n in ntap_isr]              # Eval read only NetApp's Israel rows
+    lists = graphrag_ex21()                                         # both systems below use GraphRAG's rows
+    agreement = ex21_agreement(ours, lists)
     g = Ex21Graph(lists)
     gq = {q["qid"]: q for q in gold}
 
@@ -339,16 +377,15 @@ def part_b(gold, ex21):
         res = retr.search(q["question"], filters=None, top_k=K, method="bm25")["results"]
         got = {(r["ticker"], norm(n)) for r in res for (t, n) in need_rows[qid] if r["ticker"] == t and norm(n) in norm(r["text"])}
         need = {(t, norm(n)) for t, n in need_rows[qid]}
-        # Eval read only NetApp's Israel rows; a 5-row page is under RAG's 400-character minimum for unlabeled text
-        # (rag/chunk.py _MIN_GAP_CHARS), so the chunker drops it. The real 76-row page would be kept. Not tested.
-        untested = any(t == "NTAP" for t, _ in need_rows[qid])
+        untested = False                                            # GraphRAG's rows include NetApp's full list
         out.append({"qid": qid, "operation": op, "question": q["question"], "gold": q["answer"]["display"],
                     "graph_answer": ans, "graph_correct": bool(ok(ans)),
                     "rag_current_index_has_exhibit21": False,
                     "rag_with_ex21_rows_needed": len(need), "rag_with_ex21_rows_in_top8": None if untested else len(got & need),
                     "rag_with_ex21_all_rows_in_top8": None if untested else need <= got,
                     "rag_with_ex21_tickers_in_top8": sorted({r["ticker"] for r in res})})
-    return out, {"ex21_chunks_added": len(extra), "companies": sorted(lists)}
+    return out, {"ex21_chunks_added": len(extra), "companies": sorted(lists), "rows_used": "GraphRAG ex21 pipeline",
+                 "eval_vs_graphrag_rows": agreement}
 
 
 def main():

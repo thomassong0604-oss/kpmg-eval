@@ -1,8 +1,9 @@
 {
  "_doc": "Week 8: RAG and GraphRAG side by side on one full question set (11/5 minutes, Eval item 1).",
  "commits": {
-  "KPMG_RAG": "11f8b42",
-  "KPMG-GraphRAG": "1980a79 (demo/walkthrough)",
+  "KPMG_RAG": "5bfafeb (main, 11/5)",
+  "KPMG-GraphRAG": "7bcbdaf (main, 11/8)",
+  "KPMG-GraphRAG ex21": "c21fe89 (alina/ex21-pipeline, 11/8)",
   "data_engineering_kpmg": "f8d18e2"
  },
  "top_k": 8,
@@ -116,7 +117,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 4.1,
+    "median_ms": 3.6,
     "by_question_type": {
      "calculation": {
       "rate": 0.8,
@@ -191,7 +192,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 72.1,
+    "median_ms": 59.1,
     "by_question_type": {
      "calculation": {
       "rate": 0.2,
@@ -242,6 +243,7 @@
     "number_miss_diagnosis": {
      "counts": {
       "in_top50_ranked_below_8": 13,
+      "ranked_below_8_period_word_matches_member": 6,
       "multi_input_not_all_in_top50": 10,
       "single_input_not_in_top50": 2
      },
@@ -260,6 +262,14 @@
        "EV1-036",
        "EV1-042",
        "EV1-043"
+      ],
+      "ranked_below_8_period_word_matches_member": [
+       "GSv0-MSFT-001",
+       "GSv0-MSFT-013",
+       "GSv0-MSFT-025",
+       "EV1-020",
+       "EV1-023",
+       "EV1-036"
       ],
       "multi_input_not_all_in_top50": [
        "GSv0-MSFT-014",
@@ -374,7 +384,7 @@
  },
  "part_b": {
   "n_questions": 9,
-  "ex21_chunks_added": 8,
+  "ex21_chunks_added": 11,
   "companies": [
    "AAPL",
    "CASY",
@@ -382,10 +392,43 @@
    "MU",
    "NTAP"
   ],
+  "rows_used": "GraphRAG ex21 pipeline",
+  "eval_vs_graphrag_rows": {
+   "AAPL": {
+    "eval_rows": 19,
+    "graphrag_rows": 19,
+    "names_in_both": 19,
+    "same_jurisdiction": 19
+   },
+   "CASY": {
+    "eval_rows": 9,
+    "graphrag_rows": 9,
+    "names_in_both": 9,
+    "same_jurisdiction": 9
+   },
+   "MU": {
+    "eval_rows": 21,
+    "graphrag_rows": 21,
+    "names_in_both": 21,
+    "same_jurisdiction": 21
+   },
+   "MSFT": {
+    "eval_rows": 8,
+    "graphrag_rows": 8,
+    "names_in_both": 8,
+    "same_jurisdiction": 8
+   },
+   "NTAP": {
+    "eval_rows": 5,
+    "graphrag_rows": 76,
+    "names_in_both": 5,
+    "same_jurisdiction": 5
+   }
+  },
   "graph_correct": 9,
   "rag_current_index": "Exhibit 21 not ingested (primaryDocument only), so 0 of these can be retrieved today",
-  "rag_with_ex21_all_rows_in_top8": 6,
-  "rag_with_ex21_tested": 7,
+  "rag_with_ex21_all_rows_in_top8": 8,
+  "rag_with_ex21_tested": 9,
   "questions": [
    {
     "qid": "EV1R-001",
@@ -417,7 +460,8 @@
      "AAPL",
      "CASY",
      "MSFT",
-     "MU"
+     "MU",
+     "NTAP"
     ]
    },
    {
@@ -432,7 +476,6 @@
     "rag_with_ex21_rows_in_top8": 21,
     "rag_with_ex21_all_rows_in_top8": true,
     "rag_with_ex21_tickers_in_top8": [
-     "AAPL",
      "MSFT",
      "MU"
     ]
@@ -469,7 +512,8 @@
      "AAPL",
      "CASY",
      "MSFT",
-     "MU"
+     "MU",
+     "NTAP"
     ]
    },
    {
@@ -487,7 +531,8 @@
      "AAPL",
      "CASY",
      "MSFT",
-     "MU"
+     "MU",
+     "NTAP"
     ]
    },
    {
@@ -499,13 +544,14 @@
     "graph_correct": true,
     "rag_current_index_has_exhibit21": false,
     "rag_with_ex21_rows_needed": 5,
-    "rag_with_ex21_rows_in_top8": null,
-    "rag_with_ex21_all_rows_in_top8": null,
+    "rag_with_ex21_rows_in_top8": 5,
+    "rag_with_ex21_all_rows_in_top8": true,
     "rag_with_ex21_tickers_in_top8": [
      "AAPL",
      "CASY",
      "MSFT",
-     "MU"
+     "MU",
+     "NTAP"
     ]
    },
    {
@@ -523,7 +569,8 @@
      "AAPL",
      "CASY",
      "MSFT",
-     "MU"
+     "MU",
+     "NTAP"
     ]
    },
    {
@@ -535,12 +582,13 @@
     "graph_correct": true,
     "rag_current_index_has_exhibit21": false,
     "rag_with_ex21_rows_needed": 1,
-    "rag_with_ex21_rows_in_top8": null,
-    "rag_with_ex21_all_rows_in_top8": null,
+    "rag_with_ex21_rows_in_top8": 1,
+    "rag_with_ex21_all_rows_in_top8": true,
     "rag_with_ex21_tickers_in_top8": [
      "AAPL",
      "MSFT",
-     "MU"
+     "MU",
+     "NTAP"
     ]
    }
   ]
