@@ -3,16 +3,38 @@
 Thank you, RAG and GraphRAG: your retriever and your fact loader both ran here unchanged from your repos, and
 GraphRAG's new Exhibit 21 output fed the relationship check. Everything below is evidence-level (no reader model),
 re-runs exactly with `python scripts/run_side_by_side.py` and `python scripts/run_messy_wording.py`, and uses the
-current 155 Gold Set v2 questions only. Updated 11/9 to your latest commits (RAG main 5bfafeb; GraphRAG main 7bcbdaf
-and alina/ex21-pipeline c21fe89); the Part A numbers did not change.
+current 155 questions only. Updated 11/9 to your latest commits (RAG main 5bfafeb; GraphRAG main 7bcbdaf and
+alina/ex21-pipeline c21fe89), and rescored on Gold Set v2.1 (same questions and answers, corrected text anchors; see
+the round-1 section below).
+
+## Round 1 (RAG's run, 11/9): thank you, and what we fixed
+- RAG ran our scoring on Gold Set v2 against its 20-filing index: hybrid with filters finds all evidence for 105/124 scored
+  questions at k = 10 (numbers 83/93, prose 22/31); the nine other companies' single-company questions score 34/37.
+  Transcribed in `data/round1_rag_2026-11-09.json`.
+- **You were right about GSv0-MSFT-019/021/027/029.** Their anchors came from Gold v0's automatic "region" conversion
+  and do not match the questions. The same conversion produced 22 anchors in all, so we replaced all 22 with the sentence
+  or figure that supports each required point, exactly as the 10-Q prints it (`data/anchor_review_w8.json`, applied by
+  `scripts/build_gold_v2_1.py`; each string checked against the filing and your chunker's output). That is **Gold Set
+  v2.1** (`data/benchmark_v2_1.jsonl`, sha256 `1e104c626c6c9833`); questions and answers are identical to v2, so only
+  the prose anchors need rescoring. Old and new anchors per question: `results/gold_v2_1_changes.json`.
+- **Your 7 unanchored questions:** EV2-041 and EV2-048 get "298.2" (Take-Two's net loss) and EV2-049 gets "46,398" and
+  "46,309" (Nike revenue), read from the SEC-rendered income statements; please tell us if your chunks print them
+  differently. EV2-035/036/037/044 need fiscal-calendar wording from the filings, so we will anchor them as soon as we
+  have `chunks_C1.jsonl`.
+- **The one row label still missing** from our 37 fixes: every "add the table row label" item is now spelled out in
+  `data/anchor_review_w8.json` (`row_labels`). For operating income the label does not narrow anything: all 4 chunks with
+  38,398 or 114,634 show total operating income, so any of them is valid evidence.
+- The 3 cross-company rankings and 3 derived 10-K + 10-Q questions are routing work for the Agents (one search per
+  company or form); our expected routes already send them to finance data.
 
 ## RAG (KPMG_RAG @ 5bfafeb, main 11/5)
 - **Side by side, Microsoft 10-Q (84 questions):** your BM25 search has every needed figure in the top 8 for 49/50 number
-  questions and the gold passage for 18/27 prose questions. With the offline LSA stand-in for your dense model, hybrid is
-  41/50 and 19/27 (a lower bound: bge cannot be downloaded here). Per question: `results/side_by_side_per_question.csv`.
+  questions and the gold passage for 22/27 prose questions (18/27 on v2's anchors). With the offline LSA stand-in for your
+  dense model, hybrid is 41/50 and 23/27 (a lower bound: bge cannot be downloaded here). Per question:
+  `results/side_by_side_per_question.csv`.
 - **Round-1 corpus:** your `eval/round1_filings.csv` (Data's freeze list) matches our Gold Set v2 filings 21/21. Ask: share
-  the round-1 chunks (`data/round1/chunks_C1/chunks.jsonl` or the export CSV, privately, since Data asks that exports stay
-  off GitHub) so we can add text anchors for the new questions and run the side by side on all ten companies.
+  `chunks_C1.jsonl` and the per-question results privately (Data asks that exports stay off GitHub), so we can anchor the
+  last 4 questions, check your results against v2.1, and run the side by side on all ten companies.
 - **Wrong-period figures:** on 33 of 36 number questions with a known distractor, the wrong-period figure (nine months vs
   three, last year vs this) is in the same top 8, because statement tables print both columns. A reader prompt that names
   the period column would help.
@@ -21,7 +43,7 @@ and alina/ex21-pipeline c21fe89); the Part A numbers did not change.
   (`docs/shortlist-acquisition.md`). Simplest is to let the router send these to GraphRAG. If you do index exhibits as
   separate documents: `rag/chunk.py` drops unlabeled text under 400 characters (`_MIN_GAP_CHARS`), so a short exhibit
   would be skipped.
-- **Typos:** misspelled finance words ("revnue", "opertaing") cost BM25 9 of 70 questions (86% → 73%). Name typos cost
+- **Typos:** misspelled finance words ("revnue", "opertaing") cost BM25 8 of 70 questions (91% → 80%). Name typos cost
   nothing because the company comes in as a filter.
 - **Ask:** an API key for the fixed reader, so round 1 scores answers and not only evidence.
 

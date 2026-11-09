@@ -10,6 +10,6 @@ Weekly work for the evaluation and testing workstream.
 | [`Week 7/`](Week%207/) | Gold Set v2 on Data's ten companies only (155 questions, pinned to the 11/03 DB snapshot), filing-list match, Exhibit 21 relationship questions, answer/clarify/abstain/block rules and routing evaluation for Agents, RAG anchor fixes, fixed-reader adapter ([README](Week%207/README.md)) |
 | [`Week 8/`](Week%208/) | RAG vs GraphRAG side by side on the same filing with each team's own code, where each does better (incl. Exhibit 21 traversal), routing chart and unneeded-call definition, demo routing examples, typo and messy-wording suite ([README](Week%208/README.md)) |
 
-**Current gold set:** Gold Set v2 (155 questions, ten companies, 21 filings), see [`Week 8/GOLD_SET_V2.md`](Week%208/GOLD_SET_V2.md). Gold Set v1 (100 questions) stays frozen in every week folder.
+**Current gold set:** Gold Set v2.1 (155 questions, ten companies, 21 filings; v2 with corrected text anchors, 11/9), see [`Week 8/GOLD_SET_V2.md`](Week%208/GOLD_SET_V2.md). Gold Set v1 (100 questions) stays frozen in every week folder.
 
 Each week's folder is self-contained: `cd` into it and follow its README.

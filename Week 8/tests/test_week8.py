@@ -64,3 +64,18 @@ def test_unneeded_calls_definition():
     # combined on a sql question: 3 calls, 2 not needed; keyword exact: 0
     r = score_routing([{"expected": "sql", "called": {"sql", "text", "graph"}}, {"expected": "sql", "called": {"sql"}}])
     assert r["unneeded_calls_per_question"] == 1.0 and r["tool_calls_per_question"] == 2.0
+
+
+def test_gold_v2_1_changes_only_anchors():
+    import json
+    a = [json.loads(l) for l in open(ROOT / "data" / "benchmark_v2.jsonl")]
+    b = [json.loads(l) for l in open(ROOT / "data" / "benchmark_v2_1.jsonl")]
+    assert [q["qid"] for q in a] == [q["qid"] for q in b]
+    for x, y in zip(a, b):
+        assert {k: v for k, v in x.items() if k != "rag_evidence"} == {k: v for k, v in y.items() if k != "rag_evidence"}
+    # no auto-converted region anchors remain; the four RAG flagged now point at the right sentences
+    assert not any(e.get("anchor_source") == "region" for q in b for e in q["rag_evidence"])
+    by = {q["qid"]: [c for e in q["rag_evidence"] for c in e["contains"]] for q in b}
+    assert "development across the portfolio." not in by["GSv0-MSFT-019"]
+    assert any("relatively unchanged" in c for c in by["GSv0-MSFT-019"])
+    assert "194,370" not in by["GSv0-MSFT-027"]

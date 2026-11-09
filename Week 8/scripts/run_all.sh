@@ -13,6 +13,7 @@ python3 scripts/build_scope10.py
 python3 scripts/run_scope10_grader_check.py
 python3 scripts/build_relationship_draft.py
 python3 scripts/build_gold_v2.py
+python3 scripts/build_gold_v2_1.py
 python3 scripts/run_decision_baselines.py
 python3 scripts/run_routing_baselines.py
 python3 scripts/routing_examples.py

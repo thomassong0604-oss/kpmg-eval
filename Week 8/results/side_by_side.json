@@ -18,9 +18,9 @@
   "summary": {
    "rag_bm25": {
     "needed_in_evidence_all": {
-     "rate": 0.87,
+     "rate": 0.922,
      "n": 77,
-     "hits": 67
+     "hits": 71
     },
     "numbers": {
      "rate": 0.98,
@@ -28,9 +28,9 @@
      "hits": 49
     },
     "prose": {
-     "rate": 0.667,
+     "rate": 0.815,
      "n": 27,
-     "hits": 18
+     "hits": 22
     },
     "distractor_shown_on_numbers": {
      "rate": 0.917,
@@ -75,9 +75,9 @@
       "hits": 19
      },
      "narrative": {
-      "rate": 0.529,
+      "rate": 0.765,
       "n": 17,
-      "hits": 9
+      "hits": 13
      },
      "reconciliation": {
       "rate": 1.0,
@@ -93,9 +93,9 @@
    },
    "rag_hybrid": {
     "needed_in_evidence_all": {
-     "rate": 0.779,
+     "rate": 0.831,
      "n": 77,
-     "hits": 60
+     "hits": 64
     },
     "numbers": {
      "rate": 0.82,
@@ -103,9 +103,9 @@
      "hits": 41
     },
     "prose": {
-     "rate": 0.704,
+     "rate": 0.852,
      "n": 27,
-     "hits": 19
+     "hits": 23
     },
     "distractor_shown_on_numbers": {
      "rate": 0.833,
@@ -117,7 +117,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 4.0,
+    "median_ms": 4.3,
     "by_question_type": {
      "calculation": {
       "rate": 0.8,
@@ -150,9 +150,9 @@
       "hits": 17
      },
      "narrative": {
-      "rate": 0.588,
+      "rate": 0.824,
       "n": 17,
-      "hits": 10
+      "hits": 14
      },
      "reconciliation": {
       "rate": 0.667,
@@ -192,7 +192,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 71.7,
+    "median_ms": 73.7,
     "by_question_type": {
      "calculation": {
       "rate": 0.2,
@@ -292,9 +292,9 @@
    }
   },
   "head_to_head_rag_bm25_vs_graphrag": {
-   "rag_only": 42,
+   "rag_only": 46,
    "both": 25,
-   "neither": 10
+   "neither": 6
   },
   "head_to_head_qids": {
    "rag_only": [
@@ -314,11 +314,15 @@
     "GSv0-MSFT-017",
     "GSv0-MSFT-019",
     "GSv0-MSFT-020",
+    "GSv0-MSFT-021",
     "GSv0-MSFT-022",
     "GSv0-MSFT-023",
     "GSv0-MSFT-024",
     "GSv0-MSFT-025",
     "GSv0-MSFT-026",
+    "GSv0-MSFT-027",
+    "GSv0-MSFT-028",
+    "GSv0-MSFT-029",
     "EV1-007",
     "EV1-012",
     "EV1-014",
@@ -371,10 +375,6 @@
    "neither": [
     "GSv0-MSFT-008",
     "GSv0-MSFT-018",
-    "GSv0-MSFT-021",
-    "GSv0-MSFT-027",
-    "GSv0-MSFT-028",
-    "GSv0-MSFT-029",
     "GSv0-MSFT-030",
     "EV1-035",
     "EV1-044",

@@ -85,8 +85,8 @@
  "retrieval_msft_10q": {
   "typo_company|rag_bm25": {
    "n": 54,
-   "clean": 0.889,
-   "messy": 0.889,
+   "clean": 0.926,
+   "messy": 0.926,
    "lost": 0,
    "gained": 0
   },
@@ -99,9 +99,9 @@
   },
   "typo_terms|rag_bm25": {
    "n": 70,
-   "clean": 0.857,
-   "messy": 0.729,
-   "lost": 9,
+   "clean": 0.914,
+   "messy": 0.8,
+   "lost": 8,
    "gained": 0
   },
   "typo_terms|graphrag_structured": {
@@ -113,8 +113,8 @@
   },
   "casual|rag_bm25": {
    "n": 77,
-   "clean": 0.87,
-   "messy": 0.857,
+   "clean": 0.922,
+   "messy": 0.909,
    "lost": 1,
    "gained": 0
   },

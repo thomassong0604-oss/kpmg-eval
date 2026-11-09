@@ -1,0 +1,327 @@
+{
+ "gold_set": "v2.1",
+ "sha256_16": "1e104c626c6c9833",
+ "based_on": "benchmark_v2.jsonl (ed4b42db6fc25ee5)",
+ "questions": 155,
+ "questions_changed": 25,
+ "reanchored_from_region": 22,
+ "anchored_from_sec_pages": 3,
+ "still_without_anchors": {
+  "EV2-035": "Nike 10-Q: fiscal year and quarter wording",
+  "EV2-036": "Medtronic 10-Q: fiscal year and quarter wording",
+  "EV2-037": "Micron 10-Q: fiscal year and quarter wording",
+  "EV2-044": "fiscal year-end wording in the ten 10-Ks (Casey's, Medtronic, NetApp)"
+ },
+ "row_labels_for_rag_anchor_fixes": {
+  "EV1-001": "Operating income | 38,398",
+  "EV1-002": "Operating income | 114,634",
+  "EV1-026": "Operating income | 38,398",
+  "EV1-027": "Operating income | 38,398 | 32,000; Total revenue | 82,886 | 70,066",
+  "EV1-028": "Total revenue | 82,886 | 70,066",
+  "EV1-038": "Operating income | 114,634",
+  "EV1-040": "Operating income | 38,398"
+ },
+ "filing_checked": "upstream/data_engineering_kpmg/data/raw/sec/0001193125-26-191507/msft-20260331.htm",
+ "changes": [
+  {
+   "qid": "GSv0-MSFT-004",
+   "question": "Name Microsoft’s reportable segments in this filing.",
+   "old": [
+    "industry solutions, nuance professional"
+   ],
+   "new": [
+    "Productivity and Business Processes, Intelligent Cloud, and More Personal Computing"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-005",
+   "question": "Which reportable segment includes LinkedIn?",
+   "old": [
+    "industry solutions, nuance professional"
+   ],
+   "new": [
+    "LinkedIn, including Talent Solutions"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-006",
+   "question": "Which reportable segment includes Azure and other cloud services?",
+   "old": [
+    "industry solutions, nuance professional"
+   ],
+   "new": [
+    "Server products and cloud services, including Azure and other cloud services"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-007",
+   "question": "Which reportable segment includes Xbox hardware and Xbox content and services?",
+   "old": [
+    "industry solutions, nuance professional"
+   ],
+   "new": [
+    "Gaming, including Xbox hardware and Xbox content and services"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-008",
+   "question": "What categories make up Microsoft Cloud revenue as defined in the filing?",
+   "old": [
+    "155.1"
+   ],
+   "new": [
+    "Microsoft Cloud revenue, which includes Microsoft 365 Commercial cloud"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-009",
+   "question": "What does revenue allocated to remaining performance obligations include?",
+   "old": [
+    "of contracts. revenue allocated"
+   ],
+   "new": [
+    "includes unearned revenue and amounts expected to be invoiced"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-010",
+   "question": "Which investment-related items are excluded from the adjusted net income and adjusted diluted EPS measures?",
+   "old": [
+    "the information currently available,",
+    "not anticipate a significant",
+    "our income tax contingencies"
+   ],
+   "new": [
+    "exclude net gains and losses from investments in OpenAI"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "question": "What accounting method does Microsoft use for its OpenAI investment, and what method is used to calculate its equity-method income or loss?",
+   "old": [
+    "partnership. additionally, openai formed"
+   ],
+   "new": [
+    "accounted for under the equity method of accounting",
+    "hypothetical liquidation at book value"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-012",
+   "question": "How does Microsoft define cash equivalents in its investment policy?",
+   "old": [
+    "liquid interest-earning investments with",
+    "short-term investments. investments with",
+    "classified as short-term investments."
+   ],
+   "new": [
+    "highly liquid interest-earning investments with a maturity of three months or less"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "question": "For the quarter ended March 31, 2026, contrast the reported revenue trends in Intelligent Cloud and More Personal Computing, including their principal drivers.",
+   "old": [
+    "development across the portfolio."
+   ],
+   "new": [
+    "Intelligent Cloud revenue increased driven by Azure",
+    "More Personal Computing revenue decreased with lower hardware sales across Devices and Gaming"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "question": "How did Microsoft’s reported quarterly gross-margin-percentage trends differ between Productivity and Business Processes and Intelligent Cloud?",
+   "old": [
+    "7%, respectively. operating expenses"
+   ],
+   "new": [
+    "Gross margin percentage increased slightly driven by efficiency gains in Microsoft 365 Commercial cloud",
+    "Gross margin percentage decreased driven by the continued investments in AI infrastructure, offset in part by efficiency gains in Azure"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-019",
+   "question": "Compare Microsoft’s explanations for More Personal Computing revenue in the three-month and nine-month periods ended March 31, 2026.",
+   "old": [
+    "development across the portfolio."
+   ],
+   "new": [
+    "More Personal Computing revenue decreased with lower hardware sales across Devices and Gaming",
+    "More Personal Computing revenue was relatively unchanged with growth in Search advertising offset by a decline in Gaming"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "question": "Contrast the main drivers of Microsoft’s higher effective tax rate in the three-month and nine-month periods ended March 31, 2026.",
+   "old": [
+    "the information currently available,",
+    "not anticipate a significant",
+    "our income tax contingencies"
+   ],
+   "new": [
+    "changes in the mix of our earnings and tax expenses between the U.S. and foreign countries",
+    "deferred tax expense attributable to the dilution gain from the OpenAI Recapitalization"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "question": "Compare the directions of the OpenAI investment effects on current-year quarterly versus nine-month net income and diluted EPS.",
+   "old": [
+    "development across the portfolio.",
+    "internally-developed models with unobservable",
+    "valued using internally-developed models",
+    "indirectly. this pricing methodology"
+   ],
+   "new": [
+    "Current year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI",
+    "Current year net income and diluted EPS were positively impacted by net gains from investments in OpenAI"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "question": "Contrast the stated drivers of nine-month operating cash flow and investing cash outflow changes versus the prior year.",
+   "old": [
+    "increase in other investing"
+   ],
+   "new": [
+    "increase in cash received from customers and a decrease in cash used to pay income taxes",
+    "increase in additions to property and equipment"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "question": "Reconcile Microsoft’s change in cash and cash equivalents for the nine months ended March 31, 2026 using operating, financing, investing, and foreign-exchange cash flows. Then reconcile the ending cash balance to the balance sheet. Use USD millions.",
+   "old": [
+    "127,494",
+    "authorized 24,000; outstanding 7,429"
+   ],
+   "new": [
+    "127,494",
+    "84,669",
+    "40,767",
+    "1,863",
+    "30,242",
+    "32,105"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "question": "Reconcile the three segments’ year-over-year quarterly revenue changes to Microsoft’s total change for the three months ended March 31, 2026. Calculate Intelligent Cloud’s share of the net total increase and explain its primary driver.",
+   "old": [
+    "34,681",
+    "82,886",
+    "7%, respectively. operating expenses"
+   ],
+   "new": [
+    "35,013",
+    "29,944",
+    "34,681",
+    "26,751",
+    "13,192",
+    "13,371",
+    "Intelligent Cloud revenue increased driven by Azure"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "question": "Explain why More Personal Computing’s quarterly operating income increased even though its revenue decreased. Connect the consolidated revenue narrative with the segment’s cost and margin explanations.",
+   "old": [
+    "development across the portfolio.",
+    "first-party content performance. xbox"
+   ],
+   "new": [
+    "primarily driven by lower hardware sales",
+    "Gross margin percentage increased driven by sales mix shift to higher margin businesses"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "question": "Explain how Microsoft’s quarterly gross margin in dollars could increase while its gross margin percentage decreased. Use the income statement and management’s reported drivers without assuming that margin dollars and margin percentage are the same measure.",
+   "old": [
+    "194,370",
+    "development across the portfolio."
+   ],
+   "new": [
+    "Gross margin increased $7.9 billion or 16%",
+    "Gross margin percentage decreased driven by continued investments in AI infrastructure and growing AI product usage"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "question": "Why should Microsoft Cloud revenue not be added to the reportable segments’ revenues when constructing total company revenue? Identify the relevant components and explain the overlap.",
+   "old": [
+    "155.1",
+    "industry solutions, nuance professional",
+    "15,120",
+    "10,307",
+    "41,000"
+   ],
+   "new": [
+    "Microsoft Cloud revenue, which includes Microsoft 365 Commercial cloud",
+    "Productivity and Business Processes, Intelligent Cloud, and More Personal Computing"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "question": "Connect the OpenAI recapitalization accounting with the nine-month GAAP versus adjusted net-income comparison. Why does excluding OpenAI effects reduce current-year net income but increase prior-year net income?",
+   "old": [
+    "partnership. additionally, openai formed",
+    "31, 2025, respectively, from",
+    "march 31, 2026 primarily",
+    "million of net losses",
+    "internally-developed models with unobservable",
+    "valued using internally-developed models",
+    "indirectly. this pricing methodology",
+    "the information currently available,",
+    "not anticipate a significant",
+    "our income tax contingencies"
+   ],
+   "new": [
+    "recorded a dilution gain",
+    "Current year net income and diluted EPS were positively impacted by net gains from investments in OpenAI",
+    "exclude net gains and losses from investments in OpenAI"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "question": "Explain why commercial remaining performance obligations and balance-sheet unearned revenue should not be treated as interchangeable measures or added together as independent revenue pools.",
+   "old": [
+    "of contracts. revenue allocated",
+    "cloud services and software",
+    "includes payments for other",
+    "for other offerings for",
+    "authorized 24,000; outstanding 7,429"
+   ],
+   "new": [
+    "includes unearned revenue and amounts expected to be invoiced",
+    "Unearned revenue comprises mainly unearned revenue related to volume licensing programs"
+   ]
+  },
+  {
+   "qid": "EV2-041",
+   "question": "Which of the ten companies in the corpus (Apple, Casey's, McKesson, Medtronic, Microsoft, Micron, Nike, NetApp, Parker-Hannifin, Take-Two) reported a net loss for its most recent fiscal year in the November 3, 2026 database snapshot?",
+   "old": [],
+   "new": [
+    "298.2"
+   ]
+  },
+  {
+   "qid": "EV2-048",
+   "question": "Why was Take-Two profitable in fiscal 2026?",
+   "old": [],
+   "new": [
+    "298.2"
+   ]
+  },
+  {
+   "qid": "EV2-049",
+   "question": "Why did Nike's revenue fall in fiscal 2026?",
+   "old": [],
+   "new": [
+    "46,398",
+    "46,309"
+   ]
+  }
+ ]
+}

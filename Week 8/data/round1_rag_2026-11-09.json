@@ -1,0 +1,23 @@
+{
+ "_doc": "Round-1 retrieval results reported by the RAG team on 11/9 (Xiangxinrui Shan; KPMG_RAG scripts/run_round1_eval.py, results in eval/results/round1/ and their week9-round1-results.md). Transcribed by Eval from RAG's write-up; not re-run by Eval, since the round-1 chunks are in Data's database and not shared yet. Questions: Gold Set v2 (kpmg-eval @ 41823f9, sha256 ed4b42db6fc25ee5). Index: data/round1/index_C1 (index_version 7a7ad9801f86, bge-small, C1@460, 3,736 chunks, 20 filings; NetApp's review_required 10-Q excluded). Scoring: Eval's run_side_by_side.py rules, strict = hit must come from the right filing. Evidence level only (no reader).",
+ "scored": 124, "scored_numbers": 93, "scored_prose": 31,
+ "not_scored": {"unanswerable": 10, "exhibit21_relationship_for_graphrag": 11, "depend_on_ntap_10q": 3, "prose_without_eval_anchors": 7},
+ "strict_recall": {
+   "hybrid":           {"k5": 0.734, "k8": 0.815, "k10": 0.847},
+   "bm25":             {"k5": 0.653, "k8": 0.726, "k10": 0.806},
+   "dense":            {"k5": 0.613, "k8": 0.702, "k10": 0.750},
+   "hybrid_no_filter": {"k5": 0.653, "k8": 0.710, "k10": 0.750}},
+ "hybrid_k10": {"hits": 105, "n": 124, "numbers": [83, 93], "prose": [22, 31]},
+ "by_company_hybrid_k10": {"AAPL": [4, 5], "CASY": [4, 4], "MCK": [4, 4], "MDT": [4, 4], "MU": [4, 6], "NKE": [3, 3], "NTAP": [2, 2],
+                           "PH": [4, 4], "TTWO": [5, 5], "MSFT": [71, 84], "cross_company": [0, 3]},
+ "non_msft_single_company": [34, 37],
+ "misses_by_cause": [
+   {"cause": "Cross-company ranking: one search cannot hold 10-20 figures", "n": 3, "qids": ["EV2-040", "EV2-042", "EV2-043"], "owner": "Agents (one search per company) or GraphRAG structured search"},
+   {"cause": "Gold anchors do not match the question (auto-converted in Gold v0)", "n": 4, "qids": ["GSv0-MSFT-019", "GSv0-MSFT-021", "GSv0-MSFT-027", "GSv0-MSFT-029"], "owner": "Eval"},
+   {"cause": "Derived quarter needs both the 10-K and the 10-Q", "n": 3, "qids": ["EV1-037", "EV1-038", "EV2-045"], "owner": "Agents/RAG: one search per form"},
+   {"cause": "BM25 and dense each had it; fusion pushed it just past k=10", "n": 6, "qids": ["EV1-012", "EV1-031", "EV1-068", "EV1-044", "EV1-045", "EV2-018"], "owner": "RAG: candidate_k, RRF weights, k=12-15"},
+   {"cause": "All three methods missed", "n": 3, "qids": ["EV2-003", "EV1R-005", "GSv0-MSFT-028"], "owner": "RAG ranking; GSv0-MSFT-028 is a true multi-part question"}],
+ "wrong_period_figure_in_top8": {"rate": 0.905, "of_number_questions_with_distractor": 42},
+ "unanswerable_returned_results": {"returned_10": 8, "returned_empty": 2, "empty_because": "filter matched no chunk (EV1-064, EV2-050)"},
+ "rrf_scores_median": {"top1": {"hit": 0.0323, "miss": 0.0320, "unanswerable": 0.0320}, "top1_minus_top2": {"hit": 0.00074, "miss": 0.00078, "unanswerable": 0.00073}}
+}

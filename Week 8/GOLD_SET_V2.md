@@ -4,11 +4,25 @@ The round-1 question set: **155 questions, 143 answerable**, on the Data team's 
 Data's database snapshot of 2026-11-03 (the same 21 filings as Data's round-1 freeze list, `eval/round1_filings.csv` in
 RAG's repo). File hash `ed4b42db6fc25ee5` (first 16 hex of sha256). Built 11/5 (Week 7), unchanged since.
 
+## Gold Set v2.1 (11/9): corrected text anchors
+
+RAG's round-1 run found that four of its original questions (GSv0-MSFT-019/021/027/029) carried anchors that do not
+match the question: they came from an automatic "region" conversion in Gold v0. The same conversion produced 22 anchors
+(20 narrative, 2 numeric reconciliations), so all 22 were replaced with the sentence or figure that supports each
+required point, exactly as the Microsoft 10-Q prints it, and checked against the filing and RAG's chunker output.
+Three of RAG's seven unanchored questions got figure anchors from the SEC income statements; EV2-035/036/037/044 wait
+for RAG's round-1 chunks.
+
+**v2.1 = `data/benchmark_v2_1.jsonl` (sha256 `1e104c626c6c9833`). Questions, answers and routes are identical to v2;
+only `rag_evidence` changed (25 questions).** v2 (`ed4b42db6fc25ee5`) is kept because RAG's round-1 run used it.
+Per-question old and new anchors: `results/gold_v2_1_changes.json`. The spreadsheet and Word exports now come from v2.1.
+
 ## Files (this folder)
 
 | File | For |
 |---|---|
-| [`data/benchmark_v2.jsonl`](data/benchmark_v2.jsonl) | The scored set: one JSON object per question (answer, facts, filters, route, distractors, anchors) |
+| [`data/benchmark_v2_1.jsonl`](data/benchmark_v2_1.jsonl) | **Current scored set (v2.1)**: one JSON object per question (answer, facts, filters, route, distractors, anchors) |
+| [`data/benchmark_v2.jsonl`](data/benchmark_v2.jsonl) | v2 as built 11/5 (used by RAG's round-1 run) |
 | [`data/benchmark_v2_questions.xlsx`](data/benchmark_v2_questions.xlsx) | Filterable spreadsheet: Questions, By company, Filings |
 | [`data/benchmark_v2_questions.docx`](data/benchmark_v2_questions.docx) | Word version for reviewers: summaries, the 21 filings, questions by company |
 | [`data/benchmark_v2_questions.csv`](data/benchmark_v2_questions.csv) / [`.md`](data/benchmark_v2_questions.md) | Flat lists |
@@ -40,7 +54,8 @@ numeric answers correctly; the nine non-Microsoft income statements, read from t
 answers match GraphRAG's own Exhibit 21 output on all 62 rows we hold.
 
 **Still open:** 37 text answers (narratives and definitions, mostly RAG's v0 wording) are flagged for a person to check
-against the filing; text anchors for the new lookup questions wait on the round-1 chunks.
+against the filing (their anchors were re-checked in v2.1, the answer wording not yet); anchors for EV2-035/036/037/044
+and for the new lookup questions wait on the round-1 chunks.
 
 ## How the 10/29 minutes and RAG's Slack message are reflected
 

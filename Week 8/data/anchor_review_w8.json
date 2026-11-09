@@ -1,0 +1,140 @@
+{
+ "_doc": "Eval's review of the 22 Gold v0 questions whose text anchors came from RAG v0's automatic region conversion (anchor_source=region). RAG's round-1 run (11/9) flagged GSv0-MSFT-019/021/027/029; the same conversion produced all 22, so all 22 are re-anchored on the sentence or figure that supports each required point, exactly as the Microsoft Q3 FY2026 10-Q prints it. One anchor list per question; every string must appear in the top k. Applied by scripts/build_gold_v2_1.py.",
+ "accession": "0001193125-26-191507",
+ "anchors": {
+  "GSv0-MSFT-004": [
+   "Productivity and Business Processes, Intelligent Cloud, and More Personal Computing"
+  ],
+  "GSv0-MSFT-005": [
+   "LinkedIn, including Talent Solutions"
+  ],
+  "GSv0-MSFT-006": [
+   "Server products and cloud services, including Azure and other cloud services"
+  ],
+  "GSv0-MSFT-007": [
+   "Gaming, including Xbox hardware and Xbox content and services"
+  ],
+  "GSv0-MSFT-008": [
+   "Microsoft Cloud revenue, which includes Microsoft 365 Commercial cloud"
+  ],
+  "GSv0-MSFT-009": [
+   "includes unearned revenue and amounts expected to be invoiced"
+  ],
+  "GSv0-MSFT-010": [
+   "exclude net gains and losses from investments in OpenAI"
+  ],
+  "GSv0-MSFT-011": [
+   "accounted for under the equity method of accounting",
+   "hypothetical liquidation at book value"
+  ],
+  "GSv0-MSFT-012": [
+   "highly liquid interest-earning investments with a maturity of three months or less"
+  ],
+  "GSv0-MSFT-017": [
+   "Intelligent Cloud revenue increased driven by Azure",
+   "More Personal Computing revenue decreased with lower hardware sales across Devices and Gaming"
+  ],
+  "GSv0-MSFT-018": [
+   "Gross margin percentage increased slightly driven by efficiency gains in Microsoft 365 Commercial cloud",
+   "Gross margin percentage decreased driven by the continued investments in AI infrastructure, offset in part by efficiency gains in Azure"
+  ],
+  "GSv0-MSFT-019": [
+   "More Personal Computing revenue decreased with lower hardware sales across Devices and Gaming",
+   "More Personal Computing revenue was relatively unchanged with growth in Search advertising offset by a decline in Gaming"
+  ],
+  "GSv0-MSFT-020": [
+   "changes in the mix of our earnings and tax expenses between the U.S. and foreign countries",
+   "deferred tax expense attributable to the dilution gain from the OpenAI Recapitalization"
+  ],
+  "GSv0-MSFT-021": [
+   "Current year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI",
+   "Current year net income and diluted EPS were positively impacted by net gains from investments in OpenAI"
+  ],
+  "GSv0-MSFT-022": [
+   "increase in cash received from customers and a decrease in cash used to pay income taxes",
+   "increase in additions to property and equipment"
+  ],
+  "GSv0-MSFT-023": [
+   "127,494",
+   "84,669",
+   "40,767",
+   "1,863",
+   "30,242",
+   "32,105"
+  ],
+  "GSv0-MSFT-024": [
+   "35,013",
+   "29,944",
+   "34,681",
+   "26,751",
+   "13,192",
+   "13,371",
+   "Intelligent Cloud revenue increased driven by Azure"
+  ],
+  "GSv0-MSFT-026": [
+   "primarily driven by lower hardware sales",
+   "Gross margin percentage increased driven by sales mix shift to higher margin businesses"
+  ],
+  "GSv0-MSFT-027": [
+   "Gross margin increased $7.9 billion or 16%",
+   "Gross margin percentage decreased driven by continued investments in AI infrastructure and growing AI product usage"
+  ],
+  "GSv0-MSFT-028": [
+   "Microsoft Cloud revenue, which includes Microsoft 365 Commercial cloud",
+   "Productivity and Business Processes, Intelligent Cloud, and More Personal Computing"
+  ],
+  "GSv0-MSFT-029": [
+   "recorded a dilution gain",
+   "Current year net income and diluted EPS were positively impacted by net gains from investments in OpenAI",
+   "exclude net gains and losses from investments in OpenAI"
+  ],
+  "GSv0-MSFT-030": [
+   "includes unearned revenue and amounts expected to be invoiced",
+   "Unearned revenue comprises mainly unearned revenue related to volume licensing programs"
+  ]
+ },
+ "sec_page_anchors": {
+  "_doc": "Anchors for three of RAG's seven unanchored questions, taken from the SEC-rendered income statements (data/sec_reads/filing_statements_2026-11-05.json, values as printed, $ in millions). Parentheses dropped so spacing in the export cannot break the match. Still to be confirmed against RAG's round-1 chunks.",
+  "EV2-041": {
+   "ticker": "TTWO",
+   "form": "10-K",
+   "accession": "0001628280-26-037434",
+   "contains": [
+    "298.2"
+   ]
+  },
+  "EV2-048": {
+   "ticker": "TTWO",
+   "form": "10-K",
+   "accession": "0001628280-26-037434",
+   "contains": [
+    "298.2"
+   ]
+  },
+  "EV2-049": {
+   "ticker": "NKE",
+   "form": "10-K",
+   "accession": "0000320187-26-000088",
+   "contains": [
+    "46,398",
+    "46,309"
+   ]
+  }
+ },
+ "pending_round1_chunks": {
+  "EV2-035": "Nike 10-Q: fiscal year and quarter wording",
+  "EV2-036": "Medtronic 10-Q: fiscal year and quarter wording",
+  "EV2-037": "Micron 10-Q: fiscal year and quarter wording",
+  "EV2-044": "fiscal year-end wording in the ten 10-Ks (Casey's, Medtronic, NetApp)"
+ },
+ "row_labels": {
+  "_doc": "RAG's 8 'add the table row label' items from results/rag_anchor_fixes.csv, now with the label. For Operating income the label does not narrow: all 4 chunks with the value show total operating income, and each is valid evidence.",
+  "EV1-001": "Operating income | 38,398",
+  "EV1-002": "Operating income | 114,634",
+  "EV1-026": "Operating income | 38,398",
+  "EV1-027": "Operating income | 38,398 | 32,000; Total revenue | 82,886 | 70,066",
+  "EV1-028": "Total revenue | 82,886 | 70,066",
+  "EV1-038": "Operating income | 114,634",
+  "EV1-040": "Operating income | 38,398"
+ }
+}

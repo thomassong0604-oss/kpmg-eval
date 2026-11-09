@@ -24,7 +24,7 @@ from deck_style import (BLUE, GREEN, INK, MUTED, NAVY, PINK, clear, footer, head
 
 ROOT = Path(__file__).resolve().parent.parent
 RES, DATA = ROOT / "results", ROOT / "data"
-N_SLIDES = 7
+N_SLIDES = 8
 C = {"center": {"align": PP_ALIGN.CENTER}}
 
 
@@ -98,32 +98,81 @@ def add_slides(prs, n):
 def s_scope(s, sbs, rt, mw):
     clear(s)
     a, b = sbs["part_a"], sbs["part_b"]
-    header(s, "Scope", "the 11/5 action items for Eval, and where each one is answered")
-    rows = [["Action item (minutes #6)", "What we did", "Slide"],
+    header(s, "Scope", "the Eval action items from the last two meetings, and where each one is answered")
+    rows = [["Action item", "What we did", "Slide"],
+            ["Run round 1 in week 8 (minutes #5)", "RAG ran our scoring on Gold Set v2 (11/9); we fixed the anchors it flagged",
+             ("2", C["center"])],
             ["Run one question set on RAG and GraphRAG, side by side",
-             f"All {a['n_questions']} Microsoft 10-Q questions through each team's own code, same filing, top 8", ("2", C["center"])],
+             f"All {a['n_questions']} Microsoft 10-Q questions through each team's own code, same filing, top 8", ("3", C["center"])],
             ["Show where GraphRAG does better, and where RAG does",
-             f"Plus the {b['n_questions']} Exhibit 21 relationship questions (traversal)", ("3", C["center"])],
+             f"Plus the {b['n_questions']} Exhibit 21 relationship questions (traversal)", ("4", C["center"])],
             ["Label the routing chart's axes; define the keyword router", "Chart redrawn by expected route, axes titled",
-             ("4", C["center"])],
-            ["Explain how unneeded calls per question are measured", "Definition with a worked example", ("4", C["center"])],
-            ["Concrete routing examples for the demo", "Seven questions, three routers, calls counted", ("5", C["center"])],
+             ("5", C["center"])],
+            ["Explain how unneeded calls per question are measured", "Definition with a worked example", ("5", C["center"])],
+            ["Concrete routing examples for the demo", "Seven questions, three routers, calls counted", ("6", C["center"])],
             ["Say accuracy is on the current 155 questions only", "Stated on every routing and wording number",
-             ("4-6", C["center"])],
+             ("5-7", C["center"])],
             ["Typos and messy wording, for real-user accuracy",
-             f"{mw['n_variants']} rewrites of the 155 questions through gate, router and both retrievers", ("6", C["center"])]]
-    table(s, 0.12, 1.0, 7.6, [3.25, 3.85, 0.5], rows, row_h=0.36, sizes={0: 8, 1: 8, 2: 8}, name="Action items")
+             f"{mw['n_variants']} rewrites of the 155 questions through gate, router and both retrievers", ("7", C["center"])]]
+    table(s, 0.12, 1.0, 7.6, [3.25, 3.85, 0.5], rows, row_h=0.34, sizes={0: 8, 1: 8, 2: 8}, name="Action items")
     tb(s, 7.95, 1.0, 1.85, 2.9, [[("All figures use the current 155 Gold Set v2 questions", 9, True, NAVY)],
                                 [(" ", 4, False, INK)],
                                 [("104 finance data, 31 text, 11 relationship, 8 no tool, 1 both. Microsoft has 92 of them, "
                                   "so per-route numbers on 1-11 questions are examples, not estimates. They will move as "
                                   "questions are added.", 8.5, False, INK)]])
     footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 7bcbdaf and Exhibit 21 branch @ c21fe89 (11/8), Data @ "
-                         "f8d18e2. No LLM is used in any result here, so every number re-runs exactly.",
-           "Source: Week 8/README.md; scripts/run_all.sh (82 tests pass)", y=4.42, w=7.6)
-    notes(s, "These are the seven Eval items from last week's minutes. Each one has a script and a result file in the Week 8 "
-             "folder, and the slide number on the right says where it's covered. One caveat for everything that follows: the "
+                         "f8d18e2. No LLM is used in any result; everything except RAG's round-1 run (slide 2) re-runs here exactly.",
+           "Source: Week 8/README.md; scripts/run_all.sh (83 tests pass)", y=4.42, w=7.6)
+    notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
+             "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. One caveat for everything that follows: the "
              "numbers come from the 155 questions we have now, which lean on Microsoft and on finance-data questions.")
+
+
+def s_round1(s, r1, v21):
+    clear(s)
+    R = r1["strict_recall"]
+    h = r1["hybrid_k10"]
+    header(s, "Round 1", f"retrieval on Gold Set v2, run by RAG with our scoring rules (11/9): {h['hits']} of {h['n']} found")
+    cats = ["k = 5", "k = 8", "k = 10"]
+    col_chart(s, 0.12, 1.0, 4.2, 3.3, cats,
+              [("Hybrid", [R["hybrid"][f"k{k}"] for k in (5, 8, 10)], NAVY),
+               ("BM25", [R["bm25"][f"k{k}"] for k in (5, 8, 10)], BLUE),
+               ("Dense", [R["dense"][f"k{k}"] for k in (5, 8, 10)], "A9B0BD"),
+               ("Hybrid, no filter", [R["hybrid_no_filter"][f"k{k}"] for k in (5, 8, 10)], PINK)],
+              "Results kept per question (k)", "Scored questions with all evidence", "Round 1 recall",
+              fmt="0%", vmax=1.15, label_size=6)
+    n_mu, n_ms = r1["non_msft_single_company"], r1["by_company_hybrid_k10"]["MSFT"]
+    tile(s, 4.5, 1.0, f"{h['numbers'][0]}/{h['numbers'][1]}", f"number questions; prose {h['prose'][0]}/{h['prose'][1]} "
+         "(hybrid, k = 10, hit must come from the right filing)", w_big=1.0, w_lab=4.2, color=NAVY)
+    tile(s, 4.5, 1.55, f"{n_mu[0]}/{n_mu[1]}", f"single-company questions on the nine other companies, vs Microsoft "
+         f"{n_ms[0]}/{n_ms[1]}: adding nine companies did not hurt retrieval", w_big=1.0, w_lab=4.2, color=GREEN)
+    rows = [["Why 19 were missed", ("n", C["center"]), "Who fixes it"]]
+    short = {"Cross-company ranking: one search cannot hold 10-20 figures": "Cross-company ranking: 10-20 figures",
+             "Gold anchors do not match the question (auto-converted in Gold v0)": "Our anchors were wrong (Gold v0 conversion)",
+             "Derived quarter needs both the 10-K and the 10-Q": "Needs the 10-K and the 10-Q together",
+             "BM25 and dense each had it; fusion pushed it just past k=10": "Fusion pushed it just past k = 10",
+             "All three methods missed": "All three methods missed"}
+    who = {"Eval": f"Eval: fixed in v2.1 (all {v21['reanchored_from_region']} converted anchors)"}
+    owner_short = ["Agents: one search per company", None, "Agents: one search per form", "RAG: candidate k, fusion weights",
+                   "RAG: ranking; 1 is truly multi-part"]
+    for m, o in zip(r1["misses_by_cause"], owner_short):
+        rows.append([short[m["cause"]], (str(m["n"]), C["center"]),
+                     (who["Eval"], {"bold": True, "color": GREEN}) if m["owner"] == "Eval" else o])
+    table(s, 4.5, 2.15, 5.3, [2.45, 0.35, 2.5], rows, row_h=0.27, sizes={0: 7.5, 1: 7.5, 2: 7.5}, name="Misses")
+    w = r1["wrong_period_figure_in_top8"]
+    footer(s, "Also found:", f"a wrong-period figure sits in the top 8 for {w['rate'] * 100:.1f}% of the {w['of_number_questions_with_distractor']} "
+                            "number questions that have one, so the reader "
+                            "must be told which column to take; fusion scores look the same for hits and misses, so 'weak "
+                            "evidence' has to come from structure (empty result, no filter match, BM25 and dense disagree).",
+           "Source: RAG team, round-1 results 11/9 (KPMG_RAG scripts/run_round1_eval.py), transcribed in Week 8/data/"
+           "round1_rag_2026-11-09.json; Gold Set v2.1 in Week 8/GOLD_SET_V2.md. Evidence level; no reader yet", y=4.38, w=7.6)
+    notes(s, "Round 1 happened this week. RAG ran our scoring rules on the full Gold Set v2 against its index of the 20 filings. "
+             "Hybrid search with filters finds all the evidence for 105 of 124 scored questions at 10 results, and the nine "
+             "non-Microsoft companies score at least as well as Microsoft. RAG traced every miss. Three are cross-company rankings "
+             "that one search can't hold, so the Agents should split them per company. Four were our mistake: the anchors on four "
+             "of the original RAG questions came from an automatic conversion and didn't match the questions. We checked the other "
+             "converted anchors too and replaced all 22 the same day, as Gold Set v2.1. The rest are ranking and query-splitting "
+             "fixes on the RAG and Agents side. Answer accuracy needs the reader, which needs an API key.")
 
 
 def s_side_by_side(s, sbs):
@@ -331,7 +380,8 @@ def s_messy(s, mw):
     tb(s, 5.0, 2.85, 4.8, 1.4, [[("What drops, and why", 8.5, True, INK)],
                                 [("Company names: ", 8, True, INK), ("the check knows exact names only, so 'Microsfot' or 'msft' "
                                                                      "turns an answer into 'which company?'.", 8, False, INK)],
-                                [("Finance words: ", 8, True, INK), (f"both searches lose {Rv['typo_terms|rag_bm25']['lost']} of "
+                                [("Finance words: ", 8, True, INK), (f"RAG's search loses {Rv['typo_terms|rag_bm25']['lost']} and "
+                                                                     f"GraphRAG's {Rv['typo_terms|graphrag_structured']['lost']} of "
                                                                      f"{Rv['typo_terms|rag_bm25']['n']} questions; keyword "
                                                                      "matching does not forgive 'revnue'.", 8, False, INK)],
                                 [("Searches ignore name typos ", 8, True, INK), ("because the company comes in as a filter.",
@@ -343,26 +393,26 @@ def s_messy(s, mw):
     notes(s, "To estimate real-user accuracy we rewrote every question three ways without changing its meaning: a misspelled "
              "company, misspelled finance words, and casual wording with tickers. The biggest drop is company recognition: if no "
              "company is picked in the interface, a simple name check turns most of these into 'which company?'. Matching "
-             "tickers and near-miss spellings brings it back to 94 percent. Misspelled finance words cost both searches the "
-             "same nine questions, so a spelling step before search would help both.")
+             "tickers and near-miss spellings brings it back to 94 percent. Misspelled finance words cost the two searches "
+             "eight and nine questions, so a spelling step before search would help both.")
 
 
 def s_next(s):
     clear(s)
-    header(s, "Next steps", "round 1 (week 8), and one ask per team")
+    header(s, "Next steps", "after round 1: one ask per team")
     rows = [["Team", "Ask (from this week's results)"],
-            [("RAG", {"bold": True}), "Share the round-1 chunks (21 filings) so we can add anchors and run the side by side on all "
-                                      "ten; route relationship questions to GraphRAG; an API key for the fixed reader"],
+            [("RAG", {"bold": True}), "Share the round-1 chunks privately so we can anchor the last 4 questions and run the side by "
+                                      "side on all ten; try candidate k and fusion weights on the 6 near misses; reader API key"],
             [("GraphRAG", {"bold": True}), "Treat 'three/six/nine months' as period words, not segment names; one call per input "
                                            "for calculations; merge the Exhibit 21 pipeline; a Neo4j endpoint to score the graph arm"],
-            [("Agents", {"bold": True}), "Match tickers and near-miss names in the scope check; run your orchestrator through "
-                                         "run_routing_baselines.py; review our expected routes"],
+            [("Agents", {"bold": True}), "Split cross-company and 10-K + 10-Q questions into one search each; match tickers and "
+                                         "near-miss names; run your orchestrator through our routing scorer"],
             [("Data", {"bold": True}), "Keep the 11/03 freeze (round1_filings.csv, which matches our 21/21) fixed through round 1"],
-            [("Eval", {"bold": True}), "Text anchors once chunks land; round 1 on the frozen snapshot; rerun side by side with "
-                                       "readers; grow the routing set beyond 1 'both' and 8 'no tool' questions"]]
+            [("Eval", {"bold": True}), "Anchors for the last 4 questions once chunks land; check RAG's per-question results against "
+                                       "v2.1; answer-level round 1 when a reader can run; grow the 1 'both' and 8 'no tool' routes"]]
     table(s, 0.12, 1.0, 9.68, [1.0, 8.68], rows, row_h=0.46, sizes={0: 8.5, 1: 8}, name="Asks")
-    footer(s, "Thanks:", "RAG's retriever and GraphRAG's fact loader ran here unchanged from their repos, and GraphRAG's "
-                         "new Exhibit 21 output fed the relationship check. That is what made this week's side by side possible.",
+    footer(s, "Thanks:", "RAG ran round 1 and traced every miss, which is how we found our anchor errors. RAG's retriever and "
+                         "GraphRAG's fact loader ran here unchanged, and GraphRAG's Exhibit 21 output fed the relationship check.",
            "Source: Week 8/FOR_TEAMS_W8.md (one section per team, with file paths)", y=4.42, w=7.6)
     notes(s, "One ask per team for round 1, each tied to a result from today. Both RAG and GraphRAG's code ran here unchanged, "
              "which is what made the side-by-side possible this week.")
@@ -375,12 +425,13 @@ def main():
     sl = list(prs.slides)
     sbs, rt, mw = j(RES / "side_by_side.json"), j(RES / "routing_baselines.json"), j(RES / "messy_wording.json")
     s_scope(sl[0], sbs, rt, mw)
-    s_side_by_side(sl[1], sbs)
-    s_better(sl[2], sbs)
-    s_routing(sl[3], rt)
-    s_examples(sl[4], j(RES / "routing_examples.json"))
-    s_messy(sl[5], mw)
-    s_next(sl[6])
+    s_round1(sl[1], j(DATA / "round1_rag_2026-11-09.json"), j(RES / "gold_v2_1_changes.json"))
+    s_side_by_side(sl[2], sbs)
+    s_better(sl[3], sbs)
+    s_routing(sl[4], rt)
+    s_examples(sl[5], j(RES / "routing_examples.json"))
+    s_messy(sl[6], mw)
+    s_next(sl[7])
     prs.save(out)
     print("[deck] wrote", out)
 
