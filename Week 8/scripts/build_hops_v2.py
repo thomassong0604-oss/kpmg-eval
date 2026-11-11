@@ -41,7 +41,7 @@ GRAPH_REVIEW = {
 
 
 def main():
-    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_1.jsonl")]
+    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_2.jsonl")]
     snap = load_snapshot(DATA / "snapshot_w7.json")
     rows = []
     for q in gold:

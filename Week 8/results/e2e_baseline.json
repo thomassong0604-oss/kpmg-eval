@@ -15,7 +15,8 @@
    "wrong_scale": 0,
    "too_imprecise": 0,
    "wrong_value": 0,
-   "no_value": 0
+   "no_value": 0,
+   "partial_values": 0
   },
   "naa_ci95": [
    0.407,

@@ -1,0 +1,483 @@
+{
+ "gold_set": "v2.2",
+ "sha256_16": "8d2f327da1ad8ffd",
+ "based_on": "benchmark_v2_1.jsonl (1e104c626c6c9833)",
+ "questions": 155,
+ "answerable": 143,
+ "routes": {
+  "sql": 104,
+  "text": 33,
+  "none": 8,
+  "graph": 9,
+  "multi": 1
+ },
+ "questions_changed": 36,
+ "sig_fig_floor_lowered": [
+  "EV1-015",
+  "EV1-027"
+ ],
+ "multi_value_questions": [
+  "EV1-043",
+  "GSv0-MSFT-014",
+  "GSv0-MSFT-015",
+  "GSv0-MSFT-016",
+  "GSv0-MSFT-023",
+  "GSv0-MSFT-024",
+  "GSv0-MSFT-025"
+ ],
+ "route_changes": {
+  "EV1R-002": "graph -> text",
+  "EV1R-006": "graph -> text"
+ },
+ "required_point_alternatives": [
+  "EV1R-005"
+ ],
+ "anchored_from_rag_chunks_c1": [
+  "EV2-035",
+  "EV2-036",
+  "EV2-037",
+  "EV2-044"
+ ],
+ "anchors_split_one_item_per_point": [
+  "GSv0-MSFT-004",
+  "GSv0-MSFT-005",
+  "GSv0-MSFT-006",
+  "GSv0-MSFT-007",
+  "GSv0-MSFT-008",
+  "GSv0-MSFT-009",
+  "GSv0-MSFT-010",
+  "GSv0-MSFT-011",
+  "GSv0-MSFT-012",
+  "GSv0-MSFT-017",
+  "GSv0-MSFT-018",
+  "GSv0-MSFT-019",
+  "GSv0-MSFT-020",
+  "GSv0-MSFT-021",
+  "GSv0-MSFT-022",
+  "GSv0-MSFT-023",
+  "GSv0-MSFT-024",
+  "GSv0-MSFT-026",
+  "GSv0-MSFT-027",
+  "GSv0-MSFT-028",
+  "GSv0-MSFT-029",
+  "GSv0-MSFT-030"
+ ],
+ "questions_without_anchors": [
+  "EV2-001",
+  "EV2-002",
+  "EV2-003",
+  "EV2-004",
+  "EV2-005",
+  "EV2-006",
+  "EV2-007",
+  "EV2-008",
+  "EV2-009",
+  "EV2-010",
+  "EV2-011",
+  "EV2-012",
+  "EV2-013",
+  "EV2-014",
+  "EV2-015",
+  "EV2-016",
+  "EV2-017",
+  "EV2-018",
+  "EV2-019",
+  "EV2-020",
+  "EV2-021",
+  "EV2-022",
+  "EV2-023",
+  "EV2-024",
+  "EV2-025",
+  "EV2-026",
+  "EV2-027",
+  "EV2-028",
+  "EV2-029",
+  "EV2-030",
+  "EV2-031",
+  "EV2-032",
+  "EV2-033",
+  "EV2-034",
+  "EV2-038",
+  "EV2-039",
+  "EV2-040",
+  "EV2-042",
+  "EV2-043",
+  "EV2-045"
+ ],
+ "changes": [
+  {
+   "qid": "GSv0-MSFT-004",
+   "question": "Name Microsoft’s reportable segments in this filing.",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-005",
+   "question": "Which reportable segment includes LinkedIn?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-006",
+   "question": "Which reportable segment includes Azure and other cloud services?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-007",
+   "question": "Which reportable segment includes Xbox hardware and Xbox content and services?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-008",
+   "question": "What categories make up Microsoft Cloud revenue as defined in the filing?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-009",
+   "question": "What does revenue allocated to remaining performance obligations include?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-010",
+   "question": "Which investment-related items are excluded from the adjusted net income and adjusted diluted EPS measures?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "question": "What accounting method does Microsoft use for its OpenAI investment, and what method is used to calculate its equity-method income or loss?",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-012",
+   "question": "How does Microsoft define cash equivalents in its investment policy?",
+   "changes": [
+    "anchors split: one evidence item per required point (1 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-014",
+   "question": "For the nine months ended March 31 in 2026 and 2025, calculate operating cash flow less cash additions to property and equipment. Use that specific definition, not a company-defined non-GAAP measure. Did this cash surplus increase or decrease?",
+   "changes": [
+    "values: change in the surplus 1,305; nine months 2026 surplus 47,348; nine months 2025 surplus 46,043"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-015",
+   "question": "Compare quarterly operating margins for Productivity and Business Processes and Intelligent Cloud for the three months ended March 31, 2026. Calculate operating income divided by segment revenue, round to two decimals, and identify the higher margin.",
+   "changes": [
+    "values: Productivity and Business Processes margin 59.9; Intelligent Cloud margin 39.66"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-016",
+   "question": "How much did total cash, cash equivalents, and short-term investments change from June 30, 2025 to March 31, 2026? Use USD millions and calculate the percentage change relative to June 30, 2025.",
+   "changes": [
+    "values: change -16,293; percentage change -17.23"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "question": "For the quarter ended March 31, 2026, contrast the reported revenue trends in Intelligent Cloud and More Personal Computing, including their principal drivers.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "question": "How did Microsoft’s reported quarterly gross-margin-percentage trends differ between Productivity and Business Processes and Intelligent Cloud?",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-019",
+   "question": "Compare Microsoft’s explanations for More Personal Computing revenue in the three-month and nine-month periods ended March 31, 2026.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "question": "Contrast the main drivers of Microsoft’s higher effective tax rate in the three-month and nine-month periods ended March 31, 2026.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "question": "Compare the directions of the OpenAI investment effects on current-year quarterly versus nine-month net income and diluted EPS.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "question": "Contrast the stated drivers of nine-month operating cash flow and investing cash outflow changes versus the prior year.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "question": "Reconcile Microsoft’s change in cash and cash equivalents for the nine months ended March 31, 2026 using operating, financing, investing, and foreign-exchange cash flows. Then reconcile the ending cash balance to the balance sheet. Use USD millions.",
+   "changes": [
+    "values: change in cash 1,863; beginning cash 30,242; ending cash 32,105",
+    "anchors split: one evidence item per required point (6 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "question": "Reconcile the three segments’ year-over-year quarterly revenue changes to Microsoft’s total change for the three months ended March 31, 2026. Calculate Intelligent Cloud’s share of the net total increase and explain its primary driver.",
+   "changes": [
+    "values: Intelligent Cloud share of the increase 61.86; Productivity and Business Processes change 5,069; Intelligent Cloud change 7,930; More Personal Computing change -179; total change 12,820",
+    "anchors split: one evidence item per required point (7 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "question": "Derive Microsoft’s revenue for the first six months of fiscal 2026 and fiscal 2025 from the nine-month and third-quarter columns. Calculate the year-over-year growth for those six-month periods. State the date ranges and use USD millions.",
+   "changes": [
+    "values: six-month growth 17.55; six months fiscal 2026 revenue 158,946; six months fiscal 2025 revenue 135,217"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "question": "Explain why More Personal Computing’s quarterly operating income increased even though its revenue decreased. Connect the consolidated revenue narrative with the segment’s cost and margin explanations.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "question": "Explain how Microsoft’s quarterly gross margin in dollars could increase while its gross margin percentage decreased. Use the income statement and management’s reported drivers without assuming that margin dollars and margin percentage are the same measure.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "question": "Why should Microsoft Cloud revenue not be added to the reportable segments’ revenues when constructing total company revenue? Identify the relevant components and explain the overlap.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "question": "Connect the OpenAI recapitalization accounting with the nine-month GAAP versus adjusted net-income comparison. Why does excluding OpenAI effects reduce current-year net income but increase prior-year net income?",
+   "changes": [
+    "anchors split: one evidence item per required point (3 items)"
+   ]
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "question": "Explain why commercial remaining performance obligations and balance-sheet unearned revenue should not be treated as interchangeable measures or added together as independent revenue pools.",
+   "changes": [
+    "anchors split: one evidence item per required point (2 items)"
+   ]
+  },
+  {
+   "qid": "EV1-015",
+   "question": "What dividend per share did Microsoft declare for the three months ended March 31, 2026?",
+   "changes": [
+    "min_sig_figs 3 -> 2"
+   ]
+  },
+  {
+   "qid": "EV1-027",
+   "question": "By how many percentage points did Microsoft's quarterly operating margin change from the three months ended March 31, 2025 to the three months ended March 31, 2026?",
+   "changes": [
+    "min_sig_figs 3 -> 2"
+   ]
+  },
+  {
+   "qid": "EV1-043",
+   "question": "More Personal Computing revenue fell year over year in the three months ended March 31, 2026, yet its operating income rose. Quantify both changes and the change in its cost of revenue, in USD millions.",
+   "changes": [
+    "values: operating income change 146; revenue change -179; cost of revenue change -584"
+   ]
+  },
+  {
+   "qid": "EV2-035",
+   "question": "Nike's most recent 10-Q covers the quarter ended August 31, 2026. Which fiscal year and quarter is that in Nike's own reporting calendar?",
+   "changes": [
+    "anchors: three months ended August 31, 2026, first quarter of fiscal 2027"
+   ]
+  },
+  {
+   "qid": "EV2-036",
+   "question": "Medtronic's most recent 10-Q covers the quarter ended July 31, 2026. Which fiscal year and quarter is that in Medtronic's own reporting calendar?",
+   "changes": [
+    "anchors: Fiscal year 2027 is a 53-week fiscal year, first quarter and included in the three months ended July 31, 2026"
+   ]
+  },
+  {
+   "qid": "EV2-037",
+   "question": "Micron's most recent 10-Q covers the quarter ended May 28, 2026. Which fiscal year and quarter is that in Micron's own reporting calendar?",
+   "changes": [
+    "anchors: Thursday closest to August 31, third quarter of 2026"
+   ]
+  },
+  {
+   "qid": "EV2-044",
+   "question": "Which of the ten companies in the corpus (Apple, Casey's, McKesson, Medtronic, Microsoft, Micron, Nike, NetApp, Parker-Hannifin, Take-Two) have a fiscal year that ends in April?",
+   "changes": [
+    "anchors: Fiscal Year Ended April 30, 2026 | last Friday in April | last Friday in April"
+   ]
+  },
+  {
+   "qid": "EV1R-002",
+   "question": "Did Microsoft change its reportable segments between fiscal year 2025 and fiscal year 2026, and did it rename any of its revenue categories?",
+   "changes": [
+    "route_expected graph -> text"
+   ]
+  },
+  {
+   "qid": "EV1R-005",
+   "question": "Since Microsoft acquired OpenAI, which of Microsoft's segments reports OpenAI's revenue?",
+   "changes": [
+    "required point 'approximately 27 percent' -> 'approximately 27 percent | approximately 25% | approximate 25% | approximately 25 percent'"
+   ]
+  },
+  {
+   "qid": "EV1R-006",
+   "question": "Microsoft acquired Activision Blizzard in October 2023. Which reportable segment includes the product category that Activision's games fall under, and how did that category's revenue change in fiscal year 2026?",
+   "changes": [
+    "route_expected graph -> text"
+   ]
+  }
+ ],
+ "anchor_check_c1": {
+  "chunks_file": "chunks_C1.jsonl",
+  "chunking_version": "rag-C1-v0-m460",
+  "filings_in_chunks": 20,
+  "evidence_items": 147,
+  "items_found": 134,
+  "questions_with_anchors": 107,
+  "questions_all_items_found": 96,
+  "not_found": [
+   {
+    "qid": "EV1R-001",
+    "accession": "0001193125-26-323660",
+    "contains": [
+     "Microsoft Ireland Research Unlimited Company",
+     "Activision Publishing, Inc."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV1R-004",
+    "accession": "0001193125-26-323660",
+    "contains": [
+     "LinkedIn Ireland Unlimited Company",
+     "Activision Blizzard, Inc."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-001",
+    "accession": "0000723125-26-000023",
+    "contains": [
+     "Micron Europe Limited",
+     "S-Squared Insurance Company, Inc."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-002",
+    "accession": "0000320193-25-000079",
+    "contains": [
+     "Apple Services Pte. Ltd."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-002",
+    "accession": "0000723125-26-000023",
+    "contains": [
+     "Micron Semiconductor Asia Pte. Ltd."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-003",
+    "accession": "0000320193-25-000079",
+    "contains": [
+     "Apple Insurance Company, Inc."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-003",
+    "accession": "0000723125-26-000023",
+    "contains": [
+     "S-Squared Insurance Company, Inc."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-004",
+    "accession": "0000726958-26-000046",
+    "contains": [
+     "Casey's Marketing Company",
+     "Heartland Property Company, LLC"
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-005",
+    "accession": "0001193125-26-259683",
+    "contains": [
+     "NetApp Israel R&D Ltd.",
+     "Plexistor Ltd."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-006",
+    "accession": "0000320193-25-000079",
+    "contains": [
+     "Braeburn Capital, Inc."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-007",
+    "accession": "0001193125-26-259683",
+    "contains": [
+     "Spotinst Ltd."
+    ],
+    "filing_in_chunks": true
+   },
+   {
+    "qid": "EV3-008",
+    "accession": "0001193125-26-380207",
+    "contains": [
+     "Fiscal 2027, ending on April 30, 2027"
+    ],
+    "filing_in_chunks": false
+   },
+   {
+    "qid": "EV3-009",
+    "accession": "0001193125-26-380207",
+    "contains": [
+     "14 weeks included in its first quarter"
+    ],
+    "filing_in_chunks": false
+   }
+  ]
+ }
+}

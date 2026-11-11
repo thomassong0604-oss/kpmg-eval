@@ -2,7 +2,7 @@
  "_doc": "Week 8: round 1 for GraphRAG's real tools on Gold Set v2.1 (both arms, every question).",
  "tag": "eval_local",
  "k": 10,
- "gold": "benchmark_v2_1.jsonl",
+ "gold": "benchmark_v2_2.jsonl",
  "backend_status": {
   "graph": "skipped: NEO4J_URI is not set",
   "structured": "registered: /home/claude/kpmg-eval/Week 8/upstream/graphrag_store_msft_10q.duckdb"

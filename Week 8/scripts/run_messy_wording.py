@@ -104,7 +104,7 @@ PERTURB = {"typo_company": typo_company, "typo_terms": typo_terms, "casual": cas
 
 
 def main():
-    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_1.jsonl")]
+    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_2.jsonl")]
     variants = []
     for q in gold:
         for name, fn in PERTURB.items():

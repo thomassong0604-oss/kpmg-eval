@@ -90,7 +90,7 @@ def rate(rows, key):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--graphrag", default=str(ROOT / "upstream" / "KPMG-GraphRAG"))
-    ap.add_argument("--gold", default=str(DATA / "benchmark_v2_1.jsonl"))
+    ap.add_argument("--gold", default=str(DATA / "benchmark_v2_2.jsonl"))
     ap.add_argument("--tag", default="eval_local")
     ap.add_argument("--k", type=int, default=K)
     args = ap.parse_args()

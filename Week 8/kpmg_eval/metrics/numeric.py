@@ -11,18 +11,25 @@ system is wrong, not just how often:
   wrong_scale       off by a factor of 1,000 or 1,000,000 (thousands / millions / billions confusion)
   too_imprecise     consistent with the truth but written with fewer significant figures than required
   wrong_value       anything else
+  partial_values    Week 8 (Gold Set v2.2): a question that asks for several figures; some stated, not all
+
+Week 8: questions that ask for several figures (EV1-043: the change in revenue, operating income and cost of revenue)
+carry gold["values"]. They pass only when every value is stated: from the AnswerBlock's optional `values` list when
+present (sign-sensitive), otherwise from answer_text + value_text (sign-insensitive, since "fell $179 million" is
+-179). If the block also gives a headline `value`, it must equal one of the gold values. Partial credit is kept in
+NumericResult.values_stated as a diagnostic; the headline metric stays pass/fail.
 
 Input is either the structured AnswerBlock the Agent team returns (preferred: see answer_schema.py) or free text.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from ..normalize import Quantity, extract_quantities, matches_at_written_precision
 from .refusal import classify_response
 
 LABELS = ["correct", "false_refusal", "wrong_period", "wrong_dimension", "wrong_concept", "wrong_cell", "wrong_sign",
-          "wrong_scale", "too_imprecise", "wrong_value", "no_value"]   # wrong_dimension / wrong_cell: Week 5, see diagnose.py
+          "wrong_scale", "too_imprecise", "wrong_value", "no_value", "partial_values"]   # wrong_dimension / wrong_cell: Week 5, see diagnose.py
 
 
 @dataclass
@@ -33,6 +40,7 @@ class NumericResult:
     answered_value: float | None = None
     gold_value: float | None = None
     detail: str = ""
+    values_stated: tuple[int, int] | None = None   # Week 8: (stated, asked) for multi-value questions
 
 
 def _q_from_block(block: dict) -> Quantity | None:
@@ -60,6 +68,61 @@ def _same(q: Quantity, truth: float, min_sf: int) -> bool:
 
 
 def score_numeric(item: dict, answer: dict | str) -> NumericResult:
+    """Single-value questions as before; questions with gold["values"] (Gold Set v2.2) go to the multi-value rule."""
+    if item["gold"].get("values"):
+        return _score_multi(item, answer)
+    return _score_one(item, answer)
+
+
+_KINDS = {"money": ("money", "number"), "number": ("number", "money"), "percent": ("percent", "pp"), "pp": ("pp", "percent")}
+
+
+def _stated(v: dict, quantities: list[Quantity], signed: bool) -> bool:
+    truth = float(v["value"])
+    sf = int(v.get("min_sig_figs", 3))
+    for q in quantities:
+        if q.kind not in _KINDS.get(v.get("kind", "money"), (q.kind,)):
+            continue
+        if not signed:
+            q, t = replace(q, value=abs(q.value)), abs(truth)
+        else:
+            t = truth
+        if _same(q, t, sf):
+            return True
+    return False
+
+
+def _score_multi(item: dict, answer: dict | str) -> NumericResult:
+    gold, qid = item["gold"], item["qid"]
+    truth, vals = float(gold["value"]), gold["values"]
+    head = None
+    if isinstance(answer, dict):
+        if not answer.get("answered", True):
+            return NumericResult(qid, False, "false_refusal", None, truth, values_stated=(0, len(vals)))
+        if answer.get("values"):
+            qs, signed = [q for v in answer["values"] if (q := _q_from_block(v))], True
+        else:
+            text = " ".join(t for t in (answer.get("value_text"), answer.get("answer_text")) if t)
+            qs, signed = extract_quantities(text), False
+        head = _q_from_block(answer)
+    else:
+        if classify_response(answer) == "refused":
+            return NumericResult(qid, False, "false_refusal", None, truth, values_stated=(0, len(vals)))
+        qs, signed = extract_quantities(answer), False
+    found = [_stated(v, qs, signed) for v in vals]
+    n = (sum(found), len(found))
+    detail = ", ".join(f"{v.get('label', v['value'])}: {'yes' if f else 'no'}" for v, f in zip(vals, found))
+    head_ok = head is None or any(_stated(v, [head], True) for v in vals)
+    if all(found) and head_ok:
+        return NumericResult(qid, True, "correct", head.value if head else None, truth, detail, n)
+    if not head_ok or not any(found):   # a wrong headline number, or none of the figures: label it like one value
+        r = _score_one(item, answer)
+        return replace(r, passed=False, label=r.label if r.label != "correct" else "partial_values", detail=detail,
+                       values_stated=n)
+    return NumericResult(qid, False, "partial_values", head.value if head else None, truth, detail, n)
+
+
+def _score_one(item: dict, answer: dict | str) -> NumericResult:
     gold = item["gold"]
     qid = item["qid"]
     truth = float(gold["value"])

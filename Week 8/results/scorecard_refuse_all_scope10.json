@@ -3,12 +3,12 @@
  "versions": {
   "benchmark_sha256": "377bf5af94e3e6cb",
   "rag_commit": "5bfafeb",
-  "eval_commit": "e224deb",
+  "eval_commit": "ff475d5",
   "index_version": "ffaa8efb4d5d",
   "embedder": "lsa",
   "chunking_version": null,
   "extraction_version": null,
-  "graded_at": "2026-11-11T14:48:41"
+  "graded_at": "2026-11-11T15:56:35"
  },
  "n_items": 142,
  "headline": {

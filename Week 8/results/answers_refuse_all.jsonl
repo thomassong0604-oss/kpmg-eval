@@ -1,4 +1,4 @@
-{"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "GSv0-MSFT-001", "latency_ms": 0.03}
+{"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "GSv0-MSFT-001", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "GSv0-MSFT-002", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "GSv0-MSFT-003", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "GSv0-MSFT-004", "latency_ms": 0.0}
@@ -85,7 +85,7 @@
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "EV1-069", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "EV1-070", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "AB-001", "latency_ms": 0.0}
-{"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "AB-002", "latency_ms": 0.03}
+{"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "AB-002", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "AB-003", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "AB-004", "latency_ms": 0.0}
 {"answered": false, "answer_text": "I can't answer that from the filings.", "citations": [], "qid": "AB-005", "latency_ms": 0.0}

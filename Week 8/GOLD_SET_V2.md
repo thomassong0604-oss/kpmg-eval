@@ -2,7 +2,8 @@
 
 The round-1 question set: **155 questions, 143 answerable**, on the Data team's ten companies and the **21 filings** in
 Data's database snapshot of 2026-11-03 (the same 21 filings as Data's round-1 freeze list, `eval/round1_filings.csv` in
-RAG's repo). File hash `ed4b42db6fc25ee5` (first 16 hex of sha256). Built 11/5 (Week 7), unchanged since.
+RAG's repo). File hash `ed4b42db6fc25ee5` (first 16 hex of sha256). Built 11/5 (Week 7). **Current version: v2.2**
+(11/11, same questions and answers, grading fixes; below).
 
 ## Gold Set v2.1 (11/9): corrected text anchors
 
@@ -15,25 +16,53 @@ for RAG's round-1 chunks.
 
 **v2.1 = `data/benchmark_v2_1.jsonl` (sha256 `1e104c626c6c9833`). Questions, answers and routes are identical to v2;
 only `rag_evidence` changed (25 questions).** v2 (`ed4b42db6fc25ee5`) is kept because RAG's round-1 run used it.
-Per-question old and new anchors: `results/gold_v2_1_changes.json`. The spreadsheet and Word exports now come from v2.1.
+Per-question old and new anchors: `results/gold_v2_1_changes.json`.
+
+## Gold Set v2.2 (11/11): grading fixes from RAG's end-to-end round 1
+
+RAG ran its reader on all 155 questions with our graders (vendored at 0fd5695) and sent the answer blocks and its
+round-1 chunks (`chunks_C1`, 3,736 chunks over 20 filings). We reproduce RAG's figures exactly (NAA 87/93 = 0.935,
+balanced refusal 0.977, unanswerable 10/10, on RAG's subset without the graph-route and review-required questions).
+RAG's three grading notes were right; v2.2 fixes them, plus what the files showed us. **Same 155 questions and expected
+answers; only grading fields change** (`scripts/build_gold_v2_2.py`, per question in `results/gold_v2_2_changes.json`):
+
+| Change | Questions | Why |
+|---|---|---|
+| Sig-fig floor = the precision the filing prints | EV1-015 (USD 0.91), EV1-027 (0.66 pp): 3 → 2 | "$0.91" was failed for having 2 significant figures, all the filing prints. Only EV1-015 changes a score |
+| Every figure required on multi-part questions (`gold.values`) | 7: GSv0-MSFT-014/015/016/023/024/025, EV1-043 | EV1-043 asks for three changes; the AnswerBlock holds one `value`. Figures are read from an optional `values` list (sign-sensitive) or else from the answer text; values recomputed from each question's own XBRL facts |
+| Route graph → text | EV1R-002, EV1R-006 | RAG answered both from the 10-K text; GraphRAG's review found no RENAMED_FROM edge (002) and only partial graph support (006) |
+| Anchors from RAG's chunks | EV2-035/036/037 (fiscal-quarter wording in each 10-Q), EV2-044 (fiscal year-end in the Casey's, Medtronic and NetApp 10-Ks) | The last four unanchored questions |
+| One evidence item per required point | the 22 re-anchored in v2.1 | v2.1 put two or more sentences in one item, which RAG's matcher needs inside one chunk; RAG's chunker splits 8 of them (e.g. GSv0-MSFT-019: chunks 0080 and 0083) |
+| A second accepted wording | EV1R-005 | The Q3 10-Q says Microsoft holds "approximately 27 percent" of OpenAI; the later FY2026 10-K says "an approximate 25% interest". The question has no date, so both count |
+
+**Anchor check against RAG's chunks** (RAG's own matcher, filing by filing): 134 of 147 evidence items found.
+The 13 not found are by design: 11 sit in Exhibit 21, which Data does not chunk (GraphRAG's route), and 2 in
+NetApp's 10-Q, which is not in `chunks_C1`. Every other anchor in the set is in RAG's chunks. Result:
+`results/anchor_check_c1.json` (ids only). The chunks stay private, as Data asked.
+
+**v2.2 = `data/benchmark_v2_2.jsonl` (sha256 `8d2f327da1ad8ffd`).** v2 and v2.1 are kept unchanged: RAG's round-1 runs used them.
+Routes now 104 finance data / 33 text / 9 relationship / 1 both / 8 no tool. The spreadsheet and Word exports come from v2.2.
 
 ## Files (this folder)
 
 | File | For |
 |---|---|
-| [`data/benchmark_v2_1.jsonl`](data/benchmark_v2_1.jsonl) | **Current scored set (v2.1)**: one JSON object per question (answer, facts, filters, route, distractors, anchors) |
-| [`data/benchmark_v2.jsonl`](data/benchmark_v2.jsonl) | v2 as built 11/5 (used by RAG's round-1 run) |
+| [`data/benchmark_v2_2.jsonl`](data/benchmark_v2_2.jsonl) | **Current scored set (v2.2)**: one JSON object per question (answer, facts, filters, route, distractors, anchors, `values` for multi-part questions) |
+| [`data/benchmark_v2_1.jsonl`](data/benchmark_v2_1.jsonl) | v2.1 (11/9): v2 with corrected anchors |
+| [`data/benchmark_v2.jsonl`](data/benchmark_v2.jsonl) | v2 as built 11/5 (used by RAG's round-1 runs) |
 | [`data/benchmark_v2_questions.xlsx`](data/benchmark_v2_questions.xlsx) | Filterable spreadsheet: Questions, By company, Filings |
 | [`data/benchmark_v2_questions.docx`](data/benchmark_v2_questions.docx) | Word version for reviewers: summaries, the 21 filings, questions by company |
-| [`data/benchmark_v2_questions.csv`](data/benchmark_v2_questions.csv) / [`.md`](data/benchmark_v2_questions.md) | Flat lists |
+| [`data/benchmark_v2_2_questions.md`](data/benchmark_v2_2_questions.md) | Flat list of v2.2, with every figure a multi-part question must state |
+| [`data/benchmark_v2_questions.csv`](data/benchmark_v2_questions.csv) / [`.md`](data/benchmark_v2_questions.md) | Flat lists of v2 as built 11/5 |
 | [`data/snapshot_w7.json`](data/snapshot_w7.json) | The 21 filings and how they match Data's lists |
 | [`data/decision_suite_v1.jsonl`](data/decision_suite_v1.jsonl) | 24 extra clarify / off-topic / abstain prompts for the Agents' scope check |
 | [`data/messy_wording_v1.jsonl`](data/messy_wording_v1.jsonl) | 427 typo and casual-wording rewrites of these 155 questions |
 | [`data/hops_v2.csv`](data/hops_v2.csv) | Per question: `filings` (distinct accessions the gold evidence needs, filled by Eval in code), `hops` (edges on GraphRAG's ontology path, for GraphRAG to derive), GraphRAG's review of the six relationship drafts. Replaces `hops_v1.csv` (11/11, agreed with GraphRAG) |
-| [`data/gold_candidates_v2_2.jsonl`](data/gold_candidates_v2_2.jsonl) | Questions queued for v2.2, after round 1 (EV3-010: GraphRAG's M08 as an abstention question) |
-| [`results/gold_v2_summary.json`](results/gold_v2_summary.json) | Counts, hash, change log |
+| [`data/gold_candidates_v2_3.jsonl`](data/gold_candidates_v2_3.jsonl) | Questions queued for v2.3, after round 1 (EV3-010: GraphRAG's M08 as an abstention question) |
+| [`results/gold_v2_summary.json`](results/gold_v2_summary.json) | Counts, hash, change log (v2) |
+| [`results/gold_v2_2_changes.json`](results/gold_v2_2_changes.json), [`results/anchor_check_c1.json`](results/anchor_check_c1.json) | v2.2 changes per question; anchors found in RAG's chunks (ids only) |
 
-Regenerate: `python scripts/build_gold_v2.py` (the jsonl), then `python scripts/export_gold_v2_xlsx.py` and
+Regenerate: `python scripts/build_gold_v2.py`, `build_gold_v2_1.py`, `build_gold_v2_2.py [--chunks private/chunks_C1.jsonl]`, then `python scripts/export_gold_v2_xlsx.py` and
 `node scripts/export_gold_v2_docx.js`. Do not edit the exports by hand.
 
 ## What is in it
@@ -41,7 +70,7 @@ Regenerate: `python scripts/build_gold_v2.py` (the jsonl), then `python scripts/
 | | Count |
 |---|---|
 | Questions / answerable | 155 / 143 |
-| Route needed: finance data / text / relationship / both / no tool | 104 / 31 / 11 / 1 / 8 |
+| Route needed: finance data / text / relationship / both / no tool | 104 / 33 / 9 / 1 / 8 (v2 and v2.1: 104 / 31 / 11 / 1 / 8) |
 | Single-company questions: Microsoft (MVP) / each of the other nine | 95 / 4–9 |
 | Questions across companies | 9 |
 | Answer: exact number / exact text / narrative / refuse / correct premise | 94 / 12 / 30 / 12 / 7 |
@@ -55,8 +84,10 @@ numeric answers correctly; the nine non-Microsoft income statements, read from t
 answers match GraphRAG's own Exhibit 21 output on all 62 rows we hold.
 
 **Still open:** 37 text answers (narratives and definitions, mostly RAG's v0 wording) are flagged for a person to check
-against the filing (their anchors were re-checked in v2.1, the answer wording not yet); anchors for EV2-035/036/037/044
-and for the new lookup questions wait on the round-1 chunks.
+against the filing (their anchors were re-checked in v2.1 and against RAG's chunks in v2.2, the answer wording not yet).
+Narrative answers are scored by an LLM judge (`scripts/run_narrative_judge.py`), which needs an API key and must agree
+with our hand labels before it counts. 40 single-figure lookups on the nine other companies (EV2-001…045) still have no
+text anchor; their figures and filings are in the gold, and anchoring them from RAG's chunks is next on Eval's list.
 
 ## How the 10/29 minutes and RAG's Slack message are reflected
 

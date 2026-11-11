@@ -2,7 +2,7 @@
 
 **Coverage** (the bars on the routing slide) = share of questions where every tool the question needs was called (no tool, for the questions that should be blocked). **It is not accuracy**: calling the right tools does not make the final answer right. Answer accuracy needs the reader (round 1).
 
-**Which method gives which number** (155 questions): every tool 94.8% coverage at 3.00 calls per question (it misses only the 8 questions that need no tool); keyword router 83.9% at 1.05 calls; text only 20.0% at 1.00. The 95% is every tool, not the keyword router plus text only.
+**Which method gives which number** (155 questions, Gold Set v2.2): every tool 94.8% (147/155) at 3.00 calls per question, 2.05 unneeded (it misses only the 8 questions that need no tool); keyword router 82.6% (128/155) at 1.05 calls per question, 0.26 unneeded; text only 21.3% (33/155) at 1.00 calls per question, 0.78 unneeded. The 95% is every tool, not the keyword router plus text only. (On Gold Set v2, before EV1R-002 and EV1R-006 moved from graph to text after round 1, the keyword router was 83.9% and text only 20.0%.)
 
 **Where the keyword router sits**: it is Eval's baseline for comparison, not part of the pipeline. The Agents' orchestrator does the real routing and can be scored on the same questions: `python scripts/run_routing_baselines.py --router name=your_module.py:route` (a function `route(question, session_ticker)` returning tool names) or `--calls name=calls.jsonl` (logged calls, one `{"qid": ..., "tools": [...]}` per line).
 
@@ -13,7 +13,7 @@ Router definitions:
 
 **Unneeded call**: a tool the router called that the question's expected route does not need (sql needs SQL; text needs RAG; graph needs GraphRAG; multi needs SQL + RAG; none needs no tool). Unneeded calls per question = total unneeded calls / 155 questions. It counts calls outside the expected route; it does not mean "text search alone could have answered".
 
-All rates are on the current 155 Gold Set v2 questions only (104 sql, 31 text, 11 graph, 8 none, 1 multi), with routes labelled by Eval. They will move as questions are added.
+All rates are on the current 155 Gold Set v2.2 questions only (104 sql, 33 text, 9 graph, 8 none, 1 multi), with routes labelled by Eval. They will move as questions are added.
 
 ## number from a statement (GSv0-MSFT-001)
 

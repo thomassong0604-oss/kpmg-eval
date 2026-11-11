@@ -101,7 +101,7 @@ def main():
     suite = [{"sid": f"DS-{i:03d}", "expected_decision": d, "session_ticker": s, "question": q, "reason": r,
               "gate_only": True} for i, (d, s, q, r) in enumerate(SUITE, 1)]
     (DATA / "decision_suite_v1.jsonl").write_text("".join(json.dumps(x) + "\n" for x in suite))
-    gold = [json.loads(l) for l in open(DATA / "benchmark_v2.jsonl")]
+    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_2.jsonl")]
     items = [{"id": x["sid"], "question": x["question"], "session": x["session_ticker"], "expected": x["expected_decision"],
               "gate_only": True, "set": "suite"} for x in suite]
     for q in gold:

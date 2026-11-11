@@ -24,7 +24,7 @@ from deck_style import (BLUE, GREEN, INK, MUTED, NAVY, PINK, clear, footer, head
 
 ROOT = Path(__file__).resolve().parent.parent
 RES, DATA = ROOT / "results", ROOT / "data"
-N_SLIDES = 8
+N_SLIDES = 9
 C = {"center": {"align": PP_ALIGN.CENTER}}
 
 
@@ -102,30 +102,35 @@ def s_scope(s, sbs, rt, mw):
     rows = [["Action item", "What we did", "Slide"],
             ["Run round 1 in week 8 (minutes #5)", "RAG ran our scoring on Gold Set v2 (11/9); we fixed the anchors it flagged",
              ("2", C["center"])],
+            ["Round 1 end to end (RAG's reader, 11/11)", "Reproduced RAG's scores with our graders; fixed the three grading "
+             "notes in Gold Set v2.2", ("3", C["center"])],
             ["Run one question set on RAG and GraphRAG, side by side",
-             f"All {a['n_questions']} Microsoft 10-Q questions through each team's own code, same filing, top 8", ("3", C["center"])],
+             f"All {a['n_questions']} Microsoft 10-Q questions through each team's own code, same filing, top 8", ("4", C["center"])],
             ["Show where GraphRAG does better, and where RAG does",
-             f"Plus the {b['n_questions']} Exhibit 21 relationship questions (traversal)", ("4", C["center"])],
+             f"Plus the {b['n_questions']} Exhibit 21 relationship questions (traversal)", ("5", C["center"])],
             ["Label the routing chart's axes; define the keyword router", "Axes titled; bars are coverage, defined, and not "
-             "accuracy; numbers matched to each method", ("5", C["center"])],
-            ["Explain how unneeded calls per question are measured", "Definition with a worked example", ("5", C["center"])],
+             "accuracy; numbers matched to each method", ("6", C["center"])],
+            ["Explain how unneeded calls per question are measured", "Definition with a worked example", ("6", C["center"])],
             ["Concrete routing examples; where the router sits", "Three real questions walked through; the keyword router is "
-             "a baseline, and Agents can score theirs with the same script", ("6", C["center"])],
+             "a baseline, and Agents can score theirs with the same script", ("7", C["center"])],
             ["Say accuracy is on the current 155 questions only", "Stated on every routing and wording number",
-             ("5-7", C["center"])],
+             ("3-8", C["center"])],
             ["Typos and messy wording, for real-user accuracy",
-             f"{mw['n_variants']} rewrites of the 155 questions through gate, router and both retrievers", ("7", C["center"])]]
-    table(s, 0.12, 1.0, 7.6, [3.25, 3.85, 0.5], rows, row_h=0.34, sizes={0: 8, 1: 8, 2: 8}, name="Action items")
-    tb(s, 7.95, 1.0, 1.85, 2.9, [[("All figures use the current 155 Gold Set v2 questions", 9, True, NAVY)],
+             f"{mw['n_variants']} rewrites of the 155 questions through gate, router and both retrievers", ("8", C["center"])]]
+    table(s, 0.12, 1.0, 7.6, [3.25, 3.85, 0.5], rows, row_h=0.31, sizes={0: 8, 1: 8, 2: 8}, name="Action items")
+    er = rt["expected_routes"]
+    tb(s, 7.95, 1.0, 1.85, 2.9, [[(f"All figures use the current {rt['n']} Gold Set v2.2 questions", 9, True, NAVY)],
                                 [(" ", 4, False, INK)],
-                                [("104 finance data, 31 text, 11 relationship, 8 no tool, 1 both. Microsoft has 92 of them, "
-                                  "so per-route numbers on 1-11 questions are examples, not estimates. They will move as "
-                                  "questions are added.", 8.5, False, INK)]])
+                                [(f"{er['sql']} finance data, {er['text']} text, {er['graph']} relationship, {er['none']} no "
+                                  f"tool, {er['multi']} both. Microsoft has 92 of them, so per-route numbers on 1-{er['graph']} "
+                                  "questions are examples, not estimates. They will move as questions are added. v2.2 keeps "
+                                  "v2's questions and answers; it changes grading only (slide 3).", 8.5, False, INK)]])
     footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 4e89acb (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
-                         "f8d18e2. No LLM is used in any result; everything except RAG's round-1 run (slide 2) re-runs here exactly.",
-           "Source: Week 8/README.md; scripts/run_all.sh (87 tests pass)", y=4.42, w=7.6)
+                         "f8d18e2. No LLM is used in Eval's results; RAG's round-1 runs (slides 2-3) are re-scored here from the files they sent.",
+           "Source: Week 8/README.md; scripts/run_all.sh (95 tests pass)", y=4.42, w=7.6)
     notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
-             "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. One caveat for everything that follows: the "
+             "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. "
+             "New since Sunday: RAG ran its reader end to end with our graders, which is slide 3. One caveat for everything that follows: the "
              "numbers come from the 155 questions we have now, which lean on Microsoft and on finance-data questions.")
 
 
@@ -133,7 +138,7 @@ def s_round1(s, r1, v21):
     clear(s)
     R = r1["strict_recall"]
     h = r1["hybrid_k10"]
-    header(s, "Round 1", f"retrieval on Gold Set v2, run by RAG with our scoring rules (11/9): {h['hits']} of {h['n']} found")
+    header(s, "Round 1: retrieval", f"Gold Set v2, run by RAG with our scoring rules (11/9): {h['hits']} of {h['n']} found")
     cats = ["k = 5", "k = 8", "k = 10"]
     col_chart(s, 0.12, 1.0, 4.2, 3.3, cats,
               [("Hybrid", [R["hybrid"][f"k{k}"] for k in (5, 8, 10)], NAVY),
@@ -166,14 +171,81 @@ def s_round1(s, r1, v21):
                             "must be told which column to take; fusion scores look the same for hits and misses, so 'weak "
                             "evidence' has to come from structure (empty result, no filter match, BM25 and dense disagree).",
            "Source: RAG team, round-1 results 11/9 (KPMG_RAG scripts/run_round1_eval.py), transcribed in Week 8/data/"
-           "round1_rag_2026-11-09.json; Gold Set v2.1 in Week 8/GOLD_SET_V2.md. Evidence level; no reader yet", y=4.38, w=7.6)
+           "round1_rag_2026-11-09.json; Gold Set v2.1 in Week 8/GOLD_SET_V2.md. Evidence level (retrieval only)", y=4.38, w=7.6)
     notes(s, "Round 1 happened this week. RAG ran our scoring rules on the full Gold Set v2 against its index of the 20 filings. "
              "Hybrid search with filters finds all the evidence for 105 of 124 scored questions at 10 results, and the nine "
              "non-Microsoft companies score at least as well as Microsoft. RAG traced every miss. Three are cross-company rankings "
              "that one search can't hold, so the Agents should split them per company. Four were our mistake: the anchors on four "
              "of the original RAG questions came from an automatic conversion and didn't match the questions. We checked the other "
              "converted anchors too and replaced all 22 the same day, as Gold Set v2.1. The rest are ranking and query-splitting "
-             "fixes on the RAG and Agents side. Answer accuracy needs the reader, which needs an API key.")
+             "fixes on the RAG and Agents side. Two days later RAG ran its reader on top of this, which is the next slide.")
+
+
+def s_answers(s, ans, g22, rt):
+    """Round 1 end to end: RAG's reader (11/11), scored with our graders on v2 (as run) and v2.2 (grading fixes)."""
+    clear(s)
+    v2, v22 = ans["by_gold_set"]["v2"], ans["by_gold_set"]["v2_2"]
+    sub = v2["rag_subset"]
+    header(s, "Round 1: answers", "RAG's reader end to end, scored with our graders (11/11)")
+    fr = lambda d: f"{d['value']:.3f} ({d['k']}/{d['n']})"  # noqa: E731
+    kn = lambda d: f"{d['k']}/{d['n']}"  # noqa: E731
+    nar = v22["narrative"]
+    rows = [["Measure", ("RAG's report (subset)", C["center"]), ("All 155, Gold v2", C["center"]),
+             ("All 155, Gold v2.2", C["center"])],
+            [("Numbers right (NAA)", {"bold": True}), (fr(sub["numeric_accuracy"]), C["center"]),
+             (fr(v2["numeric_accuracy"]), C["center"]), (fr(v22["numeric_accuracy"]), {**C["center"], "bold": True, "color": GREEN})],
+            [("Refusal, balanced", {"bold": True}), (f"{sub['refusal']['balanced_raa_incl_false_premise']:.3f}", C["center"]),
+             (f"{v2['refusal']['balanced_raa_incl_false_premise']:.3f}", C["center"]),
+             (f"{v22['refusal']['balanced_raa_incl_false_premise']:.3f}", C["center"])],
+            [("Unanswerable refused", {"bold": True}), (sub["refusal"]["unanswerable_refused"], C["center"]),
+             (v2["refusal"]["unanswerable_refused"], C["center"]), (v22["refusal"]["unanswerable_refused"], C["center"])],
+            [("Fiscal calendar, lists", {"bold": True}), ("n/a", C["center"]), (kn(v2["categorical_accuracy"]), C["center"]),
+             (kn(v22["categorical_accuracy"]), C["center"])],
+            [("False premise corrected", {"bold": True}), ("n/a", C["center"]), (kn(v2["false_premise_corrected"]), C["center"]),
+             (kn(v22["false_premise_corrected"]), C["center"])],
+            [(f"Narrative ({nar['n'] - nar['refused']} of {nar['n']} answered)", {"bold": True}), ("n/a", C["center"]),
+             ("judge pending", C["center"]), ("judge pending", C["center"])]]
+    table(s, 0.12, 1.0, 5.25, [1.65, 1.25, 1.1, 1.25], rows, row_h=0.27, sizes={0: 7.5, 1: 7.5, 2: 7.5, 3: 7.5},
+          name="Answer scores")
+    c = v22["citations"]
+    tb(s, 0.12, 2.98, 5.25, 0.45, [[("Citations, checked in RAG's chunks: ", 8, True, NAVY),
+                                    (f"all {c['cited_ids_found_in_chunks']['n']} cited chunks exist; every answer cites a "
+                                     f"filing the gold answer uses ({kn(c['cites_a_gold_filing'])}); "
+                                     f"{c['lookup_number_in_cited_chunk']['k']} of {c['lookup_number_in_cited_chunk']['n']} "
+                                     "lookups show the number in a cited chunk.", 8, False, INK)]])
+    n_ref = len(v22["refusal"]["answerable_refused"])
+    tb(s, 0.12, 3.47, 5.25, 0.85, [[(f"Why {n_ref} answerable questions were declined: ", 8, True, NAVY),
+                                    ("7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which is not in the "
+                                     "chunks; 3 are cross-company rankings (one search per company); 2 state the answer but "
+                                     "are marked not answered (GSv0-MSFT-023, EV1R-005); 1 retrieval miss.", 8, False, INK)]])
+    x = 5.55
+    label(s, x, 1.0, 4.25, "RAG's three grading notes, fixed in Gold Set v2.2", NAVY)
+    kw = rt["routers"]["keyword"]["coverage"]
+    rows = [["RAG's note", "Fix"],
+            ["EV1-015: '$0.91' fails 3 significant figures", "Floor = the precision the filing prints: 2 (EV1-027 too)"],
+            ["EV1-043: three figures, one value field", f"{len(g22['multi_value_questions'])} multi-part questions need every "
+             "figure, from an optional values list or the text"],
+            ["EV1R-002, 006: answered from 10-K text", f"Route text; GraphRAG agreed. Keyword router 84% → {pct(kw)}"],
+            [("Found from RAG's files", {"bold": True, "color": NAVY}), ""],
+            ["EV1R-005: 10-K says 25%, 10-Q 27%", "Both accepted"],
+            ["v2.1 anchors: 2 sentences in one item", "One item per point; all anchors outside Exhibit 21 and NetApp's "
+             "10-Q found in RAG's chunks"]]
+    table(s, x, 1.22, 4.25, [1.9, 2.35], rows, row_h=0.4, sizes={0: 7.5, 1: 7.5}, name="Grading notes")
+    footer(s, "Next:", "the narrative judge is ready (point by point, with a quote check). It needs an API key, and it counts "
+                       "only after it agrees with our hand labels.",
+           "Source: Week 8/results/answers_rag_reader_round1.json (scripts/grade_answer_blocks.py), results/gold_v2_2_changes"
+           ".json. RAG's answers and chunks (11/11) stay private", y=4.38, w=7.6)
+    notes(s, f"RAG then ran its reader end to end with our graders. First, we reproduced their numbers exactly: "
+             f"{sub['numeric_accuracy']['value']:.3f} on numbers and {sub['refusal']['balanced_raa_incl_false_premise']:.3f} "
+             "on refusals, on their subset, which leaves out the relationship and review-required questions. On all 155 "
+             f"questions it is {v2['numeric_accuracy']['value']:.3f} and {v2['refusal']['balanced_raa_incl_false_premise']:.3f}, "
+             "and every unanswerable question was refused. RAG raised three grading notes, and all three were right. A "
+             "91-cent dividend was failed for having two significant figures, which is all the filing prints. One question "
+             "asks for three figures and the answer block holds one, so multi-part questions now need every figure. And two "
+             "relationship questions are really answered from the 10-K text, so they now route to text, which moves the "
+             f"keyword router from 84 to {kw * 100:.0f} percent. Their files also showed us two of our own errors, both fixed. "
+             f"With the fixes, numbers go to {v22['numeric_accuracy']['value']:.3f}. Most declined questions are outside "
+             "RAG's corpus by design. Narrative answers need the LLM judge, which is ready and needs a key.")
 
 
 def s_side_by_side(s, sbs):
@@ -205,7 +277,7 @@ def s_side_by_side(s, sbs):
                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable questions, so abstaining stays "
                                "with the Agents' evidence check.", 8, False, INK)]])
     footer(s, "Read:", "RAG's search finds the needed numbers and passages more often; GraphRAG's facts carry their exact period, "
-                       "so wrong-period figures show up less. Evidence level only: no reader model yet.",
+                       "so wrong-period figures show up less. Evidence level only: no reader model.",
            "Source: Week 8/results/side_by_side.json (scripts/run_side_by_side.py). RAG's hybrid with its offline stand-in for the "
            f"dense model: numbers {pct(S['rag_hybrid']['numbers']['rate'])}, prose {pct(S['rag_hybrid']['prose']['rate'])}",
            y=4.38, w=7.6)
@@ -296,7 +368,7 @@ def s_routing(s, rt):
                                  "that should be blocked). ", 8, False, INK)],
                                [("It is not accuracy. ", 8, True, PINK),
                                 ("Calling the right tools does not make the final answer right; answer accuracy needs the "
-                                 "reader (round 1, once there is an API key).", 8, False, INK)]])
+                                 "reader: RAG's round-1 answers are scored on slide 3.", 8, False, INK)]])
     rows = [["Method", ("Coverage", C["center"]), ("Calls per question", C["center"]),
              ("Unneeded calls per question", C["center"])]] + [
         [(n, {"bold": True}), (cov, C["center"]), (f"{R[k]['tool_calls_per_question']:.2f}", C["center"]),
@@ -313,16 +385,19 @@ def s_routing(s, rt):
                                 (f"the {pct(R['combined']['required_tools_called'])} is calling every tool (it misses only the "
                                  f"{n_none} questions that need no tool), not the keyword router plus text only; the keyword "
                                  f"router alone is {pct(R['keyword']['required_tools_called'])}.", 8, False, INK)]])
-    footer(s, "On the current 155 questions only:", "the 'Both' and 'No tool' bars rest on 1 and 8 questions. Coverage rewards "
-                                                   "calling more tools, so read it next to calls per question.",
+    footer(s, "On the current 155 questions only:", f"the 'Both' and 'No tool' bars rest on {er.get('multi', 0)} and "
+                                                   f"{n_none} questions. Coverage rewards calling more tools, so read it next "
+                                                   "to calls per question. Gold Set v2.2: EV1R-002/006 now route to text.",
            "Source: Week 8/results/routing_baselines.json; kpmg_eval/metrics/routing.py; ROUTING_EXAMPLES.md. Routes are Eval's "
            "labels, for Agents to review", y=4.38, w=7.6)
     notes(s, "Two corrections from last week first. The bars are coverage, not accuracy: coverage is the share of questions "
              "where every tool the question needs was called. If a question needs finance data and the method calls finance "
              "data, that counts, even if the final answer later turns out wrong. So 95 percent coverage does not mean 95 of 100 "
-             "answers are right; answer accuracy needs the reader, which is round 1. Second, the 95 percent comes from calling "
-             "every tool on every question. It misses only the 8 questions that should be blocked with no tool. The keyword "
-             "router alone covers 84 percent, and text search alone 20 percent. The cost side is the table: every tool makes 3 "
+             "answers are right; answer accuracy is scored separately, on slide 3. Second, the 95 percent comes from calling "
+             f"every tool on every question. It misses only the {n_none} questions that should be blocked with no tool. The "
+             f"keyword router alone covers {pct(R['keyword']['coverage'])}, and text search alone "
+             f"{pct(R['text_only']['coverage'])}; on Gold Set v2.2 two questions moved from relationship to text after round "
+             f"1, so the keyword router went from 84 to {R['keyword']['coverage'] * 100:.0f} percent. The cost side is the table: every tool makes 3 "
              "calls per question, 2 of them unneeded on average; the keyword router makes about 1. An unneeded call is a tool "
              "the question does not need: total revenue needs finance data only, so the other two calls are unneeded.")
 
@@ -431,18 +506,18 @@ def s_next(s):
     clear(s)
     header(s, "Next steps", "after round 1: one ask per team")
     rows = [["Team", "Ask (from this week's results)"],
-            [("RAG", {"bold": True}), "Share the round-1 chunks privately so we can anchor the last 4 questions and run the side by "
-                                      "side on all ten; try candidate k and fusion weights on the 6 near misses; reader API key"],
+            [("RAG", {"bold": True}), "Run our narrative judge with your key (or lend one); mark answers that state the figure as "
+                                      "answered; add NetApp's 10-Q to the chunks; try candidate k and fusion weights on the 6 near misses"],
             [("GraphRAG", {"bold": True}), "Run our round-1 script with your Aura graph and send the results; share the 20-filing "
                                            "store; accept accession filters in place of fiscal labels; read periods when ranking"],
             [("Agents", {"bold": True}), "Split cross-company and 10-K + 10-Q questions into one search each; match tickers and "
                                          "near-miss names; run your orchestrator through our routing scorer"],
             [("Data", {"bold": True}), "Keep the 11/03 freeze (matches our 21/21) through round 1; then load Microsoft's FY2024 and "
                                        "FY2025 10-Ks, already in your inventory (joint ask with GraphRAG)"],
-            [("Eval", {"bold": True}), "Anchors for the last 4 questions once chunks land; check RAG's per-question results against "
-                                       "v2.1; answer-level round 1 when a reader can run; grow the 1 'both' and 8 'no tool' routes"]]
+            [("Eval", {"bold": True}), "Hand-label the 28 narrative answers to validate the judge; score the Agents' first end-to-end "
+                                       "run with the same grader; add the new candidates after round 1; grow the 1 'both' and 8 'no tool' routes"]]
     table(s, 0.12, 1.0, 9.68, [1.0, 8.68], rows, row_h=0.46, sizes={0: 8.5, 1: 8}, name="Asks")
-    footer(s, "Thanks:", "RAG ran round 1 and traced every miss, which is how we found our anchor errors. RAG's retriever and "
+    footer(s, "Thanks:", "RAG ran round 1 twice and traced every miss and grading issue, which is how we found our errors. RAG's retriever and "
                          "GraphRAG's fact loader ran here unchanged, and GraphRAG's Exhibit 21 output fed the relationship check.",
            "Source: Week 8/FOR_TEAMS_W8.md (one section per team, with file paths)", y=4.42, w=7.6)
     notes(s, "One ask per team for round 1, each tied to a result from today. Both RAG and GraphRAG's code ran here unchanged, "
@@ -455,14 +530,16 @@ def main():
     add_slides(prs, N_SLIDES)
     sl = list(prs.slides)
     sbs, rt, mw = j(RES / "side_by_side.json"), j(RES / "routing_baselines.json"), j(RES / "messy_wording.json")
+    ans, g22 = j(RES / "answers_rag_reader_round1.json"), j(RES / "gold_v2_2_changes.json")
     s_scope(sl[0], sbs, rt, mw)
     s_round1(sl[1], j(DATA / "round1_rag_2026-11-09.json"), j(RES / "gold_v2_1_changes.json"))
-    s_side_by_side(sl[2], sbs)
-    s_better(sl[3], sbs)
-    s_routing(sl[4], rt)
-    s_examples(sl[5], j(RES / "routing_examples.json"))
-    s_messy(sl[6], mw)
-    s_next(sl[7])
+    s_answers(sl[2], ans, g22, rt)
+    s_side_by_side(sl[3], sbs)
+    s_better(sl[4], sbs)
+    s_routing(sl[5], rt)
+    s_examples(sl[6], j(RES / "routing_examples.json"))
+    s_messy(sl[7], mw)
+    s_next(sl[8])
     prs.save(out)
     print("[deck] wrote", out)
 

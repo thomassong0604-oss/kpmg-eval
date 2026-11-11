@@ -8,3 +8,8 @@ venv/
 .ipynb_checkpoints/
 # The full team meeting deck stays out of the repo; Eval's own slides are in Week N/deck/
 Slides/
+
+# Week 8: other teams' private files (RAG chunks_C1, round-1 answer blocks). Data asks that exports stay off GitHub.
+**/private/
+chunks_C1*
+*answer_blocks*.jsonl

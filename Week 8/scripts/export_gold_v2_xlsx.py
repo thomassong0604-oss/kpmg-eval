@@ -2,7 +2,7 @@
 
     python scripts/export_gold_v2_xlsx.py   -> data/benchmark_v2_questions.xlsx
 
-Reads data/benchmark_v2.jsonl and data/snapshot_w7.json, so it always matches what the code scores. Do not edit by hand.
+Reads data/benchmark_v2_2.jsonl (current; Week 8) and data/snapshot_w7.json, so it always matches what the code scores. Do not edit by hand.
 """
 from __future__ import annotations
 
@@ -46,7 +46,7 @@ def sheet(ws, header, rows, widths):
 
 
 def main():
-    raw = (DATA / "benchmark_v2_1.jsonl").read_bytes()
+    raw = (DATA / "benchmark_v2_2.jsonl").read_bytes()
     h = hashlib.sha256(raw).hexdigest()[:16]
     gold = [json.loads(l) for l in raw.decode().splitlines() if l.strip()]
     snap = json.loads((DATA / "snapshot_w7.json").read_text())
@@ -54,9 +54,11 @@ def main():
     ws = wb.active
     ws.title = "Read me"
     lines = [
-        f"Gold Set v2.1: {len(gold)} questions ({sum(q['answerable'] for q in gold)} answerable) on the Data team's ten companies",
-        f"Generated from data/benchmark_v2_1.jsonl (sha256 {h}) by scripts/export_gold_v2_xlsx.py. Do not edit by hand. "
-        "v2.1 is v2 with corrected text anchors (11/9); questions and answers are identical (v2: ed4b42db6fc25ee5).",
+        f"Gold Set v2.2: {len(gold)} questions ({sum(q['answerable'] for q in gold)} answerable) on the Data team's ten companies",
+        f"Generated from data/benchmark_v2_2.jsonl (sha256 {h}) by scripts/export_gold_v2_xlsx.py. Do not edit by hand. "
+        "Same questions and expected answers as v2 (ed4b42db6fc25ee5). v2.1 (11/9) corrected text anchors; v2.2 (11/11) adds "
+        "the grading fixes from RAG's end-to-end round 1: all figures required on 7 multi-part questions (column Must mention), "
+        "sig-fig floor at printed precision (EV1-015, EV1-027), EV1R-002/006 routed to text, the last 4 anchors.",
         "Scope: the 21 filings in Data's database snapshot of 2026-11-03 (sheet Filings), the same as Data's round-1 freeze list.",
         "Numbers come from SEC XBRL facts, checked against the filings. Exhibit 21 answers were read twice and match GraphRAG's own "
         "Exhibit 21 output on all 62 rows we hold. Amounts are USD millions unless stated.",

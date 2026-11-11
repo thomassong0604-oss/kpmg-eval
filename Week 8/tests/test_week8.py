@@ -124,3 +124,101 @@ def test_agents_can_plug_their_router_into_the_routing_script(tmp_path):
     calls.write_text(json.dumps({"qid": "Q1", "tools": ["graph_search", "retrieve"]}) + "\n")
     fn = rrb.load_calls(str(calls), gold)
     assert fn("a", None) == {"graph", "text"} and fn("b", None) == set()
+
+
+# ---- Week 8, 11/11: RAG's end-to-end round 1 (grading notes) -> Gold Set v2.2
+def _gold(v):
+    import json
+    return {json.loads(l)["qid"]: json.loads(l) for l in open(ROOT / "data" / f"benchmark_{v}.jsonl")}
+
+
+def test_gold_v2_2_changes_only_grading_fields():
+    a, b = _gold("v2_1"), _gold("v2_2")
+    assert list(a) == list(b)
+    for qid in a:
+        x, y = a[qid], b[qid]
+        assert x["question"] == y["question"] and x["answerable"] == y["answerable"]
+        assert x["gold"] is None or x["gold"]["value"] == y["gold"]["value"]
+        strip = lambda q: {k: v for k, v in q.items() if k not in ("rag_evidence", "route_expected", "route_note", "gold", "answer")}  # noqa: E731
+        assert strip(x) == strip(y)
+    assert [q for q in b if b[q]["route_expected"] != a[q]["route_expected"]] == ["EV1R-002", "EV1R-006"]
+    assert sum("values" in (q["gold"] or {}) for q in b.values()) == 7
+    assert b["EV1-015"]["gold"]["min_sig_figs"] == 2 and b["EV1-027"]["gold"]["min_sig_figs"] == 2
+    # no answerable question is left without a text anchor except the ones with no text (routes none) or by design
+    assert all(b[q]["rag_evidence"] for q in ("EV2-035", "EV2-036", "EV2-037", "EV2-044"))
+    # v2.1 put two sentences in one evidence item; RAG's chunker splits them, so v2.2 has one item per point
+    assert all(len(e["contains"]) == 1 for e in b["GSv0-MSFT-019"]["rag_evidence"])
+
+
+def test_sig_fig_floor_is_the_printed_precision():
+    from kpmg_eval.metrics.numeric import score_numeric
+    ans = {"answered": True, "value": 0.91, "value_text": "$0.91 per share", "unit": "USD/shares"}
+    assert score_numeric(_gold("v2")["EV1-015"], ans).label == "too_imprecise"
+    assert score_numeric(_gold("v2_2")["EV1-015"], ans).passed
+
+
+def test_multi_value_question_needs_every_figure():
+    from kpmg_eval.metrics.numeric import score_numeric
+    q = _gold("v2_2")["EV1-043"]
+    text = ("More Personal Computing revenue fell $179 million, while operating income rose $146 million. "
+            "Cost of revenue fell $584 million.")
+    assert score_numeric(q, {"answered": True, "value": None, "answer_text": text}).passed      # EV1-043 as RAG wrote it
+    r = score_numeric(q, {"answered": True, "value": 146e6, "value_text": "$146 million",
+                          "answer_text": "Operating income rose $146 million; revenue fell $179 million."})
+    assert not r.passed and r.label == "partial_values" and r.values_stated == (2, 3)
+    # a wrong headline value fails even if the text has the figures
+    assert not score_numeric(q, {"answered": True, "value": 3672e6, "value_text": "$3,672 million", "answer_text": text}).passed
+    # structured values are sign-sensitive
+    vals = [{"value": 146e6, "unit": "USD"}, {"value": -179e6, "unit": "USD"}, {"value": -584e6, "unit": "USD"}]
+    assert score_numeric(q, {"answered": True, "value": 146e6, "values": vals}).passed
+    vals[1]["value"] = 179e6
+    assert not score_numeric(q, {"answered": True, "value": 146e6, "values": vals}).passed
+
+
+def test_premise_rejections_seen_in_round1():
+    from kpmg_eval.metrics.premise import classify_premise
+    g = _gold("v2_2")
+    assert classify_premise("Take-Two was not profitable in fiscal 2026: it reported a net loss of $298.2 million.",
+                            g["EV2-048"]["answer"]["required_points"]) == "corrected"
+    assert classify_premise("Microsoft did not acquire OpenAI; it reported an approximately 25% investment.",
+                            g["EV1R-005"]["answer"]["required_points"]) == "corrected"
+
+
+def test_categorical_answers_normalise_quarters_and_quotes():
+    from kpmg_eval.metrics.categorical import score_categorical
+    assert score_categorical(["fiscal 2027", "Q1"], "The quarter ended August 31, 2026 was Nike’s first quarter of fiscal 2027.")["passed"]
+    assert score_categorical(["fiscal 2027", "Q1"], "It is the first quarter of Medtronic’s fiscal year 2027 (FY2027 Q1).")["passed"]
+    assert score_categorical(["Casey's", "NetApp"], "Casey’s and NetApp end in April.")["passed"]
+    assert not score_categorical(["fiscal 2026", "Q3"], "It is Micron's fiscal 2026 second quarter.")["passed"]
+
+
+def test_judge_guard_needs_a_real_quote():
+    import run_narrative_judge as nj
+    v = nj.guard([{"point": 1, "verdict": "stated", "quote": "Azure grew"},
+                  {"point": 2, "verdict": "stated", "quote": "not in the answer"}], "Revenue rose as Azure grew 40%.", 3)
+    assert v == ["stated", "missing", "missing"]
+
+
+def test_round1_numbers_reproduced_when_private_files_present():
+    import json
+    import subprocess
+    import pytest
+    ans = ROOT / "private" / "rag_round1_answer_blocks.jsonl"
+    if not ans.exists():
+        pytest.skip("RAG's round-1 answers are private (not in the repo)")
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "grade_answer_blocks.py"), "--answers", str(ans),
+                    "--tag", "pytest_tmp"], check=True, capture_output=True)
+    out = json.loads((ROOT / "results" / "answers_pytest_tmp.json").read_text())
+    for f in ROOT.glob("results/answers_pytest_tmp*"):
+        f.unlink()
+    sub = out["by_gold_set"]["v2"]["rag_subset"]          # RAG's own figures, 11/11
+    assert (sub["numeric_accuracy"]["k"], sub["numeric_accuracy"]["n"]) == (87, 93)
+    assert sub["refusal"]["balanced_raa_incl_false_premise"] == 0.977 and sub["refusal"]["unanswerable_refused"] == "10/10"
+
+
+def test_routing_doc_numbers_come_from_the_results():
+    import json
+    rb = json.loads((ROOT / "results" / "routing_baselines.json").read_text())
+    md = (ROOT / "ROUTING_EXAMPLES.md").read_text()
+    for k in ("combined", "keyword", "text_only"):
+        assert f"{rb['routers'][k]['coverage'] * 100:.1f}% ({rb['routers'][k]['n_covered']}/{rb['n']})" in md

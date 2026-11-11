@@ -1,0 +1,440 @@
+{
+ "answers_file": "rag_round1_answer_blocks.jsonl",
+ "answers_sha256_16": "fc1fd69b5f10a3b0",
+ "n_answers": 155,
+ "graders_used_by_sender": "kpmg-eval @ 0fd5695",
+ "chunks_checked": true,
+ "by_gold_set": {
+  "v2": {
+   "scope": "all",
+   "questions": 155,
+   "numeric_accuracy": {
+    "k": 87,
+    "n": 94,
+    "value": 0.926,
+    "ci95": [
+     0.854,
+     0.963
+    ]
+   },
+   "numeric_errors": {
+    "false_refusal": 5,
+    "too_imprecise": 1,
+    "no_value": 1
+   },
+   "categorical_accuracy": {
+    "k": 5,
+    "n": 12,
+    "value": 0.417,
+    "ci95": [
+     0.193,
+     0.68
+    ]
+   },
+   "false_premise": {
+    "corrected": 5,
+    "rejected": 1,
+    "refused": 1
+   },
+   "false_premise_corrected": {
+    "k": 5,
+    "n": 7,
+    "value": 0.714,
+    "ci95": [
+     0.359,
+     0.918
+    ]
+   },
+   "refusal": {
+    "balanced_raa": 0.949,
+    "balanced_raa_incl_false_premise": 0.944,
+    "appropriate_refusal_rate": 1.0,
+    "unnecessary_refusal_rate": 0.103,
+    "n_answerable": 136,
+    "n_unanswerable": 12,
+    "unanswerable_refused": "12/12",
+    "answerable_refused": [
+     "EV1R-001",
+     "EV1R-005",
+     "EV2-026",
+     "EV2-040",
+     "EV2-042",
+     "EV2-043",
+     "EV3-001",
+     "EV3-002",
+     "EV3-003",
+     "EV3-004",
+     "EV3-005",
+     "EV3-007",
+     "EV3-008",
+     "EV3-009",
+     "GSv0-MSFT-019",
+     "GSv0-MSFT-023"
+    ]
+   },
+   "narrative": {
+    "n": 30,
+    "refused": 2,
+    "points_coverage_provisional": 0.516,
+    "note": "word-overlap stand-in; the LLM judge (scripts/run_narrative_judge.py) replaces it"
+   },
+   "citations": {
+    "answers_with_citations": 127,
+    "cited_ids_found_in_chunks": {
+     "k": 185,
+     "n": 185,
+     "value": 1.0,
+     "ci95": [
+      0.98,
+      1.0
+     ]
+    },
+    "cites_a_gold_filing": {
+     "k": 127,
+     "n": 127,
+     "value": 1.0,
+     "ci95": [
+      0.971,
+      1.0
+     ]
+    },
+    "lookup_number_in_cited_chunk": {
+     "k": 58,
+     "n": 59,
+     "value": 0.983,
+     "ci95": [
+      0.91,
+      0.997
+     ]
+    },
+    "text_answers_all_gold_anchors_cited": {
+     "k": 18,
+     "n": 31,
+     "value": 0.581,
+     "ci95": [
+      0.408,
+      0.736
+     ]
+    }
+   },
+   "gold_sha256_16": "ed4b42db6fc25ee5",
+   "rag_subset": {
+    "scope": "no graph-route, no review-required (as RAG reported 11/11)",
+    "questions": 141,
+    "numeric_accuracy": {
+     "k": 87,
+     "n": 93,
+     "value": 0.935,
+     "ci95": [
+      0.866,
+      0.97
+     ]
+    },
+    "numeric_errors": {
+     "false_refusal": 4,
+     "too_imprecise": 1,
+     "no_value": 1
+    },
+    "categorical_accuracy": {
+     "k": 5,
+     "n": 5,
+     "value": 1.0,
+     "ci95": [
+      0.566,
+      1.0
+     ]
+    },
+    "false_premise": {
+     "corrected": 5,
+     "rejected": 1
+    },
+    "false_premise_corrected": {
+     "k": 5,
+     "n": 6,
+     "value": 0.833,
+     "ci95": [
+      0.436,
+      0.97
+     ]
+    },
+    "refusal": {
+     "balanced_raa": 0.98,
+     "balanced_raa_incl_false_premise": 0.977,
+     "appropriate_refusal_rate": 1.0,
+     "unnecessary_refusal_rate": 0.04,
+     "n_answerable": 125,
+     "n_unanswerable": 10,
+     "unanswerable_refused": "10/10",
+     "answerable_refused": [
+      "EV1R-005",
+      "EV2-040",
+      "EV2-042",
+      "EV2-043",
+      "GSv0-MSFT-019",
+      "GSv0-MSFT-023"
+     ]
+    },
+    "narrative": {
+     "n": 27,
+     "refused": 1,
+     "points_coverage_provisional": 0.516,
+     "note": "word-overlap stand-in; the LLM judge (scripts/run_narrative_judge.py) replaces it"
+    },
+    "citations": {
+     "answers_with_citations": 125,
+     "cited_ids_found_in_chunks": {
+      "k": 179,
+      "n": 179,
+      "value": 1.0,
+      "ci95": [
+       0.979,
+       1.0
+      ]
+     },
+     "cites_a_gold_filing": {
+      "k": 125,
+      "n": 125,
+      "value": 1.0,
+      "ci95": [
+       0.97,
+       1.0
+      ]
+     },
+     "lookup_number_in_cited_chunk": {
+      "k": 58,
+      "n": 59,
+      "value": 0.983,
+      "ci95": [
+       0.91,
+       0.997
+      ]
+     },
+     "text_answers_all_gold_anchors_cited": {
+      "k": 17,
+      "n": 29,
+      "value": 0.586,
+      "ci95": [
+       0.407,
+       0.745
+      ]
+     }
+    }
+   }
+  },
+  "v2_2": {
+   "scope": "all",
+   "questions": 155,
+   "numeric_accuracy": {
+    "k": 89,
+    "n": 94,
+    "value": 0.947,
+    "ci95": [
+     0.881,
+     0.977
+    ]
+   },
+   "numeric_errors": {
+    "false_refusal": 5
+   },
+   "categorical_accuracy": {
+    "k": 5,
+    "n": 12,
+    "value": 0.417,
+    "ci95": [
+     0.193,
+     0.68
+    ]
+   },
+   "false_premise": {
+    "corrected": 6,
+    "refused": 1
+   },
+   "false_premise_corrected": {
+    "k": 6,
+    "n": 7,
+    "value": 0.857,
+    "ci95": [
+     0.487,
+     0.974
+    ]
+   },
+   "refusal": {
+    "balanced_raa": 0.949,
+    "balanced_raa_incl_false_premise": 0.944,
+    "appropriate_refusal_rate": 1.0,
+    "unnecessary_refusal_rate": 0.103,
+    "n_answerable": 136,
+    "n_unanswerable": 12,
+    "unanswerable_refused": "12/12",
+    "answerable_refused": [
+     "EV1R-001",
+     "EV1R-005",
+     "EV2-026",
+     "EV2-040",
+     "EV2-042",
+     "EV2-043",
+     "EV3-001",
+     "EV3-002",
+     "EV3-003",
+     "EV3-004",
+     "EV3-005",
+     "EV3-007",
+     "EV3-008",
+     "EV3-009",
+     "GSv0-MSFT-019",
+     "GSv0-MSFT-023"
+    ]
+   },
+   "narrative": {
+    "n": 30,
+    "refused": 2,
+    "points_coverage_provisional": 0.516,
+    "note": "word-overlap stand-in; the LLM judge (scripts/run_narrative_judge.py) replaces it"
+   },
+   "citations": {
+    "answers_with_citations": 127,
+    "cited_ids_found_in_chunks": {
+     "k": 185,
+     "n": 185,
+     "value": 1.0,
+     "ci95": [
+      0.98,
+      1.0
+     ]
+    },
+    "cites_a_gold_filing": {
+     "k": 127,
+     "n": 127,
+     "value": 1.0,
+     "ci95": [
+      0.971,
+      1.0
+     ]
+    },
+    "lookup_number_in_cited_chunk": {
+     "k": 58,
+     "n": 59,
+     "value": 0.983,
+     "ci95": [
+      0.91,
+      0.997
+     ]
+    },
+    "text_answers_all_gold_anchors_cited": {
+     "k": 26,
+     "n": 38,
+     "value": 0.684,
+     "ci95": [
+      0.525,
+      0.809
+     ]
+    }
+   },
+   "gold_sha256_16": "8d2f327da1ad8ffd",
+   "rag_subset": {
+    "scope": "no graph-route, no review-required (as RAG reported 11/11)",
+    "questions": 143,
+    "numeric_accuracy": {
+     "k": 89,
+     "n": 93,
+     "value": 0.957,
+     "ci95": [
+      0.895,
+      0.983
+     ]
+    },
+    "numeric_errors": {
+     "false_refusal": 4
+    },
+    "categorical_accuracy": {
+     "k": 5,
+     "n": 5,
+     "value": 1.0,
+     "ci95": [
+      0.566,
+      1.0
+     ]
+    },
+    "false_premise": {
+     "corrected": 6
+    },
+    "false_premise_corrected": {
+     "k": 6,
+     "n": 6,
+     "value": 1.0,
+     "ci95": [
+      0.61,
+      1.0
+     ]
+    },
+    "refusal": {
+     "balanced_raa": 0.98,
+     "balanced_raa_incl_false_premise": 0.977,
+     "appropriate_refusal_rate": 1.0,
+     "unnecessary_refusal_rate": 0.039,
+     "n_answerable": 127,
+     "n_unanswerable": 10,
+     "unanswerable_refused": "10/10",
+     "answerable_refused": [
+      "EV1R-005",
+      "EV2-040",
+      "EV2-042",
+      "EV2-043",
+      "GSv0-MSFT-019",
+      "GSv0-MSFT-023"
+     ]
+    },
+    "narrative": {
+     "n": 29,
+     "refused": 1,
+     "points_coverage_provisional": 0.533,
+     "note": "word-overlap stand-in; the LLM judge (scripts/run_narrative_judge.py) replaces it"
+    },
+    "citations": {
+     "answers_with_citations": 127,
+     "cited_ids_found_in_chunks": {
+      "k": 185,
+      "n": 185,
+      "value": 1.0,
+      "ci95": [
+       0.98,
+       1.0
+      ]
+     },
+     "cites_a_gold_filing": {
+      "k": 127,
+      "n": 127,
+      "value": 1.0,
+      "ci95": [
+       0.971,
+       1.0
+      ]
+     },
+     "lookup_number_in_cited_chunk": {
+      "k": 58,
+      "n": 59,
+      "value": 0.983,
+      "ci95": [
+       0.91,
+       0.997
+      ]
+     },
+     "text_answers_all_gold_anchors_cited": {
+      "k": 26,
+      "n": 38,
+      "value": 0.684,
+      "ci95": [
+       0.525,
+       0.809
+      ]
+     }
+    }
+   }
+  }
+ },
+ "changed_v2_to_v2_2": {
+  "EV1-015": "too_imprecise -> correct",
+  "EV1-043": "no_value -> correct",
+  "EV1R-005": "rejected -> corrected"
+ }
+}

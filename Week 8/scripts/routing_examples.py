@@ -44,7 +44,7 @@ def why(q: str, session) -> str:
 
 
 def main():
-    gold = {json.loads(l)["qid"]: json.loads(l) for l in open(ROOT / "data" / "benchmark_v2.jsonl")}
+    gold = {json.loads(l)["qid"]: json.loads(l) for l in open(ROOT / "data" / "benchmark_v2_2.jsonl")}
     ex = []
     for qid, label in PICKS:
         q = gold[qid]
@@ -59,13 +59,22 @@ def main():
         ex.append(row)
     (ROOT / "results" / "routing_examples.json").write_text(json.dumps(ex, indent=1))
 
+    # every number in the header comes from results/routing_baselines.json (run_routing_baselines.py runs first)
+    rb = json.loads((ROOT / "results" / "routing_baselines.json").read_text())
+    R, er, n = rb["routers"], rb["expected_routes"], rb["n"]
+
+    def m(k):
+        return (f"{R[k]['coverage'] * 100:.1f}% ({R[k]['n_covered']}/{n}) at {R[k]['tool_calls_per_question']:.2f} calls "
+                f"per question, {R[k]['unneeded_calls_per_question']:.2f} unneeded")
+    routes = ", ".join(f"{er.get(k, 0)} {k}" for k in ("sql", "text", "graph", "none", "multi"))
     md = ["# Routing examples for the demo (Week 8)", "",
           "**Coverage** (the bars on the routing slide) = share of questions where every tool the question needs was "
           "called (no tool, for the questions that should be blocked). **It is not accuracy**: calling the right tools "
           "does not make the final answer right. Answer accuracy needs the reader (round 1).", "",
-          "**Which method gives which number** (155 questions): every tool 94.8% coverage at 3.00 calls per question "
-          "(it misses only the 8 questions that need no tool); keyword router 83.9% at 1.05 calls; text only 20.0% at "
-          "1.00. The 95% is every tool, not the keyword router plus text only.", "",
+          f"**Which method gives which number** ({n} questions, Gold Set v2.2): every tool {m('combined')} (it misses "
+          f"only the {er.get('none', 0)} questions that need no tool); keyword router {m('keyword')}; text only "
+          f"{m('text_only')}. The 95% is every tool, not the keyword router plus text only. (On Gold Set v2, before "
+          "EV1R-002 and EV1R-006 moved from graph to text after round 1, the keyword router was 83.9% and text only 20.0%.)", "",
           "**Where the keyword router sits**: it is Eval's baseline for comparison, not part of the pipeline. The Agents' "
           "orchestrator does the real routing and can be scored on the same questions: "
           "`python scripts/run_routing_baselines.py --router name=your_module.py:route` (a function "
@@ -81,9 +90,9 @@ def main():
           "- **combined**: every question goes to all three tools.", "",
           "**Unneeded call**: a tool the router called that the question's expected route does not need "
           "(sql needs SQL; text needs RAG; graph needs GraphRAG; multi needs SQL + RAG; none needs no tool). "
-          "Unneeded calls per question = total unneeded calls / 155 questions. It counts calls outside the expected "
+          f"Unneeded calls per question = total unneeded calls / {n} questions. It counts calls outside the expected "
           "route; it does not mean \"text search alone could have answered\".", "",
-          "All rates are on the current 155 Gold Set v2 questions only (104 sql, 31 text, 11 graph, 8 none, 1 multi), "
+          f"All rates are on the current {n} Gold Set v2.2 questions only ({routes}), "
           "with routes labelled by Eval. They will move as questions are added.", ""]
     for r in ex:
         md += [f"## {r['label']} ({r['qid']})", "", f"> {r['question']}", "",

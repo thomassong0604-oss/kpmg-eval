@@ -1,6 +1,6 @@
 // Word version of Gold Set v2 for reviewers and other teams who don't read jsonl.
 //   node scripts/export_gold_v2_docx.js   -> data/benchmark_v2_questions.docx
-// Reads data/benchmark_v2.jsonl and data/snapshot_w7.json, so it always matches what the code scores.
+// Reads data/benchmark_v2_2.jsonl (current; Week 8) and data/snapshot_w7.json, so it always matches what the code scores.
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
@@ -10,7 +10,7 @@ const {
 } = require("docx");
 
 const ROOT = path.resolve(__dirname, "..");
-const raw = fs.readFileSync(path.join(ROOT, "data", "benchmark_v2_1.jsonl"));
+const raw = fs.readFileSync(path.join(ROOT, "data", "benchmark_v2_2.jsonl"));
 const HASH = crypto.createHash("sha256").update(raw).digest("hex").slice(0, 16);
 const rows = raw.toString("utf8").split("\n").filter(Boolean).map(JSON.parse);
 const snap = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "snapshot_w7.json"), "utf8"));
@@ -46,8 +46,8 @@ const count = (f) => rows.filter(f).length;
 
 const answerable = count(r => r.answerable);
 const children = [
-  new Paragraph({ heading: HeadingLevel.TITLE, children: [new TextRun({ text: `Gold Set v2.1: ${rows.length} questions on the Data team's ten companies`, font: "Arial", color: NAVY })] }),
-  para([run(`KPMG × Columbia QMSS · Evaluation & Testing · generated from data/benchmark_v2_1.jsonl (sha256 ${HASH}) by scripts/export_gold_v2_docx.js; do not edit by hand. v2.1 = v2 with corrected text anchors (11/9); questions and answers are identical`, { color: MUTED })], 140),
+  new Paragraph({ heading: HeadingLevel.TITLE, children: [new TextRun({ text: `Gold Set v2.2: ${rows.length} questions on the Data team's ten companies`, font: "Arial", color: NAVY })] }),
+  para([run(`KPMG × Columbia QMSS · Evaluation & Testing · generated from data/benchmark_v2_2.jsonl (sha256 ${HASH}) by scripts/export_gold_v2_docx.js; do not edit by hand. Questions and expected answers are those of v2; v2.1 (11/9) corrected text anchors, v2.2 (11/11) adds the grading fixes from RAG\u2019s end-to-end round 1 (all figures required on 7 multi-part questions, sig-fig floor at printed precision, EV1R-002/006 routed to text, the last 4 anchors)`, { color: MUTED })], 140),
   para([run("What it is. ", { bold: true }),
     run(`The round-1 question set: ${rows.length} questions, ${answerable} answerable, on the ten companies and 21 filings in the Data team's database snapshot of 2026-11-03 ` +
         "(the same 21 filings as Data's round-1 freeze list). It replaces the 139-question round-1 draft; Gold Set v1 (100 questions) stays frozen so earlier scores still compare.")]),
@@ -104,7 +104,7 @@ const doc = new Document({
     properties: { page: { size: { width: 12240, height: 15840, orientation: PageOrientation.LANDSCAPE },
       margin: { top: 1080, bottom: 1080, left: 1080, right: 1080 } } },
     footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.RIGHT,
-      children: [new TextRun({ children: [`Gold Set v2.1 · ${HASH} · Page `, PageNumber.CURRENT], font: "Arial", size: 16, color: MUTED })] })] }) },
+      children: [new TextRun({ children: [`Gold Set v2.2 · ${HASH} · Page `, PageNumber.CURRENT], font: "Arial", size: 16, color: MUTED })] })] }) },
     children,
   }],
 });

@@ -1,6 +1,6 @@
 # Gold Set v1 scorecard
 
-Versions: benchmark `377bf5af94e3e6cb`, RAG `5bfafeb`, index `ffaa8efb4d5d`, eval `e224deb`. 54 questions pending (peer / 10-K chunks not yet shared).
+Versions: benchmark `377bf5af94e3e6cb`, RAG `5bfafeb`, index `ffaa8efb4d5d`, eval `ff475d5`. 54 questions pending (peer / 10-K chunks not yet shared).
 
 | System | Numeric accuracy | Evidence recall@10 | Refusal (balanced) | Citation support |
 |---|---|---|---|---|

@@ -65,20 +65,20 @@
  "router": {
   "typo_company": {
    "n": 129,
-   "clean_required_called": 0.86,
-   "messy_required_called": 0.814,
+   "clean_required_called": 0.845,
+   "messy_required_called": 0.798,
    "route_changed": 8
   },
   "typo_terms": {
    "n": 143,
-   "clean_required_called": 0.846,
-   "messy_required_called": 0.783,
+   "clean_required_called": 0.832,
+   "messy_required_called": 0.769,
    "route_changed": 25
   },
   "casual": {
    "n": 155,
-   "clean_required_called": 0.839,
-   "messy_required_called": 0.774,
+   "clean_required_called": 0.826,
+   "messy_required_called": 0.761,
    "route_changed": 12
   }
  },

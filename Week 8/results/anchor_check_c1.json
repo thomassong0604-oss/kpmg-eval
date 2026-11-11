@@ -1,0 +1,1709 @@
+{
+ "chunks_file": "chunks_C1.jsonl",
+ "chunking_version": "rag-C1-v0-m460",
+ "filings_in_chunks": 20,
+ "evidence_items": 147,
+ "items_found": 134,
+ "questions_with_anchors": 107,
+ "questions_all_items_found": 96,
+ "not_found": [
+  {
+   "qid": "EV1R-001",
+   "accession": "0001193125-26-323660",
+   "contains": [
+    "Microsoft Ireland Research Unlimited Company",
+    "Activision Publishing, Inc."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-004",
+   "accession": "0001193125-26-323660",
+   "contains": [
+    "LinkedIn Ireland Unlimited Company",
+    "Activision Blizzard, Inc."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-001",
+   "accession": "0000723125-26-000023",
+   "contains": [
+    "Micron Europe Limited",
+    "S-Squared Insurance Company, Inc."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-002",
+   "accession": "0000320193-25-000079",
+   "contains": [
+    "Apple Services Pte. Ltd."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-002",
+   "accession": "0000723125-26-000023",
+   "contains": [
+    "Micron Semiconductor Asia Pte. Ltd."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-003",
+   "accession": "0000320193-25-000079",
+   "contains": [
+    "Apple Insurance Company, Inc."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-003",
+   "accession": "0000723125-26-000023",
+   "contains": [
+    "S-Squared Insurance Company, Inc."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-004",
+   "accession": "0000726958-26-000046",
+   "contains": [
+    "Casey's Marketing Company",
+    "Heartland Property Company, LLC"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-005",
+   "accession": "0001193125-26-259683",
+   "contains": [
+    "NetApp Israel R&D Ltd.",
+    "Plexistor Ltd."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-006",
+   "accession": "0000320193-25-000079",
+   "contains": [
+    "Braeburn Capital, Inc."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-007",
+   "accession": "0001193125-26-259683",
+   "contains": [
+    "Spotinst Ltd."
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-008",
+   "accession": "0001193125-26-380207",
+   "contains": [
+    "Fiscal 2027, ending on April 30, 2027"
+   ],
+   "filing_in_chunks": false
+  },
+  {
+   "qid": "EV3-009",
+   "accession": "0001193125-26-380207",
+   "contains": [
+    "14 weeks included in its first quarter"
+   ],
+   "filing_in_chunks": false
+  }
+ ],
+ "items": [
+  {
+   "qid": "GSv0-MSFT-001",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0074",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-002",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 7,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0011",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0012",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0017",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-003",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-004",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0041",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0079"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-005",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0042",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0082"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-006",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0042"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-007",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0042"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-008",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-009",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0032"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-010",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0020"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-012",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0013"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-013",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0074",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-014",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-015",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-016",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0087"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0088",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0092"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-019",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-019",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0029",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0030",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0095",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0096"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0030",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0096"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0086"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0101",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0103"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0103"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "item": 2,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "item": 3,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "item": 4,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0040"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-023",
+   "item": 5,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0038"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 2,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 3,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 4,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 5,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-024",
+   "item": 6,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-025",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0074",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0088"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0088",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0093"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0041",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0079"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0086"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "item": 2,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0032"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0103"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-001",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-002",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-003",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 7,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0011",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0012",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0017",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-004",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 5,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0011",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0106",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0107"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-005",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-006",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0097"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-007",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-008",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-009",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0038"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-010",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0015",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0022"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-011",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0060"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-012",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-013",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-014",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-015",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0022",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0069",
+    "41162e26-52c1-4375-8660-604da4af0d15-C1-0151"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-016",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0029",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0095"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-017",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-018",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-019",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-020",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-021",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-022",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-023",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0074"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-024",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-025",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-026",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-026",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-027",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-028",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-029",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 7,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0011",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0012",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0017",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-030",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-031",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-031",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-032",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-033",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-034",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-034",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-035",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-035",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-036",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-036",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-037",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0082",
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0084",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0109",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0202",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0203"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-037",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0074",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-038",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0082",
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0084",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0109",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0202"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-038",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 4,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-039",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 7,
+   "chunk_ids": [
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0082",
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0095",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0109",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0111",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0115"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-039",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 7,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0011",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0012",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0017",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-040",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-041",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-042",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0106"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-043",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-044",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-045",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-046",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-047",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-048",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0030",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0096"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-049",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0093",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0094"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-050",
+   "item": 0,
+   "accession": "0000320193-26-000013",
+   "n_chunks_matching": 5,
+   "chunk_ids": [
+    "ce562ba1-a523-445c-a4b2-e8d4a6911c25-C1-0012",
+    "ce562ba1-a523-445c-a4b2-e8d4a6911c25-C1-0032",
+    "ce562ba1-a523-445c-a4b2-e8d4a6911c25-C1-0049",
+    "75d5173e-bf8a-4336-a10a-8c8f22a7fe00-C1-0058",
+    "75d5173e-bf8a-4336-a10a-8c8f22a7fe00-C1-0061"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-061",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-066",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0086"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-068",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-069",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 7,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0011",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0012",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0017",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1-070",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0081"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-035",
+   "item": 0,
+   "accession": "0000320187-26-000193",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "719907fb-e72c-4094-af4e-b69cacf9fc4a-C1-0014",
+    "9fa9520e-eb59-46d9-93a5-d061b49efdee-C1-0065"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-036",
+   "item": 0,
+   "accession": "0001628280-26-060473",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "f935b99c-c4b8-4681-8d5d-aa8ce4282823-C1-0093"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-037",
+   "item": 0,
+   "accession": "0000723125-26-000015",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "7713be81-fd3f-4f95-8ff1-b516c8db32ae-C1-0067"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-041",
+   "item": 0,
+   "accession": "0001628280-26-037434",
+   "n_chunks_matching": 8,
+   "chunk_ids": [
+    "cb5247b9-18e8-4260-b479-c52bc05b80ed-C1-0122",
+    "cb5247b9-18e8-4260-b479-c52bc05b80ed-C1-0127",
+    "cb5247b9-18e8-4260-b479-c52bc05b80ed-C1-0139",
+    "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0186",
+    "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0188"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-044",
+   "item": 0,
+   "accession": "0000726958-26-000046",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "61aca55b-6c10-44d4-a63e-431f52a720bd-C1-0000",
+    "61aca55b-6c10-44d4-a63e-431f52a720bd-C1-0002"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-044",
+   "item": 1,
+   "accession": "0001628280-26-044354",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "2c7ecf3d-e3fa-4f7d-be48-4cc6a01b04c5-C1-0139"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-044",
+   "item": 2,
+   "accession": "0001193125-26-259683",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "31b561fc-86e0-4dec-8ece-cc9771057427-C1-0085",
+    "31b561fc-86e0-4dec-8ece-cc9771057427-C1-0087",
+    "84179f46-3b70-419f-8328-23d8bc2a6c47-C1-0127"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-048",
+   "item": 0,
+   "accession": "0001628280-26-037434",
+   "n_chunks_matching": 8,
+   "chunk_ids": [
+    "cb5247b9-18e8-4260-b479-c52bc05b80ed-C1-0122",
+    "cb5247b9-18e8-4260-b479-c52bc05b80ed-C1-0127",
+    "cb5247b9-18e8-4260-b479-c52bc05b80ed-C1-0139",
+    "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0186",
+    "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0188"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV2-049",
+   "item": 0,
+   "accession": "0000320187-26-000088",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0086",
+    "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0090",
+    "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0092",
+    "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0101",
+    "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0103"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-001",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-002",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "e358f4a0-fed6-4530-885f-66ea84d58285-C1-0016",
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0078",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0159"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-002",
+   "item": 1,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0084",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0202"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-003",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 2,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0025",
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0095"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-003",
+   "item": 1,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "43703723-4ea1-4ece-b329-79c45e74f050-C1-0106"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-004",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-005",
+   "item": 0,
+   "accession": "0001193125-26-191507",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-006",
+   "item": 0,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 3,
+   "chunk_ids": [
+    "e358f4a0-fed6-4530-885f-66ea84d58285-C1-0016",
+    "958c979e-d197-4380-93d6-ee823576ee68-C1-0078",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0159"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV1R-006",
+   "item": 1,
+   "accession": "0001193125-26-323660",
+   "n_chunks_matching": 6,
+   "chunk_ids": [
+    "4131905c-59aa-409e-8694-9b2aeab1dbd7-C1-0032",
+    "4131905c-59aa-409e-8694-9b2aeab1dbd7-C1-0033",
+    "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0134",
+    "44c99181-3904-4773-8797-67bccd3f50e4-C1-0226",
+    "44c99181-3904-4773-8797-67bccd3f50e4-C1-0227"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-001",
+   "item": 0,
+   "accession": "0000723125-26-000023",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-002",
+   "item": 0,
+   "accession": "0000320193-25-000079",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-002",
+   "item": 1,
+   "accession": "0000723125-26-000023",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-003",
+   "item": 0,
+   "accession": "0000320193-25-000079",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-003",
+   "item": 1,
+   "accession": "0000726958-26-000046",
+   "n_chunks_matching": 1,
+   "chunk_ids": [
+    "547de758-500b-4fe0-b3d9-62f994480b6e-C1-0014"
+   ],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-003",
+   "item": 2,
+   "accession": "0000723125-26-000023",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-004",
+   "item": 0,
+   "accession": "0000726958-26-000046",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-005",
+   "item": 0,
+   "accession": "0001193125-26-259683",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-006",
+   "item": 0,
+   "accession": "0000320193-25-000079",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-007",
+   "item": 0,
+   "accession": "0001193125-26-259683",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": true
+  },
+  {
+   "qid": "EV3-008",
+   "item": 0,
+   "accession": "0001193125-26-380207",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": false
+  },
+  {
+   "qid": "EV3-009",
+   "item": 0,
+   "accession": "0001193125-26-380207",
+   "n_chunks_matching": 0,
+   "chunk_ids": [],
+   "filing_in_chunks": false
+  }
+ ]
+}

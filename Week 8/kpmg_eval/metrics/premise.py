@@ -9,6 +9,10 @@ premise. Three outcomes:
 
 Rule-based on purpose (no LLM judge): rejection cues + required correction points from the benchmark.
 Validated in tests on hand-written responses.
+
+Week 8 (from RAG's round-1 answers): "Take-Two was not profitable" and "Microsoft did not acquire OpenAI" were missed
+as rejections; added. A correction point may list alternatives separated by " | " (EV1R-005: the 10-Q says
+approximately 27 percent, the later 10-K approximately 25%).
 """
 from __future__ import annotations
 
@@ -18,16 +22,17 @@ REJECT = re.compile(
     r"(did not (decline|fall|decrease|report a (net )?loss)|didn't (decline|fall|decrease)|did not have|"
     r"is not a (reportable )?segment|isn't a (reportable )?segment|not one of (its|the) (three )?(reportable )?segments|"
     r"premise|actually|in fact|contrary|rather than (a )?(decline|loss)|no net loss|was not a (net )?loss|"
-    r"(rose|increased|grew) (by|to|\d)|reported net income|there is no)", re.I)
+    r"(rose|increased|grew) (by|to|\d)|reported net income|there is no|"
+    r"(was|were) not profitable|did not (acquire|buy|purchase|own)|has not acquired|never acquired)", re.I)
 
 
 def classify_premise(response: str, correction_points: list[str]) -> str:
     if not response:
         return "accepted"
     rej = bool(REJECT.search(response))
-    low = response.lower().replace("( ", "(")
+    low = response.lower().replace("( ", "(").replace("’", "'")
     pts = [p for p in correction_points if p.lower() not in ("rejects the premise",)]
-    has_fix = any(p.lower() in low for p in pts)
+    has_fix = any(alt.strip().lower() in low for p in pts for alt in p.split(" | "))
     if rej and has_fix:
         return "corrected"
     if rej:

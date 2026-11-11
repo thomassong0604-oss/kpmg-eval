@@ -5,7 +5,31 @@ GraphRAG's new Exhibit 21 output fed the relationship check. Everything below is
 re-runs exactly with `python scripts/run_side_by_side.py` and `python scripts/run_messy_wording.py`, and uses the
 current 155 questions only. Updated 11/9 to your latest commits (RAG main 5bfafeb; GraphRAG main 7bcbdaf and
 alina/ex21-pipeline c21fe89), and rescored on Gold Set v2.1 (same questions and answers, corrected text anchors; see
-the round-1 section below).
+the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold Set v2.2** (grading fixes, next section).
+
+## Round 1 end to end (RAG's reader, 11/11): thank you, reproduced, and three fixes
+- **Reproduced exactly.** With RAG's answer blocks and our graders, we get RAG's figures on RAG's subset (no graph-route,
+  no review-required questions): numbers 87/93 = 0.935, balanced refusal 0.977, unanswerable 10/10. On all 155: numbers
+  87/94 = 0.926 on v2, **89/94 = 0.947 on v2.2**; balanced refusal 0.944; unanswerable 12/12; fiscal-calendar and list
+  answers 5/12; false premise corrected 6/7. `results/answers_rag_reader_round1.json` (scores) and
+  `_per_question.csv` (labels); the answers themselves stay private.
+- **Citations, checked in RAG's chunks:** all 185 cited chunk ids exist; every answer cites a filing the gold answer
+  uses (127/127); 58 of 59 lookups show the number in a cited chunk (EV1-012 computes 50,924 from two cited figures
+  instead of quoting the balance-sheet line, which is fine but worth knowing).
+- **RAG's three notes, all right, fixed in Gold Set v2.2:** (1) the sig-fig floor is now the precision the filing prints
+  (EV1-015 "$0.91", and EV1-027); (2) the 7 multi-part questions carry `gold.values` and need every figure, read from an
+  optional AnswerBlock `values` list (sign-sensitive) or else from the answer text, so EV1-043 now passes as written;
+  (3) EV1R-002 and EV1R-006 route to text (GraphRAG's review agrees).
+- **What RAG's files showed us:** EV1R-005's 10-K says "an approximate 25% interest" in OpenAI where the 10-Q says
+  27 percent, so both count now; v2.1 put two anchor sentences in one evidence item, which RAG's chunker splits (8
+  questions), so v2.2 has one item per point, and every anchor outside Exhibit 21 and NetApp's 10-Q is in RAG's chunks;
+  our false-premise grader missed "was not profitable" and "did not acquire" (fixed).
+- **Why 16 answerable questions were declined:** 7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which is
+  not in `chunks_C1`; 3 are cross-company rankings; 2 state the answer but are marked `answered: false` (GSv0-MSFT-023,
+  EV1R-005); 1 retrieval miss (GSv0-MSFT-019).
+- **Narrative answers (28 of 30 answered):** `scripts/run_narrative_judge.py` judges each required point (stated /
+  missing / contradicted, with a quote that must appear in the answer) and flags claims no cited chunk supports.
+  `--dry-run` shows the exact prompts without a key. It counts only after it agrees with our hand labels.
 
 ## Round 1 (RAG's run, 11/9): thank you, and what we fixed
 - RAG ran our scoring on Gold Set v2 against its 20-filing index: hybrid with filters finds all evidence for 105/124 scored
@@ -18,9 +42,8 @@ the round-1 section below).
   v2.1** (`data/benchmark_v2_1.jsonl`, sha256 `1e104c626c6c9833`); questions and answers are identical to v2, so only
   the prose anchors need rescoring. Old and new anchors per question: `results/gold_v2_1_changes.json`.
 - **Your 7 unanchored questions:** EV2-041 and EV2-048 get "298.2" (Take-Two's net loss) and EV2-049 gets "46,398" and
-  "46,309" (Nike revenue), read from the SEC-rendered income statements; please tell us if your chunks print them
-  differently. EV2-035/036/037/044 need fiscal-calendar wording from the filings, so we will anchor them as soon as we
-  have `chunks_C1.jsonl`.
+  "46,309" (Nike revenue), read from the SEC-rendered income statements and now confirmed in your chunks.
+  EV2-035/036/037/044 are anchored from `chunks_C1` in Gold Set v2.2.
 - **The one row label still missing** from our 37 fixes: every "add the table row label" item is now spelled out in
   `data/anchor_review_w8.json` (`row_labels`). For operating income the label does not narrow anything: all 4 chunks with
   38,398 or 114,634 show total operating income, so any of them is valid evidence.
@@ -32,9 +55,10 @@ the round-1 section below).
   questions and the gold passage for 22/27 prose questions (18/27 on v2's anchors). With the offline LSA stand-in for your
   dense model, hybrid is 41/50 and 23/27 (a lower bound: bge cannot be downloaded here). Per question:
   `results/side_by_side_per_question.csv`.
-- **Round-1 corpus:** your `eval/round1_filings.csv` (Data's freeze list) matches our Gold Set v2 filings 21/21. Ask: share
-  `chunks_C1.jsonl` and the per-question results privately (Data asks that exports stay off GitHub), so we can anchor the
-  last 4 questions, check your results against v2.1, and run the side by side on all ten companies.
+- **Round-1 corpus:** your `eval/round1_filings.csv` (Data's freeze list) matches our Gold Set v2 filings 21/21. Thank you
+  for `chunks_C1` and the answer blocks: both stay in git-ignored `private/` (Data asks that exports stay off GitHub).
+  `chunks_C1` has 20 filings; NetApp's 10-Q (0001193125-26-380207) is not in it, which is why EV2-026, EV3-008 and
+  EV3-009 were declined. Was that deliberate?
 - **Wrong-period figures:** on 33 of 36 number questions with a known distractor, the wrong-period figure (nine months vs
   three, last year vs this) is in the same top 8, because statement tables print both columns. A reader prompt that names
   the period column would help.
@@ -45,7 +69,8 @@ the round-1 section below).
   would be skipped.
 - **Typos:** misspelled finance words ("revnue", "opertaing") cost BM25 8 of 70 questions (91% → 80%). Name typos cost
   nothing because the company comes in as a filter.
-- **Ask:** an API key for the fixed reader, so round 1 scores answers and not only evidence.
+- **Asks:** run `scripts/run_narrative_judge.py` with your key (or lend one for the run); set `answered: true` when the
+  text states the figure (GSv0-MSFT-023, EV1R-005); optionally add a `values` list to answer blocks for multi-part questions.
 
 ## GraphRAG (KPMG-GraphRAG @ 4e89acb main 11/11; Exhibit 21 @ c21fe89)
 - **Your 11/11 reply is answered point by point in [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md):** harness on
@@ -80,8 +105,13 @@ the round-1 section below).
   `sec_filing_search`, `graph_search`, `structured_search` are mapped for you. You get coverage, calls per question and
   unneeded calls next to our three baselines. The keyword router is only a baseline; it is not part of the pipeline.
 - **Coverage is not accuracy:** the routing bars show the share of questions whose needed tools were called. Every
-  tool reaches 94.8% (it misses only the 8 questions that need no tool) at 3 calls per question; the keyword router 84%
-  at about 1.
+  tool reaches 94.8% (it misses only the 8 questions that need no tool) at 3 calls per question; the keyword router 82.6%
+  at about 1 (83.9% on v2: EV1R-002 and EV1R-006 moved from graph to text in v2.2 after RAG's round 1).
+- **AnswerBlock `values` (optional, proposed 11/11):** for questions that ask for several figures, list each one as
+  `{"label", "value", "unit", "value_text"}`; we grade them sign-sensitive. Without it we read the figures from the answer
+  text. `value` stays the headline figure (`kpmg_eval/answer_schema.py`).
+- **Grading your answers:** `python scripts/grade_answer_blocks.py --answers your_blocks.jsonl --tag agents` gives the same
+  scorecard RAG's reader got (numbers, refusal, premise, fiscal/list answers, citations with `--chunks`).
 - **Routing slide fixed:** axes labelled, keyword router defined, and unneeded calls defined (`ROUTING_EXAMPLES.md`).
   To correct the 11/5 minutes: an unneeded call is a tool called that the question's expected route does not need, averaged
   over all 155 questions. It does not mean "text search alone could have answered".

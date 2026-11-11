@@ -30,6 +30,13 @@ ANSWER_BLOCK_SCHEMA = {
                                      "accession": {"type": "string"}, "section": {"type": "string"}}},
         },
         "claims": {"type": "array", "items": {"type": "object", "properties": {"text": {"type": "string"}, "cites": {"type": "array", "items": {"type": "string"}}}}},
+        # Week 8 (optional, proposed to Agents 11/11): every figure a multi-part question asks for, e.g. EV1-043's
+        # change in revenue, operating income and cost of revenue. Graded sign-sensitive. Without it, the grader reads
+        # the figures from answer_text (sign-insensitive). `value` stays the headline figure.
+        "values": {"type": "array", "items": {"type": "object", "required": ["value"],
+                                              "properties": {"label": {"type": "string"}, "value": {"type": "number"},
+                                                             "unit": {"enum": ["USD", "USD/shares", "%", "pp", "count", None]},
+                                                             "value_text": {"type": ["string", "null"]}}}},
     },
 }
 

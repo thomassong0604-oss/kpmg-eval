@@ -92,7 +92,7 @@ def main():
     ap.add_argument("--router", action="append", default=[], help="name=path/to/module.py:function")
     ap.add_argument("--calls", action="append", default=[], help="name=path/to/calls.jsonl")
     args = ap.parse_args()
-    gold = [json.loads(l) for l in open(DATA / "benchmark_v2.jsonl")]
+    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_2.jsonl")]
     routers = {"text_only": lambda q, s: {"text"}, "combined": lambda q, s: {"sql", "text", "graph"}, "keyword": keyword}
     for spec in args.router:
         name, target = spec.split("=", 1)
@@ -100,7 +100,10 @@ def main():
     for spec in args.calls:
         name, target = spec.split("=", 1)
         routers[name] = load_calls(target, gold)
-    out = {"n": len(gold), "expected_routes": {}, "routers": {},
+    import hashlib
+    out = {"n": len(gold), "gold": "benchmark_v2_2.jsonl",
+           "gold_sha256_16": hashlib.sha256((DATA / "benchmark_v2_2.jsonl").read_bytes()).hexdigest()[:16],
+           "expected_routes": {}, "routers": {},
            "note": "Expected routes are Eval's labels; keyword is a regex stand-in for the orchestrator."}
     for q in gold:
         out["expected_routes"][q["route_expected"]] = out["expected_routes"].get(q["route_expected"], 0) + 1
@@ -113,7 +116,10 @@ def main():
             from kpmg_eval.metrics.routing import REQUIRED
             if called != REQUIRED[q["route_expected"]]:
                 misses.append({"qid": q["qid"], "expected": q["route_expected"], "called": sorted(called)})
-        out["routers"][name] = {**score_routing(cases), "n_not_exact": len(misses), "examples_not_exact": misses[:15]}
+        covered = sum((not c["called"]) if not REQUIRED[c["expected"]] else REQUIRED[c["expected"]] <= c["called"]
+                      for c in cases)
+        out["routers"][name] = {**score_routing(cases), "n_covered": covered, "n_not_exact": len(misses),
+                                "examples_not_exact": misses[:15]}
         r = out["routers"][name]
         print(f"[routing] {name:9s} required-tools-called={r['required_tools_called']} exact={r['exact_route']} "
               f"calls/q={r['tool_calls_per_question']} unneeded/q={r['unneeded_calls_per_question']} "

@@ -402,7 +402,7 @@ def part_b(gold, ex21):
 
 
 def main():
-    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_1.jsonl")]
+    gold = [json.loads(l) for l in open(DATA / "benchmark_v2_2.jsonl")]
     qs, rows, summ, h2h, lists = part_a(gold)
     ex21 = json.load(open(DATA / "sec_reads" / "exhibit21_2026-11-05.json"))
     trav, trav_meta = part_b(gold, ex21)

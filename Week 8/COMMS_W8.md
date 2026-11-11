@@ -79,3 +79,35 @@ Hi Emma, a joint ask from Eval and GraphRAG, for after round 1 so the 11/03 free
 Microsoft's FY2024 10-K (0000950170-24-087843) and FY2025 10-K (0000950170-25-100235) into the database? Both are in
 your 2021–2026 inventory and passed your fact checks. They unblock one gold question (first year a segment was
 reported) and give three others a third year to compare. Thank you!
+
+## Slack reply to RAG, end-to-end round 1, 11/11
+
+Thank you, this is exactly what we needed, and all three notes were right.
+
+We reproduce your numbers exactly with our graders: NAA 87/93 = 0.935, balanced RAA 0.977, unanswerable 10/10 (your
+subset, without the graph-route and review-required questions). On all 155 it's NAA 87/94 and RAA 0.944, with every
+unanswerable question refused.
+
+1. EV1-015: agreed. The sig-fig floor is now the precision the filing prints, so 2. EV1-027 had the same issue.
+2. EV1-043: the 7 multi-part questions now list every figure (`gold.values`), and all must be stated. We read them from an
+   optional `values` list in the AnswerBlock (sign-sensitive) or, without one, from `answer_text`, so your EV1-043 passes
+   as written.
+3. EV1R-002 / 006: agreed, both now route to text. GraphRAG's review of those drafts says the same.
+
+These are in Gold Set v2.2 (same questions and answers, grading only). With them NAA is 89/94 = 0.947.
+
+Your files also caught two of our mistakes. The 10-K gives Microsoft's OpenAI stake as about 25%, where the 10-Q says
+27%, so both count now (EV1R-005). And v2.1 put two anchor sentences in one evidence item, which your chunker splits
+(8 questions), so v2.2 has one item per point. We had chunks_C1 in the zip, thanks, so the last 4 anchors are done, and
+every anchor outside Exhibit 21 and NetApp's 10-Q is in your chunks. Citations look strong: all 185 cited chunks exist,
+and 58 of 59 lookups show the number in a cited chunk.
+
+Three small asks:
+- Narrative judge: `scripts/run_narrative_judge.py` is ready (point by point, with a quote check). Could you run it with
+  your key, or lend one for the run? `--dry-run` shows the exact prompts. It counts only after it agrees with our hand
+  labels.
+- GSv0-MSFT-023 and EV1R-005 state the answer but come back `answered: false`. Could the reader mark those as answered?
+- chunks_C1 has 20 filings, and NetApp's 10-Q isn't among them (EV2-026, EV3-008/009 were declined). Is that intended?
+
+Everything is in kpmg-eval → Week 8 (FOR_TEAMS_W8.md, results/answers_rag_reader_round1.json, GOLD_SET_V2.md). Your
+answers and chunks stay off GitHub.

@@ -1,20 +1,22 @@
 {
  "n": 155,
+ "gold": "benchmark_v2_2.jsonl",
+ "gold_sha256_16": "8d2f327da1ad8ffd",
  "expected_routes": {
   "sql": 104,
-  "text": 31,
+  "text": 33,
   "none": 8,
-  "graph": 11,
+  "graph": 9,
   "multi": 1
  },
  "routers": {
   "text_only": {
    "n": 155,
-   "required_tools_called": 0.2,
-   "coverage": 0.2,
-   "exact_route": 0.2,
+   "required_tools_called": 0.213,
+   "coverage": 0.213,
+   "exact_route": 0.213,
    "tool_calls_per_question": 1.0,
-   "unneeded_calls_per_question": 0.79,
+   "unneeded_calls_per_question": 0.78,
    "required_tools_called_by_route": {
     "graph": 0.0,
     "multi": 0.0,
@@ -22,7 +24,8 @@
     "sql": 0.0,
     "text": 1.0
    },
-   "n_not_exact": 124,
+   "n_covered": 33,
+   "n_not_exact": 122,
    "examples_not_exact": [
     {
      "qid": "GSv0-MSFT-001",
@@ -145,6 +148,7 @@
     "sql": 1.0,
     "text": 1.0
    },
+   "n_covered": 147,
    "n_not_exact": 155,
    "examples_not_exact": [
     {
@@ -286,19 +290,20 @@
   },
   "keyword": {
    "n": 155,
-   "required_tools_called": 0.839,
-   "coverage": 0.839,
-   "exact_route": 0.748,
+   "required_tools_called": 0.826,
+   "coverage": 0.826,
+   "exact_route": 0.735,
    "tool_calls_per_question": 1.05,
-   "unneeded_calls_per_question": 0.25,
+   "unneeded_calls_per_question": 0.26,
    "required_tools_called_by_route": {
     "graph": 1.0,
     "multi": 0.0,
     "none": 0.875,
     "sql": 0.933,
-    "text": 0.484
+    "text": 0.455
    },
-   "n_not_exact": 39,
+   "n_covered": 128,
+   "n_not_exact": 41,
    "examples_not_exact": [
     {
      "qid": "GSv0-MSFT-008",
