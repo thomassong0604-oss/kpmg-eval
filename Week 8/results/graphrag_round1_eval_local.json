@@ -1,11 +1,18 @@
 {
- "_doc": "Week 8: round 1 for GraphRAG's real tools on Gold Set v2.1 (both arms, every question).",
+ "_doc": "Week 8: round 1 for GraphRAG's real tools on Gold Set v2.2 (both arms, every question).",
  "tag": "eval_local",
  "k": 10,
  "gold": "benchmark_v2_2.jsonl",
+ "graphrag_commit": "21f0795",
+ "store": {
+  "file": "graphrag_store_msft_10q.duckdb",
+  "corpus_version": "edgar-xbrl-v1:1:0c22434b",
+  "facts": 1317,
+  "filings": 1
+ },
  "backend_status": {
   "graph": "skipped: NEO4J_URI is not set",
-  "structured": "registered: /home/claude/kpmg-eval/Week 8/upstream/graphrag_store_msft_10q.duckdb"
+  "structured": "registered"
  },
  "arms_run": [
   "structured"
@@ -14,21 +21,20 @@
   "0001193125-26-191507"
  ],
  "filter_compatibility_of_gold_filters": {
-  "graph_refuses_gold_filters": 129,
+  "graph_refuses_gold_filters": 0,
+  "graph_ignores_some_gold_filters": 129,
+  "graph_refused_gold_filters_at_4e89acb": 129,
   "structured_ignores_some_gold_filters": 129,
   "list_valued_filters": 13,
   "translation_one_filing": 136,
-  "translation_several_filings": 4,
-  "translation_no_gold_evidence": 8,
-  "translation_several_filings_ticker_list_dropped": 7
+  "translation_several_filings": 11,
+  "translation_no_gold_evidence": 8
  },
  "summary": {
   "structured|gold": {
    "calls": 155,
-   "errors": 10,
-   "error_types": {
-    "RetrievalUnavailableError": 10
-   },
+   "errors": 0,
+   "error_types": {},
    "skipped_filing_not_in_store": 67,
    "numbers": {
     "rate": 0.52,

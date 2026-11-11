@@ -1,0 +1,196 @@
+{
+ "_doc": "Week 8: round 1 for GraphRAG's real tools on Gold Set v2.1 (both arms, every question).",
+ "tag": "graphrag_aura",
+ "k": 10,
+ "gold": "benchmark_v2_1.jsonl",
+ "backend_status": {
+  "graph": "registered",
+  "structured": "registered"
+ },
+ "arms_run": [
+  "graph",
+  "structured"
+ ],
+ "store_filings": [
+  "0000076334-26-000073",
+  "0000076334-26-000105",
+  "0000320187-26-000088",
+  "0000320187-26-000193",
+  "0000320193-25-000079",
+  "0000320193-26-000013",
+  "0000320193-26-000020",
+  "0000723125-26-000015",
+  "0000723125-26-000023",
+  "0000726958-26-000046",
+  "0000726958-26-000085",
+  "0000927653-26-000069",
+  "0000927653-26-000234",
+  "0001193125-26-191507",
+  "0001193125-26-259683",
+  "0001193125-26-323660",
+  "0001628280-26-037434",
+  "0001628280-26-044354",
+  "0001628280-26-054870",
+  "0001628280-26-060473"
+ ],
+ "filter_compatibility_of_gold_filters": {
+  "graph_refuses_gold_filters": 129,
+  "structured_ignores_some_gold_filters": 129,
+  "list_valued_filters": 13,
+  "translation_one_filing": 136,
+  "translation_several_filings": 4,
+  "translation_no_gold_evidence": 8,
+  "translation_several_filings_ticker_list_dropped": 7
+ },
+ "summary": {
+  "graph|gold": {
+   "calls": 155,
+   "errors": 129,
+   "error_types": {
+    "FilterNotSupportedError": 129
+   },
+   "skipped_filing_not_in_store": 0,
+   "numbers": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 3
+   },
+   "numbers_strict": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 3
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 12
+   },
+   "top1_right": {
+    "rate": null,
+    "hits": 0,
+    "n": 0
+   },
+   "top1_wrong_period": {
+    "rate": null,
+    "hits": 0,
+    "n": 0
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.571,
+    "hits": 4,
+    "n": 7
+   }
+  },
+  "graph|translated": {
+   "calls": 155,
+   "errors": 0,
+   "error_types": {},
+   "skipped_filing_not_in_store": 0,
+   "numbers": {
+    "rate": 0.053,
+    "hits": 5,
+    "n": 94
+   },
+   "numbers_strict": {
+    "rate": 0.053,
+    "hits": 5,
+    "n": 94
+   },
+   "prose": {
+    "rate": 0.263,
+    "hits": 10,
+    "n": 38
+   },
+   "top1_right": {
+    "rate": null,
+    "hits": 0,
+    "n": 0
+   },
+   "top1_wrong_period": {
+    "rate": null,
+    "hits": 0,
+    "n": 0
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.158,
+    "hits": 3,
+    "n": 19
+   }
+  },
+  "structured|gold": {
+   "calls": 155,
+   "errors": 10,
+   "error_types": {
+    "RetrievalUnavailableError": 10
+   },
+   "skipped_filing_not_in_store": 3,
+   "numbers": {
+    "rate": 0.697,
+    "hits": 62,
+    "n": 89
+   },
+   "numbers_strict": {
+    "rate": 0.697,
+    "hits": 62,
+    "n": 89
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 33
+   },
+   "top1_right": {
+    "rate": 0.258,
+    "hits": 23,
+    "n": 89
+   },
+   "top1_wrong_period": {
+    "rate": 0.119,
+    "hits": 5,
+    "n": 42
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.118,
+    "hits": 2,
+    "n": 17
+   }
+  },
+  "structured|translated": {
+   "calls": 155,
+   "errors": 0,
+   "error_types": {},
+   "skipped_filing_not_in_store": 3,
+   "numbers": {
+    "rate": 0.677,
+    "hits": 63,
+    "n": 93
+   },
+   "numbers_strict": {
+    "rate": 0.677,
+    "hits": 63,
+    "n": 93
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 36
+   },
+   "top1_right": {
+    "rate": 0.28,
+    "hits": 26,
+    "n": 93
+   },
+   "top1_wrong_period": {
+    "rate": 0.119,
+    "hits": 5,
+    "n": 42
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.105,
+    "hits": 2,
+    "n": 19
+   }
+  }
+ },
+ "_received": "Sent by GraphRAG (Adeline Setiawan) on 2026-11-11: run at KPMG-GraphRAG 4e89acb against its Aura graph and its 20-filing DuckDB store (corpus_version data-api-raw:20), Gold Set v2.1. Host and local path removed by Eval before committing; otherwise as received."
+}

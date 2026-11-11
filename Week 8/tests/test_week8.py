@@ -107,9 +107,11 @@ def test_graphrag_filter_translation():
     gold = {json.loads(l)["qid"]: json.loads(l) for l in open(ROOT / "data" / "benchmark_v2_1.jsonl")}
     f, how = translate(gold["GSv0-MSFT-001"], snap)
     assert f == {"ticker": "MSFT", "accession_number": "0001193125-26-191507"} and how == "one_filing"
-    assert compatibility(gold["GSv0-MSFT-001"]["filters"])["graph_refuses"] == ["fiscal_period", "fiscal_year"]
-    f, how = translate(gold["EV2-040"], snap)
-    assert "ticker" not in f and how.endswith("ticker_list_dropped")
+    c = compatibility(gold["GSv0-MSFT-001"]["filters"])
+    assert c["graph_refused_at_4e89acb"] == ["fiscal_period", "fiscal_year"] and c["graph_refuses"] == []
+    assert c["graph_ignores"] == ["fiscal_period", "fiscal_year"]          # GraphRAG #70
+    f, how = translate(gold["EV2-040"], snap)                              # cross-company: lists, an IN on both arms
+    assert how == "several_filings" and isinstance(f["ticker"], list) and len(f["accession_number"]) == 10
 
 
 def test_agents_can_plug_their_router_into_the_routing_script(tmp_path):
@@ -222,3 +224,15 @@ def test_routing_doc_numbers_come_from_the_results():
     md = (ROOT / "ROUTING_EXAMPLES.md").read_text()
     for k in ("combined", "keyword", "text_only"):
         assert f"{rb['routers'][k]['coverage'] * 100:.1f}% ({rb['routers'][k]['n_covered']}/{rb['n']})" in md
+
+
+# ---- Week 8, 11/11: GraphRAG's round 1 (Aura + 20-filing store) checked against Eval's rerun
+def test_graphrag_round1_reproduced_question_by_question():
+    import json
+    chk = json.loads((ROOT / "results" / "graphrag_round1_check.json").read_text())
+    r = chk["reproduction_structured_translated"]
+    assert r["questions"] == 155 and r["questions_identical"] == 155
+    assert chk["structured_gold_filters_before_after_70"]["all_differences_on_list_filter_questions"]
+    # GraphRAG's own results file carries no host or local path
+    meta = json.loads((ROOT / "results" / "graphrag_round1_graphrag_aura.json").read_text())
+    assert all(v == "registered" for v in meta["backend_status"].values())

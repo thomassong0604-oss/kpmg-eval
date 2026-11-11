@@ -75,6 +75,9 @@ Thanks again!
 
 ## Joint ask to Data (draft, to send with GraphRAG after round 1), 11/11
 
+Updated 11/11 evening: round 1 has now run on both retrievers (RAG 11/9 and 11/11, GraphRAG 11/11), and GraphRAG agreed
+to send this right after it.
+
 Hi Emma, a joint ask from Eval and GraphRAG, for after round 1 so the 11/03 freeze holds until then. Could you load
 Microsoft's FY2024 10-K (0000950170-24-087843) and FY2025 10-K (0000950170-25-100235) into the database? Both are in
 your 2021–2026 inventory and passed your fact checks. They unblock one gold question (first year a segment was
@@ -102,12 +105,48 @@ Your files also caught two of our mistakes. The 10-K gives Microsoft's OpenAI st
 every anchor outside Exhibit 21 and NetApp's 10-Q is in your chunks. Citations look strong: all 185 cited chunks exist,
 and 58 of 59 lookups show the number in a cited chunk.
 
-Three small asks:
+Two small asks:
 - Narrative judge: `scripts/run_narrative_judge.py` is ready (point by point, with a quote check). Could you run it with
   your key, or lend one for the run? `--dry-run` shows the exact prompts. It counts only after it agrees with our hand
   labels.
 - GSv0-MSFT-023 and EV1R-005 state the answer but come back `answered: false`. Could the reader mark those as answered?
-- chunks_C1 has 20 filings, and NetApp's 10-Q isn't among them (EV2-026, EV3-008/009 were declined). Is that intended?
+
+(NetApp's 10-Q isn't in chunks_C1, and that's expected: Data holds it for review because NetApp tagged its opening cash
+a day late. So EV2-026 and EV3-008/009 are out of reach for every team until Data clears it.)
 
 Everything is in kpmg-eval → Week 8 (FOR_TEAMS_W8.md, results/answers_rag_reader_round1.json, GOLD_SET_V2.md). Your
 answers and chunks stay off GitHub.
+
+## Slack reply to GraphRAG (Adeline), round 1 results, 11/11
+
+Thank you, Adeline, this is great: both arms on all 155, the store, and #70 merged the same day.
+
+What we did with it (kpmg-eval → Week 8, EVAL_GRAPHRAG_W8.md):
+- Loaded the store: 20 filings, 24,533 facts, corpus_version data-api-raw:20. It stays private on our side, so no
+  credentials needed; the gzip was the easiest path. We can't reach Data's Postgres from our workspace anyway.
+- Re-ran the structured arm on it with your #70 code. With translated filters we match your run on all 155 questions:
+  63/93 numbers in the top 10, rank 1 right on 26. With the gold filters, #70 removes all 10 errors (the list-ticker
+  questions), and the result is still 63/93.
+- Updated our filters to your guidance: {ticker, accession_number} for one filing, and now lists of both for the 11
+  multi-filing questions, since IN works on both arms.
+
+On GSv0-MSFT-001, it isn't the store. Both stores put Microsoft 365 rows at the top for our wording, all tied at 1.05,
+because "three months" matches the ThreeSixFive members. Which tied row comes first even changes with top_k (74,083 at
+k=3, 21,883 at k=10). "Quarter ended" wording gives 241,832 at rank 1, which is the figure you saw, and it's a
+nine-month total. On the Microsoft 10-Q side by side your store gives 24/50 vs 25/50 on our build. The one change is
+EV1-015, where a date fact (DividendsPayableDateDeclared) outranks the dividend per share. Two ideas for #68: break ties
+deterministically (period match first, then facts without dimensions), and drop non-numeric facts for number
+questions. Also, with no ticker filter the top fact for a Microsoft question comes from Medtronic's 10-Q, so callers
+should always send the ticker.
+
+Small asks:
+1. When it's convenient, re-run the graph arm with #70 on Gold Set v2.2. The script defaults to it now: same command,
+   new tag please (graphrag_aura_v2_2). v2.2 adds anchors for 4 questions, so prose goes from 38 to 42.
+2. Could you push or send the filled hops (149 of 155)? We'll merge them into data/hops_v2.csv with the 6 held ones
+   flagged. Noted on Jurisdiction: EV3-002 is two OWNS edges plus a property join, and xbrl questions get no hop count.
+3. Exhibit 21 after midweek is fine. We'll re-score the 9 Exhibit 21 questions once Subsidiary nodes are loaded.
+
+Data: agreed, the joint ask for Microsoft FY2024 and FY2025 is drafted (COMMS_W8.md). Send it whenever you're ready.
+
+One small thing: since the Neo4j password went into the channel, it may be worth rotating it. We don't need it, because
+our workspace can't reach Aura.

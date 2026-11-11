@@ -1,6 +1,38 @@
-# Eval × GraphRAG, week 8: what we did with your 11/11 reply, and what we still need
+# Eval × GraphRAG, week 8: what we did with your 11/11 replies, and what we still need
 
-Answers GraphRAG's "Reply to Eval, week 8" (11/11; markdown version `docs/eval-reply-w8.md` on branch
+**Latest (11/11 evening): your round 1 is in, and we reproduce it.** See the next section; the first reply follows.
+
+## Your round 1 (11/11, second reply): checked
+
+Files: `results/graphrag_round1_graphrag_aura.json` and `.csv` (yours, as received; host and local path removed),
+`results/graphrag_round1_eval_store20*` (our rerun), `results/graphrag_round1_check.json`
+(`scripts/check_graphrag_round1.py`). Pinned: GraphRAG main @ 21f0795 (#70). Your store stays in git-ignored
+`private/` (a Data export): 20 filings, 24,533 facts, `corpus_version` data-api-raw:20.
+
+| Your point | What we found or did |
+|---|---|
+| 1, 3. Round 1, both arms | Structured arm, translated filters: needed number in the top 10 for 63/93, rank 1 right 26/93, wrong period at rank 1 5/42. Graph arm, scored for the first time: prose anchors 10/38, numbers 5/94; returned nothing on 3/19 unanswerable or false-premise questions. **Our rerun of the structured arm on your store matches yours on 155/155 questions** |
+| 2. The store and GSv0-MSFT-001 | Not the store. On both stores the gold wording puts Microsoft 365 product rows at the top, all scored 1.05 (tied), because "three months" matches `MicrosoftThreeSixFive` members; which tied row is first changes with `top_k` (74,083 at k = 3, 21,883 at k = 10). "Quarter ended" wording gives 241,832 at rank 1, the figure you saw, and it is the nine-month total. Part A on your store: numbers 24/50 (ours 25/50); the one change is EV1-015, where a date fact outranks the dividend per share. 14 of 84 rank-1 facts differ between stores, almost all ties ordered differently. Your store holds 1,511 facts for the Microsoft 10-Q, ours 1,317 |
+| 4. #70 (lists as IN; ValueError) | Confirmed: gold filters now run with 0 errors on the structured arm (10 at 4e89acb, all list-ticker questions) and give the same 63/93 as translated |
+| 5. Graph arm ignores fiscal labels | In #70. Our compatibility report now shows both behaviours (refused at 4e89acb, ignored at 21f0795). Only you can confirm the graph arm's gold-filter run: please re-run it (below) |
+| 6. Send `{ticker, accession_number}` | Adopted, and FOR_TEAMS tells the Agents the same. Multi-filing questions (11) now get lists of both, an IN on both arms |
+| 7. Exhibit 21 (PR #34) after midweek | Fine. The 9 Exhibit 21 questions keep their traversal score on your edges (9/9) until Subsidiary nodes are in Aura |
+| 8. hops: 149 of 155 derived | Thank you. Not in the repo yet; please push or send the file and we merge it into `data/hops_v2.csv` with the 6 held ones flagged. Noted: no Jurisdiction node, so EV3-002 is two OWNS edges plus a property join; xbrl-routed questions get no hop count |
+| 9. Data | Agreed; the joint ask for Microsoft FY2024 and FY2025 is in `COMMS_W8.md` |
+
+**For #68 (ranking), from these runs:** (1) ties are common and their order is not stable, so add a deterministic
+tie-breaker (period match first, then facts without dimensions); (2) non-numeric facts (dates, text blocks,
+enumerations) reach rank 1 on number questions (EV1-015 on your store), so drop them when the question asks for a
+number; (3) with no ticker filter, the top fact for a Microsoft question comes from Medtronic's 10-Q, so callers must
+always send the ticker.
+
+**Next from you:** re-run the graph arm with #70 on Gold Set v2.2 (`--tag graphrag_aura_v2_2`; v2.2 adds anchors for
+4 questions, so graph prose goes from 38 to 42); the filled hops. Credentials: not needed, since the store came as a
+file. As the Neo4j password went into the channel, rotating it may be worth it.
+
+## Your first 11/11 reply
+
+Answers GraphRAG's first "Reply to Eval, week 8" (11/11; markdown version `docs/eval-reply-w8.md` on branch
 `docs/eval-reply-w8`). Thank you: the real tools, the filter fix, the Exhibit 21 output and the period warning all
 landed in time for round 1. Everything below is in this folder and re-runs with `./scripts/run_all.sh` (87 tests).
 Pinned: GraphRAG main @ 4e89acb (11/11), Exhibit 21 branch @ c21fe89.

@@ -24,8 +24,8 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
   27 percent, so both count now; v2.1 put two anchor sentences in one evidence item, which RAG's chunker splits (8
   questions), so v2.2 has one item per point, and every anchor outside Exhibit 21 and NetApp's 10-Q is in RAG's chunks;
   our false-premise grader missed "was not profitable" and "did not acquire" (fixed).
-- **Why 16 answerable questions were declined:** 7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which is
-  not in `chunks_C1`; 3 are cross-company rankings; 2 state the answer but are marked `answered: false` (GSv0-MSFT-023,
+- **Why 16 answerable questions were declined:** 7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which
+  Data holds for review (a tagging defect in NetApp's filing); 3 are cross-company rankings; 2 state the answer but are marked `answered: false` (GSv0-MSFT-023,
   EV1R-005); 1 retrieval miss (GSv0-MSFT-019).
 - **Narrative answers (28 of 30 answered):** `scripts/run_narrative_judge.py` judges each required point (stated /
   missing / contradicted, with a quote that must appear in the answer) and flags claims no cited chunk supports.
@@ -57,8 +57,9 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
   `results/side_by_side_per_question.csv`.
 - **Round-1 corpus:** your `eval/round1_filings.csv` (Data's freeze list) matches our Gold Set v2 filings 21/21. Thank you
   for `chunks_C1` and the answer blocks: both stay in git-ignored `private/` (Data asks that exports stay off GitHub).
-  `chunks_C1` has 20 filings; NetApp's 10-Q (0001193125-26-380207) is not in it, which is why EV2-026, EV3-008 and
-  EV3-009 were declined. Was that deliberate?
+  `chunks_C1` has 20 filings; NetApp's 10-Q (0001193125-26-380207) is not in it because Data holds it for review
+  (NetApp tagged its opening cash a day late; Data `docs/ntap-source-review.md`). That is why EV2-026, EV3-008 and
+  EV3-009 were declined, by every team.
 - **Wrong-period figures:** on 33 of 36 number questions with a known distractor, the wrong-period figure (nine months vs
   three, last year vs this) is in the same top 8, because statement tables print both columns. A reader prompt that names
   the period column would help.
@@ -72,7 +73,16 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
 - **Asks:** run `scripts/run_narrative_judge.py` with your key (or lend one for the run); set `answered: true` when the
   text states the figure (GSv0-MSFT-023, EV1R-005); optionally add a `values` list to answer blocks for multi-part questions.
 
-## GraphRAG (KPMG-GraphRAG @ 4e89acb main 11/11; Exhibit 21 @ c21fe89)
+## GraphRAG (KPMG-GraphRAG @ 21f0795 main 11/11, #70; Exhibit 21 @ c21fe89)
+- **Your round 1 (11/11): thank you, and reproduced.** Structured arm on all 20 filings, translated filters: needed
+  number in the top 10 for 63/93, rank 1 right on 26/93. Graph arm, scored for the first time: prose anchors 10/38.
+  Our rerun on your store matches your structured arm on all 155 questions. Details and the GSv0-MSFT-001 answer (the
+  gold wording ties Microsoft 365 rows at 1.05, so rank 1 is unstable; not the store) in
+  [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md).
+- **#70 confirmed:** gold filters now run with 0 errors on the structured arm; lists work, so multi-filing questions
+  get lists of tickers and accessions.
+- **Asks:** re-run the graph arm on Gold Set v2.2 with #70 (`--tag graphrag_aura_v2_2`); push the filled hops (149 of
+  155); for #68, a deterministic tie-breaker and no non-numeric facts on number questions.
 - **Your 11/11 reply is answered point by point in [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md):** harness on
   `graphrag.backends`; dims list/dict fixed; hops split adopted (`data/hops_v2.csv`, `filings` filled by Eval); M17
   already reworded; M08 as an abstention candidate; the graph arm refuses fiscal labels on 129 questions, so we send
@@ -110,6 +120,8 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
 - **AnswerBlock `values` (optional, proposed 11/11):** for questions that ask for several figures, list each one as
   `{"label", "value", "unit", "value_text"}`; we grade them sign-sensitive. Without it we read the figures from the answer
   text. `value` stays the headline figure (`kpmg_eval/answer_schema.py`).
+- **Always send the ticker** (and the accession when known): without a ticker filter, GraphRAG's top fact for a
+  Microsoft question comes from Medtronic's 10-Q. GraphRAG confirmed `{ticker, accession_number}` is the call shape.
 - **Grading your answers:** `python scripts/grade_answer_blocks.py --answers your_blocks.jsonl --tag agents` gives the same
   scorecard RAG's reader got (numbers, refusal, premise, fiscal/list answers, citations with `--chunks`).
 - **Routing slide fixed:** axes labelled, keyword router defined, and unneeded calls defined (`ROUTING_EXAMPLES.md`).
@@ -125,5 +137,12 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
   abstain has to come from your evidence check.
 - **Ask:** run your orchestrator through `scripts/run_routing_baselines.py`; review our expected routes.
 
-## Data
-- Your freeze list (`round1_filings.csv` in RAG's repo) matches our 21 filings exactly. Ask: keep it fixed through round 1.
+## Data (data_engineering_kpmg @ 7040b8a, 11/11)
+- Your freeze list (`round1_filings.csv` in RAG's repo) matches our 21 filings exactly. Round 1 has now run on both
+  retrievers, on 20 of them: NetApp's 10-Q stays out while it is review-required (opening cash tagged April 25 instead
+  of April 24; your `docs/ntap-source-review.md`), which explains 3 declined questions for every team. Thank you for
+  documenting it.
+- GraphRAG's store is built from your Postgres (`corpus_version` data-api-raw:20, 24,533 facts); Eval uses a copy
+  GraphRAG shared, kept out of the repo. We have no database credentials and need none for now.
+- **Joint ask with GraphRAG, now that round 1 has run:** load Microsoft's FY2024 and FY2025 10-Ks (draft in
+  `COMMS_W8.md`).

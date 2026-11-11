@@ -38,6 +38,13 @@ python3 scripts/run_graphrag_wiring.py
 python3 scripts/run_metric_selection.py
 python3 scripts/run_side_by_side.py
 python3 scripts/run_graphrag_round1.py --tag eval_local > /dev/null
+# GraphRAG's 20-filing store (shared privately 11/11; a Data export, so it stays in git-ignored private/)
+if [ -f private/corpus_facts_postgres.duckdb ]; then
+  MSFT_FACT_DB_PATH="$PWD/private/corpus_facts_postgres.duckdb" python3 scripts/run_graphrag_round1.py --tag eval_store20 > /dev/null
+  MSFT_FACT_DB_PATH="$PWD/private/corpus_facts_postgres.duckdb" python3 scripts/run_graphrag_round1.py --tag eval_store20_v2_1 --gold data/benchmark_v2_1.jsonl > /dev/null
+  SBS_STORE="$PWD/private/corpus_facts_postgres.duckdb" SBS_TAG=graphrag_store python3 scripts/run_side_by_side.py > /dev/null
+fi
+python3 scripts/check_graphrag_round1.py
 python3 scripts/run_messy_wording.py
 if [ -f private/rag_round1_answer_blocks.jsonl ]; then
   python3 scripts/grade_answer_blocks.py --answers private/rag_round1_answer_blocks.jsonl \

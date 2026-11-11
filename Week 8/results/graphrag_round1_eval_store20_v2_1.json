@@ -1,0 +1,128 @@
+{
+ "_doc": "Week 8: round 1 for GraphRAG's real tools on Gold Set v2.2 (both arms, every question).",
+ "tag": "eval_store20_v2_1",
+ "k": 10,
+ "gold": "benchmark_v2_1.jsonl",
+ "graphrag_commit": "21f0795",
+ "store": {
+  "file": "corpus_facts_postgres.duckdb",
+  "corpus_version": "data-api-raw:20",
+  "source": "data-api:raw",
+  "loader_version": "data-api-loader-v1",
+  "facts": 24533,
+  "filings": 20
+ },
+ "backend_status": {
+  "graph": "skipped: NEO4J_URI is not set",
+  "structured": "registered"
+ },
+ "arms_run": [
+  "structured"
+ ],
+ "store_filings": [
+  "0000076334-26-000073",
+  "0000076334-26-000105",
+  "0000320187-26-000088",
+  "0000320187-26-000193",
+  "0000320193-25-000079",
+  "0000320193-26-000013",
+  "0000320193-26-000020",
+  "0000723125-26-000015",
+  "0000723125-26-000023",
+  "0000726958-26-000046",
+  "0000726958-26-000085",
+  "0000927653-26-000069",
+  "0000927653-26-000234",
+  "0001193125-26-191507",
+  "0001193125-26-259683",
+  "0001193125-26-323660",
+  "0001628280-26-037434",
+  "0001628280-26-044354",
+  "0001628280-26-054870",
+  "0001628280-26-060473"
+ ],
+ "filter_compatibility_of_gold_filters": {
+  "graph_refuses_gold_filters": 0,
+  "graph_ignores_some_gold_filters": 129,
+  "graph_refused_gold_filters_at_4e89acb": 129,
+  "structured_ignores_some_gold_filters": 129,
+  "list_valued_filters": 13,
+  "translation_one_filing": 136,
+  "translation_several_filings": 11,
+  "translation_no_gold_evidence": 8
+ },
+ "summary": {
+  "structured|gold": {
+   "calls": 155,
+   "errors": 0,
+   "error_types": {},
+   "skipped_filing_not_in_store": 3,
+   "numbers": {
+    "rate": 0.677,
+    "hits": 63,
+    "n": 93
+   },
+   "numbers_strict": {
+    "rate": 0.677,
+    "hits": 63,
+    "n": 93
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 36
+   },
+   "top1_right": {
+    "rate": 0.28,
+    "hits": 26,
+    "n": 93
+   },
+   "top1_wrong_period": {
+    "rate": 0.119,
+    "hits": 5,
+    "n": 42
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.105,
+    "hits": 2,
+    "n": 19
+   }
+  },
+  "structured|translated": {
+   "calls": 155,
+   "errors": 0,
+   "error_types": {},
+   "skipped_filing_not_in_store": 3,
+   "numbers": {
+    "rate": 0.677,
+    "hits": 63,
+    "n": 93
+   },
+   "numbers_strict": {
+    "rate": 0.677,
+    "hits": 63,
+    "n": 93
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 36
+   },
+   "top1_right": {
+    "rate": 0.28,
+    "hits": 26,
+    "n": 93
+   },
+   "top1_wrong_period": {
+    "rate": 0.119,
+    "hits": 5,
+    "n": 42
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.105,
+    "hits": 2,
+    "n": 19
+   }
+  }
+ }
+}

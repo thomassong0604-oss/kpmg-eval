@@ -37,7 +37,8 @@ answers; only grading fields change** (`scripts/build_gold_v2_2.py`, per questio
 
 **Anchor check against RAG's chunks** (RAG's own matcher, filing by filing): 134 of 147 evidence items found.
 The 13 not found are by design: 11 sit in Exhibit 21, which Data does not chunk (GraphRAG's route), and 2 in
-NetApp's 10-Q, which is not in `chunks_C1`. Every other anchor in the set is in RAG's chunks. Result:
+NetApp's 10-Q, which is not in `chunks_C1` because Data holds it for review (NetApp tagged its opening
+cash a day late). Every other anchor in the set is in RAG's chunks. Result:
 `results/anchor_check_c1.json` (ids only). The chunks stay private, as Data asked.
 
 **v2.2 = `data/benchmark_v2_2.jsonl` (sha256 `8d2f327da1ad8ffd`).** v2 and v2.1 are kept unchanged: RAG's round-1 runs used them.

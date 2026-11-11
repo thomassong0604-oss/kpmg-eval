@@ -1,6 +1,8 @@
 """Week 8: RAG and GraphRAG side by side on one full question set (11/5 minutes, Eval item 1).
 
     python scripts/run_side_by_side.py   -> results/side_by_side.json, results/side_by_side_per_question.csv
+    SBS_STORE=private/corpus_facts_postgres.duckdb SBS_TAG=graphrag_store python scripts/run_side_by_side.py
+        -> results/side_by_side_graphrag_store.json, ..._per_question.csv  (GraphRAG's 20-filing store, shared 11/11)
 
 Part A: the Microsoft Q3 FY2026 10-Q question set (all 84 Gold Set v2 questions on that filing). It is the one filing
 both teams' code can load here without a network or a database server. Each system runs its own code on the same filing:
@@ -51,7 +53,7 @@ sys.path.insert(0, str(UP / "KPMG-GraphRAG" / "structured"))
 ACC = "0001193125-26-191507"
 CORPUS = "msft_10q_q3fy26"
 K = 8
-STORE = UP / "graphrag_store_msft_10q.duckdb"
+STORE = Path(os.environ.get("SBS_STORE", UP / "graphrag_store_msft_10q.duckdb"))
 HTM = UP / "data_engineering_kpmg" / "data" / "raw" / "sec" / ACC / "msft-20260331.htm"
 COMMITS = {"KPMG_RAG": "5bfafeb (main, 11/5)", "KPMG-GraphRAG": "4e89acb (main, 11/11; called through graphrag.backends)",
            "KPMG-GraphRAG ex21": "c21fe89 (alina/ex21-pipeline, 11/8)", "data_engineering_kpmg": "f8d18e2"}
@@ -422,8 +424,10 @@ def main():
                                           "(15 claims each for MSFT, AAPL, JPM), none for this 10-Q"},
     }
     RES.mkdir(exist_ok=True)
-    (RES / "side_by_side.json").write_text(json.dumps(out, indent=1))
-    with open(RES / "side_by_side_per_question.csv", "w", newline="") as f:
+    tag = f"_{os.environ['SBS_TAG']}" if os.environ.get("SBS_TAG") else ""
+    out["graphrag_store"] = STORE.name
+    (RES / f"side_by_side{tag}.json").write_text(json.dumps(out, indent=1))
+    with open(RES / f"side_by_side{tag}_per_question.csv", "w", newline="") as f:
         cols = ["qid", "system", "kind", "type", "route_expected", "traps", "needed_in_evidence", "distractor_shown",
                 "top1_right", "top1_wrong_period",
                 "n_returned", "ms", "top1", "question"]

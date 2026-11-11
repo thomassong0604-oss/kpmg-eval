@@ -1,4 +1,4 @@
-"""Week 8: round 1 for GraphRAG's real tools on Gold Set v2.1 (both arms, every question).
+"""Week 8: round 1 for GraphRAG's real tools on Gold Set v2.2 (both arms, every question).
 
 GraphRAG asked (reply of 11/11) for Part A to be re-run with their graph arm in, now that `graphrag.backends` is real.
 Eval cannot reach their Neo4j Aura instance or EDGAR from its workspace, so this script is written to run anywhere:
@@ -58,6 +58,35 @@ def store_contents() -> tuple[set[str], set[str]] | None:
         con.close()
 
 
+def store_meta() -> dict | None:
+    """File name and store_meta_v1 of the structured store (no local path, so results can be shared)."""
+    path = os.environ.get("MSFT_FACT_DB_PATH")
+    if not path or not Path(path).exists():
+        return None
+    import duckdb
+    con = duckdb.connect(path, read_only=True)
+    try:
+        meta = dict(con.execute("SELECT key, value FROM store_meta_v1").fetchall()) if con.execute(
+            "SELECT count(*) FROM information_schema.tables WHERE table_name = 'store_meta_v1'").fetchone()[0] else {}
+        n = con.execute("SELECT count(*), count(DISTINCT accession_number) FROM financial_facts_v1").fetchone()
+    finally:
+        con.close()
+    return {"file": Path(path).name, **meta, "facts": n[0], "filings": n[1]}
+
+
+def public_status(status: dict) -> dict:
+    """backend_status without hosts or local paths: results files get shared and committed."""
+    return {k: (str(v).split(":")[0] if str(v).startswith("registered") else v) for k, v in status.items()}
+
+
+def _git(path: Path) -> str | None:
+    import subprocess
+    try:
+        return subprocess.check_output(["git", "-C", str(path), "rev-parse", "--short", "HEAD"], text=True).strip()
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def score(q: dict, arm: str, ev: list[dict], need_accs: set[str]) -> dict:
     kind = sbs.kind(q)
     out = {"n_returned": len(ev)}
@@ -109,6 +138,8 @@ def main():
         need = set(required_filings(q))
         c = compatibility(q["filters"])
         compat["graph_refuses_gold_filters"] += bool(c["graph_refuses"])
+        compat["graph_ignores_some_gold_filters"] += bool(c["graph_ignores"])
+        compat["graph_refused_gold_filters_at_4e89acb"] += bool(c["graph_refused_at_4e89acb"])
         compat["structured_ignores_some_gold_filters"] += bool(c["structured_ignores"])
         compat["list_valued_filters"] += bool(c["list_values"])
         tr, how = translate(q, snap)
@@ -149,7 +180,9 @@ def main():
                                                           and not r["error"]], "returned_nothing"),
             }
     out = {"_doc": __doc__.strip().splitlines()[0], "tag": args.tag, "k": args.k, "gold": Path(args.gold).name,
-           "backend_status": status, "arms_run": sorted(live), "store_filings": sorted(store[0]) if store else None,
+           "graphrag_commit": _git(Path(args.graphrag)), "store": store_meta(),
+           "backend_status": public_status(status), "arms_run": sorted(live),
+           "store_filings": sorted(store[0]) if store else None,
            "filter_compatibility_of_gold_filters": dict(compat), "summary": summary}
     RES.mkdir(exist_ok=True)
     (RES / f"graphrag_round1_{args.tag}.json").write_text(json.dumps(out, indent=1))
@@ -160,7 +193,7 @@ def main():
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
-    print(json.dumps({"status": status, "compat": dict(compat), "summary": summary}, indent=1))
+    print(json.dumps({"status": public_status(status), "compat": dict(compat), "summary": summary}, indent=1))
 
 
 if __name__ == "__main__":

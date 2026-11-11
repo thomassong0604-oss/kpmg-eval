@@ -1,0 +1,499 @@
+{
+ "graphrag_run": {
+  "commit": "4e89acb",
+  "gold": "benchmark_v2_1.jsonl",
+  "summary": {
+   "graph|gold": {
+    "calls": 155,
+    "errors": 129,
+    "error_types": {
+     "FilterNotSupportedError": 129
+    },
+    "skipped_filing_not_in_store": 0,
+    "numbers": {
+     "rate": 0.0,
+     "hits": 0,
+     "n": 3
+    },
+    "numbers_strict": {
+     "rate": 0.0,
+     "hits": 0,
+     "n": 3
+    },
+    "prose": {
+     "rate": 0.0,
+     "hits": 0,
+     "n": 12
+    },
+    "top1_right": {
+     "rate": null,
+     "hits": 0,
+     "n": 0
+    },
+    "top1_wrong_period": {
+     "rate": null,
+     "hits": 0,
+     "n": 0
+    },
+    "returned_nothing_on_unanswerable": {
+     "rate": 0.571,
+     "hits": 4,
+     "n": 7
+    }
+   },
+   "graph|translated": {
+    "calls": 155,
+    "errors": 0,
+    "error_types": {},
+    "skipped_filing_not_in_store": 0,
+    "numbers": {
+     "rate": 0.053,
+     "hits": 5,
+     "n": 94
+    },
+    "numbers_strict": {
+     "rate": 0.053,
+     "hits": 5,
+     "n": 94
+    },
+    "prose": {
+     "rate": 0.263,
+     "hits": 10,
+     "n": 38
+    },
+    "top1_right": {
+     "rate": null,
+     "hits": 0,
+     "n": 0
+    },
+    "top1_wrong_period": {
+     "rate": null,
+     "hits": 0,
+     "n": 0
+    },
+    "returned_nothing_on_unanswerable": {
+     "rate": 0.158,
+     "hits": 3,
+     "n": 19
+    }
+   },
+   "structured|gold": {
+    "calls": 155,
+    "errors": 10,
+    "error_types": {
+     "RetrievalUnavailableError": 10
+    },
+    "skipped_filing_not_in_store": 3,
+    "numbers": {
+     "rate": 0.697,
+     "hits": 62,
+     "n": 89
+    },
+    "numbers_strict": {
+     "rate": 0.697,
+     "hits": 62,
+     "n": 89
+    },
+    "prose": {
+     "rate": 0.0,
+     "hits": 0,
+     "n": 33
+    },
+    "top1_right": {
+     "rate": 0.258,
+     "hits": 23,
+     "n": 89
+    },
+    "top1_wrong_period": {
+     "rate": 0.119,
+     "hits": 5,
+     "n": 42
+    },
+    "returned_nothing_on_unanswerable": {
+     "rate": 0.118,
+     "hits": 2,
+     "n": 17
+    }
+   },
+   "structured|translated": {
+    "calls": 155,
+    "errors": 0,
+    "error_types": {},
+    "skipped_filing_not_in_store": 3,
+    "numbers": {
+     "rate": 0.677,
+     "hits": 63,
+     "n": 93
+    },
+    "numbers_strict": {
+     "rate": 0.677,
+     "hits": 63,
+     "n": 93
+    },
+    "prose": {
+     "rate": 0.0,
+     "hits": 0,
+     "n": 36
+    },
+    "top1_right": {
+     "rate": 0.28,
+     "hits": 26,
+     "n": 93
+    },
+    "top1_wrong_period": {
+     "rate": 0.119,
+     "hits": 5,
+     "n": 42
+    },
+    "returned_nothing_on_unanswerable": {
+     "rate": 0.105,
+     "hits": 2,
+     "n": 19
+    }
+   }
+  }
+ },
+ "reproduction_structured_translated": {
+  "questions": 155,
+  "questions_identical": 155,
+  "differences": []
+ },
+ "structured_gold_filters_before_after_70": {
+  "questions": 155,
+  "questions_identical": 145,
+  "differences": [
+   {
+    "qid": "EV2-040",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-040",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-040",
+    "field": "top1_right",
+    "graphrag": "",
+    "eval": "True"
+   },
+   {
+    "qid": "EV2-040",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV2-041",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-041",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-041",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV2-042",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-042",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-042",
+    "field": "top1_right",
+    "graphrag": "",
+    "eval": "True"
+   },
+   {
+    "qid": "EV2-042",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV2-043",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-043",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-043",
+    "field": "top1_right",
+    "graphrag": "",
+    "eval": "True"
+   },
+   {
+    "qid": "EV2-043",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV2-044",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-044",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV2-045",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "True"
+   },
+   {
+    "qid": "EV2-045",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "True"
+   },
+   {
+    "qid": "EV2-045",
+    "field": "top1_right",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV2-045",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV3-002",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV3-002",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV3-002",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV3-003",
+    "field": "needed_in_evidence",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV3-003",
+    "field": "strict",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV3-003",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV3-006",
+    "field": "returned_nothing",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV3-006",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "10"
+   },
+   {
+    "qid": "EV3-007",
+    "field": "returned_nothing",
+    "graphrag": "",
+    "eval": "False"
+   },
+   {
+    "qid": "EV3-007",
+    "field": "n_returned",
+    "graphrag": "0",
+    "eval": "7"
+   }
+  ],
+  "explained_by": "#70: list-valued ticker filters errored at 4e89acb (RetrievalUnavailableError) and run at 21f0795; every difference is on a question with a list filter",
+  "all_differences_on_list_filter_questions": true
+ },
+ "part_a_by_store": {
+  "eval_one_filing_build": {
+   "store": "graphrag_store_msft_10q.duckdb",
+   "numbers": "25/50",
+   "top1_right_on_numbers": "14/50",
+   "top1_wrong_period_on_numbers": "6/36",
+   "distractor_shown_on_numbers": "19/36"
+  },
+  "graphrag_20_filing_store": {
+   "store": "corpus_facts_postgres.duckdb",
+   "numbers": "24/50",
+   "top1_right_on_numbers": "13/50",
+   "top1_wrong_period_on_numbers": "5/36",
+   "distractor_shown_on_numbers": "18/36"
+  },
+  "questions_scored_differently": [
+   "EV1-015"
+  ],
+  "questions_with_a_different_rank1_fact": 14,
+  "note": "Most rank-1 differences are ties: the same concept with equal scores, ordered differently by each store (e.g. cash 11,711 vs 12,731). EV1-015 is the one score change: on GraphRAG's store a date fact (DividendsPayableDateDeclared) outranks the dividend per share. GraphRAG's store holds 1,511 facts for this 10-Q against 1,317 in Eval's build, more of them non-numeric."
+ },
+ "gsv0_msft_001_rank1": [
+  {
+   "store": "corpus_facts_postgres.duckdb",
+   "wording": "gold wording",
+   "top_k": 3,
+   "rank1_value_musd": 74083.0,
+   "rank1_period": "2025-07-01..2026-03-31",
+   "rank1_members": [
+    "msft:MicrosoftThreeSixFiveCommercialProductsAndCloudServicesMember"
+   ],
+   "top3_scores": [
+    1.05,
+    1.05,
+    1.05
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "corpus_facts_postgres.duckdb",
+   "wording": "gold wording",
+   "top_k": 10,
+   "rank1_value_musd": 21883.0,
+   "rank1_period": "2025-01-01..2025-03-31",
+   "rank1_members": [
+    "msft:MicrosoftThreeSixFiveCommercialProductsAndCloudServicesMember"
+   ],
+   "top3_scores": [
+    1.05,
+    1.05,
+    1.05
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "corpus_facts_postgres.duckdb",
+   "wording": "'quarter ended' wording",
+   "top_k": 3,
+   "rank1_value_musd": 241832.0,
+   "rank1_period": "2025-07-01..2026-03-31",
+   "rank1_members": [],
+   "top3_scores": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "corpus_facts_postgres.duckdb",
+   "wording": "'quarter ended' wording",
+   "top_k": 10,
+   "rank1_value_musd": 241832.0,
+   "rank1_period": "2025-07-01..2026-03-31",
+   "rank1_members": [],
+   "top3_scores": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "graphrag_store_msft_10q.duckdb",
+   "wording": "gold wording",
+   "top_k": 3,
+   "rank1_value_musd": 74083.0,
+   "rank1_period": "2025-07-01..2026-03-31",
+   "rank1_members": [
+    "msft:MicrosoftThreeSixFiveCommercialProductsAndCloudServicesMember"
+   ],
+   "top3_scores": [
+    1.05,
+    1.05,
+    1.05
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "graphrag_store_msft_10q.duckdb",
+   "wording": "gold wording",
+   "top_k": 10,
+   "rank1_value_musd": 21883.0,
+   "rank1_period": "2025-01-01..2025-03-31",
+   "rank1_members": [
+    "msft:MicrosoftThreeSixFiveCommercialProductsAndCloudServicesMember"
+   ],
+   "top3_scores": [
+    1.05,
+    1.05,
+    1.05
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "graphrag_store_msft_10q.duckdb",
+   "wording": "'quarter ended' wording",
+   "top_k": 3,
+   "rank1_value_musd": 241832.0,
+   "rank1_period": "2025-07-01..2026-03-31",
+   "rank1_members": [],
+   "top3_scores": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "rank1_is_needed_82886": false
+  },
+  {
+   "store": "graphrag_store_msft_10q.duckdb",
+   "wording": "'quarter ended' wording",
+   "top_k": 10,
+   "rank1_value_musd": 241832.0,
+   "rank1_period": "2025-07-01..2026-03-31",
+   "rank1_members": [],
+   "top3_scores": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "rank1_is_needed_82886": false
+  }
+ ],
+ "gsv0_msft_001_conclusion": "Not the store. For the gold wording both stores put Microsoft 365 product rows at the top, all scored 1.05 (tied), because 'three months' matches MicrosoftThreeSixFive members; which tied row is first changes with top_k (and with the store's row order), so rank 1 is not stable. 'Quarter ended' wording puts the nine-month total (241,832) at rank 1, the figure GraphRAG saw, which is itself a wrong-period value. For #68: break ties deterministically (period match first, then facts without dimensions)."
+}

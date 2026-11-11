@@ -1,0 +1,631 @@
+{
+ "_doc": "Week 8: RAG and GraphRAG side by side on one full question set (11/5 minutes, Eval item 1).",
+ "commits": {
+  "KPMG_RAG": "5bfafeb (main, 11/5)",
+  "KPMG-GraphRAG": "4e89acb (main, 11/11; called through graphrag.backends)",
+  "KPMG-GraphRAG ex21": "c21fe89 (alina/ex21-pipeline, 11/8)",
+  "data_engineering_kpmg": "f8d18e2"
+ },
+ "top_k": 8,
+ "filing": "0001193125-26-191507",
+ "part_a": {
+  "n_questions": 84,
+  "kinds": {
+   "number": 50,
+   "prose": 27,
+   "unanswerable_or_false_premise": 7
+  },
+  "summary": {
+   "rag_bm25": {
+    "needed_in_evidence_all": {
+     "rate": 0.922,
+     "n": 77,
+     "hits": 71
+    },
+    "numbers": {
+     "rate": 0.98,
+     "n": 50,
+     "hits": 49
+    },
+    "prose": {
+     "rate": 0.815,
+     "n": 27,
+     "hits": 22
+    },
+    "distractor_shown_on_numbers": {
+     "rate": 0.917,
+     "n": 36,
+     "hits": 33
+    },
+    "top1_right_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
+    "top1_wrong_period_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
+    "returned_nothing_on_unanswerable": {
+     "hits": 0,
+     "n": 7
+    },
+    "returned_nothing_on_answerable": 0,
+    "median_ms": 0.8,
+    "by_question_type": {
+     "calculation": {
+      "rate": 0.933,
+      "n": 15,
+      "hits": 14
+     },
+     "comparison": {
+      "rate": 1.0,
+      "n": 2,
+      "hits": 2
+     },
+     "definition": {
+      "rate": 0.889,
+      "n": 9,
+      "hits": 8
+     },
+     "derived": {
+      "rate": 1.0,
+      "n": 1,
+      "hits": 1
+     },
+     "event": {
+      "rate": 1.0,
+      "n": 1,
+      "hits": 1
+     },
+     "extraction": {
+      "rate": 1.0,
+      "n": 19,
+      "hits": 19
+     },
+     "narrative": {
+      "rate": 0.765,
+      "n": 17,
+      "hits": 13
+     },
+     "reconciliation": {
+      "rate": 1.0,
+      "n": 6,
+      "hits": 6
+     },
+     "segment": {
+      "rate": 1.0,
+      "n": 7,
+      "hits": 7
+     }
+    }
+   },
+   "rag_hybrid": {
+    "needed_in_evidence_all": {
+     "rate": 0.831,
+     "n": 77,
+     "hits": 64
+    },
+    "numbers": {
+     "rate": 0.82,
+     "n": 50,
+     "hits": 41
+    },
+    "prose": {
+     "rate": 0.852,
+     "n": 27,
+     "hits": 23
+    },
+    "distractor_shown_on_numbers": {
+     "rate": 0.833,
+     "n": 36,
+     "hits": 30
+    },
+    "top1_right_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
+    "top1_wrong_period_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
+    "returned_nothing_on_unanswerable": {
+     "hits": 0,
+     "n": 7
+    },
+    "returned_nothing_on_answerable": 0,
+    "median_ms": 3.2,
+    "by_question_type": {
+     "calculation": {
+      "rate": 0.8,
+      "n": 15,
+      "hits": 12
+     },
+     "comparison": {
+      "rate": 0.5,
+      "n": 2,
+      "hits": 1
+     },
+     "definition": {
+      "rate": 0.889,
+      "n": 9,
+      "hits": 8
+     },
+     "derived": {
+      "rate": 0.0,
+      "n": 1,
+      "hits": 0
+     },
+     "event": {
+      "rate": 1.0,
+      "n": 1,
+      "hits": 1
+     },
+     "extraction": {
+      "rate": 0.895,
+      "n": 19,
+      "hits": 17
+     },
+     "narrative": {
+      "rate": 0.824,
+      "n": 17,
+      "hits": 14
+     },
+     "reconciliation": {
+      "rate": 0.667,
+      "n": 6,
+      "hits": 4
+     },
+     "segment": {
+      "rate": 1.0,
+      "n": 7,
+      "hits": 7
+     }
+    }
+   },
+   "graphrag_structured": {
+    "needed_in_evidence_all": {
+     "rate": 0.312,
+     "n": 77,
+     "hits": 24
+    },
+    "numbers": {
+     "rate": 0.48,
+     "n": 50,
+     "hits": 24
+    },
+    "prose": {
+     "rate": 0.0,
+     "n": 27,
+     "hits": 0
+    },
+    "distractor_shown_on_numbers": {
+     "rate": 0.5,
+     "n": 36,
+     "hits": 18
+    },
+    "top1_right_on_numbers": {
+     "rate": 0.26,
+     "n": 50,
+     "hits": 13
+    },
+    "top1_wrong_period_on_numbers": {
+     "rate": 0.139,
+     "n": 36,
+     "hits": 5
+    },
+    "returned_nothing_on_unanswerable": {
+     "hits": 0,
+     "n": 7
+    },
+    "returned_nothing_on_answerable": 0,
+    "median_ms": 90.8,
+    "by_question_type": {
+     "calculation": {
+      "rate": 0.2,
+      "n": 15,
+      "hits": 3
+     },
+     "comparison": {
+      "rate": 1.0,
+      "n": 2,
+      "hits": 2
+     },
+     "definition": {
+      "rate": 0.0,
+      "n": 9,
+      "hits": 0
+     },
+     "derived": {
+      "rate": 0.0,
+      "n": 1,
+      "hits": 0
+     },
+     "event": {
+      "rate": 0.0,
+      "n": 1,
+      "hits": 0
+     },
+     "extraction": {
+      "rate": 0.737,
+      "n": 19,
+      "hits": 14
+     },
+     "narrative": {
+      "rate": 0.0,
+      "n": 17,
+      "hits": 0
+     },
+     "reconciliation": {
+      "rate": 0.167,
+      "n": 6,
+      "hits": 1
+     },
+     "segment": {
+      "rate": 0.571,
+      "n": 7,
+      "hits": 4
+     }
+    },
+    "number_miss_diagnosis": {
+     "counts": {
+      "in_top50_ranked_below_8": 14,
+      "ranked_below_8_period_word_matches_member": 6,
+      "multi_input_not_all_in_top50": 10,
+      "single_input_not_in_top50": 2
+     },
+     "qids": {
+      "in_top50_ranked_below_8": [
+       "GSv0-MSFT-001",
+       "GSv0-MSFT-013",
+       "GSv0-MSFT-015",
+       "GSv0-MSFT-016",
+       "GSv0-MSFT-025",
+       "EV1-007",
+       "EV1-015",
+       "EV1-020",
+       "EV1-021",
+       "EV1-023",
+       "EV1-032",
+       "EV1-036",
+       "EV1-042",
+       "EV1-043"
+      ],
+      "ranked_below_8_period_word_matches_member": [
+       "GSv0-MSFT-001",
+       "GSv0-MSFT-013",
+       "GSv0-MSFT-025",
+       "EV1-020",
+       "EV1-023",
+       "EV1-036"
+      ],
+      "multi_input_not_all_in_top50": [
+       "GSv0-MSFT-014",
+       "GSv0-MSFT-023",
+       "GSv0-MSFT-024",
+       "EV1-026",
+       "EV1-027",
+       "EV1-028",
+       "EV1-031",
+       "EV1-033",
+       "EV1-035",
+       "EV1-041"
+      ],
+      "single_input_not_in_top50": [
+       "EV1-012",
+       "EV1-014"
+      ]
+     }
+    }
+   }
+  },
+  "head_to_head_rag_bm25_vs_graphrag": {
+   "rag_only": 47,
+   "both": 24,
+   "neither": 6
+  },
+  "head_to_head_qids": {
+   "rag_only": [
+    "GSv0-MSFT-001",
+    "GSv0-MSFT-004",
+    "GSv0-MSFT-005",
+    "GSv0-MSFT-006",
+    "GSv0-MSFT-007",
+    "GSv0-MSFT-009",
+    "GSv0-MSFT-010",
+    "GSv0-MSFT-011",
+    "GSv0-MSFT-012",
+    "GSv0-MSFT-013",
+    "GSv0-MSFT-014",
+    "GSv0-MSFT-015",
+    "GSv0-MSFT-016",
+    "GSv0-MSFT-017",
+    "GSv0-MSFT-019",
+    "GSv0-MSFT-020",
+    "GSv0-MSFT-021",
+    "GSv0-MSFT-022",
+    "GSv0-MSFT-023",
+    "GSv0-MSFT-024",
+    "GSv0-MSFT-025",
+    "GSv0-MSFT-026",
+    "GSv0-MSFT-027",
+    "GSv0-MSFT-028",
+    "GSv0-MSFT-029",
+    "EV1-007",
+    "EV1-012",
+    "EV1-014",
+    "EV1-015",
+    "EV1-020",
+    "EV1-021",
+    "EV1-023",
+    "EV1-026",
+    "EV1-027",
+    "EV1-028",
+    "EV1-031",
+    "EV1-032",
+    "EV1-033",
+    "EV1-036",
+    "EV1-041",
+    "EV1-042",
+    "EV1-043",
+    "EV1-046",
+    "EV1-047",
+    "EV1-048",
+    "EV1-049",
+    "EV1R-003"
+   ],
+   "both": [
+    "GSv0-MSFT-002",
+    "GSv0-MSFT-003",
+    "EV1-001",
+    "EV1-002",
+    "EV1-003",
+    "EV1-004",
+    "EV1-005",
+    "EV1-006",
+    "EV1-008",
+    "EV1-009",
+    "EV1-010",
+    "EV1-011",
+    "EV1-013",
+    "EV1-016",
+    "EV1-017",
+    "EV1-018",
+    "EV1-019",
+    "EV1-022",
+    "EV1-024",
+    "EV1-025",
+    "EV1-029",
+    "EV1-030",
+    "EV1-034",
+    "EV1-040"
+   ],
+   "neither": [
+    "GSv0-MSFT-008",
+    "GSv0-MSFT-018",
+    "GSv0-MSFT-030",
+    "EV1-035",
+    "EV1-044",
+    "EV1-045"
+   ]
+  }
+ },
+ "part_b": {
+  "n_questions": 9,
+  "ex21_chunks_added": 11,
+  "companies": [
+   "AAPL",
+   "CASY",
+   "MSFT",
+   "MU",
+   "NTAP"
+  ],
+  "rows_used": "GraphRAG ex21 pipeline",
+  "eval_vs_graphrag_rows": {
+   "AAPL": {
+    "eval_rows": 19,
+    "graphrag_rows": 19,
+    "names_in_both": 19,
+    "same_jurisdiction": 19
+   },
+   "CASY": {
+    "eval_rows": 9,
+    "graphrag_rows": 9,
+    "names_in_both": 9,
+    "same_jurisdiction": 9
+   },
+   "MU": {
+    "eval_rows": 21,
+    "graphrag_rows": 21,
+    "names_in_both": 21,
+    "same_jurisdiction": 21
+   },
+   "MSFT": {
+    "eval_rows": 8,
+    "graphrag_rows": 8,
+    "names_in_both": 8,
+    "same_jurisdiction": 8
+   },
+   "NTAP": {
+    "eval_rows": 5,
+    "graphrag_rows": 76,
+    "names_in_both": 5,
+    "same_jurisdiction": 5
+   }
+  },
+  "graph_correct": 9,
+  "rag_current_index": "Exhibit 21 not ingested (primaryDocument only), so 0 of these can be retrieved today",
+  "rag_with_ex21_all_rows_in_top8": 8,
+  "rag_with_ex21_tested": 9,
+  "questions": [
+   {
+    "qid": "EV1R-001",
+    "operation": "count subsidiaries, filter by jurisdiction",
+    "question": "In its fiscal year 2026 annual report, which subsidiaries does Microsoft list in Exhibit 21, and how many of them are incorporated outside the United States?",
+    "gold": "Eight subsidiaries; four are incorporated outside the US, all in Ireland: Microsoft Ireland Research Unlimited Company (Ireland); Microsoft Global Finance Unlimited Company (Ireland); Microsoft Ireland Operations Limited (Ireland); Microsoft Online, Inc. (United States); LinkedIn Corporation (United States); LinkedIn Ireland Unlimited Company (Ireland); Activision Blizzard, Inc. (United States); Activision Publishing, Inc. (United States).",
+    "graph_answer": "8 subsidiaries, 4 outside the US (Ireland)",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 8,
+    "rag_with_ex21_rows_in_top8": 8,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "MSFT"
+    ]
+   },
+   {
+    "qid": "EV1R-004",
+    "operation": "check an edge between two subsidiaries",
+    "question": "Is LinkedIn Ireland Unlimited Company a subsidiary of Activision Blizzard, Inc.?",
+    "gold": "The filing does not show that. Exhibit 21 lists both as subsidiaries of Microsoft and states no ownership between them.",
+    "graph_answer": "edge exists: False; owners: MSFT, MSFT",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 2,
+    "rag_with_ex21_rows_in_top8": 2,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "CASY",
+     "MSFT",
+     "MU",
+     "NTAP"
+    ]
+   },
+   {
+    "qid": "EV3-001",
+    "operation": "count subsidiaries, filter by jurisdiction",
+    "question": "In the Exhibit 21 of its fiscal 2026 annual report, how many subsidiaries does Micron list, and how many of them are organized outside the United States?",
+    "gold": "21 subsidiaries: 15 outside the U.S. (UK, Japan x3, Malaysia, Taiwan x3, Singapore x2, Cayman Islands, India x2, China, Netherlands) and 6 in U.S. states (Delaware x4, Idaho, Hawaii)",
+    "graph_answer": "21 subsidiaries, 15 outside the U.S.",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 21,
+    "rag_with_ex21_rows_in_top8": 21,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "MSFT",
+     "MU"
+    ]
+   },
+   {
+    "qid": "EV3-002",
+    "operation": "join two companies on jurisdiction",
+    "question": "Which countries outside the United States appear in both Apple's and Micron's Exhibit 21 subsidiary lists (Apple fiscal 2025, Micron fiscal 2026)?",
+    "gold": "China, India, Japan and Singapore (Hong Kong is Apple only; Taiwan, Malaysia, the UK, the Netherlands and the Cayman Islands are Micron only)",
+    "graph_answer": "China, India, Japan, Singapore",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 31,
+    "rag_with_ex21_rows_in_top8": 15,
+    "rag_with_ex21_all_rows_in_top8": false,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "MSFT",
+     "MU"
+    ]
+   },
+   {
+    "qid": "EV3-003",
+    "operation": "filter subsidiaries across three companies",
+    "question": "Apple, Casey's and Micron each list an insurance company among their subsidiaries. Name each one and where it is organized.",
+    "gold": "Apple: Apple Insurance Company, Inc. (Arizona); Casey's: CARES Captive Insurance Company (Iowa); Micron: S-Squared Insurance Company, Inc. (Hawaii)",
+    "graph_answer": "Apple Insurance Company, Inc. (Arizona); CARES Captive Insurance Company (Iowa); S-Squared Insurance Company, Inc. (Hawaii)",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 3,
+    "rag_with_ex21_rows_in_top8": 3,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "CASY",
+     "MSFT",
+     "MU",
+     "NTAP"
+    ]
+   },
+   {
+    "qid": "EV3-004",
+    "operation": "group by jurisdiction and count",
+    "question": "In which state are most of the subsidiaries in Casey's Exhibit 21 organized, and how many of the listed subsidiaries is that?",
+    "gold": "Iowa: 6 of the 9 listed subsidiaries (Texas 2, Delaware 1)",
+    "graph_answer": "Iowa: 6 of 9",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 9,
+    "rag_with_ex21_rows_in_top8": 9,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "CASY",
+     "MSFT",
+     "MU",
+     "NTAP"
+    ]
+   },
+   {
+    "qid": "EV3-005",
+    "operation": "filter by jurisdiction",
+    "question": "Which NetApp subsidiaries organized in Israel are listed in its fiscal 2026 Exhibit 21?",
+    "gold": "Cognigo Research Ltd, NetApp Israel R&D Ltd., NetApp Israel Sales Limited, Plexistor Ltd., Spotinst Ltd. (5)",
+    "graph_answer": "Cognigo Research Ltd, NetApp Israel R&D Ltd., NetApp Israel Sales Limited, Plexistor Ltd., Spotinst Ltd.",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 5,
+    "rag_with_ex21_rows_in_top8": 5,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "CASY",
+     "MSFT",
+     "MU",
+     "NTAP"
+    ]
+   },
+   {
+    "qid": "EV3-006",
+    "operation": "find the owner of a named subsidiary (fabricated link)",
+    "question": "Is Braeburn Capital, Inc. a subsidiary of Micron?",
+    "gold": "No: Braeburn Capital, Inc. (Nevada) is listed in Apple's Exhibit 21, not Micron's",
+    "graph_answer": "owner: AAPL",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 1,
+    "rag_with_ex21_rows_in_top8": 1,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "CASY",
+     "MSFT",
+     "MU",
+     "NTAP"
+    ]
+   },
+   {
+    "qid": "EV3-007",
+    "operation": "find the owner of a named subsidiary (false premise)",
+    "question": "Which Micron business owns Spotinst Ltd.?",
+    "gold": "Premise is false: Spotinst Ltd. (Israel) is a NetApp subsidiary, not a Micron business",
+    "graph_answer": "owner: NTAP",
+    "graph_correct": true,
+    "rag_current_index_has_exhibit21": false,
+    "rag_with_ex21_rows_needed": 1,
+    "rag_with_ex21_rows_in_top8": 1,
+    "rag_with_ex21_all_rows_in_top8": true,
+    "rag_with_ex21_tickers_in_top8": [
+     "AAPL",
+     "MSFT",
+     "MU",
+     "NTAP"
+    ]
+   }
+  ]
+ },
+ "not_run": {
+  "graphrag_graph_arm": "needs Neo4j (graphrag/graph_backend.py); its committed claims cover FY2025 10-Ks (15 claims each for MSFT, AAPL, JPM), none for this 10-Q"
+ },
+ "graphrag_store": "corpus_facts_postgres.duckdb"
+}

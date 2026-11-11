@@ -52,7 +52,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 0.8,
+    "median_ms": 0.7,
     "by_question_type": {
      "calculation": {
       "rate": 0.933,
@@ -137,7 +137,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 3.9,
+    "median_ms": 3.7,
     "by_question_type": {
      "calculation": {
       "rate": 0.8,
@@ -222,7 +222,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 62.3,
+    "median_ms": 61.0,
     "by_question_type": {
      "calculation": {
       "rate": 0.2,
@@ -625,5 +625,6 @@
  },
  "not_run": {
   "graphrag_graph_arm": "needs Neo4j (graphrag/graph_backend.py); its committed claims cover FY2025 10-Ks (15 claims each for MSFT, AAPL, JPM), none for this 10-Q"
- }
+ },
+ "graphrag_store": "graphrag_store_msft_10q.duckdb"
 }

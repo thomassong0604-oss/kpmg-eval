@@ -100,8 +100,8 @@ def s_scope(s, sbs, rt, mw):
     a, b = sbs["part_a"], sbs["part_b"]
     header(s, "Scope", "the Eval action items from the last two meetings, and where each one is answered")
     rows = [["Action item", "What we did", "Slide"],
-            ["Run round 1 in week 8 (minutes #5)", "RAG ran our scoring on Gold Set v2 (11/9); we fixed the anchors it flagged",
-             ("2", C["center"])],
+            ["Run round 1 in week 8 (minutes #5)", "RAG (11/9) and GraphRAG (11/11) ran our scoring; we reproduced both and "
+             "fixed what they flagged", ("2-4", C["center"])],
             ["Round 1 end to end (RAG's reader, 11/11)", "Reproduced RAG's scores with our graders; fixed the three grading "
              "notes in Gold Set v2.2", ("3", C["center"])],
             ["Run one question set on RAG and GraphRAG, side by side",
@@ -125,9 +125,9 @@ def s_scope(s, sbs, rt, mw):
                                   f"tool, {er['multi']} both. Microsoft has 92 of them, so per-route numbers on 1-{er['graph']} "
                                   "questions are examples, not estimates. They will move as questions are added. v2.2 keeps "
                                   "v2's questions and answers; it changes grading only (slide 3).", 8.5, False, INK)]])
-    footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 4e89acb (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
-                         "f8d18e2. No LLM is used in Eval's results; RAG's round-1 runs (slides 2-3) are re-scored here from the files they sent.",
-           "Source: Week 8/README.md; scripts/run_all.sh (95 tests pass)", y=4.42, w=7.6)
+    footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 21f0795 (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
+                         "7040b8a. No LLM is used in Eval's results; the teams' round-1 runs (slides 2-4) are re-scored here from the files they sent.",
+           "Source: Week 8/README.md; scripts/run_all.sh (96 tests pass)", y=4.42, w=7.6)
     notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
              "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. "
              "New since Sunday: RAG ran its reader end to end with our graders, which is slide 3. One caveat for everything that follows: the "
@@ -215,8 +215,8 @@ def s_answers(s, ans, g22, rt):
                                      "lookups show the number in a cited chunk.", 8, False, INK)]])
     n_ref = len(v22["refusal"]["answerable_refused"])
     tb(s, 0.12, 3.47, 5.25, 0.85, [[(f"Why {n_ref} answerable questions were declined: ", 8, True, NAVY),
-                                    ("7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which is not in the "
-                                     "chunks; 3 are cross-company rankings (one search per company); 2 state the answer but "
+                                    ("7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which Data holds for "
+                                     "review; 3 are cross-company rankings (one search per company); 2 state the answer but "
                                      "are marked not answered (GSv0-MSFT-023, EV1R-005); 1 retrieval miss.", 8, False, INK)]])
     x = 5.55
     label(s, x, 1.0, 4.25, "RAG's three grading notes, fixed in Gold Set v2.2", NAVY)
@@ -267,11 +267,19 @@ def s_side_by_side(s, sbs):
             [("RAG has it", {"bold": True}), (str(h.get("both", 0)), C["center"]), (str(h.get("rag_only", 0)), C["center"])],
             [("RAG misses", {"bold": True}), (str(h.get("graphrag_only", 0)), C["center"]), (str(h.get("neither", 0)), C["center"])]]
     table(s, x, 1.25, 3.7, [1.1, 1.3, 1.3], rows, row_h=0.27, name="Head to head")
+    gr = j(RES / "graphrag_round1_graphrag_aura.json")["summary"]
+    chk = j(RES / "graphrag_round1_check.json")
+    st, gt = gr["structured|translated"], gr["graph|translated"]
+    rp = chk["reproduction_structured_translated"]
     tb(s, x, 2.2, 3.8, 1.9, [[("How it was run. ", 8, True, INK),
-                              ("RAG: its chunker, index and Retriever.search with the question's filters. GraphRAG (main, "
-                               "11/11, via graphrag.backends): its fact loader built the store from Data's copy of the filing "
-                               "(1,317 facts), then structured_search. Its graph arm (696 claims for this filing) runs on an Aura "
-                               "database our workspace cannot reach, so GraphRAG will run our script for it.", 8, False, INK)],
+                              ("Each team's own code: RAG's chunker and Retriever.search; GraphRAG's fact loader on Data's "
+                               "copy of the filing, then structured_search.", 8, False, INK)],
+                             [(" ", 4, False, INK)],
+                             [("GraphRAG's own round 1, all 20 filings (11/11): ", 8, True, NAVY),
+                              (f"structured search has the needed number in its top 10 for {st['numbers']['hits']} of "
+                               f"{st['numbers']['n']}, at rank 1 for {st['top1_right']['hits']}; the graph arm, scored for "
+                               f"the first time, has the prose anchors for {gt['prose']['hits']} of {gt['prose']['n']}. Our "
+                               f"rerun on their store matches all {rp['questions_identical']} questions.", 8, False, INK)],
                              [(" ", 4, False, INK)],
                              [("Neither side returned an empty result ", 8, True, INK),
                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable questions, so abstaining stays "
@@ -286,7 +294,10 @@ def s_side_by_side(s, sbs):
              "the evidence each returns contains what the answer needs. RAG finds the numbers in 49 of 50 questions, GraphRAG in "
              "25, and only RAG returns prose. GraphRAG's strength shows in the third pair of bars: its facts are labelled with "
              "the period, so a wrong-period figure appears much less often. Neither returns nothing on unanswerable questions, so "
-             "the decision to abstain belongs to the Agents' step.")
+             "the decision to abstain belongs to the Agents' step. GraphRAG also ran round 1 on all 20 filings with our script: "
+             "structured search has the right number in its top ten for about two thirds of number questions but at rank one "
+             "for under a third, which is the ranking work they have open, and the graph arm scored for the first time. We "
+             "re-ran their structured arm on their own store and matched every question.")
 
 
 def s_better(s, sbs):
@@ -507,17 +518,17 @@ def s_next(s):
     header(s, "Next steps", "after round 1: one ask per team")
     rows = [["Team", "Ask (from this week's results)"],
             [("RAG", {"bold": True}), "Run our narrative judge with your key (or lend one); mark answers that state the figure as "
-                                      "answered; add NetApp's 10-Q to the chunks; try candidate k and fusion weights on the 6 near misses"],
-            [("GraphRAG", {"bold": True}), "Run our round-1 script with your Aura graph and send the results; share the 20-filing "
-                                           "store; accept accession filters in place of fiscal labels; read periods when ranking"],
-            [("Agents", {"bold": True}), "Split cross-company and 10-K + 10-Q questions into one search each; match tickers and "
-                                         "near-miss names; run your orchestrator through our routing scorer"],
-            [("Data", {"bold": True}), "Keep the 11/03 freeze (matches our 21/21) through round 1; then load Microsoft's FY2024 and "
+                                      "answered; try candidate k and fusion weights on the 6 near misses"],
+            [("GraphRAG", {"bold": True}), "Rank by period and break ties (#68: right number in the top 10 on 63/93, at rank 1 on "
+                                           "26); re-run the graph arm on v2.2 with #70; push the filled hops; Exhibit 21 into Aura"],
+            [("Agents", {"bold": True}), "Always send ticker and accession; split cross-company and 10-K + 10-Q questions into one "
+                                         "search each; match tickers and near-miss names; run your orchestrator through our scorer"],
+            [("Data", {"bold": True}), "Round 1 ran on 20 filings (NetApp's 10-Q held for review); now load Microsoft's FY2024 and "
                                        "FY2025 10-Ks, already in your inventory (joint ask with GraphRAG)"],
             [("Eval", {"bold": True}), "Hand-label the 28 narrative answers to validate the judge; score the Agents' first end-to-end "
                                        "run with the same grader; add the new candidates after round 1; grow the 1 'both' and 8 'no tool' routes"]]
     table(s, 0.12, 1.0, 9.68, [1.0, 8.68], rows, row_h=0.46, sizes={0: 8.5, 1: 8}, name="Asks")
-    footer(s, "Thanks:", "RAG ran round 1 twice and traced every miss and grading issue, which is how we found our errors. RAG's retriever and "
+    footer(s, "Thanks:", "RAG ran round 1 twice and GraphRAG ran both arms, and both traced their misses, which is how we found our errors. RAG's retriever and "
                          "GraphRAG's fact loader ran here unchanged, and GraphRAG's Exhibit 21 output fed the relationship check.",
            "Source: Week 8/FOR_TEAMS_W8.md (one section per team, with file paths)", y=4.42, w=7.6)
     notes(s, "One ask per team for round 1, each tied to a result from today. Both RAG and GraphRAG's code ran here unchanged, "
