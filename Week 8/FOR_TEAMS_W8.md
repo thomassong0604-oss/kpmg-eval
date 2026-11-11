@@ -79,10 +79,11 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
   Our rerun on your store matches your structured arm on all 155 questions. Details and the GSv0-MSFT-001 answer (the
   gold wording ties Microsoft 365 rows at 1.05, so rank 1 is unstable; not the store) in
   [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md).
-- **Hops (11/11): thank you.** Merged into `data/hops_v2.csv`, blank on the 95 XBRL questions as you intended; the sheet keeps your hops and our reference edges side by side, since the ontologies differ (EV3-002: 2 vs 4).
+- **Graph arm, by section scope:** it found the prose anchors for 10 of the 20 questions whose text sits in the five section types it holds, and 0 of the 18 outside them (notes to the statements, Exhibit 21, NetApp's 10-Q). Adding the notes would bring 10 more within reach.
+- **Hops (11/11, PR #71): thank you.** Merged into `data/hops_v2.csv` from PR #71, blank on the XBRL questions as you intended; dropped Aura connections are retried and never scored as arm failures; the sheet keeps your hops and our reference edges side by side, since the ontologies differ (EV3-002: 2 vs 4).
 - **#70 confirmed:** gold filters now run with 0 errors on the structured arm; lists work, so multi-filing questions
   get lists of tickers and accessions.
-- **Asks:** re-run the graph arm on Gold Set v2.2 with #70 (`--tag graphrag_aura_v2_2`); look at 6 rows of the merged hops sheet (`eval_check`); for #68, a deterministic tie-breaker and no non-numeric facts on number questions.
+- **Asks:** re-run the graph arm on Gold Set v2.2 with #70 (`--tag graphrag_aura_v2_2`); consider adding the notes to the statements to the graph's sections; for #68, a deterministic tie-breaker and no non-numeric facts on number questions.
 - **Your 11/11 reply is answered point by point in [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md):** harness on
   `graphrag.backends`; dims list/dict fixed; hops split adopted (`data/hops_v2.csv`, `filings` filled by Eval); M17
   already reworded; M08 as an abstention candidate; the graph arm refuses fiscal labels on 129 questions, so we send

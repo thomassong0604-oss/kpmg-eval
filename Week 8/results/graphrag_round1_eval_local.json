@@ -34,6 +34,8 @@
   "structured|gold": {
    "calls": 155,
    "errors": 0,
+   "infra_errors": 0,
+   "retried_calls": 0,
    "error_types": {},
    "skipped_filing_not_in_store": 67,
    "numbers": {
@@ -70,6 +72,8 @@
   "structured|translated": {
    "calls": 155,
    "errors": 0,
+   "infra_errors": 0,
+   "retried_calls": 0,
    "error_types": {},
    "skipped_filing_not_in_store": 67,
    "numbers": {

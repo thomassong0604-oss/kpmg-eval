@@ -373,6 +373,55 @@
   "questions_with_a_different_rank1_fact": 14,
   "note": "Most rank-1 differences are ties: the same concept with equal scores, ordered differently by each store (e.g. cash 11,711 vs 12,731). EV1-015 is the one score change: on GraphRAG's store a date fact (DividendsPayableDateDeclared) outranks the dividend per share. GraphRAG's store holds 1,511 facts for this 10-Q against 1,317 in Eval's build, more of them non-numeric."
  },
+ "graph_prose_by_scope": {
+  "in_scope": {
+   "hits": 10,
+   "n": 20,
+   "qids_hit": [
+    "EV1-044",
+    "EV1-048",
+    "EV2-041",
+    "GSv0-MSFT-004",
+    "GSv0-MSFT-010",
+    "GSv0-MSFT-017",
+    "GSv0-MSFT-019",
+    "GSv0-MSFT-020",
+    "GSv0-MSFT-021",
+    "GSv0-MSFT-022"
+   ]
+  },
+  "outside_scope": {
+   "hits": 0,
+   "n": 10,
+   "qids": [
+    "EV1-047",
+    "GSv0-MSFT-006",
+    "GSv0-MSFT-007",
+    "GSv0-MSFT-008",
+    "GSv0-MSFT-009",
+    "GSv0-MSFT-011",
+    "GSv0-MSFT-012",
+    "GSv0-MSFT-028",
+    "GSv0-MSFT-029",
+    "GSv0-MSFT-030"
+   ]
+  },
+  "not_in_corpus_or_chunks": {
+   "hits": 0,
+   "n": 8,
+   "qids": [
+    "EV1R-001",
+    "EV3-001",
+    "EV3-002",
+    "EV3-003",
+    "EV3-004",
+    "EV3-005",
+    "EV3-008",
+    "EV3-009"
+   ]
+  },
+  "note": "Graph arm, translated filters, Gold Set v2.1 as GraphRAG ran it. 'outside_scope': the anchor is only in sections the graph does not hold (mostly the notes to the statements); 'not_in_corpus_or_chunks': Exhibit 21 or NetApp's 10-Q. Section types from RAG's chunks, a proxy for GraphRAG's own parsing."
+ },
  "gsv0_msft_001_rank1": [
   {
    "store": "corpus_facts_postgres.duckdb",

@@ -248,4 +248,21 @@ def test_hops_sheet_merges_graphrag_and_keeps_both_ontologies():
     assert sum(r["graph_note"].startswith("XBRL facts are not in the graph") and not r["hops"] for r in rows.values()) == 95
     assert rows["EV3-002"]["hops"] == "2" and rows["EV3-002"]["eval_reference_edges"] == "4"   # ontology, not counting
     assert rows["EV1R-002"]["route_expected"] == "text"                                         # v2.2 route kept
-    assert "fiscal-label" in rows["EV3-008"]["eval_check"] and "false-premise" in rows["EV1-068"]["eval_check"]
+    # after GraphRAG's PR #71 (Eval's row check acted on): false premises take their route's support, EV1R-001 blocked
+    assert rows["EV1-068"]["eval_check"] == "ok" and rows["EV1R-001"]["graph_support"] == "blocked"
+    # Eval's checks now: NetApp's 10-Q is not in the corpus; anchors in the notes are outside the graph's sections
+    assert "not in the 20-filing corpus" in rows["EV3-008"]["eval_check"]
+    assert "outside the five section types" in rows["GSv0-MSFT-006"]["eval_check"]
+
+
+def test_dropped_connections_are_infra_not_arm_failures():
+    import run_graphrag_round1 as r1
+    assert r1.is_transient("ServiceUnavailable: Failed to read from defunct connection IPv4Address(('x', 7687))")
+    assert not r1.is_transient("FilterNotSupportedError: the graph arm cannot filter on fiscal_year")
+
+
+def test_graph_arm_prose_split_by_section_scope():
+    import json
+    g = json.loads((ROOT / "results" / "graphrag_round1_check.json").read_text())["graph_prose_by_scope"]
+    assert (g["in_scope"]["hits"], g["in_scope"]["n"]) == (10, 20)
+    assert g["outside_scope"]["hits"] == 0 and g["not_in_corpus_or_chunks"]["hits"] == 0

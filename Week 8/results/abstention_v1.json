@@ -176,7 +176,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 13.380278,
+   "top1_score": 13.380279,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -184,7 +184,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-002",
@@ -193,7 +193,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 17.203857,
+   "top1_score": 17.203859,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -201,7 +201,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-003",
@@ -218,7 +218,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-004",
@@ -232,7 +232,7 @@
     "ticker": "MSFT"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-005",
@@ -246,7 +246,7 @@
     "ticker": "MSFT"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-006",
@@ -260,7 +260,7 @@
     "ticker": "MSFT"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-007",
@@ -269,12 +269,12 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.563877,
+   "top1_score": 18.563875,
    "filters": {
     "ticker": "MSFT"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-008",
@@ -297,12 +297,12 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 24.462509,
+   "top1_score": 24.462507,
    "filters": {
     "ticker": "MSFT"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-010",
@@ -315,8 +315,8 @@
    "filters": {
     "ticker": "MSFT"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-011",
@@ -325,12 +325,12 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 24.824577,
+   "top1_score": 24.824575,
    "filters": {
     "ticker": "MSFT"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-012",
@@ -339,12 +339,12 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 9.568743,
+   "top1_score": 9.568744,
    "filters": {
     "ticker": "MSFT"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-013",
@@ -353,15 +353,15 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.582191,
+   "top1_score": 18.582188,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-014",
@@ -370,13 +370,13 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 26.972282,
+   "top1_score": 26.972281,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-015",
@@ -385,15 +385,15 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 31.047985,
+   "top1_score": 31.047983,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-016",
@@ -402,14 +402,14 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 22.589361,
+   "top1_score": 22.589359,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-017",
@@ -426,7 +426,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-018",
@@ -441,7 +441,7 @@
     "form": "10-Q"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-019",
@@ -457,7 +457,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-020",
@@ -488,7 +488,7 @@
     "form": "10-Q"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-022",
@@ -511,7 +511,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 28.577946,
+   "top1_score": 28.577948,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -519,7 +519,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-024",
@@ -528,7 +528,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 24.953115,
+   "top1_score": 24.953114,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -536,7 +536,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-025",
@@ -545,13 +545,13 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 15.01874,
+   "top1_score": 15.018739,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-026",
@@ -581,7 +581,7 @@
     "form": "10-Q"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "GSv0-MSFT-028",
@@ -594,8 +594,8 @@
    "filters": {
     "ticker": "MSFT"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-029",
@@ -604,12 +604,12 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.624359,
+   "top1_score": 18.624357,
    "filters": {
     "ticker": "MSFT"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "GSv0-MSFT-030",
@@ -623,7 +623,7 @@
     "ticker": "MSFT"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-001",
@@ -632,7 +632,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 14.145569,
+   "top1_score": 14.14557,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -640,7 +640,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "EV1-002",
@@ -657,7 +657,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-003",
@@ -666,7 +666,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 17.181942,
+   "top1_score": 17.181944,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -674,7 +674,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-004",
@@ -691,7 +691,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "EV1-005",
@@ -725,7 +725,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-007",
@@ -758,7 +758,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-009",
@@ -767,14 +767,14 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.528759,
+   "top1_score": 18.528757,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-010",
@@ -783,7 +783,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 13.479191,
+   "top1_score": 13.479192,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
@@ -799,14 +799,14 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 14.663604,
+   "top1_score": 14.663605,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-012",
@@ -815,14 +815,14 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 12.35509,
+   "top1_score": 12.355089,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-013",
@@ -831,7 +831,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 19.832455,
+   "top1_score": 19.832457,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -839,7 +839,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-014",
@@ -848,7 +848,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.630022,
+   "top1_score": 18.630024,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -856,7 +856,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-015",
@@ -865,7 +865,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 16.012033,
+   "top1_score": 16.012035,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -873,7 +873,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "EV1-016",
@@ -906,8 +906,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-018",
@@ -924,7 +924,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-019",
@@ -940,8 +940,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-020",
@@ -950,7 +950,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.609186,
+   "top1_score": 18.609184,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -958,7 +958,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-021",
@@ -974,8 +974,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-022",
@@ -992,7 +992,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-023",
@@ -1001,7 +1001,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 20.650352,
+   "top1_score": 20.650354,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1009,7 +1009,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-024",
@@ -1018,7 +1018,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 13.4607,
+   "top1_score": 13.460702,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1026,7 +1026,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-025",
@@ -1043,7 +1043,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "EV1-026",
@@ -1052,15 +1052,15 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 18.174595,
+   "top1_score": 18.174593,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-027",
@@ -1069,15 +1069,15 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 21.852396,
+   "top1_score": 21.852398,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-028",
@@ -1093,8 +1093,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-029",
@@ -1111,7 +1111,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-030",
@@ -1127,8 +1127,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-031",
@@ -1154,7 +1154,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 27.00675,
+   "top1_score": 27.006752,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1162,7 +1162,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-033",
@@ -1171,7 +1171,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 19.470385,
+   "top1_score": 19.470383,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1188,14 +1188,14 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 15.614121,
+   "top1_score": 15.614122,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "EV1-035",
@@ -1204,15 +1204,15 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 21.546989,
+   "top1_score": 21.546988,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-036",
@@ -1221,7 +1221,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 14.484435,
+   "top1_score": 14.484437,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1229,7 +1229,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-040",
@@ -1246,7 +1246,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-041",
@@ -1262,8 +1262,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-042",
@@ -1272,7 +1272,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 26.691694,
+   "top1_score": 26.691696,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1289,15 +1289,15 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 27.567743,
+   "top1_score": 27.567745,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-044",
@@ -1306,7 +1306,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 19.894281,
+   "top1_score": 19.894283,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1330,8 +1330,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "EV1-046",
@@ -1345,7 +1345,7 @@
     "ticker": "MSFT"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-047",
@@ -1359,7 +1359,7 @@
     "ticker": "MSFT"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-048",
@@ -1368,14 +1368,14 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 31.148018,
+   "top1_score": 31.148016,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-049",
@@ -1384,7 +1384,7 @@
    "kind": "answerable",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 23.11874,
+   "top1_score": 23.118742,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1392,7 +1392,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-061",
@@ -1409,7 +1409,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "EV1-062",
@@ -1418,7 +1418,7 @@
    "kind": "benchmark_unanswerable",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 9.886028,
+   "top1_score": 9.886029,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
@@ -1442,7 +1442,7 @@
     "fiscal_period": "FY"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-064",
@@ -1459,7 +1459,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-065",
@@ -1468,7 +1468,7 @@
    "kind": "benchmark_unanswerable",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 13.684208,
+   "top1_score": 13.684207,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1476,7 +1476,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-066",
@@ -1492,7 +1492,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-067",
@@ -1501,7 +1501,7 @@
    "kind": "benchmark_unanswerable",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 11.744072,
+   "top1_score": 11.744071,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q"
@@ -1516,7 +1516,7 @@
    "kind": "false_premise",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 11.702329,
+   "top1_score": 11.70233,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1524,7 +1524,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "EV1-069",
@@ -1558,7 +1558,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-001",
@@ -1575,7 +1575,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-002",
@@ -1592,7 +1592,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-003",
@@ -1601,7 +1601,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 16.329216,
+   "top1_score": 16.329218,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1609,7 +1609,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-004",
@@ -1626,7 +1626,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-005",
@@ -1635,7 +1635,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 14.757568,
+   "top1_score": 14.757567,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1643,7 +1643,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-006",
@@ -1660,7 +1660,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-007",
@@ -1677,7 +1677,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-008",
@@ -1694,7 +1694,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-009",
@@ -1711,7 +1711,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-010",
@@ -1728,7 +1728,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-011",
@@ -1737,7 +1737,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 16.307301,
+   "top1_score": 16.307302,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1745,7 +1745,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-012",
@@ -1762,7 +1762,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-013",
@@ -1779,7 +1779,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-014",
@@ -1796,7 +1796,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-015",
@@ -1805,7 +1805,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 14.617413,
+   "top1_score": 14.617414,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -1847,7 +1847,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-018",
@@ -1880,7 +1880,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-020",
@@ -1896,7 +1896,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-021",
@@ -1905,14 +1905,14 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 18.01639,
+   "top1_score": 18.016388,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2027,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-022",
@@ -1928,7 +1928,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-023",
@@ -1937,7 +1937,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 12.966823,
+   "top1_score": 12.966824,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2027,
@@ -1976,7 +1976,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-026",
@@ -1992,7 +1992,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-027",
@@ -2007,8 +2007,8 @@
     "fiscal_year": 2027,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-028",
@@ -2023,8 +2023,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q1"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-029",
@@ -2041,7 +2041,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-030",
@@ -2058,7 +2058,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-031",
@@ -2067,7 +2067,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 17.778238,
+   "top1_score": 17.77824,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2075,7 +2075,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-032",
@@ -2092,7 +2092,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-033",
@@ -2125,8 +2125,8 @@
     "fiscal_year": 2027,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-035",
@@ -2143,7 +2143,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-036",
@@ -2159,8 +2159,8 @@
     "fiscal_year": 2027,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-037",
@@ -2169,7 +2169,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 17.650978,
+   "top1_score": 17.650976,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2177,7 +2177,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-038",
@@ -2194,7 +2194,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-039",
@@ -2210,8 +2210,8 @@
     "fiscal_year": 2027,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-040",
@@ -2220,7 +2220,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 21.323725,
+   "top1_score": 21.323727,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2228,7 +2228,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-041",
@@ -2237,7 +2237,7 @@
    "kind": "future_period",
    "answerable": false,
    "scope_refusal": "period_not_in_corpus",
-   "top1_score": 19.51066,
+   "top1_score": 19.510662,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2245,7 +2245,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-042",
@@ -2262,7 +2262,7 @@
     "fiscal_period": "Q1"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-043",
@@ -2279,7 +2279,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-044",
@@ -2294,8 +2294,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-045",
@@ -2304,7 +2304,7 @@
    "kind": "not_disclosed",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 11.575368,
+   "top1_score": 11.575369,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
@@ -2328,7 +2328,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-047",
@@ -2337,7 +2337,7 @@
    "kind": "not_disclosed",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 14.281765,
+   "top1_score": 14.281766,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2345,7 +2345,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 17.687433,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-048",
@@ -2354,14 +2354,14 @@
    "kind": "not_disclosed",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 5.944635,
+   "top1_score": 5.944636,
    "filters": {
     "ticker": "MSFT",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-049",
@@ -2370,7 +2370,7 @@
    "kind": "not_disclosed",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 10.730268,
+   "top1_score": 10.730267,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2378,7 +2378,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-050",
@@ -2387,7 +2387,7 @@
    "kind": "not_disclosed",
    "answerable": false,
    "scope_refusal": null,
-   "top1_score": 24.593351,
+   "top1_score": 24.593349,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
@@ -2395,7 +2395,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 16.433109,
-   "threshold": 10.197301
+   "threshold": 10.1973
   },
   {
    "id": "AB-051",
@@ -2411,8 +2411,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-052",
@@ -2428,8 +2428,8 @@
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-053",
@@ -2463,7 +2463,7 @@
     "fiscal_period": "Q3"
    },
    "threshold_balanced": 15.566538,
-   "threshold": 9.568743
+   "threshold": 9.568744
   },
   {
    "id": "AB-055",
@@ -2472,15 +2472,15 @@
    "kind": "false_premise",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 10.197301,
+   "top1_score": 10.1973,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   },
   {
    "id": "AB-056",
@@ -2489,15 +2489,15 @@
    "kind": "false_premise",
    "answerable": true,
    "scope_refusal": null,
-   "top1_score": 16.781279,
+   "top1_score": 16.781277,
    "filters": {
     "ticker": "MSFT",
     "form": "10-Q",
     "fiscal_year": 2026,
     "fiscal_period": "Q3"
    },
-   "threshold_balanced": 14.484435,
-   "threshold": 9.568743
+   "threshold_balanced": 14.484437,
+   "threshold": 9.568744
   }
  ]
 }

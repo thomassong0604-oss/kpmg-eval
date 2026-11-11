@@ -58,6 +58,17 @@ def store_contents() -> tuple[set[str], set[str]] | None:
         con.close()
 
 
+# Dropped connections are the database host's, not the arm's (GraphRAG, 11/11: Aura's free tier drops connections
+# mid-run; EV3-007 hit "Failed to read from defunct connection" and succeeded on retry). Retried, and if they persist
+# reported as infra errors, never scored as an arm failure. (Errored calls never enter a rate's denominator either.)
+TRANSIENT = ("defunct connection", "serviceunavailable", "sessionexpired", "connection reset", "connection refused",
+             "connection closed", "timed out")
+
+
+def is_transient(msg: str) -> bool:
+    return any(t in msg.lower() for t in TRANSIENT)
+
+
 def store_meta() -> dict | None:
     """File name and store_meta_v1 of the structured store (no local path, so results can be shared)."""
     path = os.environ.get("MSFT_FACT_DB_PATH")
@@ -122,6 +133,7 @@ def main():
     ap.add_argument("--gold", default=str(DATA / "benchmark_v2_2.jsonl"))
     ap.add_argument("--tag", default="eval_local")
     ap.add_argument("--k", type=int, default=K)
+    ap.add_argument("--retries", type=int, default=3, help="attempts per call when the database drops the connection")
     args = ap.parse_args()
     if "MSFT_FACT_DB_PATH" not in os.environ and (ROOT / "upstream" / "graphrag_store_msft_10q.duckdb").exists():
         os.environ["MSFT_FACT_DB_PATH"] = str(ROOT / "upstream" / "graphrag_store_msft_10q.duckdb")
@@ -153,14 +165,24 @@ def main():
                 base = {"qid": q["qid"], "arm": arm, "filters_mode": mode, "kind": sbs.kind(q), "type": q["type"],
                         "route_expected": q["route_expected"], "required_filings": len(need), "translation": how,
                         "filing_in_store": covered, "filters": json.dumps(filters)}
-                t0 = time.perf_counter()
-                try:
-                    ev = arms[arm](q["question"], filters=filters, top_k=args.k, trace_id=f"{args.tag}:{q['qid']}:{arm}:{mode}")
-                    rows.append({**base, "error": None, **score(q, arm, ev, need),
-                                 "ms": round((time.perf_counter() - t0) * 1000, 1)})
-                except Exception as exc:  # noqa: BLE001 - recorded per call
-                    rows.append({**base, "error": f"{type(exc).__name__}: {str(exc)[:160]}", "n_returned": 0,
-                                 "ms": round((time.perf_counter() - t0) * 1000, 1)})
+                t0, attempt = time.perf_counter(), 0
+                while True:
+                    attempt += 1
+                    try:
+                        ev = arms[arm](q["question"], filters=filters, top_k=args.k,
+                                       trace_id=f"{args.tag}:{q['qid']}:{arm}:{mode}")
+                        rows.append({**base, "error": None, "error_class": None, "attempts": attempt,
+                                     **score(q, arm, ev, need), "ms": round((time.perf_counter() - t0) * 1000, 1)})
+                        break
+                    except Exception as exc:  # noqa: BLE001 - recorded per call
+                        msg = f"{type(exc).__name__}: {str(exc)[:160]}"
+                        if is_transient(msg) and attempt < args.retries:
+                            time.sleep(attempt)
+                            continue
+                        rows.append({**base, "error": msg, "error_class": "infra" if is_transient(msg) else "arm",
+                                     "attempts": attempt, "n_returned": 0,
+                                     "ms": round((time.perf_counter() - t0) * 1000, 1)})
+                        break
 
     summary = {}
     for arm in sorted(live):
@@ -169,7 +191,9 @@ def main():
             scored = [r for r in rs if r["filing_in_store"] is not False]   # skip questions whose filing is not loaded
             ans = [r for r in scored if r["kind"] != "unanswerable_or_false_premise" and not r["error"]]
             summary[f"{arm}|{mode}"] = {
-                "calls": len(rs), "errors": sum(bool(r["error"]) for r in rs),
+                "calls": len(rs), "errors": sum(bool(r["error"]) and r.get("error_class") != "infra" for r in rs),
+                "infra_errors": sum(r.get("error_class") == "infra" for r in rs),
+                "retried_calls": sum((r.get("attempts") or 1) > 1 for r in rs),
                 "error_types": dict(Counter(r["error"].split(":")[0] for r in rs if r["error"])),
                 "skipped_filing_not_in_store": sum(r["filing_in_store"] is False for r in rs),
                 "numbers": rate([r for r in ans if r["kind"] == "number"], "needed_in_evidence"),
@@ -188,7 +212,7 @@ def main():
     (RES / f"graphrag_round1_{args.tag}.json").write_text(json.dumps(out, indent=1))
     with open(RES / f"graphrag_round1_{args.tag}.csv", "w", newline="") as f:
         cols = ["qid", "arm", "filters_mode", "kind", "type", "route_expected", "required_filings", "translation",
-                "filing_in_store", "error", "needed_in_evidence", "strict", "distractor_shown", "top1_right",
+                "filing_in_store", "error", "error_class", "attempts", "needed_in_evidence", "strict", "distractor_shown", "top1_right",
                 "top1_wrong_period", "returned_nothing", "n_returned", "ms", "filters"]
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()

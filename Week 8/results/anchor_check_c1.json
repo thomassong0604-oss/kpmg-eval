@@ -130,6 +130,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -144,6 +148,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -153,6 +161,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -165,6 +176,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0041",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0079"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -176,6 +191,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0042",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0082"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -185,6 +204,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0042"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -196,6 +218,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0042"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -205,6 +230,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -216,6 +244,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0032"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -226,6 +257,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -235,6 +269,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -247,6 +284,9 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0020"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -256,6 +296,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0013"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -271,6 +314,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -280,6 +327,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -292,6 +342,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -301,6 +355,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -313,6 +370,9 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -323,6 +383,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -332,6 +395,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0087"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -344,6 +410,9 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0088",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0092"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -354,6 +423,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -363,6 +435,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -377,6 +452,10 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0095",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0096"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -388,6 +467,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0030",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0096"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -398,6 +481,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -407,6 +493,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0086"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -419,6 +508,9 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0101",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0103"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -428,6 +520,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0103"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -439,6 +534,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -448,6 +546,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -459,6 +560,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -468,6 +572,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -481,6 +588,9 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0040"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -493,6 +603,9 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0038"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -503,6 +616,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -515,6 +632,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -525,6 +646,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -537,6 +662,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -547,6 +676,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -559,6 +692,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -569,6 +706,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -584,6 +724,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -593,6 +737,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0088"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -605,6 +752,9 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0088",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0093"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -614,6 +764,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -625,6 +778,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -634,6 +790,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -646,6 +805,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0041",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0079"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -655,6 +818,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -666,6 +832,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0086"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -675,6 +844,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0080"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -686,6 +858,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0032"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -695,6 +870,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0103"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -709,6 +887,10 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -721,6 +903,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -736,6 +922,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -750,6 +940,10 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0106",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0107"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -760,6 +954,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -772,6 +970,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0097"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -782,6 +984,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -791,6 +996,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -804,6 +1012,9 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0038"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -814,6 +1025,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0015",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0022"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -826,6 +1040,9 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0060"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -835,6 +1052,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -846,6 +1066,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0019"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -855,6 +1078,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -868,6 +1094,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0069",
     "41162e26-52c1-4375-8660-604da4af0d15-C1-0151"
    ],
+   "section_types": [
+    "equity_sales",
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -878,6 +1108,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0029",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0095"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -890,6 +1124,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -900,6 +1138,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -912,6 +1154,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -921,6 +1167,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -932,6 +1181,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -941,6 +1193,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -952,6 +1207,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0074"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -961,6 +1219,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -972,6 +1233,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -986,6 +1251,10 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -995,6 +1264,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1009,6 +1281,10 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1019,6 +1295,10 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1034,6 +1314,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1043,6 +1327,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1054,6 +1341,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1064,6 +1354,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1073,6 +1366,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1085,6 +1381,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0089"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1094,6 +1394,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1105,6 +1408,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0014"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1115,6 +1421,9 @@
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
    ],
+   "section_types": [
+    "financial_statements"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1124,6 +1433,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0018"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1136,6 +1448,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0043",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1145,6 +1461,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1160,6 +1479,10 @@
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0202",
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0203"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1174,6 +1497,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0075",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1187,6 +1514,10 @@
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0109",
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0202"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1199,6 +1530,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0073",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1214,6 +1549,10 @@
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0111",
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0115"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1228,6 +1567,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1237,6 +1580,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1249,6 +1595,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0085"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1258,6 +1608,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0106"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1270,6 +1623,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0072",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0090"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1279,6 +1636,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1290,6 +1650,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1300,6 +1663,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1309,6 +1675,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1321,6 +1690,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0030",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0096"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1331,6 +1704,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0093",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0094"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1346,6 +1722,10 @@
     "75d5173e-bf8a-4336-a10a-8c8f22a7fe00-C1-0058",
     "75d5173e-bf8a-4336-a10a-8c8f22a7fe00-C1-0061"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1355,6 +1735,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1367,6 +1750,9 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0083",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0086"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1376,6 +1762,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0010"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1391,6 +1780,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0021",
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0031"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1403,6 +1796,10 @@
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0077",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0081"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1414,6 +1811,10 @@
     "719907fb-e72c-4094-af4e-b69cacf9fc4a-C1-0014",
     "9fa9520e-eb59-46d9-93a5-d061b49efdee-C1-0065"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1424,6 +1825,9 @@
    "chunk_ids": [
     "f935b99c-c4b8-4681-8d5d-aa8ce4282823-C1-0093"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1433,6 +1837,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "7713be81-fd3f-4f95-8ff1-b516c8db32ae-C1-0067"
+   ],
+   "section_types": [
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1448,6 +1855,10 @@
     "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0186",
     "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0188"
    ],
+   "section_types": [
+    "mda",
+    "summary"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1459,6 +1870,9 @@
     "61aca55b-6c10-44d4-a63e-431f52a720bd-C1-0000",
     "61aca55b-6c10-44d4-a63e-431f52a720bd-C1-0002"
    ],
+   "section_types": [
+    "front_matter"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1468,6 +1882,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "2c7ecf3d-e3fa-4f7d-be48-4cc6a01b04c5-C1-0139"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1480,6 +1897,10 @@
     "31b561fc-86e0-4dec-8ece-cc9771057427-C1-0085",
     "31b561fc-86e0-4dec-8ece-cc9771057427-C1-0087",
     "84179f46-3b70-419f-8328-23d8bc2a6c47-C1-0127"
+   ],
+   "section_types": [
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1495,6 +1916,10 @@
     "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0186",
     "e36c14a4-119a-4b8c-8ddf-89e7e0a07206-C1-0188"
    ],
+   "section_types": [
+    "mda",
+    "summary"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1509,6 +1934,10 @@
     "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0101",
     "ad991d0a-b082-4963-9050-b5917cb95d47-C1-0103"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1517,6 +1946,7 @@
    "accession": "0001193125-26-323660",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1528,6 +1958,11 @@
     "e358f4a0-fed6-4530-885f-66ea84d58285-C1-0016",
     "958c979e-d197-4380-93d6-ee823576ee68-C1-0078",
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0159"
+   ],
+   "section_types": [
+    "business",
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1540,6 +1975,10 @@
     "958c979e-d197-4380-93d6-ee823576ee68-C1-0084",
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0202"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1551,6 +1990,10 @@
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0025",
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0095"
    ],
+   "section_types": [
+    "financial_statements",
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1561,6 +2004,9 @@
    "chunk_ids": [
     "43703723-4ea1-4ece-b329-79c45e74f050-C1-0106"
    ],
+   "section_types": [
+    "mda"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1569,6 +2015,7 @@
    "accession": "0001193125-26-323660",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1578,6 +2025,9 @@
    "n_chunks_matching": 1,
    "chunk_ids": [
     "83b8cd9d-2035-4037-bef0-8afcaea74478-C1-0016"
+   ],
+   "section_types": [
+    "financial_statements"
    ],
    "filing_in_chunks": true
   },
@@ -1590,6 +2040,11 @@
     "e358f4a0-fed6-4530-885f-66ea84d58285-C1-0016",
     "958c979e-d197-4380-93d6-ee823576ee68-C1-0078",
     "bc68867a-bca2-4d8d-97f7-9ddcdb27afa0-C1-0159"
+   ],
+   "section_types": [
+    "business",
+    "financial_statements",
+    "mda"
    ],
    "filing_in_chunks": true
   },
@@ -1605,6 +2060,11 @@
     "44c99181-3904-4773-8797-67bccd3f50e4-C1-0226",
     "44c99181-3904-4773-8797-67bccd3f50e4-C1-0227"
    ],
+   "section_types": [
+    "exhibits",
+    "financial_statements",
+    "risk_factors"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1613,6 +2073,7 @@
    "accession": "0000723125-26-000023",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1621,6 +2082,7 @@
    "accession": "0000320193-25-000079",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1629,6 +2091,7 @@
    "accession": "0000723125-26-000023",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1637,6 +2100,7 @@
    "accession": "0000320193-25-000079",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1647,6 +2111,9 @@
    "chunk_ids": [
     "547de758-500b-4fe0-b3d9-62f994480b6e-C1-0014"
    ],
+   "section_types": [
+    "business"
+   ],
    "filing_in_chunks": true
   },
   {
@@ -1655,6 +2122,7 @@
    "accession": "0000723125-26-000023",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1663,6 +2131,7 @@
    "accession": "0000726958-26-000046",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1671,6 +2140,7 @@
    "accession": "0001193125-26-259683",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1679,6 +2149,7 @@
    "accession": "0000320193-25-000079",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1687,6 +2158,7 @@
    "accession": "0001193125-26-259683",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": true
   },
   {
@@ -1695,6 +2167,7 @@
    "accession": "0001193125-26-380207",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": false
   },
   {
@@ -1703,6 +2176,7 @@
    "accession": "0001193125-26-380207",
    "n_chunks_matching": 0,
    "chunk_ids": [],
+   "section_types": [],
    "filing_in_chunks": false
   }
  ]

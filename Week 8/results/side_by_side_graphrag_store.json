@@ -52,7 +52,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 0.8,
+    "median_ms": 0.9,
     "by_question_type": {
      "calculation": {
       "rate": 0.933,
@@ -137,7 +137,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 3.5,
+    "median_ms": 3.6,
     "by_question_type": {
      "calculation": {
       "rate": 0.8,
@@ -222,7 +222,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 91.5,
+    "median_ms": 94.9,
     "by_question_type": {
      "calculation": {
       "rate": 0.2,

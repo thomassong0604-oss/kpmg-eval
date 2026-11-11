@@ -76,3 +76,9 @@ def compatibility(gold_filters: dict) -> dict:
         "structured_ignores": sorted(keys & STRUCTURED_IGNORES),
         "list_values": lists,
     }
+
+
+# What GraphRAG's graph holds (11/11): five section types only, so anything outside 10-K Items 1, 1A, 7 and 10-Q
+# Part I Item 2, Part II Item 1A (notes to the statements, Item 8, exhibits, cover page) is not in the graph at any
+# hop count. Named here by RAG's chunk `section_type`, which is how Eval locates each text anchor.
+GRAPH_SECTION_TYPES = {"business", "risk_factors", "mda"}

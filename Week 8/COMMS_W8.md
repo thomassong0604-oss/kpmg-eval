@@ -168,3 +168,23 @@ We checked every row. Three things:
   list as claims?
 
 Each row has an eval_check column with these notes. kpmg-eval → Week 8, EVAL_GRAPHRAG_W8.md.
+
+## Slack reply to GraphRAG (Adeline), PR #71 and the dropped connection, 11/11
+
+Thank you, Adeline. PR #71 is merged into our hops sheet, and deriving it in code was the right call. Agreed on EV3-007:
+a dropped Aura connection isn't the arm's fault. Our round-1 script now retries it (--retries 3), and anything that
+still fails is reported as an infra error, separate from arm errors. Errored calls were already left out of the scores.
+
+Your section-scope note turned out to explain most of the graph arm's prose score. We placed each anchor by RAG's chunk
+sections. Of the 38 prose questions, 20 have their text inside your five section types, and the graph
+arm found 10 of them. The other 18 sit outside: 10 only in the notes to the statements, 8 in
+Exhibit 21 or NetApp's 10-Q. So the 26% is 50% on what the graph holds. Adding the notes (10-Q Item 1, 10-K Item 8)
+would bring 10 more within reach, if that fits your plans.
+
+The same rule touches a few hops rows (eval_check column, nothing urgent):
+- 10 text questions are "yes" via claims, but their answer is only in the notes, so support today is no
+  (GSv0-MSFT-006/007/008/009/011/012/028/029/030, EV1-047).
+- EV3-008/009 are NetApp's 10-Q, which isn't in the 20-filing corpus (Data holds it for review), so also no.
+- EV1R-005's "no" is right, but the reason is that the correcting text is in the notes, not that it's XBRL.
+
+Details: kpmg-eval → Week 8, EVAL_GRAPHRAG_W8.md.

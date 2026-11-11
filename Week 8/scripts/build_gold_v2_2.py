@@ -178,8 +178,9 @@ def check_anchors(gold: list[dict], chunks_path: Path) -> dict:
         for i, e in enumerate(q["rag_evidence"]):
             pool = by_acc.get(e.get("accession"), []) if e.get("accession") else [c for cs in by_acc.values() for c in cs]
             hits = [c["chunk_id"] for c in pool if evidence_hits(e, c)]
+            types = sorted({c.get("section_type") or "" for c in pool if c["chunk_id"] in set(hits)})
             rows.append({"qid": q["qid"], "item": i, "accession": e.get("accession"), "n_chunks_matching": len(hits),
-                         "chunk_ids": hits[:5], "filing_in_chunks": bool(pool)})
+                         "chunk_ids": hits[:5], "section_types": types, "filing_in_chunks": bool(pool)})
             if not hits:
                 missing.append({"qid": q["qid"], "accession": e.get("accession"), "contains": e["contains"],
                                 "filing_in_chunks": bool(pool)})

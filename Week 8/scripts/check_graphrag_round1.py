@@ -14,6 +14,9 @@ What it answers
   3. Does the store explain GSv0-MSFT-001 (GraphRAG 11/11 point 2)? Rank 1 on both stores, for the gold wording and
      for "quarter ended" wording.
   4. Part A on GraphRAG's store vs Eval's one-filing build.
+  5. How much of the graph arm's prose score is scope: GraphRAG's graph holds five section types (10-K Items 1, 1A, 7;
+     10-Q Items 2, 1A). Each prose question is placed by where its text anchors sit in RAG's chunks
+     (results/anchor_check_c1.json): inside those sections, outside them, or not in the corpus at all.
 """
 from __future__ import annotations
 
@@ -63,6 +66,34 @@ def probe_msft_001(store: Path) -> list[dict]:
     return out
 
 
+def graph_prose_by_scope(theirs: dict) -> dict:
+    sys.path.insert(0, str(ROOT))
+    from kpmg_eval.graphrag_filters import GRAPH_SECTION_TYPES
+    secs = {}
+    for it in json.loads((RES / "anchor_check_c1.json").read_text())["items"]:
+        secs.setdefault(it["qid"], []).append(it.get("section_types") or [])
+    out = {"in_scope": {"hits": 0, "n": 0, "qids_hit": []}, "outside_scope": {"hits": 0, "n": 0, "qids": []},
+           "not_in_corpus_or_chunks": {"hits": 0, "n": 0, "qids": []}}
+    for (qid, arm, mode), r in sorted(theirs.items()):
+        if arm != "graph" or mode != "translated" or r["kind"] != "prose" or r["needed_in_evidence"] not in ("True", "False"):
+            continue
+        items = secs.get(qid, [])
+        if not items or any(not s for s in items):
+            b = "not_in_corpus_or_chunks"
+        elif all(set(s) & GRAPH_SECTION_TYPES for s in items):
+            b = "in_scope"
+        else:
+            b = "outside_scope"
+        hit = r["needed_in_evidence"] == "True"
+        out[b]["n"] += 1
+        out[b]["hits"] += hit
+        out[b]["qids_hit" if b == "in_scope" else "qids"].append(qid) if (hit or b != "in_scope") else None
+    out["note"] = ("Graph arm, translated filters, Gold Set v2.1 as GraphRAG ran it. 'outside_scope': the anchor is only in "
+                   "sections the graph does not hold (mostly the notes to the statements); 'not_in_corpus_or_chunks': "
+                   "Exhibit 21 or NetApp's 10-Q. Section types from RAG's chunks, a proxy for GraphRAG's own parsing.")
+    return out
+
+
 def main():
     theirs, ours = rows(RES / "graphrag_round1_graphrag_aura.csv"), rows(RES / "graphrag_round1_eval_store20_v2_1.csv")
     meta = json.loads((RES / "graphrag_round1_graphrag_aura.json").read_text())
@@ -94,6 +125,7 @@ def main():
                     "store (e.g. cash 11,711 vs 12,731). EV1-015 is the one score change: on GraphRAG's store a "
                     "date fact (DividendsPayableDateDeclared) outranks the dividend per share. GraphRAG's store holds "
                     "1,511 facts for this 10-Q against 1,317 in Eval's build, more of them non-numeric."}
+    out["graph_prose_by_scope"] = graph_prose_by_scope(theirs)
     store = ROOT / "private" / "corpus_facts_postgres.duckdb"
     prev = json.loads((RES / "graphrag_round1_check.json").read_text()) if (RES / "graphrag_round1_check.json").exists() else {}
     if store.exists():
@@ -111,6 +143,10 @@ def main():
     print(f"[check] structured, translated filters: {r['questions_identical']}/{r['questions']} questions identical")
     print(f"[check] gold filters: {len({x['qid'] for x in d['differences']})} questions differ, all list filters: "
           f"{d['all_differences_on_list_filter_questions']}")
+    g = out["graph_prose_by_scope"]
+    print(f"[check] graph arm prose: in scope {g['in_scope']['hits']}/{g['in_scope']['n']}, outside scope "
+          f"{g['outside_scope']['hits']}/{g['outside_scope']['n']}, not in corpus {g['not_in_corpus_or_chunks']['hits']}/"
+          f"{g['not_in_corpus_or_chunks']['n']}")
     if sb:
         print(f"[check] part A by store: {json.dumps(out['part_a_by_store'])[:400]}")
     for p in out["gsv0_msft_001_rank1"] or []:

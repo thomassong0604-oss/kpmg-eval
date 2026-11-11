@@ -1,6 +1,36 @@
 # Eval × GraphRAG, week 8: what we did with your 11/11 replies, and what we still need
 
-**Latest (11/11 evening): your round 1 is in, and we reproduce it.** See the next section; the first reply follows.
+**Latest (11/11 evening): hops PR #71 merged into our sheet; your graph arm's prose score is mostly a scope
+question.** Newest first below.
+
+## Your third reply (11/11, 5:04 PM): hops PR #71, EV1R-001, a dropped connection
+
+| Your point | What we did |
+|---|---|
+| Hops in PR #71 (7928d89, `tools/fill_hops.py`) | Merged into `data/hops_v2.csv` (your file kept as `data/hops_v2_graphrag_pr71.csv`; the first one stays as history). Thank you for deriving it in code. 155 rows, none held: hops on 44 questions, blank on the XBRL questions on purpose |
+| 1. EV3-008/009 noted | Thanks. One thing remains on these two (below) |
+| 2. False premises fixed | Confirmed: all five now take their route's support |
+| 3. EV1R-001: Exhibit 21 is outside your section scope | Thank you for checking the live graph. Now blocked like the other Exhibit 21 rows |
+| EV3-007 "Failed to read from defunct connection" (Aura free tier) | Agreed, not an arm failure. `run_graphrag_round1.py` now retries a dropped connection (`--retries 3`), and one that persists is reported as `infra_errors`, apart from arm `errors`. Errored calls were already left out of every rate |
+
+**Your section scope explains most of the graph arm's prose score.** With anchors placed by RAG's chunk sections
+(`results/anchor_check_c1.json`), the 38 prose questions in your round 1 split three ways
+(`results/graphrag_round1_check.json`):
+
+| Where the answer's text sits | Questions | Graph arm found it |
+|---|---|---|
+| Inside your five section types (10-K Items 1, 1A, 7; 10-Q Items 2, 1A) | 20 | **10** |
+| Only outside them (mostly the notes to the statements, 10-Q Item 1) | 10 | 0 |
+| Not in the corpus or the chunks (Exhibit 21; NetApp's 10-Q) | 8 | 0 |
+
+So the 26% headline is 50% on what the graph holds. Adding the notes to the statements (10-Q Item 1, 10-K Item 8)
+would put 10 more prose questions within reach (GSv0-MSFT-006, 007, 008, 009, 011, 012, 028, 029, 030, EV1-047).
+
+**The same scope rule applies to some hops rows** (`eval_check`): 10 text questions marked "yes" through the claim path
+have their answer only in the notes, so support today is no; EV3-008/009 are NetApp's 10-Q, which is not in the
+20-filing corpus (Data holds it for review), so also no; EV1R-005's "no" is right, but because the correcting text is
+in the notes, not because it is XBRL.
+
 
 ## Your round 1 (11/11, second reply): checked
 
@@ -27,10 +57,10 @@ number; (3) with no ticker filter, the top fact for a Microsoft question comes f
 always send the ticker.
 
 **Next from you:** re-run the graph arm with #70 on Gold Set v2.2 (`--tag graphrag_aura_v2_2`; v2.2 adds anchors for
-4 questions, so graph prose goes from 38 to 42); a look at 6 rows of the hops sheet (below). Credentials: not needed, since the store came as a
+4 questions, so graph prose goes from 38 to 42). Credentials: not needed, since the store came as a
 file. As the Neo4j password went into the channel, rotating it may be worth it.
 
-**Hops: 6 rows to look at** (`eval_check` in `data/hops_v2.csv`):
+**Hops: 6 rows to look at** (`eval_check` in `data/hops_v2.csv`). Answered in your third reply and PR #71 (above):
 - EV1-068, EV1-069, EV1-070, EV2-048, EV2-049 are false-premise questions, so they are answerable: the answer must
   state the correct figure or fact (Microsoft's revenue rose; Take-Two's net loss of 298.2). Their support is the
   same as their route's: no for the four XBRL ones, and the claim path for EV1-070 ("Microsoft Cloud is not a

@@ -3,12 +3,12 @@
  "versions": {
   "benchmark_sha256": "377bf5af94e3e6cb",
   "rag_commit": "5bfafeb",
-  "eval_commit": "0b0d5a3",
+  "eval_commit": "3d5bed7",
   "index_version": "ffaa8efb4d5d",
   "embedder": "lsa",
   "chunking_version": "item-aware-v0-t600-m800",
   "extraction_version": "rag.parse-v0",
-  "graded_at": "2026-11-11T16:37:40"
+  "graded_at": "2026-11-11T18:23:29"
  },
  "n_items": 142,
  "headline": {
@@ -57,7 +57,7 @@
     "accuracy": 1.0
    }
   },
-  "latency_ms_p50": 0.38,
+  "latency_ms_p50": 0.54,
   "errors": 0
  },
  "n_pending_questions": 54

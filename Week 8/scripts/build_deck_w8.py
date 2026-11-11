@@ -127,7 +127,7 @@ def s_scope(s, sbs, rt, mw):
                                   "v2's questions and answers; it changes grading only (slide 3).", 8.5, False, INK)]])
     footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 21f0795 (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
                          "7040b8a. No LLM is used in Eval's results; the teams' round-1 runs (slides 2-4) are re-scored here from the files they sent.",
-           "Source: Week 8/README.md; scripts/run_all.sh (97 tests pass)", y=4.42, w=7.6)
+           "Source: Week 8/README.md; scripts/run_all.sh (99 tests pass)", y=4.42, w=7.6)
     notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
              "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. "
              "New since Sunday: RAG ran its reader end to end with our graders, which is slide 3. One caveat for everything that follows: the "
@@ -271,6 +271,7 @@ def s_side_by_side(s, sbs):
     chk = j(RES / "graphrag_round1_check.json")
     st, gt = gr["structured|translated"], gr["graph|translated"]
     rp = chk["reproduction_structured_translated"]
+    gs = chk["graph_prose_by_scope"]
     tb(s, x, 2.2, 3.8, 1.9, [[("How it was run. ", 8, True, INK),
                               ("Each team's own code: RAG's chunker and Retriever.search; GraphRAG's fact loader on Data's "
                                "copy of the filing, then structured_search.", 8, False, INK)],
@@ -278,8 +279,9 @@ def s_side_by_side(s, sbs):
                              [("GraphRAG's own round 1, all 20 filings (11/11): ", 8, True, NAVY),
                               (f"structured search has the needed number in its top 10 for {st['numbers']['hits']} of "
                                f"{st['numbers']['n']}, at rank 1 for {st['top1_right']['hits']}; the graph arm, scored for "
-                               f"the first time, has the prose anchors for {gt['prose']['hits']} of {gt['prose']['n']}. Our "
-                               f"rerun on their store matches all {rp['questions_identical']} questions.", 8, False, INK)],
+                               f"the first time, has the prose anchors for {gt['prose']['hits']} of {gt['prose']['n']}: "
+                               f"{gs['in_scope']['hits']} of the {gs['in_scope']['n']} whose text sits in the sections it holds. "
+                               f"Our rerun on their store matches all {rp['questions_identical']} questions.", 8, False, INK)],
                              [(" ", 4, False, INK)],
                              [("Neither side returned an empty result ", 8, True, INK),
                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable questions, so abstaining stays "
@@ -297,7 +299,8 @@ def s_side_by_side(s, sbs):
              "the decision to abstain belongs to the Agents' step. GraphRAG also ran round 1 on all 20 filings with our script: "
              "structured search has the right number in its top ten for about two thirds of number questions but at rank one "
              "for under a third, which is the ranking work they have open, and the graph arm scored for the first time. We "
-             "re-ran their structured arm on their own store and matched every question.")
+             "re-ran their structured arm on their own store and matched every question. Its graph arm found half of the "
+             "prose answers that sit in the sections it holds, and none outside them, so most of that gap is scope.")
 
 
 def s_better(s, sbs):
@@ -520,7 +523,7 @@ def s_next(s):
             [("RAG", {"bold": True}), "Run our narrative judge with your key (or lend one); mark answers that state the figure as "
                                       "answered; try candidate k and fusion weights on the 6 near misses"],
             [("GraphRAG", {"bold": True}), "Rank by period and break ties (#68: right number in the top 10 on 63/93, at rank 1 on "
-                                           "26); re-run the graph arm on v2.2 with #70; check 6 rows of the hops sheet; Exhibit 21 into Aura"],
+                                           "26); re-run the graph arm on v2.2 with #70; add the notes to the statements (10 prose answers); Exhibit 21 into Aura"],
             [("Agents", {"bold": True}), "Always send ticker and accession; split cross-company and 10-K + 10-Q questions into one "
                                          "search each; match tickers and near-miss names; run your orchestrator through our scorer"],
             [("Data", {"bold": True}), "Round 1 ran on 20 filings (NetApp's 10-Q held for review); now load Microsoft's FY2024 and "
