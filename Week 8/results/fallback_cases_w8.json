@@ -1,0 +1,54 @@
+{
+ "questions": 155,
+ "cases": {
+  "keep": 127,
+  "rescue": 1,
+  "answer_in_rag_evidence": 2,
+  "must_abstain": 12,
+  "not_in_corpus": 3,
+  "split": 3,
+  "not_in_graph_yet": 7
+ },
+ "by_case": {
+  "answer_in_rag_evidence": [
+   "GSv0-MSFT-023",
+   "EV1R-005"
+  ],
+  "must_abstain": [
+   "EV1-061",
+   "EV1-062",
+   "EV1-063",
+   "EV1-064",
+   "EV1-065",
+   "EV1-066",
+   "EV1-067",
+   "EV2-046",
+   "EV2-047",
+   "EV2-050",
+   "EV1R-004",
+   "EV3-006"
+  ],
+  "not_in_corpus": [
+   "EV2-026",
+   "EV3-008",
+   "EV3-009"
+  ],
+  "not_in_graph_yet": [
+   "EV1R-001",
+   "EV3-001",
+   "EV3-002",
+   "EV3-003",
+   "EV3-004",
+   "EV3-005",
+   "EV3-007"
+  ],
+  "rescue": [
+   "GSv0-MSFT-019"
+  ],
+  "split": [
+   "EV2-040",
+   "EV2-042",
+   "EV2-043"
+  ]
+ }
+}

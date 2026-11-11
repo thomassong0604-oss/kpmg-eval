@@ -188,3 +188,37 @@ The same rule touches a few hops rows (eval_check column, nothing urgent):
 - EV1R-005's "no" is right, but the reason is that the correcting text is in the notes, not that it's XBRL.
 
 Details: kpmg-eval → Week 8, EVAL_GRAPHRAG_W8.md.
+
+## Slack reply to Agents (API v0.2), 11/11
+
+哈咯！谢谢，v0.2 文档很清楚，这些字段都可以直接接进我们现在的 pipeline，不需要先改。
+
+我们这边已经接好了（kpmg-eval → Week 8，AGENTS_API_W8.md）：
+- `scripts/run_agent_api.py`：把 Gold v2.2 的 155 题逐题 POST 到 /query。trace_id 用 "<tag>:<qid>"（你们会保留传入的 trace_id，所以每条结果都能对回题号），top_k=10，和 round 1 一致。
+- `scripts/grade_agent_run.py`：直接读 /query 的原始 response（一行一个 JSON）。v0.2 的 answer 还是 null，所以先按 decision 和 evidence 打分：
+  - status：可答题应为 SUCCESS，不可答题应为 NO_EVIDENCE。ERROR 单独列出，不计分
+  - evidence：最终 evidence 里有没有需要的数字或原文 anchor
+  - citations：从 source_url 读 accession，看是不是正确的 filing
+  - filters：和 gold filters 逐个 key 对比（字段名和取值格式刚好一致）
+  - fallback：按 evidence_status 和 weak_reasons 拆开看 triggered、used 和最终结果
+  等 answer 上线后，用和 RAG reader 一样的 grader 给数字、premise 和 narrative 打分。
+
+你们说的 4 类 case，我们用 round 1 的结果把每道题提前分好了组（data/fallback_cases_w8.csv），可以用 `--only <case>` 分开跑：
+1. empty → GraphRAG
+2. weak → GraphRAG
+   这两类都看：可答题是否 SUCCESS 且 evidence 里有答案；12 道不可答题在 fallback 之后也必须是 NO_EVIDENCE。
+3. ok but final NO_EVIDENCE：GSv0-MSFT-023 和 EV1R-005 这两题 RAG 的 evidence 里其实有答案，这里返回 NO_EVIDENCE 就算 false abstention。
+4. fallback 前后对比：同一批题跑两次（关和开），用 `--baseline` 逐题算 rescued 和 broken。
+
+一个发现：round 1 里 RAG 没答的 16 道可答题，目前只有 1 题（GSv0-MSFT-019）GraphRAG 有 evidence。另外 7 题要等 Exhibit 21 进 graph，3 题是 NetApp 10-Q（Data 还在 review，不在 corpus 里），3 题是跨公司排名（需要每家公司各查一次），2 题是上面的 case 3。所以现阶段 fallback 最要紧的是：不把 RAG 已经答对的 127 题弄坏，不让 12 道不可答题变成 SUCCESS，再看看它在不需要的题上 trigger 的频率（成本）。
+
+几个小请求，都不影响先跑第一轮：
+1. evidence 每条加上 `source`（rag / graphrag_structured / graphrag_graph）、`accession_number` 和 id（RAG 的 chunk_id；GraphRAG 的 fact 或 claim id）。这样能知道 evidence 来自哪个 arm，也能按 filing 打分。
+2. case 4 需要一个关掉 fallback 的开关（比如 request 里加 `disable_fallback: true`），或者 response 里带上 fallback 之前的 RAG evidence。case 3 最好也能看到被判为不够的那批 evidence。
+3. 文档里列为 pending 的 tool-routing path（比如 `tools_called`）有了以后，orchestrator 就能和我们的 routing baseline 用同一个脚本比较。在那之前，我们先按“RAG 总会调用，fallback_triggered 时调用 GraphRAG”来推断。
+4. 调 GraphRAG 时 filter 用 {ticker, accession_number}，这是 GraphRAG 11/11 确认的方式。query parser 给出的 fiscal_year / fiscal_period 可以用我们的 data/snapshot_w7.json 对到 accession。
+5. 方便的话，加上每个阶段的耗时（ms），用于 latency 和 cost 指标。
+
+我们这边的环境连不到外部地址，所以麻烦你们跑一下：
+`python scripts/run_agent_api.py --base-url <你们的地址> --tag agents_v02`
+然后把 private/agent_responses_agents_v02.jsonl 私下发给我们就好（evidence 里有 filing 原文，所以不放 GitHub）。拿到后我们当天出结果。

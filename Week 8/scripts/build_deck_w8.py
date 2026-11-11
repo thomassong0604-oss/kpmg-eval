@@ -127,7 +127,7 @@ def s_scope(s, sbs, rt, mw):
                                   "v2's questions and answers; it changes grading only (slide 3).", 8.5, False, INK)]])
     footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 21f0795 (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
                          "7040b8a. No LLM is used in Eval's results; the teams' round-1 runs (slides 2-4) are re-scored here from the files they sent.",
-           "Source: Week 8/README.md; scripts/run_all.sh (99 tests pass)", y=4.42, w=7.6)
+           "Source: Week 8/README.md; scripts/run_all.sh (100 tests pass)", y=4.42, w=7.6)
     notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
              "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. "
              "New since Sunday: RAG ran its reader end to end with our graders, which is slide 3. One caveat for everything that follows: the "
@@ -524,8 +524,8 @@ def s_next(s):
                                       "answered; try candidate k and fusion weights on the 6 near misses"],
             [("GraphRAG", {"bold": True}), "Rank by period and break ties (#68: right number in the top 10 on 63/93, at rank 1 on "
                                            "26); re-run the graph arm on v2.2 with #70; add the notes to the statements (10 prose answers); Exhibit 21 into Aura"],
-            [("Agents", {"bold": True}), "Always send ticker and accession; split cross-company and 10-K + 10-Q questions into one "
-                                         "search each; match tickers and near-miss names; run your orchestrator through our scorer"],
+            [("Agents", {"bold": True}), "Run the 155 questions through /query v0.2 (our runner and grader are ready); tag each "
+                                         "evidence item's source; add a fallback-off switch; send ticker and accession; one search per company"],
             [("Data", {"bold": True}), "Round 1 ran on 20 filings (NetApp's 10-Q held for review); now load Microsoft's FY2024 and "
                                        "FY2025 10-Ks, already in your inventory (joint ask with GraphRAG)"],
             [("Eval", {"bold": True}), "Hand-label the 28 narrative answers to validate the judge; score the Agents' first end-to-end "

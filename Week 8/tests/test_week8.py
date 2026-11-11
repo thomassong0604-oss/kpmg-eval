@@ -266,3 +266,45 @@ def test_graph_arm_prose_split_by_section_scope():
     g = json.loads((ROOT / "results" / "graphrag_round1_check.json").read_text())["graph_prose_by_scope"]
     assert (g["in_scope"]["hits"], g["in_scope"]["n"]) == (10, 20)
     assert g["outside_scope"]["hits"] == 0 and g["not_in_corpus_or_chunks"]["hits"] == 0
+
+
+# ---- Week 8, 11/11: the Agents' API v0.2 (/query) graded at decision and evidence level, with the fallback cases
+def _resp(qid, status, es, trig=False, used=False, text="", url=None, filters=None, reasons=()):
+    return {"trace_id": f"t:{qid}", "status": status, "evidence_status": es, "weak_reasons": list(reasons),
+            "fallback_triggered": trig, "fallback_used": used, "filters": filters or {}, "answer": None,
+            "evidence": [{"text": text, "metadata": {"source_url": url}}] if text else [],
+            "citations": [{"source_url": url}] if url else [], "logs": [], "error": None}
+
+
+def test_agent_api_v02_responses_grade_into_decisions_evidence_and_fallback_cases():
+    import json
+    import grade_agent_run as ga
+    from kpmg_eval.agent_api import accession_from_url, qid_of
+    url = "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm"
+    assert accession_from_url(url) == "0001193125-26-191507"
+    gold = {q["qid"]: q for q in map(json.loads, open(ROOT / "data" / "benchmark_v2_2.jsonl"))}
+    assert qid_of({"trace_id": "agents_v02:EV1-062"}, gold, {}) == "EV1-062"
+    gf = gold["GSv0-MSFT-001"]["filters"]
+    rs = {"GSv0-MSFT-001": _resp("GSv0-MSFT-001", "SUCCESS", "ok", text="Total revenue 82,886 70,066", url=url, filters=gf),
+          "GSv0-MSFT-019": _resp("GSv0-MSFT-019", "SUCCESS", "weak", True, True, reasons=["methods_disagree"],
+                                 text=" ".join(c for e in gold["GSv0-MSFT-019"]["rag_evidence"] for c in e["contains"])),
+          "EV1-062": _resp("EV1-062", "NO_EVIDENCE", "empty", True, False, reasons=["filter_no_match"]),
+          "GSv0-MSFT-023": _resp("GSv0-MSFT-023", "NO_EVIDENCE", "ok"),
+          "GSv0-MSFT-002": {**_resp("GSv0-MSFT-002", "ERROR", None), "error": "backend"}}
+    import csv
+    cases = {r["qid"]: r for r in csv.DictReader(open(ROOT / "data" / "fallback_cases_w8.csv"))}
+    rows = []
+    for qid, r in rs.items():
+        row = ga.grade_one(gold[qid], r, cases[qid])
+        row["_kind"] = ga.sbs.kind(gold[qid])
+        rows.append(row)
+    s = ga.summarise(rows)
+    assert s["errors_not_scored"] == ["GSv0-MSFT-002"]
+    assert s["decision"]["unanswerable_abstained"]["k"] == 1 and s["evidence"]["number"]["k"] == 1
+    assert s["citations_cite_a_gold_filing"]["k"] == 1 and s["filters"]["all_keys_match"]["k"] == 1
+    oc = s["fallback"]["observed_cases"]
+    assert set(oc) >= {"1_empty_to_graphrag", "2_weak_to_graphrag", "3_ok_but_no_evidence", "rag_only"}
+    assert cases["GSv0-MSFT-019"]["case"] == "rescue" and cases["GSv0-MSFT-023"]["case"] == "answer_in_rag_evidence"
+    # case 4: the same question without fallback was a miss, with it right -> rescued
+    base = [dict(rows[0]), {**rows[1], "decision": "abstain", "decision_correct": False, "needed_in_evidence": None}]
+    assert ga.compare(rows, base)["rescued_qids"] == ["GSv0-MSFT-019"]

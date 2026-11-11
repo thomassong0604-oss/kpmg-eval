@@ -110,6 +110,11 @@ the round-1 section below). Updated 11/11 with RAG's end-to-end run and **Gold S
   graph arm itself.
 
 ## Agents
+- **API v0.2 (11/11): thank you, it plugs in as it is.** `scripts/run_agent_api.py` sends the 155 questions to `/query`
+  (trace_id `<tag>:<qid>`, top_k 10) and `scripts/grade_agent_run.py` grades the raw responses: decisions (SUCCESS vs
+  NO_EVIDENCE), evidence, citations (accession from `source_url`), filters, and your four fallback cases. Each question's
+  expected case from round 1 is in `data/fallback_cases_w8.csv` (127 keep, 1 rescue, 2 answer in RAG's evidence, 3 split,
+  7 Exhibit 21, 3 NetApp, 12 must abstain). Field-by-field mapping and small asks: [`AGENTS_API_W8.md`](AGENTS_API_W8.md).
 - **Score your orchestrator on our routing questions (new 11/11):** `python scripts/run_routing_baselines.py --router
   orchestrator=your_module.py:route` (a function `route(question, session_ticker)` returning tool names), or `--calls
   orchestrator=calls.jsonl` from your logs (`{"qid": ..., "tools": [...]}` per line). Tool names like

@@ -45,6 +45,7 @@ if [ -f private/corpus_facts_postgres.duckdb ]; then
   SBS_STORE="$PWD/private/corpus_facts_postgres.duckdb" SBS_TAG=graphrag_store python3 scripts/run_side_by_side.py > /dev/null
 fi
 python3 scripts/check_graphrag_round1.py
+python3 scripts/build_fallback_cases.py
 python3 scripts/run_messy_wording.py
 if [ -f private/rag_round1_answer_blocks.jsonl ]; then
   python3 scripts/grade_answer_blocks.py --answers private/rag_round1_answer_blocks.jsonl \
