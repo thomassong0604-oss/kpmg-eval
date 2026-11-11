@@ -2,7 +2,7 @@
 
 Answers GraphRAG's "Reply to Eval, week 8" (11/11; markdown version `docs/eval-reply-w8.md` on branch
 `docs/eval-reply-w8`). Thank you: the real tools, the filter fix, the Exhibit 21 output and the period warning all
-landed in time for round 1. Everything below is in this folder and re-runs with `./scripts/run_all.sh` (86 tests).
+landed in time for round 1. Everything below is in this folder and re-runs with `./scripts/run_all.sh` (87 tests).
 Pinned: GraphRAG main @ 4e89acb (11/11), Exhibit 21 branch @ c21fe89.
 
 ## Done on our side

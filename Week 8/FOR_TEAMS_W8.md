@@ -74,6 +74,14 @@ the round-1 section below).
   graph arm itself.
 
 ## Agents
+- **Score your orchestrator on our routing questions (new 11/11):** `python scripts/run_routing_baselines.py --router
+  orchestrator=your_module.py:route` (a function `route(question, session_ticker)` returning tool names), or `--calls
+  orchestrator=calls.jsonl` from your logs (`{"qid": ..., "tools": [...]}` per line). Tool names like
+  `sec_filing_search`, `graph_search`, `structured_search` are mapped for you. You get coverage, calls per question and
+  unneeded calls next to our three baselines. The keyword router is only a baseline; it is not part of the pipeline.
+- **Coverage is not accuracy:** the routing bars show the share of questions whose needed tools were called. Every
+  tool reaches 94.8% (it misses only the 8 questions that need no tool) at 3 calls per question; the keyword router 84%
+  at about 1.
 - **Routing slide fixed:** axes labelled, keyword router defined, and unneeded calls defined (`ROUTING_EXAMPLES.md`).
   To correct the 11/5 minutes: an unneeded call is a tool called that the question's expected route does not need, averaged
   over all 155 questions. It does not mean "text search alone could have answered".

@@ -11,6 +11,7 @@
   "text_only": {
    "n": 155,
    "required_tools_called": 0.2,
+   "coverage": 0.2,
    "exact_route": 0.2,
    "tool_calls_per_question": 1.0,
    "unneeded_calls_per_question": 0.79,
@@ -133,6 +134,7 @@
   "combined": {
    "n": 155,
    "required_tools_called": 0.948,
+   "coverage": 0.948,
    "exact_route": 0.0,
    "tool_calls_per_question": 3.0,
    "unneeded_calls_per_question": 2.05,
@@ -285,6 +287,7 @@
   "keyword": {
    "n": 155,
    "required_tools_called": 0.839,
+   "coverage": 0.839,
    "exact_route": 0.748,
    "tool_calls_per_question": 1.05,
    "unneeded_calls_per_question": 0.25,

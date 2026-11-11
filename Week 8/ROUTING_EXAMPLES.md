@@ -1,5 +1,11 @@
 # Routing examples for the demo (Week 8)
 
+**Coverage** (the bars on the routing slide) = share of questions where every tool the question needs was called (no tool, for the questions that should be blocked). **It is not accuracy**: calling the right tools does not make the final answer right. Answer accuracy needs the reader (round 1).
+
+**Which method gives which number** (155 questions): every tool 94.8% coverage at 3.00 calls per question (it misses only the 8 questions that need no tool); keyword router 83.9% at 1.05 calls; text only 20.0% at 1.00. The 95% is every tool, not the keyword router plus text only.
+
+**Where the keyword router sits**: it is Eval's baseline for comparison, not part of the pipeline. The Agents' orchestrator does the real routing and can be scored on the same questions: `python scripts/run_routing_baselines.py --router name=your_module.py:route` (a function `route(question, session_ticker)` returning tool names) or `--calls name=calls.jsonl` (logged calls, one `{"qid": ..., "tools": [...]}` per line).
+
 Router definitions:
 - **text_only**: every question goes to RAG text search (the demo path before routing).
 - **keyword**: Eval's rule-based stand-in for the Agents' orchestrator (regular expressions, no LLM). The scope gate runs first; if it blocks, no tool is called. Otherwise a relationship word (subsidiary, Exhibit 21, acquire, own, parent, rename) sends it to GraphRAG; a number word (how much, revenue, margin, percent, total, calculate) to SQL; an explanation word (why, explain, describe, risk, policy) to RAG text; both kinds of word to SQL + RAG; neither to RAG text.

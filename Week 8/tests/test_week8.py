@@ -110,3 +110,17 @@ def test_graphrag_filter_translation():
     assert compatibility(gold["GSv0-MSFT-001"]["filters"])["graph_refuses"] == ["fiscal_period", "fiscal_year"]
     f, how = translate(gold["EV2-040"], snap)
     assert "ticker" not in f and how.endswith("ticker_list_dropped")
+
+
+def test_agents_can_plug_their_router_into_the_routing_script(tmp_path):
+    import json
+    import run_routing_baselines as rrb
+    mod = tmp_path / "orch.py"
+    mod.write_text("def route(question, session):\n    return ['structured_search'] if 'revenue' in question.lower() else ['sec_filing_search']\n")
+    fn = rrb.load_router(f"{mod}:route")
+    assert fn("Total revenue?", "MSFT") == {"sql"} and fn("Why?", None) == {"text"}
+    gold = [{"qid": "Q1", "question": "a"}, {"qid": "Q2", "question": "b"}]
+    calls = tmp_path / "calls.jsonl"
+    calls.write_text(json.dumps({"qid": "Q1", "tools": ["graph_search", "retrieve"]}) + "\n")
+    fn = rrb.load_calls(str(calls), gold)
+    assert fn("a", None) == {"graph", "text"} and fn("b", None) == set()

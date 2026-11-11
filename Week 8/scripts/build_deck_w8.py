@@ -106,10 +106,11 @@ def s_scope(s, sbs, rt, mw):
              f"All {a['n_questions']} Microsoft 10-Q questions through each team's own code, same filing, top 8", ("3", C["center"])],
             ["Show where GraphRAG does better, and where RAG does",
              f"Plus the {b['n_questions']} Exhibit 21 relationship questions (traversal)", ("4", C["center"])],
-            ["Label the routing chart's axes; define the keyword router", "Chart redrawn by expected route, axes titled",
-             ("5", C["center"])],
+            ["Label the routing chart's axes; define the keyword router", "Axes titled; bars are coverage, defined, and not "
+             "accuracy; numbers matched to each method", ("5", C["center"])],
             ["Explain how unneeded calls per question are measured", "Definition with a worked example", ("5", C["center"])],
-            ["Concrete routing examples for the demo", "Seven questions, three routers, calls counted", ("6", C["center"])],
+            ["Concrete routing examples; where the router sits", "Three real questions walked through; the keyword router is "
+             "a baseline, and Agents can score theirs with the same script", ("6", C["center"])],
             ["Say accuracy is on the current 155 questions only", "Stated on every routing and wording number",
              ("5-7", C["center"])],
             ["Typos and messy wording, for real-user accuracy",
@@ -122,7 +123,7 @@ def s_scope(s, sbs, rt, mw):
                                   "questions are added.", 8.5, False, INK)]])
     footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 4e89acb (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
                          "f8d18e2. No LLM is used in any result; everything except RAG's round-1 run (slide 2) re-runs here exactly.",
-           "Source: Week 8/README.md; scripts/run_all.sh (83 tests pass)", y=4.42, w=7.6)
+           "Source: Week 8/README.md; scripts/run_all.sh (87 tests pass)", y=4.42, w=7.6)
     notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
              "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. One caveat for everything that follows: the "
              "numbers come from the 155 questions we have now, which lean on Microsoft and on finance-data questions.")
@@ -279,41 +280,51 @@ def s_routing(s, rt):
     clear(s)
     R = rt["routers"]
     er = rt["expected_routes"]
-    header(s, "Routing", "which tools each router calls, by the route a question needs (155 questions)")
+    n_none = er.get("none", 0)
+    header(s, "Routing", "coverage: did each method call the tools a question needs? (155 questions)")
     order = [("sql", "Finance data"), ("text", "Text"), ("graph", "Relationship"), ("none", "No tool"), ("multi", "Both")]
     cats = [f"{n} ({er.get(k, 0)})" for k, n in order]
     col_chart(s, 0.12, 1.0, 5.3, 3.3, cats,
               [("Text only", [R["text_only"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], "A9B0BD"),
                ("Keyword router", [R["keyword"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], BLUE),
                ("Every tool", [R["combined"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], NAVY)],
-              "Route the question needs (number of questions)", "Questions whose needed tools were called",
+              "Tool(s) the question needs (number of questions)", "Coverage: needed tools were called",
               "Routing by route", label_size=6.5, vmax=1.15)
     x = 5.65
-    tb(s, x, 1.0, 4.15, 1.05, [[("Keyword router: ", 8.5, True, NAVY),
-                                ("Eval's stand-in for the Agents' orchestrator, rules only, no LLM. Scope check first (blocked: "
-                                 "no tool). Then a relationship word (subsidiary, Exhibit 21, acquire, own) goes to GraphRAG; "
-                                 "a number word (how much, revenue, margin, total) to finance data; an explanation word (why, "
-                                 "explain, describe, risk) to RAG; both kinds to both.", 8, False, INK)]])
-    tb(s, x, 2.12, 4.15, 0.75, [[("Unneeded call: ", 8.5, True, NAVY),
-                                 ("a tool called that the question's route does not need. Per question = all unneeded calls / "
-                                  "155. Example: a finance-data question sent to every tool makes 3 calls, 2 unneeded. It is "
-                                  "not \"text search alone would have done\".", 8, False, INK)]])
-    rows = [["Router", ("Needed tools called", C["center"]), ("Calls / question", C["center"]),
-             ("Unneeded / question", C["center"])]] + [
-        [n, (pct(R[k]["required_tools_called"]), C["center"]), (f"{R[k]['tool_calls_per_question']:.2f}", C["center"]),
+    tb(s, x, 1.0, 4.15, 0.78, [[("Coverage ", 9, True, NAVY),
+                                ("= share of questions where every tool the question needs was called (no tool, for the 8 "
+                                 "that should be blocked). ", 8, False, INK)],
+                               [("It is not accuracy. ", 8, True, PINK),
+                                ("Calling the right tools does not make the final answer right; answer accuracy needs the "
+                                 "reader (round 1, once there is an API key).", 8, False, INK)]])
+    rows = [["Method", ("Coverage", C["center"]), ("Calls per question", C["center"]),
+             ("Unneeded calls per question", C["center"])]] + [
+        [(n, {"bold": True}), (cov, C["center"]), (f"{R[k]['tool_calls_per_question']:.2f}", C["center"]),
          (f"{R[k]['unneeded_calls_per_question']:.2f}", C["center"])]
-        for k, n in (("text_only", "Text only"), ("keyword", "Keyword router"), ("combined", "Every tool"))]
-    table(s, x, 2.95, 4.15, [1.25, 1.0, 0.9, 1.0], rows, row_h=0.3, sizes={0: 8, 1: 8, 2: 8, 3: 8}, name="Routing cost")
-    footer(s, "On the current 155 questions only:", "the 'Both' and 'No tool' bars rest on 1 and 8 questions. The keyword "
-                                                   "router's weak spot is text questions that mention a number word (next slide).",
+        for k, n, cov in (("text_only", "Text only", pct(R["text_only"]["required_tools_called"])),
+                          ("keyword", "Keyword router", pct(R["keyword"]["required_tools_called"])),
+                          ("combined", "Every tool", f"{pct(R['combined']['required_tools_called'])} "
+                                                     f"({R['combined']['required_tools_called'] * 100:.1f}%)"))]
+    table(s, x, 1.85, 4.15, [1.2, 0.95, 0.85, 1.15], rows, row_h=0.29, sizes={0: 8, 1: 8, 2: 8, 3: 8}, name="Routing cost")
+    tb(s, x, 3.07, 4.15, 0.6, [[("Unneeded call ", 8.5, True, NAVY),
+                                ("= a tool called that the question does not need. Total revenue needs finance data only, so "
+                                 "every tool makes 3 calls and 2 are unneeded. Averaged over all 155 questions.", 8, False, INK)]])
+    tb(s, x, 3.68, 4.15, 0.6, [[("Corrections to 11/5: ", 8, True, PINK),
+                                (f"the {pct(R['combined']['required_tools_called'])} is calling every tool (it misses only the "
+                                 f"{n_none} questions that need no tool), not the keyword router plus text only; the keyword "
+                                 f"router alone is {pct(R['keyword']['required_tools_called'])}.", 8, False, INK)]])
+    footer(s, "On the current 155 questions only:", "the 'Both' and 'No tool' bars rest on 1 and 8 questions. Coverage rewards "
+                                                   "calling more tools, so read it next to calls per question.",
            "Source: Week 8/results/routing_baselines.json; kpmg_eval/metrics/routing.py; ROUTING_EXAMPLES.md. Routes are Eval's "
            "labels, for Agents to review", y=4.38, w=7.6)
-    notes(s, "Last week's chart had no axis labels. Here the horizontal axis is the route a question needs, with the number of "
-             "questions in brackets, and the vertical axis is the share of those questions whose needed tools were called. The "
-             "keyword router is our rule-based stand-in for the orchestrator. An unneeded call is any tool called that the "
-             "question's route doesn't need, averaged over all 155 questions. So calling every tool on a finance-data question "
-             "is three calls, two of them unneeded. To correct the minutes: it does not mean text search alone could have "
-             "answered.")
+    notes(s, "Two corrections from last week first. The bars are coverage, not accuracy: coverage is the share of questions "
+             "where every tool the question needs was called. If a question needs finance data and the method calls finance "
+             "data, that counts, even if the final answer later turns out wrong. So 95 percent coverage does not mean 95 of 100 "
+             "answers are right; answer accuracy needs the reader, which is round 1. Second, the 95 percent comes from calling "
+             "every tool on every question. It misses only the 8 questions that should be blocked with no tool. The keyword "
+             "router alone covers 84 percent, and text search alone 20 percent. The cost side is the table: every tool makes 3 "
+             "calls per question, 2 of them unneeded on average; the keyword router makes about 1. An unneeded call is a tool "
+             "the question does not need: total revenue needs finance data only, so the other two calls are unneeded.")
 
 
 TOOL = {"sql": "Finance data", "text": "RAG", "graph": "GraphRAG"}
@@ -321,38 +332,53 @@ TOOL = {"sql": "Finance data", "text": "RAG", "graph": "GraphRAG"}
 
 def s_examples(s, ex):
     clear(s)
-    header(s, "Routing walkthrough", "seven questions for the demo: what each router calls, and why")
-    short = {"GSv0-MSFT-001": "Microsoft's total revenue, three months ended Mar 31, 2026",
-             "GSv0-MSFT-004": "Name Microsoft's reportable segments",
-             "EV3-001": "How many subsidiaries does Micron list in Exhibit 21; how many abroad?",
-             "EV1R-003": "How did Microsoft's OpenAI gains change, and what event drove it?",
-             "EV1-062": "Microsoft's share price at the close on Mar 31, 2026",
-             "GSv0-MSFT-009": "What does revenue allocated to remaining performance obligations include?",
-             "GSv0-MSFT-014": "Calculate operating cash flow less capex ... (use that definition)"}
-    route_name = {"sql": "Finance data", "text": "Text", "graph": "Relationship", "none": "No tool", "multi": "Both"}
-    rows = [["Question (shortened)", "Needs", "Keyword router calls", "Because", ("Unneeded: text only / keyword / every tool",
-                                                                                C["center"])]]
-    for e in ex:
-        kw = e["routers"]["keyword"]
-        ok = kw["needed_tools_called"]
-        calls = ", ".join(TOOL[t] for t in kw["called"]) or "nothing (blocked)"
-        reason = (e["keyword_reason"].split(" -> ")[0].replace("scope gate decides 'abstain', no tool", "scope check: abstain")
-                  .replace("'defin'", "'definition'"))
-        un = " / ".join(str(e["routers"][k]["unneeded"]) for k in ("text_only", "keyword", "combined"))
-        rows.append([short[e["qid"]], route_name[e["expected_route"]],
-                     (calls + ("" if ok else "  (misses)"), {"color": GREEN if ok else PINK, "bold": True}), reason,
-                     (un, C["center"])])
-    table(s, 0.12, 1.0, 9.68, [3.6, 0.95, 1.65, 2.18, 1.3], rows, row_h=0.4, sizes={0: 7.5, 1: 7.5, 2: 7.5, 3: 7.5, 4: 8},
-          name="Examples")
-    footer(s, "For the demo:", "the first five show each route; the last two show where rules break, which is what the "
-                               "Agents' orchestrator should do better. A miss means a needed tool was not called.",
-           "Source: Week 8/ROUTING_EXAMPLES.md, results/routing_examples.json (scripts/routing_examples.py); full questions "
-           "in data/benchmark_v2_questions.md", y=4.42, w=7.6)
-    notes(s, "For the demo we picked seven questions. The first is a number from a statement: the keyword router sends it to "
-             "finance data, with no unneeded calls; text-only would miss it; every-tool calls two extra. Then a text question, a "
-             "relationship question that goes to GraphRAG, and a share-price question that the scope check blocks with no tool "
-             "call. The last rows show where rules break: a question about what revenue includes is a text question, but the "
-             "word revenue sends it to finance data.")
+    header(s, "Routing walkthrough", "three real questions, and which tools each method calls")
+    by = {e["qid"]: e for e in ex}
+    picks = [("GSv0-MSFT-001", "1 · A number from a statement",
+              "What was Microsoft's total revenue for the three months ended March 31, 2026?"),
+             ("EV3-001", "2 · A relationship (Exhibit 21)",
+              "How many subsidiaries does Micron list in Exhibit 21, and how many are outside the US?"),
+             ("GSv0-MSFT-009", "3 · Where the keyword router slips",
+              "What does revenue allocated to remaining performance obligations include?")]
+    need_name = {"sql": "finance data", "text": "RAG text search", "graph": "GraphRAG"}
+    method = {"text_only": "Text only", "keyword": "Keyword", "combined": "Every tool"}
+    for i, (qid, title, q) in enumerate(picks):
+        e = by[qid]
+        x = 0.12 + i * 3.25
+        label(s, x, 1.0, 3.1, title, NAVY)
+        tb(s, x, 1.25, 3.1, 0.55, [[(f"\u201c{q}\u201d", 8, False, INK)]])
+        tb(s, x, 1.8, 3.1, 0.22, [[("Needs: ", 8, True, INK), (", ".join(need_name[t] for t in e["needs"]), 8, False, INK)]])
+        rows = [["Method", "Calls", ("Covered", C["center"]), ("Unneeded", C["center"])]]
+        for k in ("text_only", "keyword", "combined"):
+            r = e["routers"][k]
+            ok = r["needed_tools_called"]
+            rows.append([(method[k], {"bold": True}),
+                         ", ".join(TOOL[t] for t in ("sql", "text", "graph") if t in r["called"]) or "none",
+                         ("yes" if ok else "no", {**C["center"], "bold": True, "color": GREEN if ok else PINK}),
+                         (str(r["unneeded"]), C["center"])])
+        table(s, x, 2.05, 3.1, [0.68, 1.04, 0.62, 0.76], rows, row_h=0.3, sizes={0: 7.5, 1: 7.5, 2: 7.5, 3: 7.5},
+              name=f"Example {i + 1}")
+        why = e["keyword_reason"].replace("->", "→").replace("SQL", "finance data").replace("'defin'", "'definition'")
+        tb(s, x, 3.3, 3.1, 0.3, [[("Keyword router: ", 7.5, True, MUTED), (why, 7.5, False, MUTED)]])
+    tb(s, 0.12, 3.68, 7.6, 0.6, [[("Where the keyword router sits: ", 8.5, True, NAVY),
+                                  ("it is Eval's baseline for comparison, not part of the pipeline. It sends a question to "
+                                   "GraphRAG on a relationship word (subsidiary, Exhibit 21, acquire), to finance data on a "
+                                   "number word (revenue, total, margin), to RAG on an explanation word (why, describe). The "
+                                   "Agents' orchestrator does the real routing, and they can score it on the same 155 questions "
+                                   "with our script (next line).", 8, False, INK)]])
+    footer(s, "For Agents:", "python scripts/run_routing_baselines.py --router name=your_module.py:route, or --calls "
+                             "name=calls.jsonl from your logs. Seven worked examples in ROUTING_EXAMPLES.md.",
+           "Source: Week 8/results/routing_examples.json (scripts/routing_examples.py); scripts/run_routing_baselines.py",
+           y=4.38, w=7.6)
+    notes(s, "Three real questions. First, Microsoft's total revenue for the quarter. It needs finance data. Text search alone "
+             "calls RAG, which is not the tool it needs. The keyword router sees the word total and calls finance data: covered, "
+             "nothing wasted. Every tool also covers it, but makes two calls it does not need. Second, Micron's subsidiaries. "
+             "It needs GraphRAG. Text only misses; the keyword router sees Exhibit 21 and calls GraphRAG; every tool covers it "
+             "with two extra calls. Third, where rules slip: what revenue allocated to remaining performance obligations "
+             "includes. That is a text question, but the word revenue sends the keyword router to finance data, so it misses; "
+             "text only gets it. That is why the keyword router is a baseline, not part of the pipeline: it shows the cost and "
+             "coverage trade-off, and the Agents' orchestrator should beat it. They can run their orchestrator through the same "
+             "script and get the same three numbers.")
 
 
 def s_messy(s, mw):

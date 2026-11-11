@@ -28,6 +28,7 @@ def score_routing(cases: list[dict]) -> dict:
     return {
         "n": n,
         "required_tools_called": round(hit / n, 3) if n else None,   # every needed tool was called (none: no tool called)
+        "coverage": round(hit / n, 3) if n else None,                # same number, the name used on the slides; NOT accuracy
         "exact_route": round(exact / n, 3) if n else None,            # called exactly the needed tools
         "tool_calls_per_question": round(calls / n, 2) if n else None,
         "unneeded_calls_per_question": round(wasted / n, 2) if n else None,
