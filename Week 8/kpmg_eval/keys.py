@@ -61,11 +61,18 @@ def _dim_token(v: Any) -> str:
 
 
 def norm_dims(v: Any) -> tuple:
-    """dict or tuple of (axis, member) -> sorted tuple of normalised tokens; None/{} -> () (consolidated total).
-    GraphRAG's structured arm reports members as labels ("Intelligent Cloud"); gold uses XBRL QNames."""
+    """XBRL dimensions in any of the shapes we receive -> sorted tuple of normalised (axis, member) tokens.
+    None/{}/[] -> () (consolidated total).
+      dict                {"StatementBusinessSegmentsAxis": "Intelligent Cloud"}        GraphRAG mock (labels)
+      list of dicts       [{"axis": "us-gaap:...Axis", "member": "msft:...Member", ...}]  GraphRAG real arm (Week 8)
+      pairs               (("us-gaap:...Axis", "msft:...Member"),)                         gold facts
+    A typed dimension carries "value" instead of "member". All three give the same key for the same fact."""
     if not v:
         return ()
-    items = v.items() if isinstance(v, dict) else v
+    if isinstance(v, dict):
+        items = v.items()
+    else:
+        items = [(d.get("axis"), d.get("member", d.get("value"))) if isinstance(d, dict) else tuple(d) for d in v]
     return tuple(sorted((_dim_token(a), _dim_token(m)) for a, m in items))
 
 

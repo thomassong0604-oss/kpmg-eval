@@ -2,7 +2,7 @@
  "_doc": "Week 8: RAG and GraphRAG side by side on one full question set (11/5 minutes, Eval item 1).",
  "commits": {
   "KPMG_RAG": "5bfafeb (main, 11/5)",
-  "KPMG-GraphRAG": "7bcbdaf (main, 11/8)",
+  "KPMG-GraphRAG": "4e89acb (main, 11/11; called through graphrag.backends)",
   "KPMG-GraphRAG ex21": "c21fe89 (alina/ex21-pipeline, 11/8)",
   "data_engineering_kpmg": "f8d18e2"
  },
@@ -37,12 +37,22 @@
      "n": 36,
      "hits": 33
     },
+    "top1_right_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
+    "top1_wrong_period_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
     "returned_nothing_on_unanswerable": {
      "hits": 0,
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 0.8,
+    "median_ms": 1.0,
     "by_question_type": {
      "calculation": {
       "rate": 0.933,
@@ -112,12 +122,22 @@
      "n": 36,
      "hits": 30
     },
+    "top1_right_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
+    "top1_wrong_period_on_numbers": {
+     "rate": null,
+     "n": 0,
+     "hits": 0
+    },
     "returned_nothing_on_unanswerable": {
      "hits": 0,
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 4.3,
+    "median_ms": 4.1,
     "by_question_type": {
      "calculation": {
       "rate": 0.8,
@@ -187,12 +207,22 @@
      "n": 36,
      "hits": 19
     },
+    "top1_right_on_numbers": {
+     "rate": 0.28,
+     "n": 50,
+     "hits": 14
+    },
+    "top1_wrong_period_on_numbers": {
+     "rate": 0.167,
+     "n": 36,
+     "hits": 6
+    },
     "returned_nothing_on_unanswerable": {
      "hits": 0,
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 73.7,
+    "median_ms": 76.3,
     "by_question_type": {
      "calculation": {
       "rate": 0.2,

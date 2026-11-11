@@ -25,14 +25,32 @@ from .keys import EvalKey, provenance_key
 
 
 def load_tools(repo: Path, mock: bool = True):
-    """(graph_search, structured_search) from a GraphRAG checkout. mock=False uses graphrag.retrieve, which raises
-    RetrievalUnavailableError until a backend is registered (by design: it never falls back to the mock)."""
+    """(graph_search, structured_search) from a GraphRAG checkout.
+    mock=False imports graphrag.backends (GraphRAG main from 11/10): importing it registers whichever arms the
+    environment describes (NEO4J_URI/NEO4J_USERNAME/NEO4J_PASSWORD[/NEO4J_DATABASE] for the graph arm,
+    MSFT_FACT_DB_PATH for the structured arm). An arm without its environment raises RetrievalUnavailableError when
+    called; backend_status() says why. It never falls back to the mock."""
     repo = Path(repo)
     for p in (repo, repo / "mock"):
         if str(p) not in sys.path:
             sys.path.insert(0, str(p))
-    mod = importlib.import_module("mock_retrieval_tools" if mock else "graphrag.retrieve")
+    if mock:
+        mod = importlib.import_module("mock_retrieval_tools")
+    else:
+        try:
+            mod = importlib.import_module("graphrag.backends")
+        except ImportError:                       # GraphRAG checkouts before 11/10 have no backends module
+            mod = importlib.import_module("graphrag.retrieve")
     return mod.graph_search, mod.structured_search
+
+
+def backend_status(repo: Path) -> dict:
+    """Which real arms registered, and why the others did not (graphrag.backends.configure_from_env)."""
+    load_tools(repo, mock=False)
+    try:
+        return importlib.import_module("graphrag.backends").configure_from_env()
+    except ImportError:
+        return {"graph": "unknown: no graphrag.backends", "structured": "unknown: no graphrag.backends"}
 
 
 def fixture_tools(path: Path):
@@ -75,6 +93,8 @@ def _unit(meta: dict) -> str | None:
 def evidence_key(item: dict) -> EvalKey:
     """One GraphRAG evidence object -> EvalKey at the finest level it supports."""
     meta = item.get("metadata") or {}
+    # Structured-arm rows carry section=None and section_id=None on every result (GraphRAG issue #40): the key is
+    # fact-level and never depends on section. Only ticker and reporting_period_end are non-null on both arms.
     if meta.get("fact_id"):
         return EvalKey(cik=item.get("cik"), accession=item.get("accession_number"), section=item.get("section"),
                        concept=meta.get("concept"), period_start=meta.get("period_start"),

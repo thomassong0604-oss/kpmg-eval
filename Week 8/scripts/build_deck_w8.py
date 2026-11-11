@@ -120,7 +120,7 @@ def s_scope(s, sbs, rt, mw):
                                 [("104 finance data, 31 text, 11 relationship, 8 no tool, 1 both. Microsoft has 92 of them, "
                                   "so per-route numbers on 1-11 questions are examples, not estimates. They will move as "
                                   "questions are added.", 8.5, False, INK)]])
-    footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 7bcbdaf and Exhibit 21 branch @ c21fe89 (11/8), Data @ "
+    footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 4e89acb (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
                          "f8d18e2. No LLM is used in any result; everything except RAG's round-1 run (slide 2) re-runs here exactly.",
            "Source: Week 8/README.md; scripts/run_all.sh (83 tests pass)", y=4.42, w=7.6)
     notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
@@ -196,9 +196,9 @@ def s_side_by_side(s, sbs):
     table(s, x, 1.25, 3.7, [1.1, 1.3, 1.3], rows, row_h=0.27, name="Head to head")
     tb(s, x, 2.2, 3.8, 1.9, [[("How it was run. ", 8, True, INK),
                               ("RAG: its chunker, index and Retriever.search with the question's filters. GraphRAG (main, "
-                               "11/8): its fact loader built the store from Data's copy of the filing (1,317 facts), then "
-                               "structured_search. Its graph arm needs a Neo4j database we cannot reach, so it is not in this "
-                               "chart.", 8, False, INK)],
+                               "11/11, via graphrag.backends): its fact loader built the store from Data's copy of the filing "
+                               "(1,317 facts), then structured_search. Its graph arm (696 claims for this filing) runs on an Aura "
+                               "database our workspace cannot reach, so GraphRAG will run our script for it.", 8, False, INK)],
                              [(" ", 4, False, INK)],
                              [("Neither side returned an empty result ", 8, True, INK),
                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable questions, so abstaining stays "
@@ -257,7 +257,11 @@ def s_better(s, sbs):
                                    ("one call cannot fetch every input; one call per input would", 8, False, INK)],
                                   [(f"{d.get('single_input_not_in_top50', 0)} wording: ", 8, True, INK),
                                    ("'current unearned revenue', 'repurchasing common stock' miss their concepts",
-                                    8, False, INK)]])
+                                    8, False, INK)],
+                                  [("Rank 1: ", 8, True, INK),
+                                   (f"right number {g['top1_right_on_numbers']['hits']}/{g['top1_right_on_numbers']['n']}, a "
+                                    f"wrong-period number {g['top1_wrong_period_on_numbers']['hits']}/"
+                                    f"{g['top1_wrong_period_on_numbers']['n']}; GraphRAG flagged this itself", 8, False, INK)]])
     footer(s, "Together:", "route relationship questions to GraphRAG and narrative ones to RAG; numbers can use either once "
                            "GraphRAG's ranking fix lands, with GraphRAG's period labels as the check.",
            "Source: Week 8/results/side_by_side.json (part_b, number_miss_diagnosis); GraphRAG ex21_pipeline/output/graph_edges.csv "
@@ -403,11 +407,12 @@ def s_next(s):
     rows = [["Team", "Ask (from this week's results)"],
             [("RAG", {"bold": True}), "Share the round-1 chunks privately so we can anchor the last 4 questions and run the side by "
                                       "side on all ten; try candidate k and fusion weights on the 6 near misses; reader API key"],
-            [("GraphRAG", {"bold": True}), "Treat 'three/six/nine months' as period words, not segment names; one call per input "
-                                           "for calculations; merge the Exhibit 21 pipeline; a Neo4j endpoint to score the graph arm"],
+            [("GraphRAG", {"bold": True}), "Run our round-1 script with your Aura graph and send the results; share the 20-filing "
+                                           "store; accept accession filters in place of fiscal labels; read periods when ranking"],
             [("Agents", {"bold": True}), "Split cross-company and 10-K + 10-Q questions into one search each; match tickers and "
                                          "near-miss names; run your orchestrator through our routing scorer"],
-            [("Data", {"bold": True}), "Keep the 11/03 freeze (round1_filings.csv, which matches our 21/21) fixed through round 1"],
+            [("Data", {"bold": True}), "Keep the 11/03 freeze (matches our 21/21) through round 1; then load Microsoft's FY2024 and "
+                                       "FY2025 10-Ks, already in your inventory (joint ask with GraphRAG)"],
             [("Eval", {"bold": True}), "Anchors for the last 4 questions once chunks land; check RAG's per-question results against "
                                        "v2.1; answer-level round 1 when a reader can run; grow the 1 'both' and 8 'no tool' routes"]]
     table(s, 0.12, 1.0, 9.68, [1.0, 8.68], rows, row_h=0.46, sizes={0: 8.5, 1: 8}, name="Asks")

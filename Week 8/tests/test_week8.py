@@ -79,3 +79,34 @@ def test_gold_v2_1_changes_only_anchors():
     assert "development across the portfolio." not in by["GSv0-MSFT-019"]
     assert any("relatively unchanged" in c for c in by["GSv0-MSFT-019"])
     assert "194,370" not in by["GSv0-MSFT-027"]
+
+
+def test_dims_from_mock_real_and_gold_give_one_key():
+    from kpmg_eval.keys import norm_dims
+    mock = {"StatementBusinessSegmentsAxis": "Intelligent Cloud"}
+    real = [{"axis": "us-gaap:StatementBusinessSegmentsAxis", "member": "msft:IntelligentCloudMember", "type": "explicit"}]
+    gold = (("us-gaap:StatementBusinessSegmentsAxis", "msft:IntelligentCloudMember"),)
+    assert norm_dims(mock) == norm_dims(real) == norm_dims(gold)
+    assert norm_dims([]) == norm_dims(None) == ()
+
+
+def test_structured_key_does_not_need_section():
+    from kpmg_eval.graphrag_adapter import evidence_key
+    from kpmg_eval.keys import Level
+    k = evidence_key({"cik": "0000789019", "accession_number": "0001193125-26-191507", "section": None,
+                      "section_id": None, "metadata": {"fact_id": "f1", "concept": "us-gaap:Revenues",
+                                                       "period_start": "2026-01-01", "period_end": "2026-03-31",
+                                                       "unit": "iso4217:USD", "dimensions": []}})
+    assert k.level == Level.FACT and k.section is None
+
+
+def test_graphrag_filter_translation():
+    import json
+    from kpmg_eval.graphrag_filters import compatibility, load_snapshot, translate
+    snap = load_snapshot(ROOT / "data" / "snapshot_w7.json")
+    gold = {json.loads(l)["qid"]: json.loads(l) for l in open(ROOT / "data" / "benchmark_v2_1.jsonl")}
+    f, how = translate(gold["GSv0-MSFT-001"], snap)
+    assert f == {"ticker": "MSFT", "accession_number": "0001193125-26-191507"} and how == "one_filing"
+    assert compatibility(gold["GSv0-MSFT-001"]["filters"])["graph_refuses"] == ["fiscal_period", "fiscal_year"]
+    f, how = translate(gold["EV2-040"], snap)
+    assert "ticker" not in f and how.endswith("ticker_list_dropped")

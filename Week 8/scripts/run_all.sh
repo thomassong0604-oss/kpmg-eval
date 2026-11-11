@@ -14,6 +14,7 @@ python3 scripts/run_scope10_grader_check.py
 python3 scripts/build_relationship_draft.py
 python3 scripts/build_gold_v2.py
 python3 scripts/build_gold_v2_1.py
+python3 scripts/build_hops_v2.py
 python3 scripts/run_decision_baselines.py
 python3 scripts/run_routing_baselines.py
 python3 scripts/routing_examples.py
@@ -34,6 +35,7 @@ python3 scripts/run_harness.py --benchmark v2
 python3 scripts/run_graphrag_wiring.py
 python3 scripts/run_metric_selection.py
 python3 scripts/run_side_by_side.py
+python3 scripts/run_graphrag_round1.py --tag eval_local > /dev/null
 python3 scripts/run_messy_wording.py
 node scripts/export_questions_docx.js
 python3 scripts/refresh_peer_facts.py --check

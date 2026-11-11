@@ -42,3 +42,40 @@ chunks show the total, so any of them counts.
 Could you send chunks_C1.jsonl and the per-question results privately (Drive or DM)? We'll finish those 4 anchors and
 check your results against v2.1. The cross-company and 10-K + 10-Q misses we'll take to Agents as query splitting.
 Thanks again!
+
+## Slack reply to GraphRAG (Adeline, Wenyu, Alina, Claudia), 11/11
+
+Hi GraphRAG team, thank you for the week-8 reply, and congratulations on getting the real tools out. The filter fix,
+the Exhibit 21 output and the heads-up on periods all came in time for round 1. Everything we did with it is in
+kpmg-eval → Week 8/EVAL_GRAPHRAG_W8.md. Short version:
+
+Done on our side
+- Harness now imports graphrag.backends (pinned to main @ 4e89acb), and the side by side calls your structured arm that way.
+- Your fourth mock finding was right, and it was worse than a mismatch: the real list of {axis, member, type} made our key code crash. Fixed and tested. Dict, list and gold pairs now give the same key, and nothing depends on section.
+- hops split adopted. data/hops_v2.csv has `filings` filled by us in code (136 questions need 1 filing, 11 need 2 or more). `hops` is left for you. Your verdicts on the six drafts are recorded.
+- M17 was already reworded in Gold Set v2 to the FY2026 decline (XBOX 23,455 → 21,790, −7.1%, no Activision revenue line).
+- M08 is now an abstention candidate (EV3-010) for v2.2, after round 1.
+- M12: agreed on the segment-figure version. But Data's inventory for the ten has no 10-K/A at all, so M12/M13/M19 stay parked.
+
+Two things we found while switching
+1. The graph arm refuses fiscal_year/fiscal_period, which 129 of 155 gold questions carry. The structured arm accepts and ignores them. So we now send {ticker, accession_number} whenever the evidence sits in one filing (136 questions); both arms apply that. Is that how you want callers (incl. the Agents) to do it?
+2. List-valued ticker filters (13 cross-company questions) fail on both arms. Structured raises RetrievalUnavailableError from a DuckDB cast error, which looks like an outage. Graph returns nothing, silently. Could you support IN, or refuse with a ValueError?
+
+Also: on our store (your fact_loader_v1 on Data's copy of the 10-Q), GSv0-MSFT-001 puts a Microsoft 365 product row at rank 1, not the 241,832 you saw. "Three months" matches the ThreeSixFive members. Rank 1 is the right number on 14 of 50 number questions and a wrong-period number on 6 of 36. So we may be on different stores.
+
+What would help most
+1. Our workspace can't reach Aura (*.databases.neo4j.io) or sec.gov, so we can't run the graph arm or build the store ourselves. Could you run round 1 on your side, like RAG did? From kpmg-eval/Week 8: `python scripts/run_graphrag_round1.py --graphrag <your checkout> --tag graphrag_aura` with your Neo4j variables and MSFT_FACT_DB_PATH set. Then send us results/graphrag_round1_graphrag_aura.json and .csv. It runs both arms on all 155 questions.
+2. The 20-filing DuckDB store, shared privately, so we can compare stores and rerun the structured arm on every company.
+3. Is PR #34 the alina/ex21-pipeline branch, and when will it merge and load? 9 questions depend on it, and its rows matched our gold reads 62/62.
+4. `hops` in hops_v2.csv when you have them, starting with the six drafts.
+
+And for Data together: Microsoft's FY2024 and FY2025 10-Ks are already in Data's inventory and passed their checks. They just aren't in the 21-filing database. Shall we ask Data to load them right after round 1 (draft below)? That unblocks M05 and gives M04/M06/M17 a third year.
+
+Thanks again!
+
+## Joint ask to Data (draft, to send with GraphRAG after round 1), 11/11
+
+Hi Emma, a joint ask from Eval and GraphRAG, for after round 1 so the 11/03 freeze holds until then. Could you load
+Microsoft's FY2024 10-K (0000950170-24-087843) and FY2025 10-K (0000950170-25-100235) into the database? Both are in
+your 2021–2026 inventory and passed your fact checks. They unblock one gold question (first year a segment was
+reported) and give three others a third year to compare. Thank you!

@@ -29,7 +29,8 @@ Per-question old and new anchors: `results/gold_v2_1_changes.json`. The spreadsh
 | [`data/snapshot_w7.json`](data/snapshot_w7.json) | The 21 filings and how they match Data's lists |
 | [`data/decision_suite_v1.jsonl`](data/decision_suite_v1.jsonl) | 24 extra clarify / off-topic / abstain prompts for the Agents' scope check |
 | [`data/messy_wording_v1.jsonl`](data/messy_wording_v1.jsonl) | 427 typo and casual-wording rewrites of these 155 questions |
-| [`data/hops_v1.csv`](data/hops_v1.csv) | Hop counts per question, for GraphRAG |
+| [`data/hops_v2.csv`](data/hops_v2.csv) | Per question: `filings` (distinct accessions the gold evidence needs, filled by Eval in code), `hops` (edges on GraphRAG's ontology path, for GraphRAG to derive), GraphRAG's review of the six relationship drafts. Replaces `hops_v1.csv` (11/11, agreed with GraphRAG) |
+| [`data/gold_candidates_v2_2.jsonl`](data/gold_candidates_v2_2.jsonl) | Questions queued for v2.2, after round 1 (EV3-010: GraphRAG's M08 as an abstention question) |
 | [`results/gold_v2_summary.json`](results/gold_v2_summary.json) | Counts, hash, change log |
 
 Regenerate: `python scripts/build_gold_v2.py` (the jsonl), then `python scripts/export_gold_v2_xlsx.py` and

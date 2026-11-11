@@ -1,0 +1,101 @@
+{
+ "_doc": "Week 8: round 1 for GraphRAG's real tools on Gold Set v2.1 (both arms, every question).",
+ "tag": "eval_local",
+ "k": 10,
+ "gold": "benchmark_v2_1.jsonl",
+ "backend_status": {
+  "graph": "skipped: NEO4J_URI is not set",
+  "structured": "registered: /home/claude/kpmg-eval/Week 8/upstream/graphrag_store_msft_10q.duckdb"
+ },
+ "arms_run": [
+  "structured"
+ ],
+ "store_filings": [
+  "0001193125-26-191507"
+ ],
+ "filter_compatibility_of_gold_filters": {
+  "graph_refuses_gold_filters": 129,
+  "structured_ignores_some_gold_filters": 129,
+  "list_valued_filters": 13,
+  "translation_one_filing": 136,
+  "translation_several_filings": 4,
+  "translation_no_gold_evidence": 8,
+  "translation_several_filings_ticker_list_dropped": 7
+ },
+ "summary": {
+  "structured|gold": {
+   "calls": 155,
+   "errors": 10,
+   "error_types": {
+    "RetrievalUnavailableError": 10
+   },
+   "skipped_filing_not_in_store": 67,
+   "numbers": {
+    "rate": 0.52,
+    "hits": 26,
+    "n": 50
+   },
+   "numbers_strict": {
+    "rate": 0.52,
+    "hits": 26,
+    "n": 50
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 27
+   },
+   "top1_right": {
+    "rate": 0.28,
+    "hits": 14,
+    "n": 50
+   },
+   "top1_wrong_period": {
+    "rate": 0.167,
+    "hits": 6,
+    "n": 36
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.091,
+    "hits": 1,
+    "n": 11
+   }
+  },
+  "structured|translated": {
+   "calls": 155,
+   "errors": 0,
+   "error_types": {},
+   "skipped_filing_not_in_store": 67,
+   "numbers": {
+    "rate": 0.52,
+    "hits": 26,
+    "n": 50
+   },
+   "numbers_strict": {
+    "rate": 0.52,
+    "hits": 26,
+    "n": 50
+   },
+   "prose": {
+    "rate": 0.0,
+    "hits": 0,
+    "n": 27
+   },
+   "top1_right": {
+    "rate": 0.28,
+    "hits": 14,
+    "n": 50
+   },
+   "top1_wrong_period": {
+    "rate": 0.167,
+    "hits": 6,
+    "n": 36
+   },
+   "returned_nothing_on_unanswerable": {
+    "rate": 0.091,
+    "hits": 1,
+    "n": 11
+   }
+  }
+ }
+}

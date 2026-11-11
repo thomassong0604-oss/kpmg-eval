@@ -7,7 +7,7 @@ both teams' code can load here without a network or a database server. Each syst
   RAG       KPMG_RAG @ 5bfafeb (main, 11/5): rag.chunk.chunk_filing (158 chunks) -> rag.index.build_index ->
             Retriever.search, filters = the question's filters, top 8. "bm25" is RAG's production BM25 exactly. RAG's
             dense model cannot be downloaded here, so "hybrid" uses RAG's own offline LSA stand-in (a lower bound).
-  GraphRAG  KPMG-GraphRAG @ 7bcbdaf (main, 11/8, incl. their 11/5 concept-matching and consolidated-fact changes):
+  GraphRAG  KPMG-GraphRAG @ 4e89acb (main, 11/11), called through graphrag.backends as their README says:
             structured/fact_loader_v1.py builds the DuckDB fact store from Data's copy of the same filing (1,317 facts),
             then structured_query_v1.structured_search(question, {ticker, accession_number}, top_k=8). This is
             GraphRAG's structured arm. Its graph arm needs Neo4j, which is not reachable from here.
@@ -53,7 +53,7 @@ CORPUS = "msft_10q_q3fy26"
 K = 8
 STORE = UP / "graphrag_store_msft_10q.duckdb"
 HTM = UP / "data_engineering_kpmg" / "data" / "raw" / "sec" / ACC / "msft-20260331.htm"
-COMMITS = {"KPMG_RAG": "5bfafeb (main, 11/5)", "KPMG-GraphRAG": "7bcbdaf (main, 11/8)",
+COMMITS = {"KPMG_RAG": "5bfafeb (main, 11/5)", "KPMG-GraphRAG": "4e89acb (main, 11/11; called through graphrag.backends)",
            "KPMG-GraphRAG ex21": "c21fe89 (alina/ex21-pipeline, 11/8)", "data_engineering_kpmg": "f8d18e2"}
 
 
@@ -111,10 +111,19 @@ def rag_run(retr, q, method):
     return [r["text"] for r in res], ms
 
 
+def gr_structured(top_k=K):
+    """GraphRAG's real structured arm the way their README says to call it (11/10): `graphrag.backends`, which runs
+    contract validation, ranking and the conformance check around structured_query_v1. Filters: the question's one
+    filing as {ticker, accession_number}, which the arm applies (see kpmg_eval/graphrag_filters.py)."""
+    from kpmg_eval.graphrag_adapter import load_tools
+    _, structured = load_tools(UP / "KPMG-GraphRAG", mock=False)
+    return lambda q: structured(q["question"], filters={"ticker": "MSFT", "accession_number": ACC}, top_k=top_k,
+                                trace_id=f"sbs:{q['qid']}")
+
+
 def gr_run(q):
-    import structured_query_v1 as sq
     t = time.perf_counter()
-    ev = sq.structured_search(q["question"], {"ticker": "MSFT", "accession_number": ACC}, top_k=K)
+    ev = gr_structured()(q)
     ms = (time.perf_counter() - t) * 1000
     return ev, ms
 
@@ -142,6 +151,9 @@ def score_gr(q, ev):
                                             for v in vals) for n in needed_values(q))
         ds = [d["value"] for d in (q.get("gold") or {}).get("distractors", []) if d.get("value")]
         out["distractor_shown"] = any(any(abs(v - d) < 0.5 for v in vals) for d in ds) if ds else None
+        top = ev[0]["metadata"].get("value_num") if ev else None
+        out["top1_right"] = top is not None and any(abs(top - n) < 0.5 for n in needed_values(q))
+        out["top1_wrong_period"] = (top is not None and any(abs(top - d) < 0.5 for d in ds)) if ds else None
     elif k == "prose":
         anchors = [c for e in q["rag_evidence"] for c in e["contains"]]
         blob = norm(" ".join(e["text"] for e in ev))
@@ -180,6 +192,8 @@ def part_a(gold):
             "numbers": rate([r for r in rs if r["kind"] == "number"], "needed_in_evidence"),
             "prose": rate([r for r in rs if r["kind"] == "prose"], "needed_in_evidence"),
             "distractor_shown_on_numbers": rate([r for r in rs if r["kind"] == "number"], "distractor_shown"),
+            "top1_right_on_numbers": rate([r for r in rs if r["kind"] == "number"], "top1_right"),
+            "top1_wrong_period_on_numbers": rate([r for r in rs if r["kind"] == "number"], "top1_wrong_period"),
             "returned_nothing_on_unanswerable": {
                 "hits": sum(r["n_returned"] == 0 for r in rs if r["kind"] == "unanswerable_or_false_premise"),
                 "n": sum(r["kind"] == "unanswerable_or_false_premise" for r in rs)},
@@ -193,14 +207,13 @@ def part_a(gold):
         summ[s]["by_question_type"] = {t: rate(v, "needed_in_evidence") for t, v in sorted(by_type.items())}
     # why GraphRAG's structured arm missed a number: ranked below 8, or its question words never reach the concept
     import concept_match
-    import structured_query_v1 as sq
     diag = Counter()
     diag_q = defaultdict(list)
     for q in qs:
         r = next(x for x in rows if x["qid"] == q["qid"] and x["system"] == "graphrag_structured")
         if r["kind"] != "number" or r["needed_in_evidence"]:
             continue
-        deep = sq.structured_search(q["question"], {"ticker": "MSFT", "accession_number": ACC}, top_k=50)
+        deep = gr_structured(50)(q)
         found = score_gr(q, deep)["needed_in_evidence"]
         why = ("in_top50_ranked_below_8" if found else
                "multi_input_not_all_in_top50" if len(q["fact_values"]) > 1 else "single_input_not_in_top50")
@@ -412,6 +425,7 @@ def main():
     (RES / "side_by_side.json").write_text(json.dumps(out, indent=1))
     with open(RES / "side_by_side_per_question.csv", "w", newline="") as f:
         cols = ["qid", "system", "kind", "type", "route_expected", "traps", "needed_in_evidence", "distractor_shown",
+                "top1_right", "top1_wrong_period",
                 "n_returned", "ms", "top1", "question"]
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()

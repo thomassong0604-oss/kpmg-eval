@@ -47,7 +47,12 @@ the round-1 section below).
   nothing because the company comes in as a filter.
 - **Ask:** an API key for the fixed reader, so round 1 scores answers and not only evidence.
 
-## GraphRAG (KPMG-GraphRAG @ 7bcbdaf main 11/8; Exhibit 21 @ c21fe89)
+## GraphRAG (KPMG-GraphRAG @ 4e89acb main 11/11; Exhibit 21 @ c21fe89)
+- **Your 11/11 reply is answered point by point in [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md):** harness on
+  `graphrag.backends`; dims list/dict fixed; hops split adopted (`data/hops_v2.csv`, `filings` filled by Eval); M17
+  already reworded; M08 as an abstention candidate; the graph arm refuses fiscal labels on 129 questions, so we send
+  `accession_number`; list-valued filters fail on both arms; please run `scripts/run_graphrag_round1.py` with Aura.
+- Earlier this week (Part A on 7bcbdaf; unchanged on 4e89acb):
 - **How we ran it:** `structured/fact_loader_v1.py` on Data's copy of the 10-Q (1,317 facts, offline with
   `--filing-date/--form/--company-name`), then `structured_search(question, {ticker, accession_number}, top_k=8)`.
 - **Result:** the needed facts are in the top 8 for 25/50 number questions (the same on 1980a79 and on main after your
