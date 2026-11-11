@@ -272,3 +272,16 @@ Our workspace can't reach outside hosts, so could you run:
 `python scripts/run_agent_api.py --base-url <your URL> --tag agents_v02`
 and send us private/agent_responses_agents_v02.jsonl privately (the evidence holds filing text, so it stays off
 GitHub)? We'll turn the results around the same day.
+
+## Team paragraph, week 8 (11/11)
+
+This week Eval ran round 1 with every team and turned the 11/5 feedback into fixes. RAG ran our scoring twice. On
+retrieval, hybrid search found the evidence for 105 of 124 questions. End to end, its reader got 89 of 94 numbers
+right (0.947) and refused all 12 unanswerable questions. We reproduced both runs exactly, and RAG's notes became Gold
+Set v2.2: the same 155 questions with fairer grading and the last anchors added. GraphRAG ran both arms on all 20
+filings. Its structured search has the needed number in its top 10 for 63 of 93 but ranks it first for only 26. Its
+graph arm, scored for the first time, finds half the text answers within the sections it holds. We matched GraphRAG's
+results question by question on its own store and merged its hop counts. We also relabelled the routing chart (it
+shows coverage, not accuracy) and walked through real examples. A messy-wording test showed misspelled company names
+cut correct decisions from 98% to 19% unless names are matched loosely (94%). The Agents' new API now plugs straight
+into our grader. Next: the narrative LLM judge, the Agents' first full run, and Exhibit 21 in the graph.
