@@ -222,3 +222,53 @@ Details: kpmg-eval → Week 8, EVAL_GRAPHRAG_W8.md.
 我们这边的环境连不到外部地址，所以麻烦你们跑一下：
 `python scripts/run_agent_api.py --base-url <你们的地址> --tag agents_v02`
 然后把 private/agent_responses_agents_v02.jsonl 私下发给我们就好（evidence 里有 filing 原文，所以不放 GitHub）。拿到后我们当天出结果。
+
+### Same reply in English
+
+Hi! Thank you, the v0.2 contract is very clear, and every field plugs into our pipeline as it is. Nothing needs to
+change first.
+
+We've connected it (kpmg-eval → Week 8, AGENTS_API_W8.md):
+- `scripts/run_agent_api.py` sends the 155 Gold v2.2 questions to /query, one by one, with trace_id "<tag>:<qid>". You
+  keep a given trace_id, so every response maps back to its question. top_k is 10, as in the rest of round 1.
+- `scripts/grade_agent_run.py` reads the raw /query responses (one JSON per line). Since `answer` is still null in
+  v0.2, it scores decisions and evidence for now:
+  - status: SUCCESS on answerable questions, NO_EVIDENCE on unanswerable ones. ERROR is listed and not scored
+  - evidence: whether the needed figure or text anchor is in the final evidence
+  - citations: the accession read from source_url, checked against the right filing
+  - filters: compared with our gold filters key by key (same field names and value formats)
+  - fallback: triggered, used and final outcome, split by evidence_status and weak_reasons
+  Once `answer` lands, numbers, false premises and narratives are graded with the same grader as RAG's reader.
+
+For your four cases, we've already sorted every question by case using round 1 (data/fallback_cases_w8.csv), so you
+can run one case at a time with `--only <case>`:
+1. empty → GraphRAG
+2. weak → GraphRAG
+   For both: answerable questions should be SUCCESS with the answer in the evidence, and the 12 unanswerable ones must
+   still be NO_EVIDENCE after fallback.
+3. ok but final NO_EVIDENCE: for GSv0-MSFT-023 and EV1R-005, RAG's evidence already holds the answer, so NO_EVIDENCE
+   there counts as a false abstention.
+4. Before vs after fallback: the same questions run twice (fallback off, then on); `--baseline` gives rescued and
+   broken, question by question.
+
+One finding: of the 16 answerable questions RAG declined in round 1, GraphRAG has the evidence for only 1
+(GSv0-MSFT-019). Seven wait on Exhibit 21 being loaded into the graph, three need NetApp's 10-Q (Data is still
+reviewing it, so it isn't in the corpus), three are cross-company rankings (one search per company), and two are
+case 3 above. So for now the main checks are that fallback doesn't break the 127 questions RAG already answers,
+doesn't turn the 12 unanswerable ones into SUCCESS, and how often it fires when it isn't needed (cost).
+
+A few small asks, none of which blocks a first run:
+1. On each evidence item: `source` (rag / graphrag_structured / graphrag_graph), `accession_number`, and its id (RAG's
+   chunk_id; GraphRAG's fact or claim id). That tells us which arm supplied the evidence and lets us score by filing.
+2. For case 4, a switch to turn fallback off (e.g. `disable_fallback: true` in the request), or the pre-fallback RAG
+   evidence in the response. For case 3, ideally the evidence the Agent judged insufficient.
+3. Once the tool-routing path listed as pending lands (e.g. `tools_called`), we can score the orchestrator with the
+   same script as our routing baselines. Until then we infer: RAG always, GraphRAG when fallback_triggered.
+4. When calling GraphRAG, filter on {ticker, accession_number}, as GraphRAG confirmed on 11/11. The parser's
+   fiscal_year / fiscal_period map to an accession through our data/snapshot_w7.json.
+5. If it's easy, time per stage (ms), for the latency and cost metric.
+
+Our workspace can't reach outside hosts, so could you run:
+`python scripts/run_agent_api.py --base-url <your URL> --tag agents_v02`
+and send us private/agent_responses_agents_v02.jsonl privately (the evidence holds filing text, so it stays off
+GitHub)? We'll turn the results around the same day.
