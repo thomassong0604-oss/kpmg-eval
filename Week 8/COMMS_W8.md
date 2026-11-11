@@ -142,11 +142,29 @@ should always send the ticker.
 Small asks:
 1. When it's convenient, re-run the graph arm with #70 on Gold Set v2.2. The script defaults to it now: same command,
    new tag please (graphrag_aura_v2_2). v2.2 adds anchors for 4 questions, so prose goes from 38 to 42.
-2. Could you push or send the filled hops (149 of 155)? We'll merge them into data/hops_v2.csv with the 6 held ones
-   flagged. Noted on Jurisdiction: EV3-002 is two OWNS edges plus a property join, and xbrl questions get no hop count.
+2. (Hops: received, thank you. See the reply below.)
 3. Exhibit 21 after midweek is fine. We'll re-score the 9 Exhibit 21 questions once Subsidiary nodes are loaded.
 
 Data: agreed, the joint ask for Microsoft FY2024 and FY2025 is drafted (COMMS_W8.md). Send it whenever you're ready.
 
 One small thing: since the Neo4j password went into the channel, it may be worth rotating it. We don't need it, because
 our workspace can't reach Aura.
+
+## Slack reply to GraphRAG (Adeline), hops, 11/11
+
+Thank you for the hops, and for spelling out both points. Agreed on both.
+
+It's merged into data/hops_v2.csv as you sent it, and your file is kept alongside. The 95 XBRL rows stay blank, since
+writing 2 would claim a walk your graph can't make. Because the ontologies differ, the sheet now keeps your hops next
+to the edge count of our gold path. EV3-002 shows 2 vs 4, which is the Jurisdiction-node difference, not a counting one.
+
+We checked every row. Three things:
+- EV3-008/009 were our mistake. They're NetApp fiscal-label questions, but our gold labelled their pattern
+  "relationship", which sent the derivation to Exhibit 21. Relabelled in Gold Set v2.2, so nothing needed from you.
+- EV1-068/069/070 and EV2-048/049 are false-premise questions, so they're answerable: the answer has to state the
+  correct fact (e.g. revenue rose, or Take-Two's 298.2 loss). Could they take their route's support (no for the four
+  XBRL ones, the claim path for EV1-070) instead of "unanswerable"?
+- EV1R-001 is "yes" through claims, while the Exhibit 21 rows are blocked. Does the graph hold Microsoft's Exhibit 21
+  list as claims?
+
+Each row has an eval_check column with these notes. kpmg-eval → Week 8, EVAL_GRAPHRAG_W8.md.

@@ -330,7 +330,7 @@
      ]
     }
    },
-   "gold_sha256_16": "8d2f327da1ad8ffd",
+   "gold_sha256_16": "416304a91b4aa400",
    "rag_subset": {
     "scope": "no graph-route, no review-required (as RAG reported 11/11)",
     "questions": 143,

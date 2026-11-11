@@ -33,6 +33,7 @@ answers; only grading fields change** (`scripts/build_gold_v2_2.py`, per questio
 | Route graph → text | EV1R-002, EV1R-006 | RAG answered both from the 10-K text; GraphRAG's review found no RENAMED_FROM edge (002) and only partial graph support (006) |
 | Anchors from RAG's chunks | EV2-035/036/037 (fiscal-quarter wording in each 10-Q), EV2-044 (fiscal year-end in the Casey's, Medtronic and NetApp 10-Ks) | The last four unanchored questions |
 | One evidence item per required point | the 22 re-anchored in v2.1 | v2.1 put two or more sentences in one item, which RAG's matcher needs inside one chunk; RAG's chunker splits 8 of them (e.g. GSv0-MSFT-019: chunks 0080 and 0083) |
+| Graph-pattern label (no grading effect) | EV3-008, EV3-009: relationship → fiscal_label | They are NetApp fiscal-label questions; the wrong label pointed GraphRAG's hop derivation at Exhibit 21 |
 | A second accepted wording | EV1R-005 | The Q3 10-Q says Microsoft holds "approximately 27 percent" of OpenAI; the later FY2026 10-K says "an approximate 25% interest". The question has no date, so both count |
 
 **Anchor check against RAG's chunks** (RAG's own matcher, filing by filing): 134 of 147 evidence items found.
@@ -41,7 +42,7 @@ NetApp's 10-Q, which is not in `chunks_C1` because Data holds it for review (Net
 cash a day late). Every other anchor in the set is in RAG's chunks. Result:
 `results/anchor_check_c1.json` (ids only). The chunks stay private, as Data asked.
 
-**v2.2 = `data/benchmark_v2_2.jsonl` (sha256 `8d2f327da1ad8ffd`).** v2 and v2.1 are kept unchanged: RAG's round-1 runs used them.
+**v2.2 = `data/benchmark_v2_2.jsonl` (sha256 `416304a91b4aa400`).** v2 and v2.1 are kept unchanged: RAG's round-1 runs used them.
 Routes now 104 finance data / 33 text / 9 relationship / 1 both / 8 no tool. The spreadsheet and Word exports come from v2.2.
 
 ## Files (this folder)
@@ -58,7 +59,7 @@ Routes now 104 finance data / 33 text / 9 relationship / 1 both / 8 no tool. The
 | [`data/snapshot_w7.json`](data/snapshot_w7.json) | The 21 filings and how they match Data's lists |
 | [`data/decision_suite_v1.jsonl`](data/decision_suite_v1.jsonl) | 24 extra clarify / off-topic / abstain prompts for the Agents' scope check |
 | [`data/messy_wording_v1.jsonl`](data/messy_wording_v1.jsonl) | 427 typo and casual-wording rewrites of these 155 questions |
-| [`data/hops_v2.csv`](data/hops_v2.csv) | Per question: `filings` (distinct accessions the gold evidence needs, filled by Eval in code), `hops` (edges on GraphRAG's ontology path, for GraphRAG to derive), GraphRAG's review of the six relationship drafts. Replaces `hops_v1.csv` (11/11, agreed with GraphRAG) |
+| [`data/hops_v2.csv`](data/hops_v2.csv) | Per question: `filings` (distinct accessions the gold evidence needs, filled by Eval in code); `hops`, `graph_path`, `graph_support`, `graph_note` (GraphRAG's, derived on its ontology, 11/11; blank hops on the 95 XBRL questions on purpose); `eval_reference_edges` (the path in Eval's gold, kept beside GraphRAG's because the ontologies differ); `eval_check`. Summary: `results/hops_v2_summary.json` |
 | [`data/gold_candidates_v2_3.jsonl`](data/gold_candidates_v2_3.jsonl) | Questions queued for v2.3, after round 1 (EV3-010: GraphRAG's M08 as an abstention question) |
 | [`results/gold_v2_summary.json`](results/gold_v2_summary.json) | Counts, hash, change log (v2) |
 | [`results/gold_v2_2_changes.json`](results/gold_v2_2_changes.json), [`results/anchor_check_c1.json`](results/anchor_check_c1.json) | v2.2 changes per question; anchors found in RAG's chunks (ids only) |

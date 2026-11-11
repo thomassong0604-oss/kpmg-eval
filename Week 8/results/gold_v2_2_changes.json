@@ -1,6 +1,6 @@
 {
  "gold_set": "v2.2",
- "sha256_16": "8d2f327da1ad8ffd",
+ "sha256_16": "416304a91b4aa400",
  "based_on": "benchmark_v2_1.jsonl (1e104c626c6c9833)",
  "questions": 155,
  "answerable": 143,
@@ -11,7 +11,7 @@
   "graph": 9,
   "multi": 1
  },
- "questions_changed": 36,
+ "questions_changed": 38,
  "sig_fig_floor_lowered": [
   "EV1-015",
   "EV1-027"
@@ -31,6 +31,10 @@
  },
  "required_point_alternatives": [
   "EV1R-005"
+ ],
+ "graph_pattern_relabelled": [
+  "EV3-008",
+  "EV3-009"
  ],
  "anchored_from_rag_chunks_c1": [
   "EV2-035",
@@ -357,6 +361,20 @@
    "question": "Microsoft acquired Activision Blizzard in October 2023. Which reportable segment includes the product category that Activision's games fall under, and how did that category's revenue change in fiscal year 2026?",
    "changes": [
     "route_expected graph -> text"
+   ]
+  },
+  {
+   "qid": "EV3-008",
+   "question": "NetApp's 10-Q for the quarter ended July 31, 2026: which fiscal year and quarter does NetApp itself say it covers, and does the filing's cover-page metadata agree?",
+   "changes": [
+    "graph pattern relationship -> fiscal_label"
+   ]
+  },
+  {
+   "qid": "EV3-009",
+   "question": "How many weeks are in NetApp's first quarter of fiscal 2027, and why does that matter when comparing it with the first quarter of fiscal 2026?",
+   "changes": [
+    "graph pattern relationship -> fiscal_label"
    ]
   }
  ],

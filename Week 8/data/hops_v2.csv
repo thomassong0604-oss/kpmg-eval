@@ -1,156 +1,156 @@
-qid,route_expected,answerable,filings,filing_accessions,filing_forms,hops,graph_path,graph_support,graph_note,filled_by,reviewed_by
-GSv0-MSFT-001,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-002,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-003,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-004,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-005,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-006,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-007,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-008,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-009,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-010,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-011,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-012,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-013,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-014,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-015,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-016,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-017,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-018,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-019,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-020,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-021,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-022,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-023,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-024,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-025,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-026,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-027,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-028,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-029,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-GSv0-MSFT-030,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-001,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-002,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-003,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-004,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-005,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-006,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-007,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-008,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-009,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-010,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-011,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-012,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-013,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-014,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-015,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-016,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-017,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-018,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-019,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-020,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-021,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-022,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-023,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-024,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-025,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-026,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-027,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-028,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-029,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-030,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-031,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-032,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-033,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-034,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-035,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-036,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-037,sql,True,2,0001193125-26-191507 0001193125-26-323660,10-K 10-Q,,,,,eval:filings,
-EV1-038,sql,True,2,0001193125-26-191507 0001193125-26-323660,10-K 10-Q,,,,,eval:filings,
-EV1-039,sql,True,2,0001193125-26-191507 0001193125-26-323660,10-K 10-Q,,,,,eval:filings,
-EV1-040,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-041,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-042,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-043,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-044,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-045,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-046,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-047,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-048,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-049,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-050,sql,True,1,0000320193-26-000013,10-Q,,,,,eval:filings,
-EV1-061,text,False,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-062,none,False,0,,,,,,,eval:filings,
-EV1-063,none,False,0,,,,,,,eval:filings,
-EV1-064,none,False,0,,,,,,,eval:filings,
-EV1-065,none,False,0,,,,,,,eval:filings,
-EV1-066,text,False,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-067,none,False,0,,,,,,,eval:filings,
-EV1-068,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-069,sql,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV1-070,text,True,1,0001193125-26-191507,10-Q,,,,,eval:filings,
-EV2-001,sql,True,1,0000320193-25-000079,10-K,,,,,eval:filings,
-EV2-002,sql,True,1,0000320193-25-000079,10-K,,,,,eval:filings,
-EV2-003,sql,True,1,0000320193-26-000020,10-Q,,,,,eval:filings,
-EV2-004,sql,True,1,0000320193-26-000020,10-Q,,,,,eval:filings,
-EV2-005,sql,True,1,0000726958-26-000046,10-K,,,,,eval:filings,
-EV2-006,sql,True,1,0000726958-26-000046,10-K,,,,,eval:filings,
-EV2-007,sql,True,1,0000726958-26-000085,10-Q,,,,,eval:filings,
-EV2-008,sql,True,1,0000726958-26-000085,10-Q,,,,,eval:filings,
-EV2-009,sql,True,1,0000927653-26-000069,10-K,,,,,eval:filings,
-EV2-010,sql,True,1,0000927653-26-000069,10-K,,,,,eval:filings,
-EV2-011,sql,True,1,0000927653-26-000234,10-Q,,,,,eval:filings,
-EV2-012,sql,True,1,0000927653-26-000234,10-Q,,,,,eval:filings,
-EV2-013,sql,True,1,0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-014,sql,True,1,0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-015,sql,True,1,0001628280-26-060473,10-Q,,,,,eval:filings,
-EV2-016,sql,True,1,0001628280-26-060473,10-Q,,,,,eval:filings,
-EV2-017,sql,True,1,0000723125-26-000023,10-K,,,,,eval:filings,
-EV2-018,sql,True,1,0000723125-26-000023,10-K,,,,,eval:filings,
-EV2-019,sql,True,1,0000723125-26-000015,10-Q,,,,,eval:filings,
-EV2-020,sql,True,1,0000723125-26-000015,10-Q,,,,,eval:filings,
-EV2-021,sql,True,1,0000320187-26-000088,10-K,,,,,eval:filings,
-EV2-022,sql,True,1,0000320187-26-000088,10-K,,,,,eval:filings,
-EV2-023,sql,True,1,0000320187-26-000193,10-Q,,,,,eval:filings,
-EV2-024,sql,True,1,0001193125-26-259683,10-K,,,,,eval:filings,
-EV2-025,sql,True,1,0001193125-26-259683,10-K,,,,,eval:filings,
-EV2-026,sql,True,1,0001193125-26-380207,10-Q,,,,,eval:filings,
-EV2-027,sql,True,1,0000076334-26-000105,10-K,,,,,eval:filings,
-EV2-028,sql,True,1,0000076334-26-000105,10-K,,,,,eval:filings,
-EV2-029,sql,True,1,0000076334-26-000073,10-Q,,,,,eval:filings,
-EV2-030,sql,True,1,0000076334-26-000073,10-Q,,,,,eval:filings,
-EV2-031,sql,True,1,0001628280-26-037434,10-K,,,,,eval:filings,
-EV2-032,sql,True,1,0001628280-26-037434,10-K,,,,,eval:filings,
-EV2-033,sql,True,1,0001628280-26-054870,10-Q,,,,,eval:filings,
-EV2-034,sql,True,1,0001628280-26-054870,10-Q,,,,,eval:filings,
-EV2-035,sql,True,1,0000320187-26-000193,10-Q,,,,,eval:filings,
-EV2-036,sql,True,1,0001628280-26-060473,10-Q,,,,,eval:filings,
-EV2-037,sql,True,1,0000723125-26-000015,10-Q,,,,,eval:filings,
-EV2-038,sql,True,1,0000723125-26-000023,10-K,,,,,eval:filings,
-EV2-039,sql,True,1,0001628280-26-037434,10-K,,,,,eval:filings,
-EV2-040,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-041,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-042,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-043,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-044,sql,True,3,0000726958-26-000046 0001193125-26-259683 0001628280-26-044354,10-K,,,,,eval:filings,
-EV2-045,sql,True,2,0000723125-26-000015 0000723125-26-000023,10-K 10-Q,,,,,eval:filings,
-EV2-046,none,False,0,,,,,,,eval:filings,
-EV2-047,none,False,0,,,,,,,eval:filings,
-EV2-048,sql,True,1,0001628280-26-037434,10-K,,,,,eval:filings,
-EV2-049,sql,True,1,0000320187-26-000088,10-K,,,,,eval:filings,
-EV2-050,none,False,0,,,,,,,eval:filings,
-EV1R-001,graph,True,1,0001193125-26-323660,10-K,,Filing -HAS_EXHIBIT-> Exhibit 21 -LISTS-> Subsidiary,not_yet,Exhibit 21 is PR #34; no HAS_EXHIBIT or LISTS edge on main (output exists on alina/ex21-pipeline),eval:filings graphrag:review,
-EV1R-002,text,True,1,0001193125-26-323660,10-K,,ProductLine -RENAMED_FROM-> ProductLine,no,"no RENAMED_FROM edge and no ProductLine node; segment half answerable, rename half not",eval:filings graphrag:review,
-EV1R-003,multi,True,1,0001193125-26-191507,10-Q,,Event -AFFECTS-> Investment -REPORTED_IN-> ...,supported_by_text,"claim-level: MD&A sentences held, Event not a node, resolves by text not traversal",eval:filings graphrag:review,
-EV1R-004,graph,False,1,0001193125-26-323660,10-K,,absent edge,supported,the absence is real in the graph,eval:filings graphrag:review,
-EV1R-005,text,True,1,0001193125-26-191507,10-Q,,absent edge,supported,same shape as EV1R-004,eval:filings graphrag:review,
-EV1R-006,text,True,1,0001193125-26-323660,10-K,,Exhibit 21 -LISTS-> Activision -PART_OF-> XBOX -IN_SEGMENT-> More Personal Computing,partly,"first edge depends on Exhibit 21 (PR #34); revenue direction right, Activision attribution not available",eval:filings graphrag:review,
-EV3-001,graph,True,1,0000723125-26-000023,10-K,,,,,eval:filings,
-EV3-002,graph,True,2,0000320193-25-000079 0000723125-26-000023,10-K,,,,,eval:filings,
-EV3-003,graph,True,3,0000320193-25-000079 0000723125-26-000023 0000726958-26-000046,10-K,,,,,eval:filings,
-EV3-004,graph,True,1,0000726958-26-000046,10-K,,,,,eval:filings,
-EV3-005,graph,True,1,0001193125-26-259683,10-K,,,,,eval:filings,
-EV3-006,graph,False,1,0000320193-25-000079,10-K,,,,,eval:filings,
-EV3-007,graph,True,1,0001193125-26-259683,10-K,,,,,eval:filings,
-EV3-008,sql,True,1,0001193125-26-380207,10-Q,,,,,eval:filings,
-EV3-009,text,True,1,0001193125-26-380207,10-Q,,,,,eval:filings,
+qid,type,route_expected,answerable,filings,filing_accessions,filing_forms,hops,graph_path,graph_support,graph_note,filled_by,eval_reference_path,eval_reference_edges,eval_check,reviewed_by
+GSv0-MSFT-001,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+GSv0-MSFT-002,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+GSv0-MSFT-003,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetCashProvidedByUsedInOperatingActivities),2,ok,eval 2026-11-11
+GSv0-MSFT-004,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-005,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-006,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-007,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-008,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-009,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-010,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-011,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-012,definition,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-013,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+GSv0-MSFT-014,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (NetCashProvidedByUsedInOperatingActivities, PaymentsToAcquirePropertyPlantAndEquipment)",2,ok,eval 2026-11-11
+GSv0-MSFT-015,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+GSv0-MSFT-016,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (CashCashEquivalentsAndShortTermInvestments),2,ok,eval 2026-11-11
+GSv0-MSFT-017,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-018,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-019,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-020,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-021,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-022,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-023,reconciliation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (CashAndCashEquivalentsAtCarryingValue, EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations, NetCashProvidedByUsedInFinancingActivities, NetCashProvidedByUsedInInvestingActivities, NetCashProvidedByUsedInOperatingActivities)",2,ok,eval 2026-11-11
+GSv0-MSFT-024,reconciliation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+GSv0-MSFT-025,derived,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+GSv0-MSFT-026,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-027,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-028,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-029,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+GSv0-MSFT-030,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-001,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (OperatingIncomeLoss),2,ok,eval 2026-11-11
+EV1-002,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (OperatingIncomeLoss),2,ok,eval 2026-11-11
+EV1-003,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV1-004,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (EarningsPerShareDiluted),2,ok,eval 2026-11-11
+EV1-005,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (GrossProfit),2,ok,eval 2026-11-11
+EV1-006,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (ResearchAndDevelopmentExpense),2,ok,eval 2026-11-11
+EV1-007,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (PaymentsToAcquirePropertyPlantAndEquipment),2,ok,eval 2026-11-11
+EV1-008,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (Assets),2,ok,eval 2026-11-11
+EV1-009,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (CashAndCashEquivalentsAtCarryingValue),2,ok,eval 2026-11-11
+EV1-010,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (StockholdersEquity),2,ok,eval 2026-11-11
+EV1-011,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (LongTermDebtNoncurrent),2,ok,eval 2026-11-11
+EV1-012,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (ContractWithCustomerLiabilityCurrent),2,ok,eval 2026-11-11
+EV1-013,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetCashProvidedByUsedInInvestingActivities),2,ok,eval 2026-11-11
+EV1-014,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (PaymentsForRepurchaseOfCommonStock),2,ok,eval 2026-11-11
+EV1-015,extraction,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (CommonStockDividendsPerShareDeclared),2,ok,eval 2026-11-11
+EV1-016,extraction,sql,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,partial,"hybrid: hops counts the graph's leg to the prose only; the figure comes from the structured arm, which the graph cannot reach",graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (EffectiveIncomeTaxRateContinuingOperations),2,ok,eval 2026-11-11
+EV1-017,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-018,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-019,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-020,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-021,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-022,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-023,segment,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-024,comparison,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-025,comparison,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-026,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (OperatingIncomeLoss, RevenueFromContractWithCustomerExcludingAssessedTax)",2,ok,eval 2026-11-11
+EV1-027,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (OperatingIncomeLoss, RevenueFromContractWithCustomerExcludingAssessedTax)",2,ok,eval 2026-11-11
+EV1-028,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (GrossProfit, RevenueFromContractWithCustomerExcludingAssessedTax)",2,ok,eval 2026-11-11
+EV1-029,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV1-030,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV1-031,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (PaymentsToAcquirePropertyPlantAndEquipment, RevenueFromContractWithCustomerExcludingAssessedTax)",2,ok,eval 2026-11-11
+EV1-032,calculation,sql,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,partial,"hybrid: hops counts the graph's leg to the prose only; the figure comes from the structured arm, which the graph cannot reach",graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest, IncomeTaxExpenseBenefit)",2,ok,eval 2026-11-11
+EV1-033,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-034,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (AssetsCurrent, LiabilitiesCurrent)",2,ok,eval 2026-11-11
+EV1-035,calculation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (PaymentsForRepurchaseOfCommonStock, PaymentsOfDividendsCommonStock)",2,ok,eval 2026-11-11
+EV1-036,calculation,sql,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,partial,"hybrid: hops counts the graph's leg to the prose only; the figure comes from the structured arm, which the graph cannot reach",graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV1-037,derived,sql,True,2,0001193125-26-191507 0001193125-26-323660,10-K 10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV1-038,derived,sql,True,2,0001193125-26-191507 0001193125-26-323660,10-K 10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (OperatingIncomeLoss),2,ok,eval 2026-11-11
+EV1-039,derived,sql,True,2,0001193125-26-191507 0001193125-26-323660,10-K 10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV1-040,reconciliation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (OperatingIncomeLoss),3,ok,eval 2026-11-11
+EV1-041,reconciliation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (GeneralAndAdministrativeExpense, GrossProfit, ResearchAndDevelopmentExpense, SellingAndMarketingExpense)",2,ok,eval 2026-11-11
+EV1-042,reconciliation,sql,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,partial,"hybrid: hops counts the graph's leg to the prose only; the figure comes from the structured arm, which the graph cannot reach",graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV1-043,reconciliation,sql,True,1,0001193125-26-191507,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact -FOR_MEMBER-> Fact (),3,ok,eval 2026-11-11
+EV1-044,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-045,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-046,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-047,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-048,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-049,narrative,text,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,,,ok,eval 2026-11-11
+EV1-050,cross_company,sql,True,1,0000320193-26-000013,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV1-061,unanswerable,text,False,1,0001193125-26-191507,10-Q,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-062,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-063,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-064,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-065,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-066,unanswerable,text,False,1,0001193125-26-191507,10-Q,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-067,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1-068,false_premise,sql,True,1,0001193125-26-191507,10-Q,,,n/a,unanswerable; no path expected,graphrag:derived,,,answerable false-premise question (the answer must state the correct figure or fact); support as for its route,eval 2026-11-11
+EV1-069,false_premise,sql,True,1,0001193125-26-191507,10-Q,,,n/a,unanswerable; no path expected,graphrag:derived,,,answerable false-premise question (the answer must state the correct figure or fact); support as for its route,eval 2026-11-11
+EV1-070,false_premise,text,True,1,0001193125-26-191507,10-Q,,,n/a,unanswerable; no path expected,graphrag:derived,,,answerable false-premise question (the answer must state the correct figure or fact); support as for its route,eval 2026-11-11
+EV2-001,extraction,sql,True,1,0000320193-25-000079,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-002,extraction,sql,True,1,0000320193-25-000079,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-003,extraction,sql,True,1,0000320193-26-000020,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-004,extraction,sql,True,1,0000320193-26-000020,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-005,extraction,sql,True,1,0000726958-26-000046,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (Revenues),2,ok,eval 2026-11-11
+EV2-006,extraction,sql,True,1,0000726958-26-000046,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-007,extraction,sql,True,1,0000726958-26-000085,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-008,extraction,sql,True,1,0000726958-26-000085,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (Revenues),2,ok,eval 2026-11-11
+EV2-009,extraction,sql,True,1,0000927653-26-000069,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-010,extraction,sql,True,1,0000927653-26-000069,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-011,extraction,sql,True,1,0000927653-26-000234,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-012,extraction,sql,True,1,0000927653-26-000234,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-013,extraction,sql,True,1,0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-014,extraction,sql,True,1,0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-015,extraction,sql,True,1,0001628280-26-060473,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-016,extraction,sql,True,1,0001628280-26-060473,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-017,extraction,sql,True,1,0000723125-26-000023,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-018,extraction,sql,True,1,0000723125-26-000023,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-019,extraction,sql,True,1,0000723125-26-000015,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-020,extraction,sql,True,1,0000723125-26-000015,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-021,extraction,sql,True,1,0000320187-26-000088,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-022,extraction,sql,True,1,0000320187-26-000088,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-023,extraction,sql,True,1,0000320187-26-000193,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-024,extraction,sql,True,1,0001193125-26-259683,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-025,extraction,sql,True,1,0001193125-26-259683,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-026,extraction,sql,True,1,0001193125-26-380207,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-027,extraction,sql,True,1,0000076334-26-000105,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-028,extraction,sql,True,1,0000076334-26-000105,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (ProfitLoss),2,ok,eval 2026-11-11
+EV2-029,extraction,sql,True,1,0000076334-26-000073,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (ProfitLoss),2,ok,eval 2026-11-11
+EV2-030,extraction,sql,True,1,0000076334-26-000073,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-031,extraction,sql,True,1,0001628280-26-037434,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-032,extraction,sql,True,1,0001628280-26-037434,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-033,extraction,sql,True,1,0001628280-26-054870,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-034,extraction,sql,True,1,0001628280-26-054870,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-035,fiscal_calendar,sql,True,1,0000320187-26-000193,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-036,fiscal_calendar,sql,True,1,0001628280-26-060473,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-037,fiscal_calendar,sql,True,1,0000723125-26-000015,10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-038,calculation,sql,True,1,0000723125-26-000023,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-039,calculation,sql,True,1,0001628280-26-037434,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,ok,eval 2026-11-11
+EV2-040,cross_company,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax, Revenues)",2,ok,eval 2026-11-11
+EV2-041,cross_company,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss, ProfitLoss)",2,ok,eval 2026-11-11
+EV2-042,cross_company,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss, ProfitLoss, RevenueFromContractWithCustomerExcludingAssessedTax, Revenues)",2,ok,eval 2026-11-11
+EV2-043,cross_company,sql,True,10,0000076334-26-000105 0000320187-26-000088 0000320193-25-000079 0000723125-26-000023 0000726958-26-000046 0000927653-26-000069 0001193125-26-259683 0001193125-26-323660 0001628280-26-037434 0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax, Revenues)",2,ok,eval 2026-11-11
+EV2-044,cross_company,sql,True,3,0000726958-26-000046 0001193125-26-259683 0001628280-26-044354,10-K,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,"Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax, Revenues)",2,ok,eval 2026-11-11
+EV2-045,derived,sql,True,2,0000723125-26-000015 0000723125-26-000023,10-K 10-Q,,,no,XBRL facts are not in the graph; the structured arm answers this,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,ok,eval 2026-11-11
+EV2-046,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV2-047,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV2-048,false_premise,sql,True,1,0001628280-26-037434,10-K,,,n/a,unanswerable; no path expected,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss),2,answerable false-premise question (the answer must state the correct figure or fact); support as for its route,eval 2026-11-11
+EV2-049,false_premise,sql,True,1,0000320187-26-000088,10-K,,,n/a,unanswerable; no path expected,graphrag:derived,Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax),2,answerable false-premise question (the answer must state the correct figure or fact); support as for its route,eval 2026-11-11
+EV2-050,unanswerable,none,False,0,,,,,n/a,unanswerable; no path expected,graphrag:derived,,,ok,eval 2026-11-11
+EV1R-001,relationship,graph,True,1,0001193125-26-323660,10-K,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,Company -FILED-> Filing -HAS_EXHIBIT-> Exhibit 21 -LISTS-> Subsidiary (x8),3,"support 'yes' through claims, but your 11/11 review said not yet (Exhibit 21 not loaded) and the EV3 Exhibit 21 rows are 'blocked': does the graph hold Microsoft's Exhibit 21 list as claims?",eval 2026-11-11
+EV1R-002,relationship,text,True,1,0001193125-26-323660,10-K,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,,graphrag:derived,Filing FY25 -REPORTS-> Segment x3 ; Filing FY26 -REPORTS-> Segment x3 ; ProductLine -RENAMED_FROM-> ProductLine,3,route is text in Gold Set v2.2 (was graph in v2.1),eval 2026-11-11
+EV1R-003,event,multi,True,1,0001193125-26-191507,10-Q,3,Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim,yes,"we hold the MD&A sentences but do not model Event as a node, so this resolves by text rather than traversal",graphrag:week8-reply,"Event (OpenAI Recapitalization) -AFFECTS-> Investment (OpenAI, equity method) -REPORTED_IN-> Other income (expense), net -FLOWS_TO-> Net income",3,ok,eval 2026-11-11
+EV1R-004,fabricated_relationship,graph,False,1,0001193125-26-323660,10-K,,,yes,"the absence is real in our graph, which is what the control tests",graphrag:derived,Subsidiary (Activision Blizzard) -/OWNS/-> Subsidiary (LinkedIn Ireland): no such edge,0,ok,eval 2026-11-11
+EV1R-005,false_premise,text,True,1,0001193125-26-191507,10-Q,,,yes,"the absence is real in our graph, which is what the control tests",graphrag:derived,"Company (Microsoft) -/ACQUIRED/-> OpenAI; actual edge: Company -INVESTS_IN (equity method, ~27%)-> OpenAI",0,ok,eval 2026-11-11
+EV1R-006,relationship,text,True,1,0001193125-26-323660,10-K,1,Company -OWNS-> Subsidiary -> product line -> segment,blocked,needs the Exhibit 21 pipeline merged and loaded; the segment attribution is not available either,graphrag:week8-reply,"Exhibit 21 -LISTS-> Activision Blizzard -PART_OF-> XBOX (product line, formerly Gaming) -IN_SEGMENT-> More Personal Computing -REPORTS-> revenue FY25, FY26",4,route is text in Gold Set v2.2 (was graph in v2.1); noted: hops 1 counts the OWNS edge only; the product-line and segment legs are not in the ontology,eval 2026-11-11
+EV3-001,relationship,graph,True,1,0000723125-26-000023,10-K,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,Company -FILED-> 10-K -HAS_EXHIBIT-> Exhibit 21 -LISTS-> Subsidiary (x21) -INCORPORATED_IN-> Jurisdiction,4,ok,eval 2026-11-11
+EV3-002,relationship,graph,True,2,0000320193-25-000079 0000723125-26-000023,10-K,2,"Company -OWNS-> Subsidiary x2, joined on country",blocked,"needs the Exhibit 21 pipeline merged and loaded; gold path assumes a Jurisdiction node; ours is a property on Subsidiary (country, state_or_region), so this is two OWNS edges and a property join",graphrag:derived,AAPL -LISTS-> Subsidiary -IN-> Jurisdiction <-IN- Subsidiary <-LISTS- MU (join on jurisdiction),4,ok,eval 2026-11-11
+EV3-003,relationship,graph,True,3,0000320193-25-000079 0000723125-26-000023 0000726958-26-000046,10-K,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,"Company -LISTS-> Subsidiary (type: captive insurer) -INCORPORATED_IN-> State, for three companies",2,ok,eval 2026-11-11
+EV3-004,relationship,graph,True,1,0000726958-26-000046,10-K,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,CASY -LISTS-> Subsidiary (x9) -ORGANIZED_IN-> State; group and count,2,ok,eval 2026-11-11
+EV3-005,relationship,graph,True,1,0001193125-26-259683,10-K,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,NTAP -LISTS-> Subsidiary -ORGANIZED_IN-> Israel,2,ok,eval 2026-11-11
+EV3-006,fabricated_relationship,graph,False,1,0000320193-25-000079,10-K,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,MU -/LISTS/-> Braeburn Capital; actual: AAPL -LISTS-> Braeburn Capital,1,ok,eval 2026-11-11
+EV3-007,fabricated_relationship,graph,True,1,0001193125-26-259683,10-K,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,MU -/OWNS/-> Spotinst; actual: NTAP -LISTS-> Spotinst Ltd.,1,ok,eval 2026-11-11
+EV3-008,fiscal_calendar,sql,True,1,0001193125-26-380207,10-Q,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,NTAP -FILED-> 10-Q (period 2026-07-31) -FISCAL_PERIOD-> FY2027 Q1,2,"fiscal-label question on NetApp's 10-Q, not Exhibit 21; Eval's gold labelled the pattern 'relationship' by mistake (fixed in v2.2: fiscal_label)",eval 2026-11-11
+EV3-009,fiscal_calendar,text,True,1,0001193125-26-380207,10-Q,1,Company -OWNS-> Subsidiary,blocked,needs the Exhibit 21 pipeline merged and loaded,graphrag:derived,NTAP -FILED-> 10-Q -STATES-> fiscal calendar note,2,"fiscal-label question on NetApp's 10-Q, not Exhibit 21; Eval's gold labelled the pattern 'relationship' by mistake (fixed in v2.2: fiscal_label)",eval 2026-11-11

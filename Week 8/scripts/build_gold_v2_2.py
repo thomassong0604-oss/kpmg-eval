@@ -18,7 +18,10 @@ Same 155 questions and the same expected answers. What changes, and why:
   6. EV1R-005 (false premise, no date in the question): the Q3 FY2026 10-Q says Microsoft holds "approximately 27
      percent" of OpenAI; the later FY2026 10-K says "an approximate 25% interest". RAG's reader quoted the 10-K, which is
      also right, so the point now accepts either (" | " = alternatives).
-  7. With --chunks, every anchor is checked against RAG's chunks with RAG's own matcher (rag.evaluate.evidence_hits),
+  7. Graph-pattern label (metadata, no grading effect): EV3-008 and EV3-009 are NetApp fiscal-label questions but were
+     labelled pattern "relationship", which led GraphRAG's hop derivation (11/11) to an Exhibit 21 path; now
+     "fiscal_label".
+  8. With --chunks, every anchor is checked against RAG's chunks with RAG's own matcher (rag.evaluate.evidence_hits),
      filing by filing. The chunks file stays private (Data asks that exports stay off GitHub); only the check result
      (question ids, pass/fail, chunk ids) is written.
 
@@ -107,6 +110,8 @@ C1_ANCHORS = {
 }
 
 
+PATTERN_FIX = {"EV3-008": "fiscal_label", "EV3-009": "fiscal_label"}
+
 POINT_FIX = {"EV1R-005": ("approximately 27 percent",
                             "approximately 27 percent | approximately 25% | approximate 25% | approximately 25 percent",
                             ("approximately 27 percent of OpenAI on an as-converted basis",
@@ -132,6 +137,10 @@ def build(gold: list[dict]) -> tuple[list[dict], list[dict]]:
             assert q["route_expected"] == "graph", qid
             q2["route_expected"], q2["route_note"] = "text", ROUTE_FIX[qid]
             what.append("route_expected graph -> text")
+        if qid in PATTERN_FIX:
+            assert q2["graph"]["pattern"] == "relationship", qid
+            q2["graph"]["pattern"] = PATTERN_FIX[qid]
+            what.append(f"graph pattern relationship -> {PATTERN_FIX[qid]}")
         if qid in POINT_FIX:
             old, new, (d_old, d_new) = POINT_FIX[qid]
             rp = q2["answer"]["required_points"]
@@ -218,6 +227,7 @@ def main():
                "sig_fig_floor_lowered": sorted(SIG_FIG_FIX), "multi_value_questions": sorted(VALUES),
                "route_changes": {k: "graph -> text" for k in ROUTE_FIX},
                "required_point_alternatives": sorted(POINT_FIX),
+               "graph_pattern_relabelled": sorted(PATTERN_FIX),
                "anchored_from_rag_chunks_c1": sorted(C1_ANCHORS),
                "anchors_split_one_item_per_point": sorted(q["qid"] for q in gold if any(e.get("anchor_source") == "eval_w8_review" for e in q["rag_evidence"])),
                "questions_without_anchors": [q["qid"] for q in out if q["answerable"] and not q["rag_evidence"]],

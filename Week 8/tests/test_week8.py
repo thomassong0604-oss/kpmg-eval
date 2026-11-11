@@ -142,6 +142,9 @@ def test_gold_v2_2_changes_only_grading_fields():
         assert x["question"] == y["question"] and x["answerable"] == y["answerable"]
         assert x["gold"] is None or x["gold"]["value"] == y["gold"]["value"]
         strip = lambda q: {k: v for k, v in q.items() if k not in ("rag_evidence", "route_expected", "route_note", "gold", "answer")}  # noqa: E731
+        if qid in ("EV3-008", "EV3-009"):           # graph-pattern label only (fiscal_label, not relationship)
+            assert y["graph"]["pattern"] == "fiscal_label"
+            x, y = {**x, "graph": None}, {**y, "graph": None}
         assert strip(x) == strip(y)
     assert [q for q in b if b[q]["route_expected"] != a[q]["route_expected"]] == ["EV1R-002", "EV1R-006"]
     assert sum("values" in (q["gold"] or {}) for q in b.values()) == 7
@@ -236,3 +239,13 @@ def test_graphrag_round1_reproduced_question_by_question():
     # GraphRAG's own results file carries no host or local path
     meta = json.loads((ROOT / "results" / "graphrag_round1_graphrag_aura.json").read_text())
     assert all(v == "registered" for v in meta["backend_status"].values())
+
+
+def test_hops_sheet_merges_graphrag_and_keeps_both_ontologies():
+    import csv
+    rows = {r["qid"]: r for r in csv.DictReader(open(ROOT / "data" / "hops_v2.csv"))}
+    assert len(rows) == 155
+    assert sum(r["graph_note"].startswith("XBRL facts are not in the graph") and not r["hops"] for r in rows.values()) == 95
+    assert rows["EV3-002"]["hops"] == "2" and rows["EV3-002"]["eval_reference_edges"] == "4"   # ontology, not counting
+    assert rows["EV1R-002"]["route_expected"] == "text"                                         # v2.2 route kept
+    assert "fiscal-label" in rows["EV3-008"]["eval_check"] and "false-premise" in rows["EV1-068"]["eval_check"]

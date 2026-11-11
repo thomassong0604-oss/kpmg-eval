@@ -17,7 +17,7 @@ Files: `results/graphrag_round1_graphrag_aura.json` and `.csv` (yours, as receiv
 | 5. Graph arm ignores fiscal labels | In #70. Our compatibility report now shows both behaviours (refused at 4e89acb, ignored at 21f0795). Only you can confirm the graph arm's gold-filter run: please re-run it (below) |
 | 6. Send `{ticker, accession_number}` | Adopted, and FOR_TEAMS tells the Agents the same. Multi-filing questions (11) now get lists of both, an IN on both arms |
 | 7. Exhibit 21 (PR #34) after midweek | Fine. The 9 Exhibit 21 questions keep their traversal score on your edges (9/9) until Subsidiary nodes are in Aura |
-| 8. hops: 149 of 155 derived | Thank you. Not in the repo yet; please push or send the file and we merge it into `data/hops_v2.csv` with the 6 held ones flagged. Noted: no Jurisdiction node, so EV3-002 is two OWNS edges plus a property join; xbrl-routed questions get no hop count |
+| 8. hops (file received 11/11) | Merged into `data/hops_v2.csv` unchanged (your file kept as `data/hops_v2_graphrag_2026-11-11.csv`): hops on 43 questions (3 on 33: Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim; 1 on 9; 2 on EV3-002), blank on the 95 XBRL questions on purpose, as you explain. Agreed, writing 2 would claim a walk your graph cannot make. Since the ontologies differ, the sheet keeps both: your `hops` and our `eval_reference_edges` (EV3-002: 2 vs 4, because our gold path has a Jurisdiction node and yours has country as a property on Subsidiary). That is an ontology difference, not a counting one. Our checks are in `eval_check`: EV3-008/009 were our mistake (we labelled two NetApp fiscal-label questions 'relationship', which pointed your derivation at Exhibit 21; relabelled in v2.2); 5 false-premise questions are answerable; EV1R-001 'yes' vs blocked |
 | 9. Data | Agreed; the joint ask for Microsoft FY2024 and FY2025 is in `COMMS_W8.md` |
 
 **For #68 (ranking), from these runs:** (1) ties are common and their order is not stable, so add a deterministic
@@ -27,8 +27,18 @@ number; (3) with no ticker filter, the top fact for a Microsoft question comes f
 always send the ticker.
 
 **Next from you:** re-run the graph arm with #70 on Gold Set v2.2 (`--tag graphrag_aura_v2_2`; v2.2 adds anchors for
-4 questions, so graph prose goes from 38 to 42); the filled hops. Credentials: not needed, since the store came as a
+4 questions, so graph prose goes from 38 to 42); a look at 6 rows of the hops sheet (below). Credentials: not needed, since the store came as a
 file. As the Neo4j password went into the channel, rotating it may be worth it.
+
+**Hops: 6 rows to look at** (`eval_check` in `data/hops_v2.csv`):
+- EV1-068, EV1-069, EV1-070, EV2-048, EV2-049 are false-premise questions, so they are answerable: the answer must
+  state the correct figure or fact (Microsoft's revenue rose; Take-Two's net loss of 298.2). Their support is the
+  same as their route's: no for the four XBRL ones, and the claim path for EV1-070 ("Microsoft Cloud is not a
+  segment").
+- EV1R-001 is 'yes' through claims, while the Exhibit 21 rows (EV3-*) are blocked and your first review said "not yet".
+  Does the graph hold Microsoft's Exhibit 21 list as claims?
+- EV3-008 and EV3-009 need no change from you. They are NetApp fiscal-label questions, and our gold labelled their
+  pattern "relationship", which led to the OWNS path. Fixed in Gold Set v2.2 (`fiscal_label`).
 
 ## Your first 11/11 reply
 

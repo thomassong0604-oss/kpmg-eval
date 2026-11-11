@@ -1,7 +1,7 @@
 {
  "n": 155,
  "gold": "benchmark_v2_2.jsonl",
- "gold_sha256_16": "8d2f327da1ad8ffd",
+ "gold_sha256_16": "416304a91b4aa400",
  "expected_routes": {
   "sql": 104,
   "text": 33,

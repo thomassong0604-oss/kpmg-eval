@@ -1,0 +1,151 @@
+{
+ "rows": 155,
+ "graphrag_file": "hops_v2_graphrag_2026-11-11.csv",
+ "filings_needed": {
+  "0": 8,
+  "1": 136,
+  "2": 5,
+  "3": 2,
+  "10": 4
+ },
+ "hops_filled": 43,
+ "hops": {
+  "1": 9,
+  "2": 1,
+  "3": 33
+ },
+ "hops_by_route": {
+  "graph": {
+   "3": 1,
+   "blank": 1,
+   "1": 6,
+   "2": 1
+  },
+  "multi": {
+   "3": 1
+  },
+  "none": {
+   "blank": 8
+  },
+  "sql": {
+   "blank": 99,
+   "3": 4,
+   "1": 1
+  },
+  "text": {
+   "3": 27,
+   "blank": 4,
+   "1": 2
+  }
+ },
+ "graph_support": {
+  "no": 95,
+  "yes": 31,
+  "partial": 4,
+  "n/a": 15,
+  "blocked": 10
+ },
+ "blank_hops_reasons": {
+  "XBRL facts are not in the graph; the structured arm answers ": 95,
+  "unanswerable; no path expected": 15,
+  "the absence is real in our graph, which is what the control ": 2
+ },
+ "ontology_differences": [
+  {
+   "qid": "EV1-016",
+   "graphrag_hops": "3",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim",
+   "eval_reference_path": "Company -FILED-> Filing -REPORTS-> Fact (EffectiveIncomeTaxRateContinuingOperations)"
+  },
+  {
+   "qid": "EV1-032",
+   "graphrag_hops": "3",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim",
+   "eval_reference_path": "Company -FILED-> Filing -REPORTS-> Fact (IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest, IncomeTaxExpenseBenefit)"
+  },
+  {
+   "qid": "EV1-036",
+   "graphrag_hops": "3",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim",
+   "eval_reference_path": "Company -FILED-> Filing -REPORTS-> Fact (RevenueFromContractWithCustomerExcludingAssessedTax)"
+  },
+  {
+   "qid": "EV1-042",
+   "graphrag_hops": "3",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -FILES-> Filing -CONTAINS-> Section -SUPPORTS-> Claim",
+   "eval_reference_path": "Company -FILED-> Filing -REPORTS-> Fact (NetIncomeLoss)"
+  },
+  {
+   "qid": "EV1R-006",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 4,
+   "graphrag_path": "Company -OWNS-> Subsidiary -> product line -> segment",
+   "eval_reference_path": "Exhibit 21 -LISTS-> Activision Blizzard -PART_OF-> XBOX (product line, formerly Gaming) -IN_SEGMENT-> More Personal Computing -REPORTS-> revenue FY25, FY26"
+  },
+  {
+   "qid": "EV3-001",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 4,
+   "graphrag_path": "Company -OWNS-> Subsidiary",
+   "eval_reference_path": "Company -FILED-> 10-K -HAS_EXHIBIT-> Exhibit 21 -LISTS-> Subsidiary (x21) -INCORPORATED_IN-> Jurisdiction"
+  },
+  {
+   "qid": "EV3-002",
+   "graphrag_hops": "2",
+   "eval_reference_edges": 4,
+   "graphrag_path": "Company -OWNS-> Subsidiary x2, joined on country",
+   "eval_reference_path": "AAPL -LISTS-> Subsidiary -IN-> Jurisdiction <-IN- Subsidiary <-LISTS- MU (join on jurisdiction)"
+  },
+  {
+   "qid": "EV3-003",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -OWNS-> Subsidiary",
+   "eval_reference_path": "Company -LISTS-> Subsidiary (type: captive insurer) -INCORPORATED_IN-> State, for three companies"
+  },
+  {
+   "qid": "EV3-004",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -OWNS-> Subsidiary",
+   "eval_reference_path": "CASY -LISTS-> Subsidiary (x9) -ORGANIZED_IN-> State; group and count"
+  },
+  {
+   "qid": "EV3-005",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -OWNS-> Subsidiary",
+   "eval_reference_path": "NTAP -LISTS-> Subsidiary -ORGANIZED_IN-> Israel"
+  },
+  {
+   "qid": "EV3-008",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -OWNS-> Subsidiary",
+   "eval_reference_path": "NTAP -FILED-> 10-Q (period 2026-07-31) -FISCAL_PERIOD-> FY2027 Q1"
+  },
+  {
+   "qid": "EV3-009",
+   "graphrag_hops": "1",
+   "eval_reference_edges": 2,
+   "graphrag_path": "Company -OWNS-> Subsidiary",
+   "eval_reference_path": "NTAP -FILED-> 10-Q -STATES-> fiscal calendar note"
+  }
+ ],
+ "eval_check_not_ok": {
+  "EV1-068": "answerable false-premise question (the answer must state the correct figure or fact); support as for its route",
+  "EV1-069": "answerable false-premise question (the answer must state the correct figure or fact); support as for its route",
+  "EV1-070": "answerable false-premise question (the answer must state the correct figure or fact); support as for its route",
+  "EV2-048": "answerable false-premise question (the answer must state the correct figure or fact); support as for its route",
+  "EV2-049": "answerable false-premise question (the answer must state the correct figure or fact); support as for its route",
+  "EV1R-001": "support 'yes' through claims, but your 11/11 review said not yet (Exhibit 21 not loaded) and the EV3 Exhibit 21 rows are 'blocked': does the graph hold Microsoft's Exhibit 21 list as claims?",
+  "EV1R-002": "route is text in Gold Set v2.2 (was graph in v2.1)",
+  "EV1R-006": "route is text in Gold Set v2.2 (was graph in v2.1); noted: hops 1 counts the OWNS edge only; the product-line and segment legs are not in the ontology",
+  "EV3-008": "fiscal-label question on NetApp's 10-Q, not Exhibit 21; Eval's gold labelled the pattern 'relationship' by mistake (fixed in v2.2: fiscal_label)",
+  "EV3-009": "fiscal-label question on NetApp's 10-Q, not Exhibit 21; Eval's gold labelled the pattern 'relationship' by mistake (fixed in v2.2: fiscal_label)"
+ }
+}
