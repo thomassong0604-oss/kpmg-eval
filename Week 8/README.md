@@ -13,7 +13,7 @@ python scripts/run_messy_wording.py                      # typos and casual word
 python scripts/routing_examples.py                       # demo walkthrough -> ROUTING_EXAMPLES.md
 python scripts/grade_answer_blocks.py --answers <answer_blocks.jsonl> [--chunks <chunks.jsonl>] --tag <name>   # grade another team's answers
 python scripts/run_narrative_judge.py --answers <answer_blocks.jsonl> --dry-run     # LLM judge for narrative answers (needs a key to run)
-python scripts/build_deck_w8.py deck/template_base.pptx deck/KPMG_Eval_Week8_11-12.pptx   # this week's Eval deck: 11 slides + 3 appendix, action titles, speaker notes
+python scripts/build_deck_w8.py deck/template_base.pptx deck/KPMG_Eval_Week8_11-12.pptx   # this week's Eval deck: 6 main slides for a 10-minute slot + 8 appendix; also writes SCRIPT_W8.md (the script)
 ```
 
 **Gold Set v2.2** (the round-1 questions; v2.2 = grading fixes of 11/11): [`GOLD_SET_V2.md`](GOLD_SET_V2.md), with the jsonl, a filterable spreadsheet

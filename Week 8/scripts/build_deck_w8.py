@@ -2,10 +2,13 @@
 
     python scripts/build_deck_w8.py <base.pptx> <out.pptx>
 
-Final version (11/11): rebuilt to consulting-deck standards after round 1.
+Final version (11/11), sized for a 10-minute slot: 6 main slides and an 8-slide appendix.
   * every slide title states the conclusion ("Topic | takeaway"), with one message per slide
-  * executive summary first, then the 11/5 feedback tracker, the evidence slides, next steps, and an appendix
-  * each slide ends with a "So what" line and a source line; each has speaker notes (the script)
+  * main: executive summary, RAG round 1, RAG vs GraphRAG, routing, routing walkthrough, next steps
+  * appendix: 11/5 feedback tracker, RAG retrieval detail, GraphRAG round 1, messy wording, Agents API, Gold Set v2.2,
+    GraphRAG detail, definitions
+  * each slide ends with a "So what" line and a source line; the main slides' speaker notes are the script
+    (SCRIPT below, also written to SCRIPT_W8.md)
 Every number is read from results/*.json, so re-running run_all.sh and this script keeps the slides in sync with the
 code. Charts and tables are native PowerPoint objects. Base: any deck whose slides are the team's Evaluation & Testing
 slide (slides are added by copying the first one).
@@ -34,6 +37,7 @@ C = {"center": {"align": PP_ALIGN.CENTER}}
 X0, W, Y0 = 0.2, 9.6, 1.22          # left edge, content width, content top
 TINT, GREY = "F1F3FB", "A9B0BD"
 DECK = "Evaluation & Testing  ·  Week 8  ·  12 Nov 2026"
+APPENDIX = False   # set while the appendix slides are built: prefixes their topic
 
 
 def pct(x, nd=0):
@@ -52,6 +56,8 @@ def hn(d):
 def frame(slide, n, topic, message, so_what, source, lead="So what:"):
     """Action title (topic | conclusion), the 'so what' box, the source line and the page tag in the bottom bar."""
     clear(slide)
+    if APPENDIX and not topic.startswith("Appendix"):
+        topic = f"Appendix: {topic}"
     tb(slide, X0, 0.6, W, 0.5, [(f"{topic} | ", 13, True, SUB, True), (message, 13, True, SUB, True)], name="Action title")
     box = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(X0), Inches(4.38), Inches(7.45), Inches(0.5))
     box.name = "So what box"
@@ -217,7 +223,7 @@ def s_summary(s, n, D):
           "Round 1 gives every team a measured baseline on the same 155 questions, so next week we measure the fixes "
           "instead of debating them.",
           "Source: round-1 files from RAG (11/9, 11/11) and GraphRAG (11/11), re-scored by Eval on Gold Set v2.2 "
-          "(155 questions). Detail on the following slides; definitions in the appendix")
+          "(155 questions). Evidence on the following slides; detail and definitions in the appendix")
     cw, gap = 2.25, 0.2
     cards = [(f"{r1['hits']}/{r1['n']}", f"questions where RAG's search finds all the evidence ({pct(r1['hits'] / r1['n'])})", NAVY),
              (kn(v22["numeric_accuracy"]), f"numbers right in RAG's answers ({v22['numeric_accuracy']['value']:.3f}), scored "
@@ -230,7 +236,7 @@ def s_summary(s, n, D):
     cols = [("What we did", [
                 "Ran round 1 with RAG (twice) and GraphRAG (both searches), and reproduced every score from their files",
                 "Released Gold Set v2.2: the same 155 questions with fairer grading",
-                "Closed all 11/5 feedback and connected the Agents' new API to our grader"]),
+                "Closed all seven 11/5 action items (appendix) and connected the Agents' new API to our grader"]),
             ("What we found", [
                 "RAG finds and reads numbers well; 13 of its 16 declined questions are outside its reach today",
                 "GraphRAG's gap is ranking and scope, not data: its graph search finds 10 of the 20 answers it holds",
@@ -299,7 +305,7 @@ def s_tracker(s, n, D):
 def s_retrieval(s, n, D):
     r1, v21 = D["r1"], D["v21"]
     R, h, w = r1["strict_recall"], r1["hybrid_k10"], r1["wrong_period_figure_in_top8"]
-    frame(s, n, "Round 1: RAG retrieval",
+    frame(s, n, "RAG retrieval, round 1",
           f"RAG's hybrid search finds all the evidence for {h['hits']} of {h['n']} questions, and every miss has a named fix",
           f"A wrong-period figure sits in the same top 8 for {pct(w['rate'])} of the {w['of_number_questions_with_distractor']} "
           "number questions that have one, so the reader must be told which column to take.",
@@ -339,23 +345,25 @@ def s_retrieval(s, n, D):
 
 
 # ================================================================ 4. round 1: RAG answers
-def s_answers(s, n, D):
-    v2, v22 = D["v2"], D["v22"]
+def s_rag(s, n, D):
+    v2, v22, r1 = D["v2"], D["v22"], D["r1"]["hybrid_k10"]
     sub, c, nar = v2["rag_subset"], v22["citations"], v22["narrative"]
     n_ref = len(v22["refusal"]["answerable_refused"])
-    frame(s, n, "Round 1: RAG answers",
-          f"With the evidence found, RAG's reader gets {v22['numeric_accuracy']['k']} of {v22['numeric_accuracy']['n']} "
-          f"numbers right and refuses all {v22['refusal']['n_unanswerable']} unanswerable questions",
+    frame(s, n, "Round 1: RAG",
+          f"RAG finds the evidence for {r1['hits']} of {r1['n']} questions; with it, its reader gets "
+          f"{v22['numeric_accuracy']['k']} of {v22['numeric_accuracy']['n']} numbers right and refuses all "
+          f"{v22['refusal']['n_unanswerable']} unanswerable questions",
           f"Only 3 of the {n_ref} declined questions are RAG's own to fix; the rest wait on Exhibit 21, one held filing "
           "and per-company search. Narrative scores come next.",
-          "Source: RAG's 155 answers (11/11) graded by Eval, Week 8/results/answers_rag_reader_round1.json. Gold Set v2.2; "
-          "RAG's answers and passages stay private")
+          "Source: RAG's retrieval run (11/9) and its 155 answers (11/11), graded by Eval: Week 8/results/"
+          "answers_rag_reader_round1.json. Gold Set v2.2; retrieval detail in the appendix")
     cw, gap = 2.25, 0.2
-    cards = [(kn(v22["numeric_accuracy"]), f"numbers right ({v22['numeric_accuracy']['value']:.3f}); "
+    cards = [(f"{r1['hits']}/{r1['n']}", f"questions where the search finds all the evidence ({pct(r1['hits'] / r1['n'])})",
+              NAVY),
+             (kn(v22["numeric_accuracy"]), f"numbers right in the answers ({v22['numeric_accuracy']['value']:.3f}); "
                                            f"{kn(v2['numeric_accuracy'])} before our grading fixes", NAVY),
              (v22["refusal"]["unanswerable_refused"], "unanswerable questions refused; balanced refusal score "
                                                       f"{v22['refusal']['balanced_raa_incl_false_premise']:.3f}", GREEN),
-             (kn(v22["false_premise_corrected"]), "false-premise questions corrected instead of answered as asked", NAVY),
              (kn(c["lookup_number_in_cited_chunk"]), f"lookups show the number in a cited passage; all "
                                                      f"{c['cited_ids_found_in_chunks']['n']} citations exist", NAVY)]
     for i, (big, lab, col) in enumerate(cards):
@@ -370,6 +378,7 @@ def s_answers(s, n, D):
         f"Reproduced RAG's own figures exactly on its subset: numbers {sub['numeric_accuracy']['value']:.3f}, refusal "
         f"{sub['refusal']['balanced_raa_incl_false_premise']:.3f}, unanswerable {sub['refusal']['unanswerable_refused']}",
         "RAG's three grading notes were right; all are fixed in Gold Set v2.2 (appendix)",
+        f"{kn(v22['false_premise_corrected'])} false-premise questions were corrected instead of answered as asked",
         f"{nar['n'] - nar['refused']} of {nar['n']} narrative questions were answered; scoring them waits for the LLM "
         "judge, which is built and needs an API key"], size=9, gap=4)
     notes(s, "Two days later RAG ran its reader end to end and scored it with our graders. First we reproduced their numbers "
@@ -386,7 +395,7 @@ def s_graphrag(s, n, D):
     st, gt, chk = D["gr"]["structured|translated"], D["gr"]["graph|translated"], D["chk"]
     gs, rp = chk["graph_prose_by_scope"], chk["reproduction_structured_translated"]
     n_out = gs["outside_scope"]["n"] + gs["not_in_corpus_or_chunks"]["n"]
-    frame(s, n, "Round 1: GraphRAG",
+    frame(s, n, "GraphRAG, round 1",
           f"The right number is already in the top 10 for {st['numbers']['hits']} of {st['numbers']['n']} questions; ranking "
           f"it first ({st['top1_right']['hits']} today) is the open step",
           "Two levers: rank by period and break ties (GraphRAG's own issue #68), and add the notes to the statements to "
@@ -446,9 +455,13 @@ def s_compare(s, n, D):
             ["", "Relationship questions", f"{b['graph_correct']}/{b['n_questions']} exact by walking its subsidiary rows; "
                                            "RAG does not index Exhibit 21"]]
     table(s, x, Y0, 4.2, [0.8, 1.5, 1.9], rows, row_h=0.42, sizes={0: 8.5, 1: 8.5, 2: 8}, name="Better at")
-    tb(s, x, 3.45, 4.2, 0.8, [[("Neither search returns an empty result ", 8.5, True, INK),
-                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable Microsoft questions, so the "
-                                "decision to abstain belongs to the Agents' evidence check.", 8.5, False, INK)]])
+    st, gsc = D["gr"]["structured|translated"], D["chk"]["graph_prose_by_scope"]
+    rp = D["chk"]["reproduction_structured_translated"]
+    tb(s, x, 3.42, 4.2, 0.85, [[("GraphRAG's own round 1, all 20 filings: ", 8.5, True, NAVY),
+                                (f"right number in its top 10 for {hn(st['numbers'])} questions, ranked first for "
+                                 f"{st['top1_right']['hits']}; its graph search finds {gsc['in_scope']['hits']} of the "
+                                 f"{gsc['in_scope']['n']} text answers in the sections it holds. Our rerun matches all "
+                                 f"{rp['questions_identical']} questions.", 8.5, False, INK)]])
     notes(s, "Last week you asked for the two systems side by side. We ran all 84 Microsoft 10-Q questions through each "
              "team's own code on the same filing, and checked whether the returned evidence holds what the answer needs. "
              "RAG finds the numbers for 49 of 50 questions, GraphRAG for 25, and only RAG returns text. GraphRAG's strength "
@@ -766,6 +779,92 @@ def s_defs(s, n, D):
     table(s, X0, Y0, W, [1.6, 5.6, 2.4], rows, row_h=0.325, sizes={0: 8.5, 1: 8.5, 2: 8.5}, name="Definitions")
     notes(s, "Backup. The terms used in this deck, each with the number it produced. Everything re-runs with one command.")
 
+# ================================================================ the 10-minute script (main slides' speaker notes)
+SCRIPT = [
+    ("Executive summary", "1:30",
+     "Hi everyone. This week Eval ran round 1 with every team, so I'll start with the result and then show the evidence. "
+     "Four numbers. RAG's search finds all the evidence for 105 of 124 questions. When the evidence is there, RAG's reader "
+     "gets 89 of 94 numbers right. It refuses all 12 questions that have no answer in the filings, which is what we want. "
+     "And GraphRAG already has the right number in its top ten for 63 of 93 questions, and ranks it first for 26. So the "
+     "pattern is: answers are right when the evidence is found, and where they are not, we now know why and who owns the "
+     "fix. We reproduced every one of these scores ourselves from the teams' files. We also closed all seven action items "
+     "from last week; the list is in the appendix. And we tested messy wording, as you asked: a misspelled company name "
+     "drops correct decisions from 98 to 19 percent, and loose name matching brings it back to 94. On the right is one ask "
+     "per team, which I'll come back to at the end."),
+    ("Round 1: RAG", "1:45",
+     "First, RAG. Thank you to the RAG team, who ran our scoring twice this week, once for search and once end to end. The "
+     "four numbers on top: evidence found for 105 of 124 questions; 89 of 94 numbers right; all 12 unanswerable questions "
+     "refused; and the citations hold up, with 58 of 59 lookups showing the number in a passage the answer cites. We "
+     "reproduced RAG's own figures exactly before reporting these. The chart shows why 16 answerable questions were "
+     "declined. The grey bars are outside RAG's reach today. Seven need Exhibit 21, the subsidiary list, which is "
+     "GraphRAG's job. Three need a NetApp filing that the Data team is still reviewing. Three are cross-company rankings, "
+     "which need one search per company. Only the three blue ones are RAG's own. One more thing. RAG sent us three notes "
+     "where our grading was unfair. For example, we failed an answer of 91 cents for not having three significant figures, "
+     "when two is all the filing prints. They were right on all three, so we fixed the grading. The questions did not "
+     "change. What is still open is the written answers: 28 were given, and scoring them needs an LLM judge, which is built "
+     "and waiting for an API key."),
+    ("RAG vs GraphRAG", "1:45",
+     "Last week you asked to see the two systems side by side, and where each does better. We ran the same 84 Microsoft "
+     "questions through each team's own code, on the same filing. The chart has three pairs of bars. On finding the right "
+     "number, RAG finds it for 49 of 50 questions, GraphRAG for 25. On text, only RAG returns passages. The third pair is "
+     "where GraphRAG is stronger, and lower is better there. Its facts carry their exact period, so a number from the wrong "
+     "quarter shows up 53 percent of the time, against 92 for RAG. And for relationship questions, such as how many "
+     "subsidiaries a company lists, GraphRAG's rows answer all nine exactly, and RAG cannot reach that exhibit today. So "
+     "the two complement each other. GraphRAG also ran round 1 on all 20 filings, the same day we asked. The right number "
+     "is already in its top ten for 63 of 93 questions, and first for 26. GraphRAG had named that ranking gap itself, so "
+     "the data is there and the fix is ordering. We re-ran their search on their own data and matched every question. The "
+     "takeaway for the system: relationship questions go to GraphRAG, explanations go to RAG, and numbers can come from "
+     "either once the ranking fix lands."),
+    ("Routing", "1:15",
+     "Now routing, with two corrections to what we said last week. First, the bars show coverage, not accuracy. Coverage "
+     "means the right tools were called for a question. It does not mean the final answer was right. So 95 percent "
+     "coverage is not 95 right answers out of 100. Second, the 95 percent belongs to calling every tool on every question. "
+     "The keyword router on its own covers 83 percent. You also asked how we count unneeded calls. An unneeded call is a "
+     "tool the question did not need. Total revenue needs finance data only, so if we call all three tools, two of those "
+     "calls are unneeded. The table shows the trade-off. Calling every tool covers 95 percent but makes three calls per "
+     "question, about two of them unneeded. The keyword router covers 83 percent with about one call. So coverage should "
+     "always be read next to cost."),
+    ("Routing walkthrough", "1:15",
+     "You asked for concrete examples, so here are three real questions. One: Microsoft's total revenue for the quarter. "
+     "It needs finance data. Text search alone calls the wrong tool. The keyword router sees the word 'total' and calls "
+     "finance data: covered, nothing wasted. Calling every tool also covers it, with two wasted calls. Two: how many "
+     "subsidiaries Micron lists. It needs GraphRAG. The keyword router sees 'Exhibit 21' and gets it right. Three is where "
+     "simple rules slip. 'What does revenue allocated to remaining performance obligations include?' is a text question, "
+     "but the word 'revenue' sends the keyword router to finance data, so it misses. And to answer your question from the "
+     "demo: the keyword router is our baseline for comparison. It is not part of the pipeline. The Agents' orchestrator "
+     "does the real routing, and it can be scored on the same questions with one command."),
+    ("Next steps", "1:00",
+     "To close, one ask per team for next week, each tied to a result you just saw. RAG: run the narrative judge, so the "
+     "28 written answers get scored. GraphRAG: the ranking fix, and loading Exhibit 21, which seven questions are waiting "
+     "on. Agents: the first run of all 155 questions through their new API. Our grader is already connected to it. Data: "
+     "Microsoft's two earlier annual reports, so we can ask multi-year questions. And for us: hand-label the written "
+     "answers, so the judge is checked before we rely on it. Finally, thank you to RAG and GraphRAG. Both ran round 1 on "
+     "their side and traced every miss, and that is how we found and fixed our own mistakes this week. Happy to take "
+     "questions; the appendix has the detail."),
+]
+
+
+def check_script(D):
+    """The script's numbers are typed, so check them against the results before they go into the notes."""
+    text = " ".join(t for _, _, t in SCRIPT)
+    r1, v22, st, rt = D["r1"]["hybrid_k10"], D["v22"], D["gr"]["structured|translated"], D["rt"]["routers"]
+    a = D["sbs"]["part_a"]["summary"]
+    G = D["mw"]["gate"]
+    need = [f"{r1['hits']} of {r1['n']}", f"{v22['numeric_accuracy']['k']} of {v22['numeric_accuracy']['n']}",
+            f"all {v22['refusal']['n_unanswerable']}", f"{st['numbers']['hits']} of {st['numbers']['n']}",
+            f"first for {st['top1_right']['hits']}", f"{len(v22['refusal']['answerable_refused'])} answerable",
+            f"{v22['citations']['lookup_number_in_cited_chunk']['k']} of {v22['citations']['lookup_number_in_cited_chunk']['n']}",
+            f"{a['rag_bm25']['numbers']['hits']} of {a['rag_bm25']['numbers']['n']}",
+            f"GraphRAG for {a['graphrag_structured']['numbers']['hits']}",
+            f"{a['graphrag_structured']['distractor_shown_on_numbers']['rate'] * 100:.0f} percent of the time",
+            f"against {a['rag_bm25']['distractor_shown_on_numbers']['rate'] * 100:.0f}",
+            f"{rt['combined']['coverage'] * 100:.0f} percent", f"covers {rt['keyword']['coverage'] * 100:.0f} percent",
+            f"from {G['typo_company|no_session']['clean_acc'] * 100:.0f} to {G['typo_company|no_session']['messy_acc'] * 100:.0f}",
+            f"back to {G['typo_company|no_session_fuzzy_names']['messy_acc'] * 100:.0f}",
+            f"{v22['narrative']['n'] - v22['narrative']['refused']} written answers"]
+    missing = [x for x in need if x not in text]
+    assert not missing, f"script numbers out of date: {missing}"
+
 
 def main():
     base, out = sys.argv[1], sys.argv[2]
@@ -777,13 +876,25 @@ def main():
          "r1": j(DATA / "round1_rag_2026-11-09.json"), "gr": j(RES / "graphrag_round1_graphrag_aura.json")["summary"],
          "chk": j(RES / "graphrag_round1_check.json"), "ex": j(RES / "routing_examples.json"),
          "fc": j(RES / "fallback_cases_w8.json"), "hops": j(RES / "hops_v2_summary.json")}
-    order = [s_summary, s_tracker, s_retrieval, s_answers, s_graphrag, s_compare, s_routing, s_examples, s_messy, s_agents,
-             s_next, s_gold, s_graph_detail, s_defs]
-    assert len(order) == N_SLIDES
-    for i, (slide, fn) in enumerate(zip(prs.slides, order), 1):
-        fn(slide, i, D)
+    global APPENDIX
+    main_slides = [s_summary, s_rag, s_compare, s_routing, s_examples, s_next]
+    appendix = [s_tracker, s_retrieval, s_graphrag, s_messy, s_agents, s_gold, s_graph_detail, s_defs]
+    assert len(main_slides) + len(appendix) == N_SLIDES and len(main_slides) == len(SCRIPT)
+    check_script(D)
+    slides = list(prs.slides)
+    for i, fn in enumerate(main_slides + appendix, 1):
+        APPENDIX = i > len(main_slides)
+        fn(slides[i - 1], i, D)
+        if not APPENDIX:                       # the main slides' notes are the 10-minute script
+            notes(slides[i - 1], SCRIPT[i - 1][2])
     prs.save(out)
-    print("[deck] wrote", out, f"({N_SLIDES} slides: 11 main, 3 appendix)")
+    md = ["# Week 8 script (11/12): 10 minutes, 6 slides", "",
+          "About 1,150 words, roughly 8.5 minutes at a steady pace, which leaves room for questions. The same text is in "
+          "each slide's speaker notes. Slides 7-14 are the appendix, for questions.", ""]
+    for i, (title, mins, text) in enumerate(SCRIPT, 1):
+        md += [f"## Slide {i}: {title} ({mins})", "", text, ""]
+    (ROOT / "SCRIPT_W8.md").write_text("\n".join(md))
+    print("[deck] wrote", out, f"({N_SLIDES} slides: {len(main_slides)} main, {len(appendix)} appendix); script in SCRIPT_W8.md")
 
 
 if __name__ == "__main__":
