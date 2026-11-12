@@ -1,10 +1,14 @@
-"""Evaluation & Testing slides for the week-8 KPMG x Columbia meeting, in the team deck's style.
+"""Evaluation & Testing slides for the week-8 KPMG x Columbia meeting (11/12), in the team deck's template.
 
     python scripts/build_deck_w8.py <base.pptx> <out.pptx>
 
-Base: any deck whose slides are the team's Evaluation & Testing slide (Week 7's six-slide base works; slides are added
-by copying the first one). Every number is read from results/*.json, so re-running run_all.sh and this script keeps
-the slides in sync with the code. Charts and tables are native PowerPoint objects.
+Final version (11/11): rebuilt to consulting-deck standards after round 1.
+  * every slide title states the conclusion ("Topic | takeaway"), with one message per slide
+  * executive summary first, then the 11/5 feedback tracker, the evidence slides, next steps, and an appendix
+  * each slide ends with a "So what" line and a source line; each has speaker notes (the script)
+Every number is read from results/*.json, so re-running run_all.sh and this script keeps the slides in sync with the
+code. Charts and tables are native PowerPoint objects. Base: any deck whose slides are the team's Evaluation & Testing
+slide (slides are added by copying the first one).
 """
 from __future__ import annotations
 
@@ -12,44 +16,108 @@ import copy
 import sys
 from pathlib import Path
 
+from lxml import etree
 from pptx import Presentation
 from pptx.chart.data import CategoryChartData
 from pptx.enum.chart import XL_CHART_TYPE, XL_LABEL_POSITION, XL_LEGEND_POSITION, XL_TICK_LABEL_POSITION
-from pptx.enum.text import PP_ALIGN
+from pptx.enum.shapes import MSO_SHAPE
+from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from deck_style import (BLUE, GREEN, INK, MUTED, NAVY, PINK, clear, footer, header, j, label, notes, rgb,  # noqa: E402
-                        table, tb, tile)
+from deck_style import BLUE, GREEN, INK, MUTED, NAVY, NS_A, PINK, SUB, clear, j, notes, rgb, table, tb  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 RES, DATA = ROOT / "results", ROOT / "data"
-N_SLIDES = 9
+N_SLIDES = 14
 C = {"center": {"align": PP_ALIGN.CENTER}}
+X0, W, Y0 = 0.2, 9.6, 1.22          # left edge, content width, content top
+TINT, GREY = "F1F3FB", "A9B0BD"
+DECK = "Evaluation & Testing  ·  Week 8  ·  12 Nov 2026"
 
 
 def pct(x, nd=0):
     return f"{x * 100:.{nd}f}%"
 
 
-def col_chart(slide, x, y, w, h, cats, series, xtitle, ytitle, name, fmt="0%", vmax=1.0, label_size=7.5):
-    """Clustered columns with both axes titled. series = [(name, values, colour)]."""
-    cd = CategoryChartData()
-    cd.categories = cats
-    for n, vals, _ in series:
-        cd.add_series(n, vals)
-    gf = slide.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED, Inches(x), Inches(y), Inches(w), Inches(h), cd)
-    gf.name = name
-    ch = gf.chart
+def kn(d):
+    return f"{d['k']}/{d['n']}"
+
+
+def hn(d):
+    return f"{d['hits']}/{d['n']}"
+
+
+# ---------------------------------------------------------------- frame: title, so-what, source, page tag
+def frame(slide, n, topic, message, so_what, source, lead="So what:"):
+    """Action title (topic | conclusion), the 'so what' box, the source line and the page tag in the bottom bar."""
+    clear(slide)
+    tb(slide, X0, 0.6, W, 0.5, [(f"{topic} | ", 13, True, SUB, True), (message, 13, True, SUB, True)], name="Action title")
+    box = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(X0), Inches(4.38), Inches(7.45), Inches(0.5))
+    box.name = "So what box"
+    box.adjustments[0] = 0.12
+    box.fill.solid()
+    box.fill.fore_color.rgb = rgb("EEF1FA")
+    box.line.fill.background()
+    box.shadow.inherit = False
+    tb(slide, X0 + 0.12, 4.38, 7.2, 0.5, [(lead + " ", 9, True, NAVY), (so_what, 9, False, INK)],
+       anchor=MSO_ANCHOR.MIDDLE, name="So what")
+    tb(slide, X0, 4.95, 7.45, 0.3, [(source, 7, False, MUTED)], name="Source")
+    tb(slide, X0, 5.41, 6.0, 0.16, [(DECK, 7, False, "FFFFFF")], name="Deck tag")
+    tb(slide, 9.2, 5.41, 0.6, 0.16, [(str(n), 7.5, True, "FFFFFF")], align=PP_ALIGN.RIGHT, name="Page")
+
+
+def card(slide, x, y, w, h, big, lab, color=NAVY, big_size=22, lab_size=8.5):
+    """Stat card: a big number over a short label, on a light tint."""
+    shp = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
+    shp.adjustments[0] = 0.08
+    shp.fill.solid()
+    shp.fill.fore_color.rgb = rgb(TINT)
+    shp.line.fill.background()
+    shp.shadow.inherit = False
+    tb(slide, x + 0.12, y + 0.07, w - 0.24, 0.38, [(big, big_size, True, color)], anchor=MSO_ANCHOR.MIDDLE)
+    tb(slide, x + 0.12, y + 0.48, w - 0.24, h - 0.52, [(lab, lab_size, False, INK)])
+
+
+def panel(slide, x, y, w, h):
+    shp = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
+    shp.adjustments[0] = 0.05
+    shp.fill.solid()
+    shp.fill.fore_color.rgb = rgb(TINT)
+    shp.line.fill.background()
+    shp.shadow.inherit = False
+    return shp
+
+
+def head(slide, x, y, w, text, color=NAVY, size=10):
+    tb(slide, x, y, w, 0.2, [(text, size, True, color)])
+
+
+def bullets(slide, x, y, w, h, items, size=9, gap=4):
+    """Real bullets (hanging indent). items: str, or a list of (text, bold) runs."""
+    s = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    tf = s.text_frame
+    tf.word_wrap = True
+    tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+    for i, it in enumerate(items):
+        p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+        p.space_after = Pt(gap)
+        for text, bold in (it if isinstance(it, list) else [(it, False)]):
+            r = p.add_run()
+            r.text = text
+            r.font.name, r.font.size, r.font.bold, r.font.color.rgb = "Arial", Pt(size), bold, rgb(INK)
+        pPr = p._p.get_or_add_pPr()
+        pPr.set("marL", str(int(0.14 * 914400)))
+        pPr.set("indent", str(-int(0.14 * 914400)))
+        etree.SubElement(pPr, f"{{{NS_A}}}buChar").set("char", "•")
+    return s
+
+
+# ---------------------------------------------------------------- charts (one look for every chart in the deck)
+def _style(ch, plot, series, fmt, label_size):
     ch.font.name, ch.font.size = "Arial", Pt(8)
     ch.font.color.rgb = rgb(INK)
     ch.has_title = False
-    ch.has_legend = True
-    ch.legend.position = XL_LEGEND_POSITION.TOP
-    ch.legend.include_in_layout = False
-    ch.legend.font.size = Pt(8)
-    plot = ch.plots[0]
-    plot.gap_width, plot.overlap = 60, -10
     plot.has_data_labels = True
     dl = plot.data_labels
     dl.number_format, dl.number_format_is_linked = fmt, False
@@ -58,9 +126,13 @@ def col_chart(slide, x, y, w, h, cats, series, xtitle, ytitle, name, fmt="0%", v
     for s, (_, _, col) in zip(plot.series, series):
         s.format.fill.solid()
         s.format.fill.fore_color.rgb = rgb(col)
+
+
+def _axes(ch, fmt, vmax, xtitle, ytitle, unit=None):
     va = ch.value_axis
     va.minimum_scale, va.maximum_scale = 0, vmax
-    va.major_unit = 0.2 if vmax > 1 else None
+    if unit:
+        va.major_unit = unit
     va.has_major_gridlines = True
     va.major_gridlines.format.line.color.rgb = rgb("E3E7F0")
     va.format.line.fill.background()
@@ -68,14 +140,56 @@ def col_chart(slide, x, y, w, h, cats, series, xtitle, ytitle, name, fmt="0%", v
     va.tick_labels.number_format, va.tick_labels.number_format_is_linked = fmt, False
     ca = ch.category_axis
     ca.format.line.color.rgb = rgb("C9CED8")
-    ca.tick_labels.font.size = Pt(7.5)
+    ca.tick_labels.font.size = Pt(8)
     ca.tick_label_position = XL_TICK_LABEL_POSITION.LOW
     for axis, title in ((va, ytitle), (ca, xtitle)):
-        axis.has_title = True
-        tf = axis.axis_title.text_frame
-        tf.text = title
-        r = tf.paragraphs[0].runs[0]
-        r.font.size, r.font.bold, r.font.color.rgb, r.font.name = Pt(8), True, rgb(MUTED), "Arial"
+        axis.has_title = bool(title)
+        if title:
+            tf = axis.axis_title.text_frame
+            tf.text = title
+            r = tf.paragraphs[0].runs[0]
+            r.font.size, r.font.bold, r.font.color.rgb, r.font.name = Pt(8), True, rgb(MUTED), "Arial"
+
+
+def col_chart(slide, x, y, w, h, cats, series, xtitle, ytitle, name, fmt="0%", vmax=1.15, label_size=8, legend=True,
+              gap=60):
+    """Clustered columns with both axes titled. series = [(name, values, colour)]."""
+    cd = CategoryChartData()
+    cd.categories = cats
+    for n, vals, _ in series:
+        cd.add_series(n, vals)
+    gf = slide.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED, Inches(x), Inches(y), Inches(w), Inches(h), cd)
+    gf.name = name
+    ch = gf.chart
+    plot = ch.plots[0]
+    plot.gap_width, plot.overlap = gap, -10
+    _style(ch, plot, series, fmt, label_size)
+    ch.has_legend = legend
+    if legend:
+        ch.legend.position = XL_LEGEND_POSITION.TOP
+        ch.legend.include_in_layout = False
+        ch.legend.font.size = Pt(8)
+    _axes(ch, fmt, vmax, xtitle, ytitle, unit=0.2 if vmax > 1 else None)
+    return gf
+
+
+def bar_chart(slide, x, y, w, h, cats, vals, colors, xtitle, name, vmax):
+    """Horizontal bars, one series, counts; first category at the top. colors: one per bar."""
+    cd = CategoryChartData()
+    cd.categories = cats[::-1]
+    cd.add_series("Questions", vals[::-1])
+    gf = slide.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED, Inches(x), Inches(y), Inches(w), Inches(h), cd)
+    gf.name = name
+    ch = gf.chart
+    plot = ch.plots[0]
+    plot.gap_width = 45
+    _style(ch, plot, [("", None, NAVY)], "0", 8)
+    for i, col in enumerate(colors[::-1]):
+        pt = plot.series[0].points[i]
+        pt.format.fill.solid()
+        pt.format.fill.fore_color.rgb = rgb(col)
+    ch.has_legend = False
+    _axes(ch, "0", vmax, None, xtitle, unit=2)
     return gf
 
 
@@ -94,349 +208,326 @@ def add_slides(prs, n):
         del prs.slides._sldIdLst[-1]
 
 
-# ================================================================ slides
-def s_scope(s, sbs, rt, mw):
-    clear(s)
-    a, b = sbs["part_a"], sbs["part_b"]
-    header(s, "Scope", "the Eval action items from the last two meetings, and where each one is answered")
-    rows = [["Action item", "What we did", "Slide"],
-            ["Run round 1 in week 8 (minutes #5)", "RAG (11/9) and GraphRAG (11/11) ran our scoring; we reproduced both and "
-             "fixed what they flagged", ("2-4", C["center"])],
-            ["Round 1 end to end (RAG's reader, 11/11)", "Reproduced RAG's scores with our graders; fixed the three grading "
-             "notes in Gold Set v2.2", ("3", C["center"])],
-            ["Run one question set on RAG and GraphRAG, side by side",
-             f"All {a['n_questions']} Microsoft 10-Q questions through each team's own code, same filing, top 8", ("4", C["center"])],
-            ["Show where GraphRAG does better, and where RAG does",
-             f"Plus the {b['n_questions']} Exhibit 21 relationship questions (traversal)", ("5", C["center"])],
-            ["Label the routing chart's axes; define the keyword router", "Axes titled; bars are coverage, defined, and not "
-             "accuracy; numbers matched to each method", ("6", C["center"])],
-            ["Explain how unneeded calls per question are measured", "Definition with a worked example", ("6", C["center"])],
+# ================================================================ 1. executive summary
+def s_summary(s, n, D):
+    r1, v22, gs, G = D["r1"]["hybrid_k10"], D["v22"], D["gr"]["structured|translated"], D["mw"]["gate"]
+    frame(s, n, "Executive summary",
+          "Round 1 ran with all four teams: answers are right when the evidence is found, and each remaining gap has a "
+          "named owner",
+          "Round 1 gives every team a measured baseline on the same 155 questions, so next week we measure the fixes "
+          "instead of debating them.",
+          "Source: round-1 files from RAG (11/9, 11/11) and GraphRAG (11/11), re-scored by Eval on Gold Set v2.2 "
+          "(155 questions). Detail on the following slides; definitions in the appendix")
+    cw, gap = 2.25, 0.2
+    cards = [(f"{r1['hits']}/{r1['n']}", f"questions where RAG's search finds all the evidence ({pct(r1['hits'] / r1['n'])})", NAVY),
+             (kn(v22["numeric_accuracy"]), f"numbers right in RAG's answers ({v22['numeric_accuracy']['value']:.3f}), scored "
+                                           "by our graders", NAVY),
+             (v22["refusal"]["unanswerable_refused"], "unanswerable questions correctly refused by RAG's reader", GREEN),
+             (f"{gs['numbers']['hits']} → {gs['top1_right']['hits']}", f"of {gs['numbers']['n']} number questions: GraphRAG has "
+                                                                      "the right number in its top 10 → ranks it first", PINK)]
+    for i, (big, lab, col) in enumerate(cards):
+        card(s, X0 + i * (cw + gap), Y0, cw, 0.98, big, lab, col)
+    cols = [("What we did", [
+                "Ran round 1 with RAG (twice) and GraphRAG (both searches), and reproduced every score from their files",
+                "Released Gold Set v2.2: the same 155 questions with fairer grading",
+                "Closed all 11/5 feedback and connected the Agents' new API to our grader"]),
+            ("What we found", [
+                "RAG finds and reads numbers well; 13 of its 16 declined questions are outside its reach today",
+                "GraphRAG's gap is ranking and scope, not data: its graph search finds 10 of the 20 answers it holds",
+                f"Misspelled company names break the scope check ({pct(G['typo_company|no_session']['clean_acc'])} → "
+                f"{pct(G['typo_company|no_session']['messy_acc'])}) unless matched loosely "
+                f"({pct(G['typo_company|no_session_fuzzy_names']['messy_acc'])})"]),
+            ("What we need next week", [
+                [("RAG: ", True), ("run our narrative judge", False)],
+                [("GraphRAG: ", True), ("ranking fix; Exhibit 21 in the graph", False)],
+                [("Agents: ", True), ("first run of the 155 questions", False)],
+                [("Data: ", True), ("Microsoft's FY2024 and FY2025 10-Ks", False)]])]
+    cx, cg = 3.05, 0.225
+    for i, (h, items) in enumerate(cols):
+        x = X0 + i * (cx + cg)
+        head(s, x, 2.42, cx, h, size=10.5)
+        bullets(s, x, 2.7, cx, 1.6, items, size=9.5, gap=5)
+    notes(s, "The short version. Round 1 ran this week with every team. RAG's search finds all the evidence for 105 of 124 "
+             "questions, and when it does, its reader gets 89 of 94 numbers right and refuses all 12 unanswerable questions. "
+             "GraphRAG already has the right number in its top ten for 63 of 93 questions and ranks it first for 26, which is "
+             "the ranking work they have open. We reproduced every score ourselves from the teams' files, fixed our grading "
+             "where RAG showed us it was unfair, and closed last week's feedback. On the right is one ask per team for next "
+             "week. The rest of the deck is the evidence behind these lines.")
+
+
+# ================================================================ 2. feedback tracker
+def s_tracker(s, n, D):
+    sbs, rt, mw = D["sbs"], D["rt"], D["mw"]
+    a, b, er, R = sbs["part_a"], sbs["part_b"], rt["expected_routes"], rt["routers"]
+    frame(s, n, "Feedback from 11/5",
+          "All seven action items are closed, each with a script and a result file in the Week 8 folder",
+          "Two corrections matter most for reading last week's chart: the bars show coverage, not accuracy, and the 95% "
+          "is calling every tool, not the keyword router.",
+          "Source: 11/5 meeting minutes (#6) and mentor feedback; Week 8/README.md maps each item to its script and "
+          "result file")
+    done = ("Done", {**C["center"], "bold": True, "color": GREEN})
+    rows = [["Action item", "What we did", ("Status", C["center"])],
+            ["Run round 1 in week 8", "RAG (11/9, 11/11) and GraphRAG (11/11) ran our scoring; we reproduced both", done],
+            ["Compare RAG and GraphRAG side by side; show where each does better",
+             f"{a['n_questions']} Microsoft 10-Q questions through each team's own code, plus {b['n_questions']} relationship "
+             "questions", done],
+            ["Label the routing chart; define the keyword router and unneeded calls",
+             "Axes titled; both terms defined on the slide with a worked example", done],
+            ["Coverage vs accuracy; match each number to its method",
+             f"Corrected: every tool {pct(R['combined']['coverage'])}, keyword router {pct(R['keyword']['coverage'])}; "
+             "coverage is not answer accuracy", done],
             ["Concrete routing examples; where the router sits", "Three real questions walked through; the keyword router is "
-             "a baseline, and Agents can score theirs with the same script", ("7", C["center"])],
-            ["Say accuracy is on the current 155 questions only", "Stated on every routing and wording number",
-             ("3-8", C["center"])],
-            ["Typos and messy wording, for real-user accuracy",
-             f"{mw['n_variants']} rewrites of the 155 questions through gate, router and both retrievers", ("8", C["center"])]]
-    table(s, 0.12, 1.0, 7.6, [3.25, 3.85, 0.5], rows, row_h=0.31, sizes={0: 8, 1: 8, 2: 8}, name="Action items")
-    er = rt["expected_routes"]
-    tb(s, 7.95, 1.0, 1.85, 2.9, [[(f"All figures use the current {rt['n']} Gold Set v2.2 questions", 9, True, NAVY)],
-                                [(" ", 4, False, INK)],
-                                [(f"{er['sql']} finance data, {er['text']} text, {er['graph']} relationship, {er['none']} no "
-                                  f"tool, {er['multi']} both. Microsoft has 92 of them, so per-route numbers on 1-{er['graph']} "
-                                  "questions are examples, not estimates. They will move as questions are added. v2.2 keeps "
-                                  "v2's questions and answers; it changes grading only (slide 3).", 8.5, False, INK)]])
-    footer(s, "Pinned:", "RAG main @ 5bfafeb (11/5), GraphRAG main @ 21f0795 (11/11) and Exhibit 21 branch @ c21fe89, Data @ "
-                         "7040b8a. No LLM is used in Eval's results; the teams' round-1 runs (slides 2-4) are re-scored here from the files they sent.",
-           "Source: Week 8/README.md; scripts/run_all.sh (100 tests pass)", y=4.42, w=7.6)
-    notes(s, "These are round 1, which we committed to two weeks ago, and the seven Eval items from last week's minutes. Each "
-             "one has a script and a result file in the Week 8 folder, and the slide number on the right says where it's covered. "
-             "New since Sunday: RAG ran its reader end to end with our graders, which is slide 3. One caveat for everything that follows: the "
+                                                                 "our baseline, not part of the pipeline", done],
+            ["State that results are on the current 155 questions only", "Stated on every slide that reports a rate", done],
+            ["Test typos and messy wording", f"{mw['n_variants']} rewrites of the 155 questions, scored like the originals", done]]
+    table(s, X0, Y0, 7.5, [2.75, 4.05, 0.7], rows, row_h=0.37, sizes={0: 8.5, 1: 8.5, 2: 8.5}, name="Action items")
+    panel(s, 7.9, Y0, 1.9, 2.96)
+    head(s, 8.02, Y0 + 0.1, 1.66, "How to read every number", size=9.5)
+    tb(s, 8.02, Y0 + 0.5, 1.66, 2.3,
+       [[(f"All figures use the current {rt['n']} questions (Gold Set v2.2).", 8.5, True, INK)], [(" ", 4, False, INK)],
+        [(f"{er['sql']} finance data, {er['text']} text, {er['graph']} relationship, {er['none']} no tool, {er['multi']} both. "
+          "Microsoft has 92 of them.", 8.5, False, INK)], [(" ", 4, False, INK)],
+        [("Small groups are examples, not estimates. Rates will move as questions are added.", 8.5, False, INK)]])
+    notes(s, "Last week's minutes gave us seven items, and all seven are closed. Each one has a script and a result file in the "
+             "Week 8 folder, so anyone can re-run it. Two corrections from last week matter most. The routing bars show "
+             "coverage, meaning the right tools were called; that is not answer accuracy. And the 95 percent belongs to "
+             "calling every tool on every question, not to the keyword router. One caveat for everything that follows: the "
              "numbers come from the 155 questions we have now, which lean on Microsoft and on finance-data questions.")
 
 
-def s_round1(s, r1, v21):
-    clear(s)
-    R = r1["strict_recall"]
-    h = r1["hybrid_k10"]
-    header(s, "Round 1: retrieval", f"Gold Set v2, run by RAG with our scoring rules (11/9): {h['hits']} of {h['n']} found")
-    cats = ["k = 5", "k = 8", "k = 10"]
-    col_chart(s, 0.12, 1.0, 4.2, 3.3, cats,
+# ================================================================ 3. round 1: RAG retrieval
+def s_retrieval(s, n, D):
+    r1, v21 = D["r1"], D["v21"]
+    R, h, w = r1["strict_recall"], r1["hybrid_k10"], r1["wrong_period_figure_in_top8"]
+    frame(s, n, "Round 1: RAG retrieval",
+          f"RAG's hybrid search finds all the evidence for {h['hits']} of {h['n']} questions, and every miss has a named fix",
+          f"A wrong-period figure sits in the same top 8 for {pct(w['rate'])} of the {w['of_number_questions_with_distractor']} "
+          "number questions that have one, so the reader must be told which column to take.",
+          "Source: RAG team, round-1 retrieval run 11/9 with Eval's scoring rules (Week 8/data/round1_rag_2026-11-09.json). "
+          "Retrieval only; a hit must come from the right filing")
+    col_chart(s, X0, Y0, 4.3, 3.05, ["Top 5", "Top 8", "Top 10"],
               [("Hybrid", [R["hybrid"][f"k{k}"] for k in (5, 8, 10)], NAVY),
-               ("BM25", [R["bm25"][f"k{k}"] for k in (5, 8, 10)], BLUE),
-               ("Dense", [R["dense"][f"k{k}"] for k in (5, 8, 10)], "A9B0BD"),
+               ("Keyword (BM25)", [R["bm25"][f"k{k}"] for k in (5, 8, 10)], BLUE),
+               ("Dense", [R["dense"][f"k{k}"] for k in (5, 8, 10)], GREY),
                ("Hybrid, no filter", [R["hybrid_no_filter"][f"k{k}"] for k in (5, 8, 10)], PINK)],
-              "Results kept per question (k)", "Scored questions with all evidence", "Round 1 recall",
-              fmt="0%", vmax=1.15, label_size=6)
-    n_mu, n_ms = r1["non_msft_single_company"], r1["by_company_hybrid_k10"]["MSFT"]
-    tile(s, 4.5, 1.0, f"{h['numbers'][0]}/{h['numbers'][1]}", f"number questions; prose {h['prose'][0]}/{h['prose'][1]} "
-         "(hybrid, k = 10, hit must come from the right filing)", w_big=1.0, w_lab=4.2, color=NAVY)
-    tile(s, 4.5, 1.55, f"{n_mu[0]}/{n_mu[1]}", f"single-company questions on the nine other companies, vs Microsoft "
-         f"{n_ms[0]}/{n_ms[1]}: adding nine companies did not hurt retrieval", w_big=1.0, w_lab=4.2, color=GREEN)
-    rows = [["Why 19 were missed", ("n", C["center"]), "Who fixes it"]]
-    short = {"Cross-company ranking: one search cannot hold 10-20 figures": "Cross-company ranking: 10-20 figures",
-             "Gold anchors do not match the question (auto-converted in Gold v0)": "Our anchors were wrong (Gold v0 conversion)",
-             "Derived quarter needs both the 10-K and the 10-Q": "Needs the 10-K and the 10-Q together",
-             "BM25 and dense each had it; fusion pushed it just past k=10": "Fusion pushed it just past k = 10",
-             "All three methods missed": "All three methods missed"}
-    who = {"Eval": f"Eval: fixed in v2.1 (all {v21['reanchored_from_region']} converted anchors)"}
-    owner_short = ["Agents: one search per company", None, "Agents: one search per form", "RAG: candidate k, fusion weights",
-                   "RAG: ranking; 1 is truly multi-part"]
-    for m, o in zip(r1["misses_by_cause"], owner_short):
-        rows.append([short[m["cause"]], (str(m["n"]), C["center"]),
-                     (who["Eval"], {"bold": True, "color": GREEN}) if m["owner"] == "Eval" else o])
-    table(s, 4.5, 2.15, 5.3, [2.45, 0.35, 2.5], rows, row_h=0.27, sizes={0: 7.5, 1: 7.5, 2: 7.5}, name="Misses")
-    w = r1["wrong_period_figure_in_top8"]
-    footer(s, "Also found:", f"a wrong-period figure sits in the top 8 for {w['rate'] * 100:.1f}% of the {w['of_number_questions_with_distractor']} "
-                            "number questions that have one, so the reader "
-                            "must be told which column to take; fusion scores look the same for hits and misses, so 'weak "
-                            "evidence' has to come from structure (empty result, no filter match, BM25 and dense disagree).",
-           "Source: RAG team, round-1 results 11/9 (KPMG_RAG scripts/run_round1_eval.py), transcribed in Week 8/data/"
-           "round1_rag_2026-11-09.json; Gold Set v2.1 in Week 8/GOLD_SET_V2.md. Evidence level (retrieval only)", y=4.38, w=7.6)
-    notes(s, "Round 1 happened this week. RAG ran our scoring rules on the full Gold Set v2 against its index of the 20 filings. "
-             "Hybrid search with filters finds all the evidence for 105 of 124 scored questions at 10 results, and the nine "
-             "non-Microsoft companies score at least as well as Microsoft. RAG traced every miss. Three are cross-company rankings "
-             "that one search can't hold, so the Agents should split them per company. Four were our mistake: the anchors on four "
-             "of the original RAG questions came from an automatic conversion and didn't match the questions. We checked the other "
-             "converted anchors too and replaced all 22 the same day, as Gold Set v2.1. The rest are ranking and query-splitting "
-             "fixes on the RAG and Agents side. Two days later RAG ran its reader on top of this, which is the next slide.")
+              "Results kept per question", "Questions with all evidence found", "Round 1 retrieval", label_size=6.5)
+    x = 4.7
+    n_mu = r1["non_msft_single_company"]
+    card(s, x, Y0, 2.45, 0.86, f"{h['numbers'][0]}/{h['numbers'][1]}", f"number questions found; text questions "
+         f"{h['prose'][0]}/{h['prose'][1]}", NAVY)
+    card(s, x + 2.65, Y0, 2.45, 0.86, f"{n_mu[0]}/{n_mu[1]}", "on the nine other companies: adding them did not hurt "
+         "retrieval", GREEN)
+    short = ["Cross-company ranking: one search cannot hold ten companies",
+             "Our own anchors were wrong (four questions)",
+             "Needs the 10-K and the 10-Q together",
+             "Found by both methods; merging pushed it past 10",
+             "Missed by all three methods"]
+    fix = ["Agents: one search per company", None, "Agents: one search per form", "RAG: merge weights, keep more results",
+           "RAG: ranking"]
+    rows = [[f"Why {h['n'] - h['hits']} were missed", ("n", C["center"]), "Fix and owner"]]
+    for m, sh, o in zip(r1["misses_by_cause"], short, fix):
+        rows.append([sh, (str(m["n"]), C["center"]),
+                     (f"Eval: fixed, with all {v21['reanchored_from_region']} similar anchors", {"bold": True, "color": GREEN})
+                     if m["owner"] == "Eval" else o])
+    table(s, x, 2.24, 5.1, [2.55, 0.35, 2.2], rows, row_h=0.33, sizes={0: 8, 1: 8, 2: 8}, name="Misses")
+    notes(s, "Round 1 retrieval. RAG ran our scoring rules on the full question set against its index of the 20 filings. "
+             "Hybrid search finds all the evidence for 105 of 124 scored questions when it keeps ten results, and the nine "
+             "non-Microsoft companies score at least as well as Microsoft. RAG traced every one of the 19 misses, which was "
+             "a real help. Four were our mistake: anchors from an automatic conversion that did not match the question. We "
+             "fixed those and all 22 similar ones the same day. Three are cross-company rankings that one search cannot "
+             "hold, so the Agents should search once per company. The rest are ranking and merging fixes on the RAG side.")
 
 
-def s_answers(s, ans, g22, rt):
-    """Round 1 end to end: RAG's reader (11/11), scored with our graders on v2 (as run) and v2.2 (grading fixes)."""
-    clear(s)
-    v2, v22 = ans["by_gold_set"]["v2"], ans["by_gold_set"]["v2_2"]
-    sub = v2["rag_subset"]
-    header(s, "Round 1: answers", "RAG's reader end to end, scored with our graders (11/11)")
-    fr = lambda d: f"{d['value']:.3f} ({d['k']}/{d['n']})"  # noqa: E731
-    kn = lambda d: f"{d['k']}/{d['n']}"  # noqa: E731
-    nar = v22["narrative"]
-    rows = [["Measure", ("RAG's report (subset)", C["center"]), ("All 155, Gold v2", C["center"]),
-             ("All 155, Gold v2.2", C["center"])],
-            [("Numbers right (NAA)", {"bold": True}), (fr(sub["numeric_accuracy"]), C["center"]),
-             (fr(v2["numeric_accuracy"]), C["center"]), (fr(v22["numeric_accuracy"]), {**C["center"], "bold": True, "color": GREEN})],
-            [("Refusal, balanced", {"bold": True}), (f"{sub['refusal']['balanced_raa_incl_false_premise']:.3f}", C["center"]),
-             (f"{v2['refusal']['balanced_raa_incl_false_premise']:.3f}", C["center"]),
-             (f"{v22['refusal']['balanced_raa_incl_false_premise']:.3f}", C["center"])],
-            [("Unanswerable refused", {"bold": True}), (sub["refusal"]["unanswerable_refused"], C["center"]),
-             (v2["refusal"]["unanswerable_refused"], C["center"]), (v22["refusal"]["unanswerable_refused"], C["center"])],
-            [("Fiscal calendar, lists", {"bold": True}), ("n/a", C["center"]), (kn(v2["categorical_accuracy"]), C["center"]),
-             (kn(v22["categorical_accuracy"]), C["center"])],
-            [("False premise corrected", {"bold": True}), ("n/a", C["center"]), (kn(v2["false_premise_corrected"]), C["center"]),
-             (kn(v22["false_premise_corrected"]), C["center"])],
-            [(f"Narrative ({nar['n'] - nar['refused']} of {nar['n']} answered)", {"bold": True}), ("n/a", C["center"]),
-             ("judge pending", C["center"]), ("judge pending", C["center"])]]
-    table(s, 0.12, 1.0, 5.25, [1.65, 1.25, 1.1, 1.25], rows, row_h=0.27, sizes={0: 7.5, 1: 7.5, 2: 7.5, 3: 7.5},
-          name="Answer scores")
-    c = v22["citations"]
-    tb(s, 0.12, 2.98, 5.25, 0.45, [[("Citations, checked in RAG's chunks: ", 8, True, NAVY),
-                                    (f"all {c['cited_ids_found_in_chunks']['n']} cited chunks exist; every answer cites a "
-                                     f"filing the gold answer uses ({kn(c['cites_a_gold_filing'])}); "
-                                     f"{c['lookup_number_in_cited_chunk']['k']} of {c['lookup_number_in_cited_chunk']['n']} "
-                                     "lookups show the number in a cited chunk.", 8, False, INK)]])
+# ================================================================ 4. round 1: RAG answers
+def s_answers(s, n, D):
+    v2, v22 = D["v2"], D["v22"]
+    sub, c, nar = v2["rag_subset"], v22["citations"], v22["narrative"]
     n_ref = len(v22["refusal"]["answerable_refused"])
-    tb(s, 0.12, 3.47, 5.25, 0.85, [[(f"Why {n_ref} answerable questions were declined: ", 8, True, NAVY),
-                                    ("7 need Exhibit 21 (GraphRAG's route); 3 need NetApp's 10-Q, which Data holds for "
-                                     "review; 3 are cross-company rankings (one search per company); 2 state the answer but "
-                                     "are marked not answered (GSv0-MSFT-023, EV1R-005); 1 retrieval miss.", 8, False, INK)]])
-    x = 5.55
-    label(s, x, 1.0, 4.25, "RAG's three grading notes, fixed in Gold Set v2.2", NAVY)
-    kw = rt["routers"]["keyword"]["coverage"]
-    rows = [["RAG's note", "Fix"],
-            ["EV1-015: '$0.91' fails 3 significant figures", "Floor = the precision the filing prints: 2 (EV1-027 too)"],
-            ["EV1-043: three figures, one value field", f"{len(g22['multi_value_questions'])} multi-part questions need every "
-             "figure, from an optional values list or the text"],
-            ["EV1R-002, 006: answered from 10-K text", f"Route text; GraphRAG agreed. Keyword router 84% → {pct(kw)}"],
-            [("Found from RAG's files", {"bold": True, "color": NAVY}), ""],
-            ["EV1R-005: 10-K says 25%, 10-Q 27%", "Both accepted"],
-            ["v2.1 anchors: 2 sentences in one item", "One item per point; all anchors outside Exhibit 21 and NetApp's "
-             "10-Q found in RAG's chunks"]]
-    table(s, x, 1.22, 4.25, [1.9, 2.35], rows, row_h=0.4, sizes={0: 7.5, 1: 7.5}, name="Grading notes")
-    footer(s, "Next:", "the narrative judge is ready (point by point, with a quote check). It needs an API key, and it counts "
-                       "only after it agrees with our hand labels.",
-           "Source: Week 8/results/answers_rag_reader_round1.json (scripts/grade_answer_blocks.py), results/gold_v2_2_changes"
-           ".json. RAG's answers and chunks (11/11) stay private", y=4.38, w=7.6)
-    notes(s, f"RAG then ran its reader end to end with our graders. First, we reproduced their numbers exactly: "
-             f"{sub['numeric_accuracy']['value']:.3f} on numbers and {sub['refusal']['balanced_raa_incl_false_premise']:.3f} "
-             "on refusals, on their subset, which leaves out the relationship and review-required questions. On all 155 "
-             f"questions it is {v2['numeric_accuracy']['value']:.3f} and {v2['refusal']['balanced_raa_incl_false_premise']:.3f}, "
-             "and every unanswerable question was refused. RAG raised three grading notes, and all three were right. A "
-             "91-cent dividend was failed for having two significant figures, which is all the filing prints. One question "
-             "asks for three figures and the answer block holds one, so multi-part questions now need every figure. And two "
-             "relationship questions are really answered from the 10-K text, so they now route to text, which moves the "
-             f"keyword router from 84 to {kw * 100:.0f} percent. Their files also showed us two of our own errors, both fixed. "
-             f"With the fixes, numbers go to {v22['numeric_accuracy']['value']:.3f}. Most declined questions are outside "
-             "RAG's corpus by design. Narrative answers need the LLM judge, which is ready and needs a key.")
+    frame(s, n, "Round 1: RAG answers",
+          f"With the evidence found, RAG's reader gets {v22['numeric_accuracy']['k']} of {v22['numeric_accuracy']['n']} "
+          f"numbers right and refuses all {v22['refusal']['n_unanswerable']} unanswerable questions",
+          f"Only 3 of the {n_ref} declined questions are RAG's own to fix; the rest wait on Exhibit 21, one held filing "
+          "and per-company search. Narrative scores come next.",
+          "Source: RAG's 155 answers (11/11) graded by Eval, Week 8/results/answers_rag_reader_round1.json. Gold Set v2.2; "
+          "RAG's answers and passages stay private")
+    cw, gap = 2.25, 0.2
+    cards = [(kn(v22["numeric_accuracy"]), f"numbers right ({v22['numeric_accuracy']['value']:.3f}); "
+                                           f"{kn(v2['numeric_accuracy'])} before our grading fixes", NAVY),
+             (v22["refusal"]["unanswerable_refused"], "unanswerable questions refused; balanced refusal score "
+                                                      f"{v22['refusal']['balanced_raa_incl_false_premise']:.3f}", GREEN),
+             (kn(v22["false_premise_corrected"]), "false-premise questions corrected instead of answered as asked", NAVY),
+             (kn(c["lookup_number_in_cited_chunk"]), f"lookups show the number in a cited passage; all "
+                                                     f"{c['cited_ids_found_in_chunks']['n']} citations exist", NAVY)]
+    for i, (big, lab, col) in enumerate(cards):
+        card(s, X0 + i * (cw + gap), Y0, cw, 0.98, big, lab, col)
+    head(s, X0, 2.36, 5.3, f"Why {n_ref} answerable questions were declined (blue = RAG's own to fix)")
+    bar_chart(s, X0, 2.56, 5.3, 1.72,
+              ["Needs Exhibit 21 (GraphRAG's route)", "Needs NetApp's 10-Q (held by Data)", "Cross-company ranking",
+               "Answer stated, marked not answered", "Retrieval miss"],
+              [7, 3, 3, 2, 1], [GREY, GREY, GREY, BLUE, BLUE], "Questions", "Declined questions", vmax=8)
+    head(s, 5.75, 2.36, 4.05, "How we checked")
+    bullets(s, 5.75, 2.61, 4.05, 1.6, [
+        f"Reproduced RAG's own figures exactly on its subset: numbers {sub['numeric_accuracy']['value']:.3f}, refusal "
+        f"{sub['refusal']['balanced_raa_incl_false_premise']:.3f}, unanswerable {sub['refusal']['unanswerable_refused']}",
+        "RAG's three grading notes were right; all are fixed in Gold Set v2.2 (appendix)",
+        f"{nar['n'] - nar['refused']} of {nar['n']} narrative questions were answered; scoring them waits for the LLM "
+        "judge, which is built and needs an API key"], size=9, gap=4)
+    notes(s, "Two days later RAG ran its reader end to end and scored it with our graders. First we reproduced their numbers "
+             "exactly. On all 155 questions, the reader gets 89 of 94 numbers right and refuses all 12 unanswerable "
+             "questions. Citations hold up: every cited passage exists, and 58 of 59 lookups show the number in a cited "
+             "passage. RAG also sent three grading notes, and all three were right, so we fixed our grading; that is Gold "
+             "Set v2.2 in the appendix. The chart shows why 16 answerable questions were declined. Thirteen are outside "
+             "RAG's reach today: seven need Exhibit 21, three need a NetApp filing that Data is still reviewing, and three "
+             "are cross-company rankings. Only three are RAG's own. Narrative answers are next; the judge is ready.")
 
 
-def s_side_by_side(s, sbs):
-    clear(s)
-    a = sbs["part_a"]
-    S = a["summary"]
-    r, g = S["rag_bm25"], S["graphrag_structured"]
-    h = a["head_to_head_rag_bm25_vs_graphrag"]
-    header(s, "RAG vs GraphRAG", f"the same {a['n_questions']} Microsoft 10-Q questions, each team's own code on the same filing")
-    cats = [f"Numbers: inputs in top 8 (n={r['numbers']['n']})", f"Prose: gold passage in top 8 (n={r['prose']['n']})",
-            f"Numbers: wrong-period figure also shown, lower is better (n={r['distractor_shown_on_numbers']['n']})"]
-    col_chart(s, 0.12, 1.0, 5.6, 3.3, cats,
-              [("RAG (its BM25 search)", [r["numbers"]["rate"], r["prose"]["rate"], r["distractor_shown_on_numbers"]["rate"]], BLUE),
-               ("GraphRAG (structured search)", [g["numbers"]["rate"], g["prose"]["rate"], g["distractor_shown_on_numbers"]["rate"]], PINK)],
-              "Question group (number of questions)", "Share of questions", "Side by side", vmax=1.15)
-    x = 5.95
-    tb(s, x, 1.0, 3.8, 0.2, [("Head to head on the 77 answerable questions", 9.5, True, INK)])
-    rows = [["", ("GraphRAG has it", C["center"]), ("GraphRAG misses", C["center"])],
-            [("RAG has it", {"bold": True}), (str(h.get("both", 0)), C["center"]), (str(h.get("rag_only", 0)), C["center"])],
-            [("RAG misses", {"bold": True}), (str(h.get("graphrag_only", 0)), C["center"]), (str(h.get("neither", 0)), C["center"])]]
-    table(s, x, 1.25, 3.7, [1.1, 1.3, 1.3], rows, row_h=0.27, name="Head to head")
-    gr = j(RES / "graphrag_round1_graphrag_aura.json")["summary"]
-    chk = j(RES / "graphrag_round1_check.json")
-    st, gt = gr["structured|translated"], gr["graph|translated"]
-    rp = chk["reproduction_structured_translated"]
-    gs = chk["graph_prose_by_scope"]
-    tb(s, x, 2.2, 3.8, 1.9, [[("How it was run. ", 8, True, INK),
-                              ("Each team's own code: RAG's chunker and Retriever.search; GraphRAG's fact loader on Data's "
-                               "copy of the filing, then structured_search.", 8, False, INK)],
-                             [(" ", 4, False, INK)],
-                             [("GraphRAG's own round 1, all 20 filings (11/11): ", 8, True, NAVY),
-                              (f"structured search has the needed number in its top 10 for {st['numbers']['hits']} of "
-                               f"{st['numbers']['n']}, at rank 1 for {st['top1_right']['hits']}; the graph arm, scored for "
-                               f"the first time, has the prose anchors for {gt['prose']['hits']} of {gt['prose']['n']}: "
-                               f"{gs['in_scope']['hits']} of the {gs['in_scope']['n']} whose text sits in the sections it holds. "
-                               f"Our rerun on their store matches all {rp['questions_identical']} questions.", 8, False, INK)],
-                             [(" ", 4, False, INK)],
-                             [("Neither side returned an empty result ", 8, True, INK),
-                              (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable questions, so abstaining stays "
-                               "with the Agents' evidence check.", 8, False, INK)]])
-    footer(s, "Read:", "RAG's search finds the needed numbers and passages more often; GraphRAG's facts carry their exact period, "
-                       "so wrong-period figures show up less. Evidence level only: no reader model.",
-           "Source: Week 8/results/side_by_side.json (scripts/run_side_by_side.py). RAG's hybrid with its offline stand-in for the "
-           f"dense model: numbers {pct(S['rag_hybrid']['numbers']['rate'])}, prose {pct(S['rag_hybrid']['prose']['rate'])}",
-           y=4.38, w=7.6)
-    notes(s, "We ran the full Microsoft 10-Q question set, 84 questions, through both teams' code on the same filing. For RAG that is "
-             "its own chunker, index and retriever. For GraphRAG it is their fact loader and structured search. We check whether "
-             "the evidence each returns contains what the answer needs. RAG finds the numbers in 49 of 50 questions, GraphRAG in "
-             "25, and only RAG returns prose. GraphRAG's strength shows in the third pair of bars: its facts are labelled with "
-             "the period, so a wrong-period figure appears much less often. Neither returns nothing on unanswerable questions, so "
-             "the decision to abstain belongs to the Agents' step. GraphRAG also ran round 1 on all 20 filings with our script: "
-             "structured search has the right number in its top ten for about two thirds of number questions but at rank one "
-             "for under a third, which is the ranking work they have open, and the graph arm scored for the first time. We "
-             "re-ran their structured arm on their own store and matched every question. Its graph arm found half of the "
-             "prose answers that sit in the sections it holds, and none outside them, so most of that gap is scope.")
+# ================================================================ 5. round 1: GraphRAG
+def s_graphrag(s, n, D):
+    st, gt, chk = D["gr"]["structured|translated"], D["gr"]["graph|translated"], D["chk"]
+    gs, rp = chk["graph_prose_by_scope"], chk["reproduction_structured_translated"]
+    n_out = gs["outside_scope"]["n"] + gs["not_in_corpus_or_chunks"]["n"]
+    frame(s, n, "Round 1: GraphRAG",
+          f"The right number is already in the top 10 for {st['numbers']['hits']} of {st['numbers']['n']} questions; ranking "
+          f"it first ({st['top1_right']['hits']} today) is the open step",
+          "Two levers: rank by period and break ties (GraphRAG's own issue #68), and add the notes to the statements to "
+          "the graph. The data is already there.",
+          "Source: GraphRAG team, round 1 on its Aura graph and 20-filing store (11/11), re-run by Eval: "
+          "Week 8/results/graphrag_round1_check.json. Retrieval only")
+    head(s, X0, Y0, 3.1, f"Number search: {st['numbers']['n']} number questions", size=9.5)
+    col_chart(s, X0, Y0 + 0.22, 3.1, 2.85, ["Right number in the top 10", "Right number ranked first"],
+              [("Number search", [st["numbers"]["rate"], st["top1_right"]["rate"]], NAVY)],
+              None, "Share of questions", "GraphRAG number search", legend=False, gap=90)
+    head(s, 3.5, Y0, 3.1, f"Graph search: {gt['prose']['n']} text questions", size=9.5)
+    col_chart(s, 3.5, Y0 + 0.22, 3.1, 2.85,
+              [f"Text in sections the graph holds ({gs['in_scope']['n']})", f"Text outside them ({n_out})"],
+              [("Graph search", [gs["in_scope"]["hits"] / gs["in_scope"]["n"], 0.0], PINK)],
+              None, "Share with the needed text found", "GraphRAG graph search", legend=False, gap=90)
+    panel(s, 6.8, Y0, 3.0, 2.98)
+    head(s, 6.92, Y0 + 0.1, 2.76, "What we checked", size=9.5)
+    bullets(s, 6.92, Y0 + 0.38, 2.76, 2.5, [
+        f"Our rerun on GraphRAG's own 20-filing store matches its results on all {rp['questions_identical']} questions",
+        "Its fix #70, merged the same day, removed all 10 errors on cross-company questions",
+        f"The graph holds five section types; {gs['outside_scope']['n']} more answers sit in the notes to the "
+        "statements, and 8 in Exhibit 21 or NetApp's 10-Q",
+        "Dropped database connections are retried, never scored against GraphRAG"], size=9.5, gap=6)
+    notes(s, "GraphRAG ran both of its searches on all 155 questions with our script, the same day we asked. For number "
+             "questions, the right number is already in its top ten for 63 of 93, but ranked first for only 26. GraphRAG "
+             "named that gap itself as issue 68, so the fix is ranking, not data. Its graph search was scored for the first "
+             "time: 10 of 38 text questions. But the graph only holds five section types, and when the answer sits in one "
+             "of those sections it finds 10 of 20. The other 18 are outside the graph today: ten in the notes to the "
+             "financial statements, eight in Exhibit 21 or a filing Data is still reviewing. We re-ran their number search "
+             "on their own store and matched every question.")
 
 
-def s_better(s, sbs):
-    clear(s)
-    a, b = sbs["part_a"], sbs["part_b"]
-    g = a["summary"]["graphrag_structured"]
-    r = a["summary"]["rag_bm25"]
-    d = g["number_miss_diagnosis"]["counts"]
-    header(s, "Where each does better", "GraphRAG on relationships across filings, RAG on reading the filing itself")
-    label(s, 0.12, 1.0, 4.6, f"{b['n_questions']} relationship questions (Exhibit 21)", NAVY)
-    tile(s, 0.12, 1.25, f"{b['graph_correct']}/{b['n_questions']}", "answered exactly by traversal of GraphRAG's own "
-         "Exhibit 21 rows (parent HAS_SUBSIDIARY subsidiary): counts, joins, ownership checks", w_big=0.85, w_lab=3.6, color=NAVY)
-    tile(s, 0.12, 1.8, f"0/{b['n_questions']}", "reachable by RAG today: it indexes each filing's main report, and "
-         "Exhibit 21 is a separate document", w_big=0.85, w_lab=3.6, color=PINK)
-    tile(s, 0.12, 2.35, f"{b['rag_with_ex21_all_rows_in_top8']}/{b['rag_with_ex21_tested']}",
-         "with Exhibit 21 added as text, RAG's search brings every needed row; the counting and joining is then left "
-         "to the reader (Apple and Micron's shared countries: 15 of 31 rows)", w_big=0.85, w_lab=3.6, color=BLUE)
-    agr = b["eval_vs_graphrag_rows"]
-    same = sum(v["same_jurisdiction"] for v in agr.values())
-    ours = sum(v["eval_rows"] for v in agr.values())
-    tb(s, 0.12, 3.05, 4.6, 1.2, [[("Cross-check: ", 8, True, MUTED),
-                                  (f"GraphRAG's Exhibit 21 pipeline (11/8) and our gold reads agree on {same} of {ours} rows, names "
-                                   "and jurisdictions. Rows are GraphRAG's; the traversal ran in memory here, since their Neo4j "
-                                   "is not reachable from our side.", 8, False, MUTED)]])
-    rows = [["", "Better at", "Evidence (Microsoft 10-Q, top 8)"],
-            [("GraphRAG", {"bold": True, "color": PINK}), "Relationship questions", "Counts and joins come out exact (left)"],
-            ["", "Exact periods on numbers", f"Wrong-period figure shown {pct(g['distractor_shown_on_numbers']['rate'])} vs RAG "
-                                             f"{pct(r['distractor_shown_on_numbers']['rate'])}"],
-            [("RAG", {"bold": True, "color": BLUE}), "Prose and explanations", f"{r['prose']['hits']}/{r['prose']['n']} vs "
-                                                                           f"{g['prose']['hits']}/{g['prose']['n']}: structured "
-                                                                           "search holds numbers only"],
-            ["", "Finding the right number", f"{r['numbers']['hits']}/{r['numbers']['n']} vs {g['numbers']['hits']}/"
-                                             f"{g['numbers']['n']}"]]
-    table(s, 4.95, 1.0, 4.85, [0.8, 1.6, 2.45], rows, row_h=0.36, sizes={0: 8, 1: 8, 2: 7.5}, name="Better at")
-    tb(s, 4.95, 2.95, 4.85, 1.3, [[(f"Where GraphRAG's {g['numbers']['n'] - g['numbers']['hits']} number misses come from (each has a fix)",
-                                    8.5, True, INK)],
-                                  [(f"{d.get('in_top50_ranked_below_8', 0)} ranked below 8: ", 8, True, INK),
-                                   (f"in {d.get('ranked_below_8_period_word_matches_member', 0)}, 'three months' or 'six months' "
-                                    "matches Microsoft 365 ('ThreeSixFive') rows, so total revenue ranks 10th", 8, False, INK)],
-                                  [(f"{d.get('multi_input_not_all_in_top50', 0)} calculations: ", 8, True, INK),
-                                   ("one call cannot fetch every input; one call per input would", 8, False, INK)],
-                                  [(f"{d.get('single_input_not_in_top50', 0)} wording: ", 8, True, INK),
-                                   ("'current unearned revenue', 'repurchasing common stock' miss their concepts",
-                                    8, False, INK)],
-                                  [("Rank 1: ", 8, True, INK),
-                                   (f"right number {g['top1_right_on_numbers']['hits']}/{g['top1_right_on_numbers']['n']}, a "
-                                    f"wrong-period number {g['top1_wrong_period_on_numbers']['hits']}/"
-                                    f"{g['top1_wrong_period_on_numbers']['n']}; GraphRAG flagged this itself", 8, False, INK)]])
-    footer(s, "Together:", "route relationship questions to GraphRAG and narrative ones to RAG; numbers can use either once "
-                           "GraphRAG's ranking fix lands, with GraphRAG's period labels as the check.",
-           "Source: Week 8/results/side_by_side.json (part_b, number_miss_diagnosis); GraphRAG ex21_pipeline/output/graph_edges.csv "
-           "@ c21fe89; data/sec_reads/exhibit21_2026-11-05.json; RAG rag/ingest.py", y=4.38, w=7.6)
-    notes(s, "Where does GraphRAG do better? On relationship questions. All of them depend on Exhibit 21, which RAG doesn't index "
-             "today. GraphRAG's new Exhibit 21 pipeline covers all ten companies, and its rows agree with our gold reads on every "
-             "row we checked. Traversing those rows answers all nine questions exactly, including counts and cross-company joins. "
-             "Even when we add Exhibit 21 to RAG's index as text, the counting is left to the language model. And on numbers, "
-             "GraphRAG's period labels help. Where does RAG do better? Prose, and finding the right number in the filing. Most of "
-             "GraphRAG's misses have a clear fix: in six of them the words 'three months' match the Microsoft 365 product rows, "
-             "and calculations need one call per input.")
+# ================================================================ 6. RAG vs GraphRAG
+def s_compare(s, n, D):
+    a, b = D["sbs"]["part_a"], D["sbs"]["part_b"]
+    r, g = a["summary"]["rag_bm25"], a["summary"]["graphrag_structured"]
+    frame(s, n, "RAG vs GraphRAG",
+          "On the same filing RAG finds more of the evidence, GraphRAG is more exact about the period, and relationship "
+          "questions need GraphRAG",
+          "Route relationship questions to GraphRAG and explanations to RAG. Numbers can use either once GraphRAG's "
+          "ranking fix lands, with its period labels as the check.",
+          f"Source: Week 8/results/side_by_side.json: the same {a['n_questions']} Microsoft 10-Q questions through each "
+          "team's own code, top 8 results. Retrieval only, no reader model")
+    cats = [f"Numbers found ({r['numbers']['n']})", f"Text found ({r['prose']['n']})",
+            f"Wrong-period number also shown; lower is better ({r['distractor_shown_on_numbers']['n']})"]
+    col_chart(s, X0, Y0, 5.2, 3.05, cats,
+              [("RAG (keyword search)", [r["numbers"]["rate"], r["prose"]["rate"], r["distractor_shown_on_numbers"]["rate"]], BLUE),
+               ("GraphRAG (number search)", [g["numbers"]["rate"], g["prose"]["rate"], g["distractor_shown_on_numbers"]["rate"]], PINK)],
+              "Question group (number of questions)", "Share of questions", "Side by side")
+    x = 5.6
+    rows = [["", "Better at", "Evidence"],
+            [("RAG", {"bold": True, "color": BLUE}), "Finding the right number", f"{hn(r['numbers'])} vs {hn(g['numbers'])}"],
+            ["", "Text and explanations", f"{hn(r['prose'])} vs {hn(g['prose'])}: number search holds numbers only"],
+            [("GraphRAG", {"bold": True, "color": PINK}), "Exact periods on numbers",
+             f"Wrong-period number shown {pct(g['distractor_shown_on_numbers']['rate'])} vs "
+             f"{pct(r['distractor_shown_on_numbers']['rate'])}"],
+            ["", "Relationship questions", f"{b['graph_correct']}/{b['n_questions']} exact by walking its subsidiary rows; "
+                                           "RAG does not index Exhibit 21"]]
+    table(s, x, Y0, 4.2, [0.8, 1.5, 1.9], rows, row_h=0.42, sizes={0: 8.5, 1: 8.5, 2: 8}, name="Better at")
+    tb(s, x, 3.45, 4.2, 0.8, [[("Neither search returns an empty result ", 8.5, True, INK),
+                               (f"on the {g['returned_nothing_on_unanswerable']['n']} unanswerable Microsoft questions, so the "
+                                "decision to abstain belongs to the Agents' evidence check.", 8.5, False, INK)]])
+    notes(s, "Last week you asked for the two systems side by side. We ran all 84 Microsoft 10-Q questions through each "
+             "team's own code on the same filing, and checked whether the returned evidence holds what the answer needs. "
+             "RAG finds the numbers for 49 of 50 questions, GraphRAG for 25, and only RAG returns text. GraphRAG's strength "
+             "is in the third pair of bars: its facts carry their exact period, so a wrong-period number shows up about "
+             "half as often. And all nine relationship questions are answered exactly by walking GraphRAG's subsidiary "
+             "rows, which RAG does not index. So the two are complementary: relationships to GraphRAG, explanations to RAG.")
 
 
-def s_routing(s, rt):
-    clear(s)
-    R = rt["routers"]
-    er = rt["expected_routes"]
-    n_none = er.get("none", 0)
-    header(s, "Routing", "coverage: did each method call the tools a question needs? (155 questions)")
+# ================================================================ 7. routing
+def s_routing(s, n, D):
+    rt = D["rt"]
+    R, er = rt["routers"], rt["expected_routes"]
+    frame(s, n, "Routing",
+          f"Coverage is not accuracy: calling every tool covers {pct(R['combined']['coverage'])} of questions at 3 calls "
+          f"each, the keyword router {pct(R['keyword']['coverage'])} at about 1",
+          "Coverage rewards calling more tools, so always read it next to calls per question. Answer accuracy is measured "
+          "separately, in round 1.",
+          f"Source: Week 8/results/routing_baselines.json, {rt['n']} questions (Gold Set v2.2). Needed tools are Eval's "
+          "labels, for the Agents to review. 'Both' and 'No tool' rest on "
+          f"{er.get('multi', 0)} and {er.get('none', 0)} questions")
     order = [("sql", "Finance data"), ("text", "Text"), ("graph", "Relationship"), ("none", "No tool"), ("multi", "Both")]
-    cats = [f"{n} ({er.get(k, 0)})" for k, n in order]
-    col_chart(s, 0.12, 1.0, 5.3, 3.3, cats,
-              [("Text only", [R["text_only"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], "A9B0BD"),
+    cats = [f"{nm} ({er.get(k, 0)})" for k, nm in order]
+    col_chart(s, X0, Y0, 5.2, 3.05, cats,
+              [("Text search only", [R["text_only"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], GREY),
                ("Keyword router", [R["keyword"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], BLUE),
                ("Every tool", [R["combined"]["required_tools_called_by_route"].get(k, 0) for k, _ in order], NAVY)],
-              "Tool(s) the question needs (number of questions)", "Coverage: needed tools were called",
-              "Routing by route", label_size=6.5, vmax=1.15)
-    x = 5.65
-    tb(s, x, 1.0, 4.15, 0.78, [[("Coverage ", 9, True, NAVY),
-                                ("= share of questions where every tool the question needs was called (no tool, for the 8 "
-                                 "that should be blocked). ", 8, False, INK)],
-                               [("It is not accuracy. ", 8, True, PINK),
-                                ("Calling the right tools does not make the final answer right; answer accuracy needs the "
-                                 "reader: RAG's round-1 answers are scored on slide 3.", 8, False, INK)]])
-    rows = [["Method", ("Coverage", C["center"]), ("Calls per question", C["center"]),
-             ("Unneeded calls per question", C["center"])]] + [
-        [(n, {"bold": True}), (cov, C["center"]), (f"{R[k]['tool_calls_per_question']:.2f}", C["center"]),
+              "Tool the question needs (number of questions)", "Coverage: needed tools were called", "Routing by route",
+              label_size=6.5)
+    x = 5.6
+    tb(s, x, Y0, 4.2, 0.78, [[("Coverage ", 9, True, NAVY),
+                              ("= share of questions where every tool the question needs was called. ", 9, False, INK),
+                              ("It is not accuracy: ", 9, True, PINK),
+                              ("calling the right tool does not make the final answer right.", 9, False, INK)]])
+    rows = [["Method", ("Coverage", C["center"]), ("Calls per question", C["center"]), ("Unneeded calls", C["center"])]] + [
+        [(nm, {"bold": True}), (pct(R[k]["coverage"]), C["center"]), (f"{R[k]['tool_calls_per_question']:.2f}", C["center"]),
          (f"{R[k]['unneeded_calls_per_question']:.2f}", C["center"])]
-        for k, n, cov in (("text_only", "Text only", pct(R["text_only"]["required_tools_called"])),
-                          ("keyword", "Keyword router", pct(R["keyword"]["required_tools_called"])),
-                          ("combined", "Every tool", f"{pct(R['combined']['required_tools_called'])} "
-                                                     f"({R['combined']['required_tools_called'] * 100:.1f}%)"))]
-    table(s, x, 1.85, 4.15, [1.2, 0.95, 0.85, 1.15], rows, row_h=0.29, sizes={0: 8, 1: 8, 2: 8, 3: 8}, name="Routing cost")
-    tb(s, x, 3.07, 4.15, 0.6, [[("Unneeded call ", 8.5, True, NAVY),
+        for k, nm in (("text_only", "Text search only"), ("keyword", "Keyword router"), ("combined", "Every tool"))]
+    table(s, x, 2.08, 4.2, [1.35, 0.9, 0.95, 1.0], rows, row_h=0.31, sizes={0: 8.5, 1: 8.5, 2: 8.5, 3: 8.5}, name="Routing cost")
+    tb(s, x, 3.42, 4.2, 0.85, [[("Unneeded call ", 9, True, NAVY),
                                 ("= a tool called that the question does not need. Total revenue needs finance data only, so "
-                                 "every tool makes 3 calls and 2 are unneeded. Averaged over all 155 questions.", 8, False, INK)]])
-    tb(s, x, 3.68, 4.15, 0.6, [[("Corrections to 11/5: ", 8, True, PINK),
-                                (f"the {pct(R['combined']['required_tools_called'])} is calling every tool (it misses only the "
-                                 f"{n_none} questions that need no tool), not the keyword router plus text only; the keyword "
-                                 f"router alone is {pct(R['keyword']['required_tools_called'])}.", 8, False, INK)]])
-    footer(s, "On the current 155 questions only:", f"the 'Both' and 'No tool' bars rest on {er.get('multi', 0)} and "
-                                                   f"{n_none} questions. Coverage rewards calling more tools, so read it next "
-                                                   "to calls per question. Gold Set v2.2: EV1R-002/006 now route to text.",
-           "Source: Week 8/results/routing_baselines.json; kpmg_eval/metrics/routing.py; ROUTING_EXAMPLES.md. Routes are Eval's "
-           "labels, for Agents to review", y=4.38, w=7.6)
-    notes(s, "Two corrections from last week first. The bars are coverage, not accuracy: coverage is the share of questions "
-             "where every tool the question needs was called. If a question needs finance data and the method calls finance "
-             "data, that counts, even if the final answer later turns out wrong. So 95 percent coverage does not mean 95 of 100 "
-             "answers are right; answer accuracy is scored separately, on slide 3. Second, the 95 percent comes from calling "
-             f"every tool on every question. It misses only the {n_none} questions that should be blocked with no tool. The "
-             f"keyword router alone covers {pct(R['keyword']['coverage'])}, and text search alone "
-             f"{pct(R['text_only']['coverage'])}; on Gold Set v2.2 two questions moved from relationship to text after round "
-             f"1, so the keyword router went from 84 to {R['keyword']['coverage'] * 100:.0f} percent. The cost side is the table: every tool makes 3 "
-             "calls per question, 2 of them unneeded on average; the keyword router makes about 1. An unneeded call is a tool "
-             "the question does not need: total revenue needs finance data only, so the other two calls are unneeded.")
+                                 "calling every tool makes 3 calls and 2 are unneeded.", 9, False, INK)]])
+    notes(s, "Two corrections from last week. The bars are coverage, not accuracy. Coverage is the share of questions where "
+             "every tool the question needs was called. If a question needs finance data and the method calls finance data, "
+             "that counts, even if the final answer later turns out wrong. So 95 percent coverage does not mean 95 of 100 "
+             "answers are right. Second, the 95 percent comes from calling every tool on every question; it misses only the "
+             f"{er.get('none', 0)} questions that should be blocked with no tool. The keyword router alone covers "
+             f"{R['keyword']['coverage'] * 100:.0f} percent. That was 84 last week; two questions moved from relationship to "
+             "text after round 1. The table is the cost side: every tool makes 3 calls per question, about 2 of them "
+             "unneeded. The keyword router makes about 1.")
 
 
 TOOL = {"sql": "Finance data", "text": "RAG", "graph": "GraphRAG"}
 
 
-def s_examples(s, ex):
-    clear(s)
-    header(s, "Routing walkthrough", "three real questions, and which tools each method calls")
-    by = {e["qid"]: e for e in ex}
-    picks = [("GSv0-MSFT-001", "1 · A number from a statement",
+# ================================================================ 8. routing walkthrough
+def s_examples(s, n, D):
+    by = {e["qid"]: e for e in D["ex"]}
+    frame(s, n, "Routing walkthrough",
+          "Three real questions show the trade-off: calling every tool always covers but wastes two calls, while keyword "
+          "rules are cheap but can slip",
+          "The keyword router is Eval's baseline, not part of the pipeline. The Agents' orchestrator does the real "
+          "routing and can be scored on the same 155 questions with one command.",
+          "Source: Week 8/results/routing_examples.json; seven worked examples in ROUTING_EXAMPLES.md. For the Agents: "
+          "scripts/run_routing_baselines.py --router name=module.py:route")
+    picks = [("GSv0-MSFT-001", "1. A number from a statement",
               "What was Microsoft's total revenue for the three months ended March 31, 2026?"),
-             ("EV3-001", "2 · A relationship (Exhibit 21)",
+             ("EV3-001", "2. A relationship question",
               "How many subsidiaries does Micron list in Exhibit 21, and how many are outside the US?"),
-             ("GSv0-MSFT-009", "3 · Where the keyword router slips",
+             ("GSv0-MSFT-009", "3. Where keyword rules slip",
               "What does revenue allocated to remaining performance obligations include?")]
     need_name = {"sql": "finance data", "text": "RAG text search", "graph": "GraphRAG"}
     method = {"text_only": "Text only", "keyword": "Keyword", "combined": "Every tool"}
+    cw, gap = 3.05, 0.225
     for i, (qid, title, q) in enumerate(picks):
         e = by[qid]
-        x = 0.12 + i * 3.25
-        label(s, x, 1.0, 3.1, title, NAVY)
-        tb(s, x, 1.25, 3.1, 0.55, [[(f"\u201c{q}\u201d", 8, False, INK)]])
-        tb(s, x, 1.8, 3.1, 0.22, [[("Needs: ", 8, True, INK), (", ".join(need_name[t] for t in e["needs"]), 8, False, INK)]])
+        x = X0 + i * (cw + gap)
+        head(s, x, Y0, cw, title)
+        tb(s, x, Y0 + 0.26, cw, 0.5, [[(f"“{q}”", 8.5, False, INK, True)]])
+        tb(s, x, Y0 + 0.8, cw, 0.2, [[("Needs: ", 8.5, True, INK), (", ".join(need_name[t] for t in e["needs"]), 8.5, False, INK)]])
         rows = [["Method", "Calls", ("Covered", C["center"]), ("Unneeded", C["center"])]]
         for k in ("text_only", "keyword", "combined"):
             r = e["routers"][k]
@@ -445,117 +536,254 @@ def s_examples(s, ex):
                          ", ".join(TOOL[t] for t in ("sql", "text", "graph") if t in r["called"]) or "none",
                          ("yes" if ok else "no", {**C["center"], "bold": True, "color": GREEN if ok else PINK}),
                          (str(r["unneeded"]), C["center"])])
-        table(s, x, 2.05, 3.1, [0.68, 1.04, 0.62, 0.76], rows, row_h=0.3, sizes={0: 7.5, 1: 7.5, 2: 7.5, 3: 7.5},
+        table(s, x, Y0 + 1.08, cw, [0.7, 1.03, 0.6, 0.72], rows, row_h=0.36, sizes={0: 8, 1: 7.5, 2: 8, 3: 8},
               name=f"Example {i + 1}")
-        why = e["keyword_reason"].replace("->", "→").replace("SQL", "finance data").replace("'defin'", "'definition'")
-        tb(s, x, 3.3, 3.1, 0.3, [[("Keyword router: ", 7.5, True, MUTED), (why, 7.5, False, MUTED)]])
-    tb(s, 0.12, 3.68, 7.6, 0.6, [[("Where the keyword router sits: ", 8.5, True, NAVY),
-                                  ("it is Eval's baseline for comparison, not part of the pipeline. It sends a question to "
-                                   "GraphRAG on a relationship word (subsidiary, Exhibit 21, acquire), to finance data on a "
-                                   "number word (revenue, total, margin), to RAG on an explanation word (why, describe). The "
-                                   "Agents' orchestrator does the real routing, and they can score it on the same 155 questions "
-                                   "with our script (next line).", 8, False, INK)]])
-    footer(s, "For Agents:", "python scripts/run_routing_baselines.py --router name=your_module.py:route, or --calls "
-                             "name=calls.jsonl from your logs. Seven worked examples in ROUTING_EXAMPLES.md.",
-           "Source: Week 8/results/routing_examples.json (scripts/routing_examples.py); scripts/run_routing_baselines.py",
-           y=4.38, w=7.6)
-    notes(s, "Three real questions. First, Microsoft's total revenue for the quarter. It needs finance data. Text search alone "
-             "calls RAG, which is not the tool it needs. The keyword router sees the word total and calls finance data: covered, "
-             "nothing wasted. Every tool also covers it, but makes two calls it does not need. Second, Micron's subsidiaries. "
-             "It needs GraphRAG. Text only misses; the keyword router sees Exhibit 21 and calls GraphRAG; every tool covers it "
-             "with two extra calls. Third, where rules slip: what revenue allocated to remaining performance obligations "
-             "includes. That is a text question, but the word revenue sends the keyword router to finance data, so it misses; "
-             "text only gets it. That is why the keyword router is a baseline, not part of the pipeline: it shows the cost and "
-             "coverage trade-off, and the Agents' orchestrator should beat it. They can run their orchestrator through the same "
-             "script and get the same three numbers.")
+        why = e["keyword_reason"].replace("->", "→").replace("SQL", "finance data")
+        tb(s, x, Y0 + 2.62, cw, 0.4, [[("Keyword router: ", 8, True, MUTED), (why, 8, False, MUTED)]])
+    notes(s, "You asked for concrete examples, so here are three real questions. First, Microsoft's total revenue for the "
+             "quarter. It needs finance data. Text search alone calls RAG, which is not the tool it needs. The keyword "
+             "router sees the word total and calls finance data: covered, nothing wasted. Every tool also covers it, but "
+             "makes two calls it does not need. Second, Micron's subsidiaries. It needs GraphRAG. Text only misses; the "
+             "keyword router sees Exhibit 21 and calls GraphRAG. Third, where rules slip: what revenue allocated to "
+             "remaining performance obligations includes. That is a text question, but the word revenue sends the keyword "
+             "router to finance data, so it misses. That is why the keyword router is only our baseline. The Agents' "
+             "orchestrator does the real routing, and it should beat this.")
 
 
-def s_messy(s, mw):
-    clear(s)
-    G, Rt, Rv = mw["gate"], mw["router"], mw["retrieval_msft_10q"]
-    header(s, "Typos and messy wording", f"{mw['n_variants']} rewrites of the 155 questions, same meaning, scored like "
-                                         "the clean ones")
-    arrow = lambda d: f"{pct(d['clean_acc'])} → {pct(d['messy_acc'])}"  # noqa: E731
-    rr = lambda d: f"{pct(d['clean_required_called'])} → {pct(d['messy_required_called'])}"  # noqa: E731
+# ================================================================ 9. messy wording
+def s_messy(s, n, D):
+    mw = D["mw"]
+    G, Rv = mw["gate"], mw["retrieval_msft_10q"]
+    c, k = G["typo_company|no_session"], G["typo_company|no_session_fuzzy_names"]
+    frame(s, n, "Messy wording",
+          f"Misspelled company names cut correct scope decisions from {pct(c['clean_acc'])} to {pct(c['messy_acc'])}; "
+          f"matching names loosely restores {pct(k['messy_acc'])}",
+          "Two inexpensive fixes for the Agents: match tickers and near-miss names before routing, and correct spelling "
+          "before search.",
+          f"Source: Week 8/results/messy_wording.json: {mw['n_variants']} rewrites of the 155 questions with the same "
+          "meaning. Scope check and router are Eval's reference rules, not the Agents' orchestrator")
+    kinds = [("typo_company", "Company misspelled"), ("casual", "Casual wording, ticker"), ("typo_terms", "Finance word misspelled")]
+    cats = [f"{nm} ({mw['per_perturbation'][kk]})" for kk, nm in kinds]
+    col_chart(s, X0, Y0, 5.3, 3.05, cats,
+              [("Clean", [G[f"{kk}|no_session"]["clean_acc"] for kk, _ in kinds], GREY),
+               ("Messy", [G[f"{kk}|no_session"]["messy_acc"] for kk, _ in kinds], PINK),
+               ("Messy, loose name matching", [G[f"{kk}|no_session_fuzzy_names"]["messy_acc"] for kk, _ in kinds], NAVY)],
+              "Kind of rewrite (number of questions); no company picked in the interface", "Correct scope decisions",
+              "Messy wording")
+    x = 5.75
+    head(s, x, Y0, 4.05, "Effect on search (Microsoft 10-Q questions)", size=9.5)
     rv = lambda d: f"{pct(d['clean'])} → {pct(d['messy'])}"  # noqa: E731
-    kinds = [("typo_company", "Company misspelled", "Microsfot, Mircon, Net App"),
-             ("typo_terms", "Finance word misspelled", "revnue, opertaing, subsidaries"),
-             ("casual", "Casual: ticker, lower case", "what was msft total revenue for ...")]
-    rows = [["Rewrite (n)", "Example", ("Scope check, no company picked", C["center"]),
-             ("Same, company picked in the UI", C["center"]), ("Router: needed tools", C["center"]),
-             ("RAG search", C["center"]), ("GraphRAG search", C["center"])]]
-    for k, name, eg in kinds:
-        bad = G[f"{k}|no_session"]["messy_acc"] < 0.5
-        rows.append([f"{name} ({mw['per_perturbation'][k]})", (eg, {"size": 7}),
-                     (arrow(G[f"{k}|no_session"]), {**C["center"], "color": PINK if bad else INK, "bold": bad}),
-                     (arrow(G[f"{k}|with_session"]), C["center"]), (rr(Rt[k]), C["center"]),
-                     (rv(Rv[f"{k}|rag_bm25"]), C["center"]), (rv(Rv[f"{k}|graphrag_structured"]), C["center"])])
-    table(s, 0.12, 1.0, 9.68, [1.65, 2.0, 1.3, 1.3, 1.15, 1.1, 1.18], rows, row_h=0.42,
-          sizes={0: 8, 2: 8, 3: 8, 4: 8, 5: 8, 6: 8}, name="Messy wording")
-    fz_c, fz_k = G["typo_company|no_session_fuzzy_names"], G["casual|no_session_fuzzy_names"]
-    tile(s, 0.12, 2.85, pct(fz_c["messy_acc"]), f"right decisions on misspelled names once the scope check also matches "
-         f"tickers and near-miss spellings ({pct(fz_k['messy_acc'])} on casual); no change on the clean questions",
-         w_big=0.85, w_lab=3.75, color=GREEN)
-    tb(s, 5.0, 2.85, 4.8, 1.4, [[("What drops, and why", 8.5, True, INK)],
-                                [("Company names: ", 8, True, INK), ("the check knows exact names only, so 'Microsfot' or 'msft' "
-                                                                     "turns an answer into 'which company?'.", 8, False, INK)],
-                                [("Finance words: ", 8, True, INK), (f"RAG's search loses {Rv['typo_terms|rag_bm25']['lost']} and "
-                                                                     f"GraphRAG's {Rv['typo_terms|graphrag_structured']['lost']} of "
-                                                                     f"{Rv['typo_terms|rag_bm25']['n']} questions; keyword "
-                                                                     "matching does not forgive 'revnue'.", 8, False, INK)],
-                                [("Searches ignore name typos ", 8, True, INK), ("because the company comes in as a filter.",
-                                                                                  8, False, INK)]])
-    footer(s, "For Agents:", "match tickers and near-miss names before routing, and correct spelling before search. Scores are "
-                             "clean → messy, on the current 155 questions; searches on the Microsoft 10-Q questions only.",
-           "Source: Week 8/results/messy_wording.json, data/messy_wording_v1.jsonl (scripts/run_messy_wording.py). Scope check "
-           "and router are Eval's reference rules, not the orchestrator", y=4.38, w=7.6)
-    notes(s, "To estimate real-user accuracy we rewrote every question three ways without changing its meaning: a misspelled "
-             "company, misspelled finance words, and casual wording with tickers. The biggest drop is company recognition: if no "
-             "company is picked in the interface, a simple name check turns most of these into 'which company?'. Matching "
-             "tickers and near-miss spellings brings it back to 94 percent. Misspelled finance words cost the two searches "
-             "eight and nine questions, so a spelling step before search would help both.")
+    rows = [["Rewrite", ("RAG search", C["center"]), ("GraphRAG search", C["center"])],
+            ["Finance word misspelled", (rv(Rv["typo_terms|rag_bm25"]), {**C["center"], "bold": True, "color": PINK}),
+             (rv(Rv["typo_terms|graphrag_structured"]), {**C["center"], "bold": True, "color": PINK})],
+            ["Company misspelled", (rv(Rv["typo_company|rag_bm25"]), C["center"]),
+             (rv(Rv["typo_company|graphrag_structured"]), C["center"])],
+            ["Casual wording", (rv(Rv["casual|rag_bm25"]), C["center"]), (rv(Rv["casual|graphrag_structured"]), C["center"])]]
+    table(s, x, Y0 + 0.24, 4.05, [1.75, 1.1, 1.2], rows, row_h=0.31, sizes={0: 8.5, 1: 8.5, 2: 8.5}, name="Search effect")
+    head(s, x, 2.82, 4.05, "Why", size=9.5)
+    bullets(s, x, 3.05, 4.05, 1.2, [
+        [("Names: ", True), ("the check knows exact names only, so 'Microsfot' or 'msft' becomes 'which company?'", False)],
+        [("Finance words: ", True), ("keyword matching does not forgive 'revnue'", False)],
+        [("Search ignores name typos ", True), ("because the company arrives as a filter", False)]], size=8.5, gap=3)
+    notes(s, "To estimate how real users would fare, we rewrote every question three ways without changing its meaning: a "
+             "misspelled company, misspelled finance words, and casual wording with tickers. The biggest drop is company "
+             "recognition. If no company is picked in the interface, a simple name check turns most misspelled names into "
+             "'which company?', and correct decisions fall from 98 to 19 percent. Matching tickers and near-miss spellings "
+             "brings it back to 94. Misspelled finance words cost both searches about ten points, so a spelling step before "
+             "search would help both teams. These are our reference rules, not the Agents' orchestrator, so read them as "
+             "what to watch for.")
 
 
-def s_next(s):
-    clear(s)
-    header(s, "Next steps", "after round 1: one ask per team")
-    rows = [["Team", "Ask (from this week's results)"],
-            [("RAG", {"bold": True}), "Run our narrative judge with your key (or lend one); mark answers that state the figure as "
-                                      "answered; try candidate k and fusion weights on the 6 near misses"],
-            [("GraphRAG", {"bold": True}), "Rank by period and break ties (#68: right number in the top 10 on 63/93, at rank 1 on "
-                                           "26); re-run the graph arm on v2.2 with #70; add the notes to the statements (10 prose answers); Exhibit 21 into Aura"],
-            [("Agents", {"bold": True}), "Run the 155 questions through /query v0.2 (our runner and grader are ready); tag each "
-                                         "evidence item's source; add a fallback-off switch; send ticker and accession; one search per company"],
-            [("Data", {"bold": True}), "Round 1 ran on 20 filings (NetApp's 10-Q held for review); now load Microsoft's FY2024 and "
-                                       "FY2025 10-Ks, already in your inventory (joint ask with GraphRAG)"],
-            [("Eval", {"bold": True}), "Hand-label the 28 narrative answers to validate the judge; score the Agents' first end-to-end "
-                                       "run with the same grader; add the new candidates after round 1; grow the 1 'both' and 8 'no tool' routes"]]
-    table(s, 0.12, 1.0, 9.68, [1.0, 8.68], rows, row_h=0.46, sizes={0: 8.5, 1: 8}, name="Asks")
-    footer(s, "Thanks:", "RAG ran round 1 twice and GraphRAG ran both arms, and both traced their misses, which is how we found our errors. RAG's retriever and "
-                         "GraphRAG's fact loader ran here unchanged, and GraphRAG's Exhibit 21 output fed the relationship check.",
-           "Source: Week 8/FOR_TEAMS_W8.md (one section per team, with file paths)", y=4.42, w=7.6)
-    notes(s, "One ask per team for round 1, each tied to a result from today. Both RAG and GraphRAG's code ran here unchanged, "
-             "which is what made the side-by-side possible this week.")
+# ================================================================ 10. Agents API
+def s_agents(s, n, D):
+    fc = D["fc"]["cases"]
+    protect = fc["keep"] + fc["must_abstain"]
+    frame(s, n, "Agents API v0.2",
+          f"The new /query fields plug straight into our grader; round 1 says fallback has {fc['rescue']} question to "
+          f"rescue and {protect} to protect",
+          "Our runner and grader are ready and tested against the contract's response format. The next step is the "
+          "Agents' first run on the 155 questions.",
+          "Source: Agents' API Contract v0.2 (11/11); Week 8/AGENTS_API_W8.md; Week 8/data/fallback_cases_w8.csv, built "
+          "from RAG's and GraphRAG's round-1 results")
+    head(s, X0, Y0, 4.9, "What each API field lets us score", size=9.5)
+    rows = [["API field", "What we score"],
+            [("status", {"bold": True}), "The decision: answer when answerable, abstain when not"],
+            [("evidence", {"bold": True}), "The needed figure or passage is in the evidence"],
+            [("citations", {"bold": True}), "Each link points to the right filing"],
+            [("filters", {"bold": True}), "Company and period were detected correctly"],
+            [("evidence_status, fallback flags", {"bold": True}), "When fallback to GraphRAG fires, and whether it helps"],
+            [("answer (empty in v0.2)", {"bold": True}), "Same grader as RAG's reader, once it lands"]]
+    table(s, X0, Y0 + 0.24, 4.9, [1.85, 3.05], rows, row_h=0.37, sizes={0: 8.5, 1: 8.5}, name="API fields")
+    x = 5.3
+    head(s, x, Y0, 4.5, "What round 1 expects from fallback, per question", size=9.5)
+    rows = [["Case", ("Questions", C["center"])],
+            ["RAG already answers: fallback must not break it", (str(fc["keep"]), {**C["center"], "bold": True})],
+            ["Unanswerable: must stay “no evidence”", (str(fc["must_abstain"]), {**C["center"], "bold": True})],
+            ["Needs Exhibit 21, not in the graph yet", (str(fc["not_in_graph_yet"]), C["center"])],
+            ["Cross-company: one search per company", (str(fc["split"]), C["center"])],
+            ["Needs NetApp's 10-Q, held by Data", (str(fc["not_in_corpus"]), C["center"])],
+            ["Answer was already in RAG's evidence", (str(fc["answer_in_rag_evidence"]), C["center"])],
+            [("GraphRAG can rescue today", {"bold": True, "color": GREEN}),
+             (str(fc["rescue"]), {**C["center"], "bold": True, "color": GREEN})]]
+    table(s, x, Y0 + 0.24, 4.5, [3.6, 0.9], rows, row_h=0.32, sizes={0: 8.5, 1: 8.5}, name="Fallback cases")
+    notes(s, "The Agents sent their API contract yesterday, and thank you, it is very clear. Every field plugs into our "
+             "grader as it is. The API does not return answers yet, so for now we score the decision, the evidence, the "
+             "citations and the filters, and how the fallback from RAG to GraphRAG behaves. On the right is what round 1 "
+             "tells us to expect. Of the questions RAG declined, GraphRAG can rescue one today. So the checks that matter "
+             "now are that fallback does not break the 127 questions RAG already answers, and does not turn the 12 "
+             "unanswerable questions into answers. Our runner and grader are ready; we need the Agents' first run.")
+
+
+# ================================================================ 11. next steps
+def s_next(s, n, D):
+    st, gs, G = D["gr"]["structured|translated"], D["chk"]["graph_prose_by_scope"], D["mw"]["gate"]
+    nar = D["v22"]["narrative"]
+    frame(s, n, "Next steps", "One ask per team for next week, each tied to a round-1 result",
+          "RAG ran round 1 twice and GraphRAG ran both searches, and both traced every miss. That is how we found and "
+          "fixed our own errors.",
+          "Source: Week 8/FOR_TEAMS_W8.md (one section per team, with file paths) and COMMS_W8.md (replies sent to each "
+          "team)", lead="Thank you:")
+    c = G["typo_company|no_session"]
+    rows = [["Team", "Ask for next week", "Round-1 result behind it"],
+            [("RAG", {"bold": True}), "Run our narrative judge with your key; mark answers that state the figure as answered",
+             f"{nar['n'] - nar['refused']} narrative answers not yet scored; 2 answers stated but flagged as declined"],
+            [("GraphRAG", {"bold": True}), "Rank by period and break ties (#68); add the notes to the statements; load Exhibit 21",
+             f"Right number in the top 10 for {hn(st['numbers'])}, first for {st['top1_right']['hits']}; "
+             f"{gs['outside_scope']['n']} text answers sit in the notes; 7 questions wait on Exhibit 21"],
+            [("Agents", {"bold": True}), "Run the 155 questions through /query v0.2; search once per company; match tickers and "
+                                         "near-miss names",
+             f"Runner and grader are ready; 3 rankings need per-company search; names {pct(c['clean_acc'])} → "
+             f"{pct(c['messy_acc'])}"],
+            [("Data", {"bold": True}), "Load Microsoft's FY2024 and FY2025 10-Ks; release NetApp's 10-Q when its review is done",
+             "Multi-year questions need them (joint ask with GraphRAG); 3 questions wait on NetApp"],
+            [("Eval", {"bold": True}), "Hand-label narrative answers to validate the judge; grade the Agents' first run; add "
+                                       "text anchors to the last 40 lookups",
+             "The judge counts only after it agrees with our hand labels"]]
+    table(s, X0, Y0, W, [0.9, 4.85, 3.85], rows, row_h=0.485, sizes={0: 9, 1: 8.5, 2: 8.5}, name="Asks")
+    notes(s, "One ask per team for next week, each tied to a result from this deck. For RAG, run the narrative judge. For "
+             "GraphRAG, the ranking fix and Exhibit 21. For the Agents, the first run of the 155 questions through the new "
+             "API. For Data, the two Microsoft annual reports. And thank you to RAG and GraphRAG: both ran round 1 on their "
+             "side and traced every miss, which is how we found and fixed our own errors this week.")
+
+
+# ================================================================ appendix
+def s_gold(s, n, D):
+    v2, v22, g22 = D["v2"], D["v22"], D["g22"]
+    frame(s, n, "Appendix: Gold Set v2.2",
+          "Same 155 questions and expected answers; six grading changes, three of them raised by RAG",
+          f"Numbers right moves from {kn(v2['numeric_accuracy'])} to {kn(v22['numeric_accuracy'])}; the questions do not "
+          "change. Earlier versions are kept, so earlier runs stay comparable.",
+          f"Source: Week 8/GOLD_SET_V2.md and results/gold_v2_2_changes.json ({g22['questions_changed']} questions touched; "
+          f"file hash {g22['sha256_16']})")
+    rag = ("RAG", {**C["center"], "bold": True, "color": BLUE})
+    ev = ("Eval", C["center"])
+    rows = [["Change", "Questions", "Why", ("Raised by", C["center"])],
+            ["Precision asked = precision the filing prints", "EV1-015, EV1-027",
+             "“$0.91” was failed for having two significant figures, which is all the filing prints", rag],
+            ["Every figure required on multi-part questions", f"{len(g22['multi_value_questions'])} questions, e.g. EV1-043",
+             "The question asks for three changes; the answer format held one value", rag],
+            ["Route moved from relationship to text", "EV1R-002, EV1R-006",
+             "RAG answered both from the 10-K text; GraphRAG's review agreed", rag],
+            ["A second accepted wording", "EV1R-005",
+             "The 10-K says Microsoft holds about 25% of OpenAI; the earlier 10-Q says 27%", ev],
+            ["One evidence item per required point", f"{len(g22['anchors_split_one_item_per_point'])} questions",
+             "Two sentences in one item could never match once RAG's index split them", ev],
+            ["Last text anchors added; two labels corrected", "EV2-035/036/037/044; EV3-008/009",
+             "Anchors read from RAG's passages; two fiscal-calendar questions were labelled as relationship", ev]]
+    table(s, X0, Y0, W, [2.75, 2.0, 4.05, 0.8], rows, row_h=0.42, sizes={0: 8.5, 1: 8, 2: 8, 3: 8.5}, name="Gold changes")
+    notes(s, "Backup. Gold Set v2.2 keeps the same 155 questions and expected answers and changes grading only. RAG raised "
+             "three of the six changes, and they were right each time. The others came from checking our anchors against "
+             "RAG's passages and from GraphRAG's review.")
+
+
+def s_graph_detail(s, n, D):
+    a, b = D["sbs"]["part_a"], D["sbs"]["part_b"]
+    g = a["summary"]["graphrag_structured"]
+    d = g["number_miss_diagnosis"]["counts"]
+    hs, pa = D["hops"], D["chk"]["part_a_by_store"]
+    agr = b["eval_vs_graphrag_rows"]
+    same, ours = sum(v["same_jurisdiction"] for v in agr.values()), sum(v["eval_rows"] for v in agr.values())
+    frame(s, n, "Appendix: GraphRAG detail",
+          f"Most number misses have a specific fix, and GraphRAG's Exhibit 21 rows match our own reads on {same} of {ours}",
+          f"On GraphRAG's own 20-filing store the same comparison gives {pa['graphrag_20_filing_store']['numbers']} against "
+          f"{pa['eval_one_filing_build']['numbers']} on ours, so the store does not explain the gap; ranking does.",
+          "Source: Week 8/results/side_by_side.json (number_miss_diagnosis, part_b), graphrag_round1_check.json, "
+          "hops_v2_summary.json; GraphRAG PR #71 and Exhibit 21 branch c21fe89")
+    head(s, X0, Y0, 5.6, f"Where the {g['numbers']['n'] - g['numbers']['hits']} number misses on the Microsoft 10-Q come from",
+         size=9.5)
+    rows = [["Cause", ("n", C["center"]), "Fix"],
+            [f"Right number found but ranked below 8; in {d.get('ranked_below_8_period_word_matches_member', 0)}, “three "
+             "months” matches Microsoft 365 rows", (str(d.get("in_top50_ranked_below_8", 0)), C["center"]),
+             "Treat period words separately; break ties"],
+            ["Calculations that need several inputs", (str(d.get("multi_input_not_all_in_top50", 0)), C["center"]),
+             "One call per input"],
+            ["Wording does not reach the concept", (str(d.get("single_input_not_in_top50", 0)), C["center"]),
+             "Two aliases (unearned revenue, share repurchases)"]]
+    table(s, X0, Y0 + 0.24, 5.6, [3.0, 0.4, 2.2], rows, row_h=0.44, sizes={0: 8.5, 1: 8.5, 2: 8.5}, name="Number misses")
+    tb(s, X0, 3.3, 5.6, 0.95, [[("Hop counts (GraphRAG, PR #71): ", 8.5, True, NAVY),
+                               (f"filled for {hs['hops_filled']} questions and left blank on purpose where the answer comes from "
+                                "finance data, which the graph does not hold. EV3-002 counts 2 hops in GraphRAG's design and 4 "
+                                "in ours: a design difference (country is a property, not a node), not a counting error.",
+                                8.5, False, INK)]])
+    x = 6.0
+    card(s, x, Y0, 1.8, 1.05, f"{b['graph_correct']}/{b['n_questions']}", "relationship questions answered exactly by walking "
+         "GraphRAG's subsidiary rows", NAVY)
+    card(s, x + 2.0, Y0, 1.8, 1.05, f"{same}/{ours}", "Exhibit 21 rows agree with our own reads of the filings", GREEN)
+    card(s, x, Y0 + 1.25, 1.8, 1.05, hn(g["top1_right_on_numbers"]), "right number at rank 1 on the Microsoft 10-Q", PINK)
+    card(s, x + 2.0, Y0 + 1.25, 1.8, 1.05, hn(g["top1_wrong_period_on_numbers"]), "wrong-period number at rank 1; GraphRAG "
+         "flagged this itself", NAVY)
+    notes(s, "Backup for the GraphRAG slides. Most of the 25 number misses on the Microsoft filing have a specific fix. In "
+             "six, the words 'three months' match the Microsoft 365 product rows. Ten are calculations that need one call "
+             "per input. GraphRAG's Exhibit 21 rows agree with our own reads on every row we checked, and its hop counts "
+             "are merged into our sheet.")
+
+
+def s_defs(s, n, D):
+    r1, v22, rt, fc = D["r1"]["hybrid_k10"], D["v22"], D["rt"], D["fc"]["cases"]
+    R = rt["routers"]
+    frame(s, n, "Appendix: Definitions", "How to read the measures in this deck",
+          "Every number re-runs with one command (scripts/run_all.sh, 100 tests). Other teams' code is pinned: RAG "
+          "5bfafeb, GraphRAG 21f0795, Data 7040b8a.",
+          "Source: Week 8/README.md; kpmg_eval/metrics. No LLM is used in Eval's own results; the teams' round-1 runs are "
+          "re-scored from the files they sent", lead="Reproducible:")
+    rows = [["Term", "Meaning", "In this deck"],
+            [("Gold Set v2.2", {"bold": True}), "Our 155 questions with expected answers, on 10 companies and 21 filings",
+             "143 answerable, 12 unanswerable"],
+            [("Evidence found", {"bold": True}), "Every figure or passage the answer needs is in the first k results, from "
+                                                 "the right filing", f"{r1['hits']}/{r1['n']} at 10 results"],
+            [("Numbers right", {"bold": True}), "The stated figure matches the filing at the precision it is written",
+             kn(v22["numeric_accuracy"])],
+            [("Balanced refusal", {"bold": True}), "Average of refusing unanswerable questions and not refusing answerable ones",
+             f"{v22['refusal']['balanced_raa_incl_false_premise']:.3f}"],
+            [("Coverage", {"bold": True}), "Every tool the question needs was called; it says nothing about the answer",
+             f"{pct(R['combined']['coverage'])} for every tool"],
+            [("Unneeded call", {"bold": True}), "A tool called that the question does not need",
+             f"{R['combined']['unneeded_calls_per_question']:.2f} per question for every tool"],
+            [("False premise", {"bold": True}), "The question assumes something untrue; a good answer corrects it",
+             f"{kn(v22['false_premise_corrected'])} corrected"],
+            [("Fallback", {"bold": True}), "The Agents try GraphRAG when RAG's evidence is weak or empty",
+             f"{fc['rescue']} question to rescue today"]]
+    table(s, X0, Y0, W, [1.6, 5.6, 2.4], rows, row_h=0.325, sizes={0: 8.5, 1: 8.5, 2: 8.5}, name="Definitions")
+    notes(s, "Backup. The terms used in this deck, each with the number it produced. Everything re-runs with one command.")
 
 
 def main():
     base, out = sys.argv[1], sys.argv[2]
     prs = Presentation(base)
     add_slides(prs, N_SLIDES)
-    sl = list(prs.slides)
-    sbs, rt, mw = j(RES / "side_by_side.json"), j(RES / "routing_baselines.json"), j(RES / "messy_wording.json")
-    ans, g22 = j(RES / "answers_rag_reader_round1.json"), j(RES / "gold_v2_2_changes.json")
-    s_scope(sl[0], sbs, rt, mw)
-    s_round1(sl[1], j(DATA / "round1_rag_2026-11-09.json"), j(RES / "gold_v2_1_changes.json"))
-    s_answers(sl[2], ans, g22, rt)
-    s_side_by_side(sl[3], sbs)
-    s_better(sl[4], sbs)
-    s_routing(sl[5], rt)
-    s_examples(sl[6], j(RES / "routing_examples.json"))
-    s_messy(sl[7], mw)
-    s_next(sl[8])
+    ans = j(RES / "answers_rag_reader_round1.json")["by_gold_set"]
+    D = {"sbs": j(RES / "side_by_side.json"), "rt": j(RES / "routing_baselines.json"), "mw": j(RES / "messy_wording.json"),
+         "v2": ans["v2"], "v22": ans["v2_2"], "g22": j(RES / "gold_v2_2_changes.json"), "v21": j(RES / "gold_v2_1_changes.json"),
+         "r1": j(DATA / "round1_rag_2026-11-09.json"), "gr": j(RES / "graphrag_round1_graphrag_aura.json")["summary"],
+         "chk": j(RES / "graphrag_round1_check.json"), "ex": j(RES / "routing_examples.json"),
+         "fc": j(RES / "fallback_cases_w8.json"), "hops": j(RES / "hops_v2_summary.json")}
+    order = [s_summary, s_tracker, s_retrieval, s_answers, s_graphrag, s_compare, s_routing, s_examples, s_messy, s_agents,
+             s_next, s_gold, s_graph_detail, s_defs]
+    assert len(order) == N_SLIDES
+    for i, (slide, fn) in enumerate(zip(prs.slides, order), 1):
+        fn(slide, i, D)
     prs.save(out)
-    print("[deck] wrote", out)
+    print("[deck] wrote", out, f"({N_SLIDES} slides: 11 main, 3 appendix)")
 
 
 if __name__ == "__main__":
