@@ -112,8 +112,8 @@ def score(q: dict, arm: str, ev: list[dict], need_accs: set[str]) -> dict:
             top = ev[0]["metadata"].get("value_num")
             need = sbs.needed_values(q)
             dist = [d["value"] for d in (q.get("gold") or {}).get("distractors", []) if d.get("value")]
-            out["top1_right"] = top is not None and any(abs(top - n) < 0.5 for n in need)
-            out["top1_wrong_period"] = top is not None and any(abs(top - d) < 0.5 for d in dist) if dist else None
+            out["top1_right"] = top is not None and any(sbs.same(top, n) for n in need)
+            out["top1_wrong_period"] = top is not None and any(sbs.same(top, d) for d in dist) if dist else None
     else:
         texts = [e.get("text") or "" for e in ev]
         out.update({k: v for k, v in sbs.score_rag(q, texts).items() if k != "n_returned"})

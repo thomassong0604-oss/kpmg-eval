@@ -1,7 +1,38 @@
 # Eval × GraphRAG, week 8: what we did with your 11/11 replies, and what we still need
 
-**Latest (11/11 evening): hops PR #71 merged into our sheet; your graph arm's prose score is mostly a scope
-question.** Newest first below.
+**Latest (11/14): your ranking changes re-scored. Rank 1 is right on 60 of 93 number questions, up from 26.**
+Newest first below.
+
+## Your #72 and #76 (main a1e7cf7, 11/13): re-scored on your store
+
+Same store (20 filings, 24,533 facts), same 155 questions (Gold Set v2.2), same script, translated filters, top 10.
+Before is main `21f0795` (#70), the commit round 1 was presented on.
+
+| Measure (structured search) | 21f0795 (11/11) | a1e7cf7 (11/13) |
+|---|---|---|
+| Rank 1 is the needed figure | 26/93 | **60/93** |
+| A known wrong figure at rank 1 | 5/42 | **2/42** |
+| Needed figures in the top 10 | 63/93 | 63/93 |
+| Prose (not this arm's job) | 0/40 | 0/40 |
+
+- This matches the 64.5% in your #72 (60/93). **34 questions gained rank 1 and none lost it.** Lookups went from
+  14/52 to 41/52. (With the gold filters as written the figure is 59/93: our tighter tolerance, below, no longer
+  counts EV1-004.)
+- Still open at rank 1 (12 questions have the figure in the top 10 but not first): EV1-004, EV1-009, EV1-011, EV1-017,
+  EV1-024, EV1-034, EV1-038, EV1-039, EV2-013, EV2-029, EV2-045, GSv0-MSFT-001. Two put a known wrong figure first:
+  **EV1-004** (basic EPS 4.28 ahead of diluted 4.27) and **EV1-011** (long-term debt: not the non-current portion at
+  3/31/2026).
+- The 30 questions with no needed figure in the top 10 are unchanged: mostly calculations that need several facts
+  from one call, and three cross-company rankings. Per question: `results/graphrag_rescore_a1e7cf7.json`.
+- **A correction on our side.** Our number matching allowed a difference of 0.5 for every value. That is right for
+  amounts in dollars, too loose for per-share figures and rates. It is now half a cent below 100. Three questions are
+  affected (EV1-004, EV1-015, EV1-016). None of your round-1 scores changes. One figure we sent you on 11/11 does: on
+  our Microsoft 10-Q store, rank 1 was a known wrong figure on 5 of 36, not 6 of 36 (EV1-015).
+- Not re-scored yet: the graph arm (needs your Aura run) and Exhibit 21 (#75 is merged as a pipeline; we will score
+  it once the edges are in the graph you serve).
+
+**Earlier (11/11 evening): hops PR #71 merged into our sheet; your graph arm's prose score is mostly a scope
+question.**
 
 ## Your third reply (11/11, 5:04 PM): hops PR #71, EV1R-001, a dropped connection
 
@@ -83,7 +114,7 @@ Pinned: GraphRAG main @ 4e89acb (11/11), Exhibit 21 branch @ c21fe89.
 |---|---|---|
 | §1 Switch off the mock: import `graphrag.backends` | `load_tools(mock=False)` now imports `graphrag.backends` (falls back to `graphrag.retrieve` on older checkouts); `backend_status()` reports `configure_from_env()`. The side-by-side calls your structured arm this way | `kpmg_eval/graphrag_adapter.py`, `scripts/run_side_by_side.py` |
 | §1 Filter fix (PR #65) | Confirmed on our store: the gold filter shape `{ticker, form, fiscal_year, fiscal_period}` now runs on the structured arm with no error. We note in our docs that `fiscal_year`, `fiscal_period`, `section`, `is_table` are accepted and **not applied** | `kpmg_eval/graphrag_filters.py` |
-| §1 Period matcher | Measured: on the Microsoft 10-Q, the rank-1 fact is the needed value for **14/50** number questions and a known wrong-period value for **6/36**. Now reported on every run (`top1_right`, `top1_wrong_period`) | `results/side_by_side.json`, `results/graphrag_round1_eval_local.json` |
+| §1 Period matcher | Measured: on the Microsoft 10-Q, the rank-1 fact is the needed value for **14/50** number questions and a known wrong-period value for **5/36** (we first wrote 6/36; corrected 11/14, see the top of this file). Now reported on every run (`top1_right`, `top1_wrong_period`) | `results/side_by_side.json`, `results/graphrag_round1_eval_local.json` |
 | Fourth mock finding: dims dict vs list | You were right, and it was worse than a mismatch: a list of `{axis, member, type}` made our `norm_dims` raise. Fixed: dict (mock), list of dicts (real) and pairs (gold) now give the same key | `kpmg_eval/keys.py` (`norm_dims`), `tests/test_week8.py` |
 | NULLABLE_FIELDS: `section` null on the structured arm | Our fact-level key never used `section`; now stated in the adapter and tested (a structured row with `section=None` keys at fact level) | `kpmg_eval/graphrag_adapter.py`, `tests/test_week8.py` |
 | §2 hops: two columns | Agreed. New sheet keyed on Gold Set v2.1: `filings` filled by Eval in code from the gold evidence (136 questions need 1 filing, 5 need 2, 2 need 3, 4 need 10, 8 none); `hops` left for you to derive from the ontology path; your review of the six drafts recorded as `graph_support` and `graph_path`. And yes, `hops_v1.csv` had 165 rows and none filled; v2 replaces it | `data/hops_v2.csv`, `scripts/build_hops_v2.py` |

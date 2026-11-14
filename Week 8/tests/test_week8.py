@@ -308,3 +308,16 @@ def test_agent_api_v02_responses_grade_into_decisions_evidence_and_fallback_case
     # case 4: the same question without fallback was a miss, with it right -> rescued
     base = [dict(rows[0]), {**rows[1], "decision": "abstain", "decision_correct": False, "needed_in_evidence": None}]
     assert ga.compare(rows, base)["rescued_qids"] == ["GSv0-MSFT-019"]
+
+
+def test_same_figure_tolerance_small_values():
+    """11/14: per-share values and rates are matched to half a cent, amounts to half a unit."""
+    import run_side_by_side as sbs
+    assert sbs.same(4.27, 4.27) and not sbs.same(4.28, 4.27)          # basic EPS is not diluted EPS
+    assert not sbs.same(0.83, 0.91) and not sbs.same(0.0, 0.2)
+    assert sbs.same(31423000000.4, 31423000000.0) and not sbs.same(40152000000.0, 31423000000.0)
+    q = {"qid": "x", "type": "extraction", "answerable": True, "answer_type": "exact_numeric", "fact_values": {"f1": 4.27},
+         "gold": {"value": 4.27, "kind": "money", "distractors": [{"label": "wrong_concept", "value": 4.28}]}}
+    ev = [{"metadata": {"value_num": 4.28}, "text": ""}]
+    r = sbs.score_gr(q, ev)
+    assert r["needed_in_evidence"] is False and r["top1_right"] is False and r["top1_wrong_period"] is True

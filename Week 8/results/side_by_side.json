@@ -52,7 +52,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 0.8,
+    "median_ms": 0.9,
     "by_question_type": {
      "calculation": {
       "rate": 0.933,
@@ -137,7 +137,7 @@
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 3.8,
+    "median_ms": 4.1,
     "by_question_type": {
      "calculation": {
       "rate": 0.8,
@@ -213,16 +213,16 @@
      "hits": 14
     },
     "top1_wrong_period_on_numbers": {
-     "rate": 0.167,
+     "rate": 0.139,
      "n": 36,
-     "hits": 6
+     "hits": 5
     },
     "returned_nothing_on_unanswerable": {
      "hits": 0,
      "n": 7
     },
     "returned_nothing_on_answerable": 0,
-    "median_ms": 60.8,
+    "median_ms": 63.7,
     "by_question_type": {
      "calculation": {
       "rate": 0.2,

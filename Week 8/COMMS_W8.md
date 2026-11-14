@@ -273,6 +273,25 @@ Our workspace can't reach outside hosts, so could you run:
 and send us private/agent_responses_agents_v02.jsonl privately (the evidence holds filing text, so it stays off
 GitHub)? We'll turn the results around the same day.
 
+## Slack note to GraphRAG (Adeline, Wenyu, Alina, Claudia), re-score after #72 and #76, 11/14 (draft)
+
+Hi all, we re-ran round 1 on your latest main (a1e7cf7) and the ranking work shows clearly. Same store, same 155
+questions, same script:
+
+- Rank 1 is the needed figure on 60 of 93 number questions, up from 26. That matches the 64.5% in your #72. 34
+  questions gained rank 1 and none lost it.
+- A known wrong figure at rank 1: 2 of 42, down from 5.
+- Needed figures in the top 10: 63 of 93, unchanged, as you said (ordering only).
+
+Two small things you may want to look at: EV1-004 now puts basic EPS (4.28) ahead of diluted (4.27), and EV1-011
+puts a different long-term debt figure first. The per-question file is results/graphrag_rescore_a1e7cf7.json.
+
+One correction from us: our number matching was too loose for per-share values, so on 11/11 we told you rank 1 was a
+wrong-period number on 6 of 36 on our Microsoft store. It is 5 of 36. None of your round-1 scores changes.
+
+Two questions, no rush: is Exhibit 21 (#75) loaded into the Aura graph yet, and would you be able to run the graph
+arm once more on Gold Set v2.2? Thank you for moving so fast on this.
+
 ## Team paragraph, week 8 (11/11)
 
 This week Eval ran round 1 with every team and turned the 11/5 feedback into fixes. RAG ran our scoring twice. On

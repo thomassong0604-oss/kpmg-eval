@@ -43,6 +43,9 @@ if [ -f private/corpus_facts_postgres.duckdb ]; then
   MSFT_FACT_DB_PATH="$PWD/private/corpus_facts_postgres.duckdb" python3 scripts/run_graphrag_round1.py --tag eval_store20 > /dev/null
   MSFT_FACT_DB_PATH="$PWD/private/corpus_facts_postgres.duckdb" python3 scripts/run_graphrag_round1.py --tag eval_store20_v2_1 --gold data/benchmark_v2_1.jsonl > /dev/null
   SBS_STORE="$PWD/private/corpus_facts_postgres.duckdb" SBS_TAG=graphrag_store python3 scripts/run_side_by_side.py > /dev/null
+  # re-score after GraphRAG's ranking changes (#72, #76; main a1e7cf7, 11/13), same store, same questions
+  [ -d upstream/KPMG-GraphRAG-1113 ] && MSFT_FACT_DB_PATH="$PWD/private/corpus_facts_postgres.duckdb" python3 scripts/run_graphrag_round1.py --graphrag upstream/KPMG-GraphRAG-1113 --tag eval_store20_a1e7cf7 > /dev/null
+  python3 scripts/compare_graphrag_rescore.py
 fi
 python3 scripts/check_graphrag_round1.py
 python3 scripts/build_fallback_cases.py

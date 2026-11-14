@@ -1,0 +1,169 @@
+{
+ "_doc": "Week 8, after the 11/12 meeting: GraphRAG's structured search before and after its ranking changes.",
+ "gold": "benchmark_v2_2.jsonl",
+ "store": {
+  "file": "corpus_facts_postgres.duckdb",
+  "corpus_version": "data-api-raw:20",
+  "source": "data-api:raw",
+  "loader_version": "data-api-loader-v1",
+  "facts": 24533,
+  "filings": 20
+ },
+ "k": 10,
+ "before_commit": "21f0795",
+ "after_commit": "a1e7cf7",
+ "filters": "translated",
+ "summary": {
+  "numbers": {
+   "before": "63/93",
+   "after": "63/93"
+  },
+  "top1_right": {
+   "before": "26/93",
+   "after": "60/93"
+  },
+  "top1_wrong_period": {
+   "before": "5/42",
+   "after": "2/42"
+  },
+  "prose": {
+   "before": "0/40",
+   "after": "0/40"
+  },
+  "returned_nothing_on_unanswerable": {
+   "before": "2/19",
+   "after": "2/19"
+  }
+ },
+ "rank1_gained": [
+  "EV1-002",
+  "EV1-003",
+  "EV1-005",
+  "EV1-006",
+  "EV1-013",
+  "EV1-025",
+  "EV1-028",
+  "EV1-029",
+  "EV1-032",
+  "EV1-043",
+  "EV1-050",
+  "EV2-001",
+  "EV2-002",
+  "EV2-003",
+  "EV2-004",
+  "EV2-009",
+  "EV2-011",
+  "EV2-012",
+  "EV2-014",
+  "EV2-015",
+  "EV2-016",
+  "EV2-017",
+  "EV2-019",
+  "EV2-020",
+  "EV2-021",
+  "EV2-022",
+  "EV2-025",
+  "EV2-027",
+  "EV2-030",
+  "EV2-031",
+  "EV2-032",
+  "EV2-033",
+  "EV2-038",
+  "GSv0-MSFT-002"
+ ],
+ "rank1_lost": [],
+ "top10_changed": [],
+ "known_wrong_figure_at_rank1_after": [
+  "EV1-004",
+  "EV1-011"
+ ],
+ "in_top10_not_rank1_after": [
+  "EV1-004",
+  "EV1-009",
+  "EV1-011",
+  "EV1-017",
+  "EV1-024",
+  "EV1-034",
+  "EV1-038",
+  "EV1-039",
+  "EV2-013",
+  "EV2-029",
+  "EV2-045",
+  "GSv0-MSFT-001"
+ ],
+ "not_in_top10_after": [
+  "EV1-007",
+  "EV1-012",
+  "EV1-014",
+  "EV1-015",
+  "EV1-020",
+  "EV1-021",
+  "EV1-023",
+  "EV1-026",
+  "EV1-027",
+  "EV1-028",
+  "EV1-031",
+  "EV1-032",
+  "EV1-033",
+  "EV1-035",
+  "EV1-036",
+  "EV1-037",
+  "EV1-041",
+  "EV1-042",
+  "EV1-043",
+  "EV2-028",
+  "EV2-040",
+  "EV2-042",
+  "EV2-043",
+  "GSv0-MSFT-013",
+  "GSv0-MSFT-014",
+  "GSv0-MSFT-015",
+  "GSv0-MSFT-016",
+  "GSv0-MSFT-023",
+  "GSv0-MSFT-024",
+  "GSv0-MSFT-025"
+ ],
+ "rank1_right_by_type": {
+  "calculation": {
+   "n": 17,
+   "rank1_before": 5,
+   "rank1_after": 9
+  },
+  "comparison": {
+   "n": 2,
+   "rank1_before": 0,
+   "rank1_after": 1
+  },
+  "cross_company": {
+   "n": 4,
+   "rank1_before": 3,
+   "rank1_after": 4
+  },
+  "derived": {
+   "n": 5,
+   "rank1_before": 0,
+   "rank1_after": 0
+  },
+  "extraction": {
+   "n": 52,
+   "rank1_before": 14,
+   "rank1_after": 41
+  },
+  "reconciliation": {
+   "n": 6,
+   "rank1_before": 1,
+   "rank1_after": 2
+  },
+  "segment": {
+   "n": 7,
+   "rank1_before": 3,
+   "rank1_after": 3
+  }
+ },
+ "latency_ms_per_call_after": {
+  "n": 155,
+  "median": 95.7,
+  "p95": 177.0,
+  "note": "structured search on a local DuckDB store in Eval's workspace; no model call"
+ }
+}

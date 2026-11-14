@@ -7,7 +7,7 @@ and will move as questions are added.
 
 ```bash
 pip install -r requirements.txt
-./scripts/run_all.sh                                     # full pipeline incl. Week 8, 100 tests, about 1 minute
+./scripts/run_all.sh                                     # full pipeline incl. Week 8, 101 tests, about 1 minute
 python scripts/run_side_by_side.py                       # RAG vs GraphRAG on the same filing
 python scripts/run_messy_wording.py                      # typos and casual wording
 python scripts/routing_examples.py                       # demo walkthrough -> ROUTING_EXAMPLES.md
@@ -23,6 +23,13 @@ Slides for 11/12: [`deck/KPMG_Eval_Week8_11-12.pptx`](deck/) (PDF alongside). Me
 
 Start with [`FOR_TEAMS_W8.md`](FOR_TEAMS_W8.md) (one section per team) and [`ROUTING_EXAMPLES.md`](ROUTING_EXAMPLES.md).
 
+## After the 11/12 meeting (11/13 to 11/14)
+
+| What | Result | Files |
+|---|---|---|
+| Re-scored GraphRAG's structured search after its ranking changes (#72 period and tie-breaks, #76 sign; main `a1e7cf7`, 11/13). Same 20-filing store, same 155 questions, same script | Rank 1 is the needed figure on **60/93** number questions, up from **26/93**; no question lost. A known wrong figure at rank 1 on **2/42**, down from 5/42. Needed figures in the top 10 unchanged at 63/93 (the 30 misses are mostly calculations that need several facts). This reproduces the 64.5% GraphRAG reports in #72 | `scripts/compare_graphrag_rescore.py` → `results/graphrag_rescore_a1e7cf7.json`; `results/graphrag_round1_eval_store20_a1e7cf7.{json,csv}` |
+| Eval correction: number matching allowed a difference of 0.5 for every value, which is too loose for per-share figures (basic EPS 4.28 could count as diluted EPS 4.27). Now half a cent below 100, half a unit above | Three questions have values that small (EV1-004, EV1-015, EV1-016). **No presented round-1 number changes.** One earlier figure does: on Eval's own Microsoft 10-Q store, a known wrong figure at rank 1 is 5/36, not 6/36 | `scripts/run_side_by_side.py` (`same`), `tests/test_week8.py` |
+
 ## 11/5 action items → what exists now
 
 | Action item (minutes #6) | Where | Result |
@@ -37,7 +44,7 @@ Start with [`FOR_TEAMS_W8.md`](FOR_TEAMS_W8.md) (one section per team) and [`ROU
 | Explain how unneeded calls per question are measured | `kpmg_eval/metrics/routing.py`, `ROUTING_EXAMPLES.md` | Tools called that the expected route does not need, summed and divided by 155. Not "text search alone would have answered" (correction to the minutes) |
 | Concrete routing examples for the demo | `scripts/routing_examples.py` → `ROUTING_EXAMPLES.md`, `results/routing_examples.json` | Seven questions: one per route plus two where rules break |
 | Accuracy is on the current 155 questions only | every Week 8 result and slide | Routes (v2.2): 104 finance data, 33 text, 9 relationship, 8 no tool, 1 both |
-| GraphRAG's 11/11 reply: real tools, filter fix, hops split, M-question rulings | [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md); `scripts/run_graphrag_round1.py` → `results/graphrag_round1_eval_local.{json,csv}`; `kpmg_eval/graphrag_filters.py`; `data/hops_v2.csv`; `data/gold_candidates_v2_3.jsonl` | Harness on `graphrag.backends` (main 4e89acb). Structured arm on the MSFT 10-Q at k = 10: numbers 26/50, rank-1 right 14/50, rank-1 wrong period 6/36. Graph arm refuses fiscal labels on 129/155 gold questions, so Eval sends `accession_number` (136 questions sit in one filing); list-valued filters fail on both arms (13). Graph arm not run here: Aura and EDGAR are unreachable from Eval's workspace, so GraphRAG runs the script |
+| GraphRAG's 11/11 reply: real tools, filter fix, hops split, M-question rulings | [`EVAL_GRAPHRAG_W8.md`](EVAL_GRAPHRAG_W8.md); `scripts/run_graphrag_round1.py` → `results/graphrag_round1_eval_local.{json,csv}`; `kpmg_eval/graphrag_filters.py`; `data/hops_v2.csv`; `data/gold_candidates_v2_3.jsonl` | Harness on `graphrag.backends` (main 4e89acb). Structured arm on the MSFT 10-Q at k = 10: numbers 26/50, rank-1 right 14/50, rank-1 wrong period 5/36 (6/36 before the 11/14 tolerance fix). Graph arm refuses fiscal labels on 129/155 gold questions, so Eval sends `accession_number` (136 questions sit in one filing); list-valued filters fail on both arms (13). Graph arm not run here: Aura and EDGAR are unreachable from Eval's workspace, so GraphRAG runs the script |
 | Typos and messy wording, for real-user accuracy | `scripts/run_messy_wording.py` → `data/messy_wording_v1.jsonl`, `results/messy_wording.json` | 427 meaning-preserving rewrites. Scope check with no company picked: 98% → 19% on misspelled names, 82% → 9% casual; 94% / 79% once it matches tickers and near-miss names. Router: −5 to −7 points. Search: name typos cost nothing; misspelled finance words cost RAG 91% → 80% and GraphRAG 30% → 17% |
 
 ## How the side-by-side is run (and what it is not)

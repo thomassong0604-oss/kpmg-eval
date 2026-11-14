@@ -357,7 +357,7 @@
    "store": "graphrag_store_msft_10q.duckdb",
    "numbers": "25/50",
    "top1_right_on_numbers": "14/50",
-   "top1_wrong_period_on_numbers": "6/36",
+   "top1_wrong_period_on_numbers": "5/36",
    "distractor_shown_on_numbers": "19/36"
   },
   "graphrag_20_filing_store": {

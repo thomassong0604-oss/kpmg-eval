@@ -144,18 +144,23 @@ def score_rag(q, texts):
     return out
 
 
+def same(v, n) -> bool:
+    """The same figure: within half a unit for amounts, within half a cent for per-share values, rates and ratios
+    (so basic EPS 4.28 is not read as diluted EPS 4.27; until 11/14 every comparison allowed 0.5)."""
+    return abs(v - n) < (0.5 if abs(n) >= 100 else 0.005)
+
+
 def score_gr(q, ev):
     k = kind(q)
     vals = [e["metadata"]["value_num"] for e in ev if e["metadata"].get("value_num") is not None]
     out = {"n_returned": len(ev)}
     if k == "number":
-        out["needed_in_evidence"] = all(any(abs(abs(v) - abs(n)) < 0.5 or (abs(n) < 100 and abs(v - n) < 0.005)
-                                            for v in vals) for n in needed_values(q))
+        out["needed_in_evidence"] = all(any(same(abs(v), abs(n)) for v in vals) for n in needed_values(q))
         ds = [d["value"] for d in (q.get("gold") or {}).get("distractors", []) if d.get("value")]
-        out["distractor_shown"] = any(any(abs(v - d) < 0.5 for v in vals) for d in ds) if ds else None
+        out["distractor_shown"] = any(any(same(v, d) for v in vals) for d in ds) if ds else None
         top = ev[0]["metadata"].get("value_num") if ev else None
-        out["top1_right"] = top is not None and any(abs(top - n) < 0.5 for n in needed_values(q))
-        out["top1_wrong_period"] = (top is not None and any(abs(top - d) < 0.5 for d in ds)) if ds else None
+        out["top1_right"] = top is not None and any(same(top, n) for n in needed_values(q))
+        out["top1_wrong_period"] = (top is not None and any(same(top, d) for d in ds)) if ds else None
     elif k == "prose":
         anchors = [c for e in q["rag_evidence"] for c in e["contains"]]
         blob = norm(" ".join(e["text"] for e in ev))

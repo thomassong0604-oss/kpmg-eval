@@ -59,8 +59,8 @@
     "n": 50
    },
    "top1_wrong_period": {
-    "rate": 0.167,
-    "hits": 6,
+    "rate": 0.139,
+    "hits": 5,
     "n": 36
    },
    "returned_nothing_on_unanswerable": {
@@ -97,8 +97,8 @@
     "n": 50
    },
    "top1_wrong_period": {
-    "rate": 0.167,
-    "hits": 6,
+    "rate": 0.139,
+    "hits": 5,
     "n": 36
    },
    "returned_nothing_on_unanswerable": {
