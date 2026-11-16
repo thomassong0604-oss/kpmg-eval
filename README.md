@@ -13,7 +13,7 @@ Weekly work for the evaluation and testing workstream.
 
 **Current gold set:** Gold Set v2.2 (155 questions, ten companies, 21 filings; v2's questions and answers with corrected anchors (v2.1, 11/9) and the grading fixes from RAG's end-to-end round 1 (v2.2, 11/11)), see [`Week 8/GOLD_SET_V2.md`](Week%208/GOLD_SET_V2.md). Gold Set v1 (100 questions) stays frozen in every week folder.
 
-**Slides:** each week's Eval slides (pptx and PDF) are in `Week N/deck/` (Weeks 6–8). **Check-ins** for the course are in [`Check-ins/`](Check-ins/). **Messages** sent to other teams start in `Week 8/COMMS_W8.md`.
+**Slides:** each week's Eval slides (pptx and PDF) are in `Week N/deck/` (Weeks 6–8). **Check-ins** for the course are in [`Check-ins/`](Check-ins/). The team's **Benchmark & Experimental Protocol** report is in [`Assignments/`](Assignments/). **Messages** sent to other teams start in `Week 8/COMMS_W8.md`.
 
 ## What this work demonstrates
 
