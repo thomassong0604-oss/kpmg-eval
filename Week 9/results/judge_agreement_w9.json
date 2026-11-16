@@ -1,0 +1,129 @@
+{
+ "_doc": "Week 9: two judges on the same answers. RAG ran Week 8's run_narrative_judge.py with gpt-6-sol (11/16); Eval's judge",
+ "judges": {
+  "rag_run": "gpt-6-sol, Week 8 script unchanged, default temperature",
+  "eval": "Claude (Fable 5.2), session 11/16"
+ },
+ "gpt6sol_rerun_identical": true,
+ "final_v1": {
+  "questions_in_both": 26,
+  "points": 74,
+  "agree": 71,
+  "agreement": 0.959,
+  "kappa": 0.835,
+  "passed_gpt6sol": 16,
+  "passed_claude": 17,
+  "disagreements": [
+   {
+    "qid": "GSv0-MSFT-026",
+    "point": 2,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   },
+   {
+    "qid": "GSv0-MSFT-027",
+    "point": 2,
+    "gpt6sol": "stated",
+    "claude": "missing"
+   },
+   {
+    "qid": "EV1-045",
+    "point": 2,
+    "gpt6sol": "contradicted",
+    "claude": "stated"
+   }
+  ]
+ },
+ "narr_union": {
+  "questions_in_both": 26,
+  "points": 74,
+  "agree": 68,
+  "agreement": 0.919,
+  "kappa": 0.655,
+  "passed_gpt6sol": 16,
+  "passed_claude": 19,
+  "disagreements": [
+   {
+    "qid": "GSv0-MSFT-026",
+    "point": 2,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   },
+   {
+    "qid": "GSv0-MSFT-027",
+    "point": 2,
+    "gpt6sol": "stated",
+    "claude": "missing"
+   },
+   {
+    "qid": "GSv0-MSFT-028",
+    "point": 3,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   },
+   {
+    "qid": "GSv0-MSFT-029",
+    "point": 1,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   },
+   {
+    "qid": "GSv0-MSFT-030",
+    "point": 3,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   },
+   {
+    "qid": "GSv0-MSFT-030",
+    "point": 4,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   }
+  ]
+ },
+ "rag_runs_gpt6sol": {
+  "final_v1": {
+   "passed": 17,
+   "of": 30,
+   "points_stated": 74,
+   "points": 87,
+   "contradicted": 1,
+   "unsupported_claims": 0
+  },
+  "narr_union": {
+   "passed": 17,
+   "of": 30,
+   "points_stated": 73,
+   "points": 87,
+   "contradicted": 0,
+   "unsupported_claims": 1,
+   "vs_final_v1": {
+    "gained": [
+     "EV1-045"
+    ],
+    "lost": [
+     "GSv0-MSFT-028"
+    ]
+   }
+  },
+  "narr_long": {
+   "passed": 23,
+   "of": 30,
+   "points_stated": 80,
+   "points": 87,
+   "contradicted": 1,
+   "unsupported_claims": 0,
+   "vs_final_v1": {
+    "gained": [
+     "GSv0-MSFT-007",
+     "GSv0-MSFT-011",
+     "GSv0-MSFT-018",
+     "GSv0-MSFT-022",
+     "GSv0-MSFT-026",
+     "GSv0-MSFT-029"
+    ],
+    "lost": []
+   }
+  }
+ }
+}

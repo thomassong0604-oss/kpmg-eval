@@ -40,3 +40,21 @@ run); each "stated" verdict carries a quote that our script finds in the answer.
 results file. Agreement with humans is not computed yet. When your 20 blind labels are ready on 11/18, please send
 them as qid, run, point, human_verdict (stated / missing / contradicted) and we will report agreement and kappa
 before the 11/19 meeting. Per-question results: Week 9/results/narrative_judge_w9_per_question.csv.
+
+## Slack reply to RAG (gpt-6-sol judge results), 11/16 (draft)
+
+Thank you, this is exactly what we needed, and the identical re-run is a useful check. Your numbers reproduce from the
+files: 17/30, 17/30 and 23/30, with six gained and none lost for the fuller-answers variant.
+
+- We compared your gpt-6-sol verdicts with ours (Claude) on the same answers. On final_v1 the two judges agree on 71
+  of 74 shared points (kappa 0.84). The three differences are GSv0-MSFT-026 point 2, GSv0-MSFT-027 point 2 and
+  EV1-045 point 2 (28.5% computed vs 29% printed).
+- On narr_union they agree on 68 of 74. Your judge shows no gain for the union variant and ours showed +2, on close
+  calls, so we would report it as no measurable change. That matches your read.
+- The fuller-answers variant is a clear step on dev (+6, none lost). Since it was tuned on these questions, batch B is
+  the fair test, and we will keep it sealed for that. Could you send its judge_input file too, so we can run our
+  figure-level faithfulness check on the longer answers?
+- Hand labels: two of us will label the final_v1 sheet (87 points) by Wed 11/18 and report agreement and kappa for
+  the judge, together with your 20 blind labels.
+- EV1-045: we think 28.5% should not count against you, since it is the same figure with one more digit. We will make
+  the gold accept it in v2.3.

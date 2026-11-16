@@ -56,3 +56,27 @@ the counts and the file's SHA-256, so anyone can later confirm the questions wer
 - The Week 8 grader passes the right answer and fails a 7% error on 30/30 numeric questions.
 - Narrative and unanswerable questions (10) are marked `needs_human_review`: a person on Eval should read them before
   release.
+
+## 3. Two judges on the same answers (RAG's gpt-6-sol run, 11/16)
+
+RAG ran our Week 8 judge script unchanged with gpt-6-sol on the 30 narrative questions. `scripts/compare_judges.py`
+→ `results/judge_agreement_w9.json`; RAG's verdict files are in `results/rag_judge_gpt6sol/`.
+
+| RAG run (gpt-6-sol judge) | Questions passed | Points stated | vs final_v1 |
+|---|---|---|---|
+| final_v1 | 17/30 | 74/87 | |
+| narr_union | 17/30 | 73/87 | +1, −1 |
+| narr_long (fuller answers, final_v2 candidate) | **23/30** | 80/87 | **+6, −0** |
+
+- RAG's summary reproduces from its files: 17, 17 and 23 of 30; six gained, none lost; the re-run is identical on all
+  87 points.
+- **The two judges agree on 71 of 74 shared points on final_v1 (kappa 0.84)** and on 68 of 74 on narr_union
+  (kappa 0.66). The three final_v1 disagreements: GSv0-MSFT-026 point 2, GSv0-MSFT-027 point 2, EV1-045 point 2
+  (the answer computes 28.5% where the filing prints 29%; gpt-6-sol calls it contradicted, Claude stated).
+- **The narr_union gain depends on the judge:** +2 with Claude, 0 with gpt-6-sol. All six union disagreements are
+  points Claude marked as close calls or loosely worded. Treat narr_union as no measurable change.
+- **narr_long's +6 is a dev-set result** (tuned and judged on the same questions). Batch B is its test. We have not
+  seen its answers, so its faithfulness is RAG's judge only.
+- **Human validation is still open.** No hand labels exist yet on either side. `private/labels_final_v1_priority.csv`
+  is RAG's blank sheet with the judge disagreements flagged; two Eval labellers fill it, then
+  `run_narrative_judge.py --validate` gives agreement and kappa for gpt-6-sol.

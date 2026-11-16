@@ -1,0 +1,357 @@
+{
+ "judge": {
+  "provider": "openai",
+  "model": "gpt-6-sol",
+  "temperature": 0,
+  "prompt_sha": "46d4684f0981"
+ },
+ "narrative_questions": 30,
+ "judged": 28,
+ "not_answered": 2,
+ "pass_rate_all": 0.567,
+ "point_recall_mean_all": 0.809,
+ "answers_with_contradiction": 1,
+ "answers_with_unsupported_claims": 0,
+ "validation": null,
+ "questions": [
+  {
+   "qid": "GSv0-MSFT-004",
+   "verdicts": [
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-005",
+   "verdicts": [
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-006",
+   "verdicts": [
+    "stated",
+    "missing"
+   ],
+   "point_recall": 0.5,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-007",
+   "verdicts": [
+    "stated",
+    "missing"
+   ],
+   "point_recall": 0.5,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-008",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-009",
+   "verdicts": [
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-010",
+   "verdicts": [
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-011",
+   "verdicts": [
+    "stated",
+    "stated",
+    "missing"
+   ],
+   "point_recall": 0.667,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-012",
+   "verdicts": [
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-017",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-018",
+   "verdicts": [
+    "stated",
+    "stated",
+    "missing"
+   ],
+   "point_recall": 0.667,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-020",
+   "verdicts": [
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-021",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-022",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "missing"
+   ],
+   "point_recall": 0.75,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-026",
+   "verdicts": [
+    "stated",
+    "missing",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 0.75,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-027",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-028",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-029",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "missing",
+    "stated"
+   ],
+   "point_recall": 0.8,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "GSv0-MSFT-030",
+   "verdicts": [
+    "stated",
+    "stated",
+    "missing",
+    "stated"
+   ],
+   "point_recall": 0.75,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1-044",
+   "verdicts": [
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1-045",
+   "verdicts": [
+    "stated",
+    "contradicted"
+   ],
+   "point_recall": 0.5,
+   "passed": false,
+   "contradicted": 1,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1-046",
+   "verdicts": [
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1-047",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1-048",
+   "verdicts": [
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1-049",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1R-002",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "stated",
+    "stated",
+    "stated"
+   ],
+   "point_recall": 1.0,
+   "passed": true,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1R-003",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "stated",
+    "missing",
+    "missing"
+   ],
+   "point_recall": 0.667,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  },
+  {
+   "qid": "EV1R-006",
+   "verdicts": [
+    "stated",
+    "stated",
+    "stated",
+    "stated",
+    "stated",
+    "missing",
+    "missing"
+   ],
+   "point_recall": 0.714,
+   "passed": false,
+   "contradicted": 0,
+   "unsupported_claims": 0
+  }
+ ]
+}
