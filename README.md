@@ -14,4 +14,29 @@ Weekly work for the evaluation and testing workstream.
 
 **Slides:** each week's Eval slides (pptx and PDF) are in `Week N/deck/` (Weeks 6–8). **Check-ins** for the course are in [`Check-ins/`](Check-ins/). **Messages** sent to other teams start in `Week 8/COMMS_W8.md`.
 
+## What this work demonstrates
+
+I own the Evaluation & Testing workstream: deciding how we know whether a SEC-filings Q&A system is
+actually right, building the measurement, and giving KPMG numbers they can act on. Everything under
+`kpmg_eval/`, `scripts/`, `tests/` and `data/` is my work. Code under `vendor/` and snapshots under
+`upstream/` belong to the Retrieval and GraphRAG teams, kept unchanged and attributed so results reproduce.
+
+| Skill | Where to look |
+|---|---|
+| **Measurement design** — turning "is this answer good?" into metrics that hold up: numeric accuracy, evidence recall, citation support, abstention, premise checking, routing, graph traversal, robustness to messy wording | [`Week 8/kpmg_eval/metrics/`](Week%208/kpmg_eval/metrics/) — 15 metric modules |
+| **Statistical honesty** — Wilson intervals on every rate, bootstrap confidence intervals, and a paired bootstrap when two systems answer the same questions, so a 5-point gap on 40 questions is never reported as a win | [`Week 8/kpmg_eval/stats.py`](Week%208/kpmg_eval/stats.py) |
+| **Benchmark construction** — a 155-question gold set (143 answerable) over 21 real filings from ten companies, built from XBRL facts read twice from SEC, versioned v0 → v1 → v2.2 with the reason for every change recorded | [`Week 8/GOLD_SET_V2.md`](Week%208/GOLD_SET_V2.md), [`scripts/build_gold_v2.py`](Week%208/scripts/build_gold_v2.py) |
+| **Experiment design** — oracle, refuse-all and no-LLM reference systems to bound what a score means; fault injection; held-out sets; metric-selection runs | [`Week 8/results/scorecard.md`](Week%208/results/scorecard.md), [`scripts/run_fault_injection_v1.py`](Week%208/scripts/run_fault_injection_v1.py) |
+| **Data engineering** — SEC EDGAR and XBRL extraction, filing parsing, JSONL pipelines, DuckDB, pinned data snapshots and content-hash version keys stamped on every result | [`scripts/extract_xbrl_facts.py`](Week%208/scripts/extract_xbrl_facts.py), [`kpmg_eval/keys.py`](Week%208/kpmg_eval/keys.py) |
+| **Reproducibility and testing** — one command rebuilds every number in a week from the data in its folder; 87 unit tests across five suites; pinned requirements | [`Week 8/scripts/run_all.sh`](Week%208/scripts/run_all.sh), [`Week 8/tests/`](Week%208/tests/) |
+| **Working across teams** — written interfaces and decision policies that the Retrieval, GraphRAG and Agents teams build against, so evaluation is agreed up front rather than argued after | [`Week 8/POLICY_answer_clarify_abstain.md`](Week%208/POLICY_answer_clarify_abstain.md), [`Week 8/FOR_TEAMS_W8.md`](Week%208/FOR_TEAMS_W8.md) |
+| **Communicating to a client** — weekly slides and check-in notes generated from the results files rather than retyped, so the deck can never drift from the numbers | [`Week 8/scripts/build_deck_w8.py`](Week%208/scripts/build_deck_w8.py), [`Week 8/deck/`](Week%208/deck/), [`Check-ins/`](Check-ins/) |
+
+**Stack:** Python (pandas, numpy, matplotlib, DuckDB, BeautifulSoup/lxml, pytest, python-pptx), JSONL
+data pipelines, SEC EDGAR/XBRL, Git. **Domain:** LLM and RAG evaluation, financial filings.
+
+The judgement call this workstream keeps coming back to: a benchmark is only worth the care taken over
+its gold answers, and a number is only worth the interval around it. Most of the work here is making
+both of those defensible to a client who will act on them.
+
 Each week's folder is self-contained: `cd` into it and follow its README.
