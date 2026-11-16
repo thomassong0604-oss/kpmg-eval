@@ -58,3 +58,18 @@ files: 17/30, 17/30 and 23/30, with six gained and none lost for the fuller-answ
   the judge, together with your 20 blind labels.
 - EV1-045: we think 28.5% should not count against you, since it is the same figure with one more digit. We will make
   the gold accept it in v2.3.
+
+## Combined Slack reply to RAG, 11/16 (the version to post; replaces the two drafts above)
+
+Hi RAG team, thank you for the clear spec, for freezing final_v1 before asking, and for running the judge so quickly.
+
+1. Holdout. Batch A is written and sealed: 40 questions (30 numeric, 5 narrative, 5 unanswerable), 10 on Microsoft, 14 stress questions with a stress_type (misspelled name 4, analyst wording 3, multi-step 2, relative period 2, cross-filing 2, narrative across sections 1). Same JSONL fields as Gold v2, plus split, stress and stress_type. Its SHA-256 is in our repo (Week 9/results/holdout_A_manifest.json), so you can confirm later that it did not change. You get the file Thu 11/20; tell us if you prefer it committed or sent directly. Batch B follows by 11/24 and stays with us until you tag final_v2. Two notes: no NetApp questions (its facts are not in Data's store yet), and Casey's figures are in thousands, as its filings print.
+
+2. Judge. Your numbers reproduce from the files: 17/30, 17/30 and 23/30, six gained and none lost for the fuller-answers variant, and the re-run is identical on all 87 points.
+- We also judged final_v1 and narr_union ourselves (Claude, same rubric). The two judges agree on 71 of 74 shared points on final_v1 (kappa 0.84) and 68 of 74 on narr_union.
+- narr_union: no gain with your judge, +2 with ours on close calls. We would report it as no measurable change.
+- Faithfulness on both runs is clean on our side too: every figure in the answers is printed in a cited chunk or computed correctly from printed ones.
+- The fuller-answers variant is a clear step on dev. Since it was tuned on these questions, batch B is the fair test. Could you send its judge_input file so we can run the same figure check on the longer answers?
+- EV1-045: 28.5% is the filing's 29% with one more digit, so it should not count against you. We will make the gold accept it in v2.3. Also, your judge_input lists only 27% for EV1R-005; Gold Set v2.2 accepts 25% as well.
+
+3. Hand labels. None exist yet on our side, so the judge is not validated today. Two of us will label the final_v1 sheet (87 points) by Wed 11/18 and report agreement and kappa, together with your 20 blind labels, before the 11/19 meeting.
