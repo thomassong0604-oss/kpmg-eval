@@ -73,3 +73,12 @@ Hi RAG team, thank you for the clear spec, for freezing final_v1 before asking, 
 - EV1-045: 28.5% is the filing's 29% with one more digit, so it should not count against you. We will make the gold accept it in v2.3. Also, your judge_input lists only 27% for EV1R-005; Gold Set v2.2 accepts 25% as well.
 
 3. Hand labels. None exist yet on our side, so the judge is not validated today. Two of us will label the final_v1 sheet (87 points) by Wed 11/18 and report agreement and kappa, together with your 20 blind labels, before the 11/19 meeting.
+
+## Addition to the combined reply: what we need from RAG (11/16, draft)
+
+What we need from you:
+1. By Wed 11/18: your 20 blind hand labels as a CSV with qid, run, point, human_verdict (stated / missing / contradicted).
+2. By Wed 11/18: the judge_input file for the fuller-answers variant (answers plus cited chunk text), same format as the two you sent.
+3. By Thu 11/20: how you want batch A delivered, committed to our public repo or sent to one person directly, and who that person is.
+4. With the batch A results: the AnswerBlocks, plus latency and token counts per question.
+5. A note when final_v2 is tagged, so we can release batch B.
