@@ -29,7 +29,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 W8 = ROOT.parent / "Week 8"
 PRIV, RES = ROOT / "private", ROOT / "results"
-RUNS = {"A": ("final_v1", "judge_input_final_v1.jsonl"), "B": ("narr_union", "judge_input_narr_union.jsonl")}
+RUNS = {"A": ("final_v1", "judge_input_final_v1.jsonl"), "B": ("narr_union", "judge_input_narr_union.jsonl"),
+        "C": ("narr_long", "judge_input_narr_long.jsonl")}   # C: RAG's final_v2 candidate (fuller narrative answers), received 11/16
 STOP = set("the a an of in to and or for from by on at as is was were are be it its that this with which their they not "
            "than more less also both while so did does had has have s microsoft company period periods".split())
 NUM = re.compile(r"(?<![\w.])\$?\d[\d,]*(?:\.\d+)?")
@@ -119,7 +120,7 @@ def main():
                          "literal_stated": sum(lit), "figures": ns["n"], "figures_in_chunk": ns["in_chunk"],
                          "figures_derived_ok": ns["derived_ok"], "figures_unsupported": "|".join(ns["unsupported"]),
                          "thin_sentences": "|".join(map(str, thin_sentences(rec))),
-                         "n_chunks": len(rec["cited_chunks"]), "borderline": qid in vd.BORDERLINE})
+                         "n_chunks": len(rec["cited_chunks"]), "borderline": qid in (getattr(vd, "BORDERLINE_LONG", {}) if r == "C" else vd.BORDERLINE)})
             per_point += [{"qid": qid, "run": name, "point": i, "judge_verdict": x, "literal_match": l}
                           for i, (x, l) in enumerate(zip(v, lit), 1)]
 
@@ -147,16 +148,21 @@ def main():
                              "by_group": {g: summ([x for x in rs if x["group"] == g]) for g in ("narrative", "categorical", "false_premise")},
                              "by_company": {k: summ([x for x in rs if (x["ticker"] == "MSFT") == (k == "MSFT")]) for k in ("MSFT", "other")}}
     A = {x["qid"]: x for x in rows if x["run"] == "final_v1"}
-    B = {x["qid"]: x for x in rows if x["run"] == "narr_union"}
-    ch = lambda q: [c["chunk_id"] for c in data["A"][q]["cited_chunks"]] != [c["chunk_id"] for c in data["B"][q]["cited_chunks"]]  # noqa: E731
-    out["final_v1_vs_narr_union"] = {
-        "answers_differ": sum(data["A"][q]["rag_answer"] != data["B"][q]["rag_answer"] for q in A),
-        "cited_chunks_differ": sum(ch(q) for q in A),
-        "gained_pass": sorted(q for q in A if not A[q]["passed"] and B[q]["passed"]),
-        "lost_pass": sorted(q for q in A if A[q]["passed"] and not B[q]["passed"]),
-        "more_points": {q: f"{A[q]['stated']}->{B[q]['stated']} of {A[q]['n_points']}" for q in A if B[q]["stated"] > A[q]["stated"]},
-        "fewer_points": {q: f"{A[q]['stated']}->{B[q]['stated']} of {A[q]['n_points']}" for q in A if B[q]["stated"] < A[q]["stated"]},
-        "failed_in_both": sorted(q for q in A if not A[q]["passed"] and not B[q]["passed"])}
+    for r, (name, _) in RUNS.items():
+        if r == "A":
+            continue
+        B = {x["qid"]: x for x in rows if x["run"] == name}
+        ch = lambda q: [c["chunk_id"] for c in data["A"][q]["cited_chunks"]] != [c["chunk_id"] for c in data[r][q]["cited_chunks"]]  # noqa: E731
+        out[f"final_v1_vs_{name}"] = {
+            "answers_differ": sum(data["A"][q]["rag_answer"] != data[r][q]["rag_answer"] for q in A),
+            "cited_chunks_differ": sum(ch(q) for q in A),
+            "mean_answer_chars": [round(sum(len(data[x][q]["rag_answer"] or "") for q in A) / len(A)) for x in ("A", r)],
+            "gained_pass": sorted(q for q in A if not A[q]["passed"] and B[q]["passed"]),
+            "lost_pass": sorted(q for q in A if A[q]["passed"] and not B[q]["passed"]),
+            "more_points": {q: f"{A[q]['stated']}->{B[q]['stated']} of {A[q]['n_points']}" for q in A if B[q]["stated"] > A[q]["stated"]},
+            "fewer_points": {q: f"{A[q]['stated']}->{B[q]['stated']} of {A[q]['n_points']}" for q in A if B[q]["stated"] < A[q]["stated"]},
+            "failed_in_both": sorted(q for q in A if not A[q]["passed"] and not B[q]["passed"])}
+    out["borderline_verdicts_narr_long"] = getattr(vd, "BORDERLINE_LONG", {})
     if a.validate:
         j = {(p["qid"], p["run"], p["point"]): p["judge_verdict"] for p in per_point}
         pairs = [(r["human_verdict"].strip().lower(), j[(r["qid"], r["run"], int(r["point"]))]) for r in csv.DictReader(open(a.validate))
@@ -177,16 +183,17 @@ def main():
         w = csv.writer(f)
         w.writerow(["qid", "run", "point", "required_point", "answer_text", "human_verdict"])
         for qid in A:
-            for r, (name, _) in RUNS.items():
+            for r, (name, _) in list(RUNS.items())[:2]:
                 for i, p in enumerate(gold[qid]["answer"]["required_points"], 1):
                     w.writerow([qid, name, i, p, data[r][qid]["rag_answer"] if i == 1 else "", ""])
-    for name in ("final_v1", "narr_union"):
+    for name in ("final_v1", "narr_union", "narr_long"):
         s = out["runs"][name]["all"]
         print(f"[judge w9] {name}: passed {s['passed']['k']}/{s['passed']['n']}, points {s['points_stated']['k']}/{s['points_stated']['n']}, "
               f"literal {s['points_literal_match']['k']}, figures supported {s['figures_supported']['k']}/{s['figures_supported']['n']}, "
               f"unsupported in {s['answers_with_unsupported_figure']}")
-    d = out["final_v1_vs_narr_union"]
-    print(f"[judge w9] gained {d['gained_pass']} lost {d['lost_pass']} more {d['more_points']} fewer {d['fewer_points']}")
+    for n in ("narr_union", "narr_long"):
+        d = out[f"final_v1_vs_{n}"]
+        print(f"[judge w9] {n}: gained {d['gained_pass']} lost {d['lost_pass']} more {d['more_points']} fewer {d['fewer_points']} chars {d['mean_answer_chars']}")
     thin = [(r["qid"], r["run"], r["thin_sentences"]) for r in rows if r["thin_sentences"]]
     print(f"[judge w9] sentences to read against the chunks: {thin}")
     for r in rows:

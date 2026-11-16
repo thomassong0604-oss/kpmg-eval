@@ -80,3 +80,36 @@ RAG ran our Week 8 judge script unchanged with gpt-6-sol on the 30 narrative que
 - **Human validation is still open.** No hand labels exist yet on either side. `private/labels_final_v1_priority.csv`
   is RAG's blank sheet with the judge disagreements flagged; two Eval labellers fill it, then
   `run_narrative_judge.py --validate` gives agreement and kappa for gpt-6-sol.
+
+## 4. RAG's final_v2 candidate (fuller narrative answers), judged 11/16
+
+RAG sent the judge input for its fuller-answers run (`narr_long`, the final_v2 candidate). Same 38 questions, same
+rubric, same script (`scripts/score_rag_judge_runs.py`, run C).
+
+| Measure (Claude judge) | final_v1 | narr_long |
+|---|---|---|
+| Questions with every required point stated | 26/38 | **34/38** |
+| narrative only | 17/27 | **24/27** |
+| Required points stated | 94/108 | 102/108 |
+| Figures supported by a cited chunk | 69/69 | 80/80 (73 printed, 7 computed and re-checked) |
+| Mean answer length (characters) | 197 | 240 |
+
+- **Eight questions gained, none lost**, and no point contradicted. gpt-6-sol (RAG's run) shows the same direction on
+  the 26 narrative questions both judges saw: 16 → 22 passed (Claude 17 → 24). The judges agree on 72 of 74 points on
+  this run (kappa 0.74); the two differences are EV1-045 point 2 (28.5% vs 29%) and GSv0-MSFT-030 point 4.
+- **The longer answers did not add unsupported figures.** Eleven more figures appear than in final_v1 and every one is
+  printed in a cited chunk or computed correctly from printed ones.
+- **Still missing in all three runs:** GSv0-MSFT-006 (second level of the segment answer), EV1R-003 (after-tax
+  amounts), GSv0-MSFT-019 (declined), EV1R-005 (stops after correcting the premise).
+- **This is a dev-set result.** The variant was tuned on these questions; holdout batch B is its test.
+
+## 5. Scoring the messy-wording and abstention suites for another team
+
+`scripts/grade_suite_answers.py` scores AnswerBlocks on `messy_wording_v1` (427 rewrites, keyed `vid`) and
+`abstention_suite_v1` (56 items, keyed `sid`). Week 8's `grade_answer_blocks.py` cannot read those files as they are,
+because rewrites have their own ids and abstention items have no gold record. Rewrites are scored against the clean
+question's Gold Set v2.2 record, by perturbation, and paired with the same system's clean result (exact McNemar).
+`tests/test_week9.py`: 5 tests.
+
+One caution for whoever runs the messy suite: if the company is also passed as a filter, the 129 misspelled-company
+rewrites cannot fail, so that run measures the reader's tolerance of typos and not the system's.

@@ -81,6 +81,29 @@
    }
   ]
  },
+ "narr_long": {
+  "questions_in_both": 26,
+  "points": 74,
+  "agree": 72,
+  "agreement": 0.973,
+  "kappa": 0.738,
+  "passed_gpt6sol": 22,
+  "passed_claude": 24,
+  "disagreements": [
+   {
+    "qid": "GSv0-MSFT-030",
+    "point": 4,
+    "gpt6sol": "missing",
+    "claude": "stated"
+   },
+   {
+    "qid": "EV1-045",
+    "point": 2,
+    "gpt6sol": "contradicted",
+    "claude": "stated"
+   }
+  ]
+ },
  "rag_runs_gpt6sol": {
   "final_v1": {
    "passed": 17,

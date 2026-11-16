@@ -82,3 +82,30 @@ What we need from you:
 3. By Thu 11/20: how you want batch A delivered, committed to our public repo or sent to one person directly, and who that person is.
 4. With the batch A results: the AnswerBlocks, plus latency and token counts per question.
 5. A note when final_v2 is tagged, so we can release batch B.
+
+## Slack reply to RAG (thread of 11/16, 17:10): final_v2 judged, batch A, objective sets (draft)
+
+Thank you, all five points work for us, and thank you for switching the hand labels to the point-by-point format.
+
+1. final_v2 (fuller answers), judged from your file. Same 38 questions and rubric:
+   - Every required point stated: 34/38, against 26/38 for final_v1. Eight questions gained, none lost, nothing contradicted. On the 27 narrative questions: 24 against 17.
+   - It agrees with your gpt-6-sol run: on the 26 narrative questions both judges saw, yours goes 16 to 22 and ours 17 to 24, and the judges agree on 72 of 74 points.
+   - Faithfulness: 80 of 80 figures are printed in a cited chunk or computed correctly from printed ones. The answers are about 20% longer and added no unsupported figure. Nice result.
+   - Still missing in every run: GSv0-MSFT-006 (Server products and cloud services), EV1R-003 (the after-tax amounts), GSv0-MSFT-019, EV1R-005.
+   - It was tuned on these questions, so batch B stays sealed as its test.
+
+2. Batch A. You will get it by DM by Thu 11/20. The SHA-256 to check is the one in Week 9/results/holdout_A_manifest.json (it starts a6cf275c). If we change a question after our own review, we will republish the manifest first and tell you.
+
+3. Independent XBRL sets: yes, Eval will hold them. What we need from you:
+   - A saved pull of the metric rows (the --from-json input), sent privately, because we cannot reach Data's database. And the commit of build_objective_set.py you want us to run.
+   - Then we generate A and C with a seed only we know, publish the manifest and file hashes, keep the files, and send them at run time.
+   Rules we would change before generation:
+   a. Leave out any company, metric and period that a dev question or a holdout question already uses. We apply this, since only we see the holdout.
+   b. Set D (messy wording): make the run without the company filter the primary one. With the clean question's filter, the 129 misspelled-company rewrites cannot fail. Keep the filtered run as a secondary result.
+   c. Sets A to C: report the pre-check filters as a co-primary result next to the gold filters, since no user supplies the filing.
+   d. Precision: take the digits printed in the linked cell as the floor, and watch trailing zeros and Casey's (reported in thousands) with "Answer in USD millions".
+   e. Describe the sets as statement-table lookups with template wording on the listed metrics (the script has 15, the document says 17), not as overall accuracy.
+
+4. Messy wording (427) and abstention (56) on final_v1: yes, please run each once. grade_answer_blocks.py cannot read them as they are, because the ids differ, so we added Week 9/scripts/grade_suite_answers.py. Please return one AnswerBlock per item keyed vid (messy) or sid (abstention), plus your clean per-question file, and we will score both, paired with clean.
+
+What we need from you, in one place: the metric rows export and builder commit; your view on rule changes a to e; and the messy and abstention AnswerBlocks when run.

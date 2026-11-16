@@ -17,7 +17,7 @@ for r in csv.DictReader(open(RES / "narrative_judge_w9_per_point.csv")):
 out = {"_doc": __doc__.strip().split("\n")[0], "judges": {"rag_run": "gpt-6-sol, Week 8 script unchanged, default temperature", "eval": "Claude (Fable 5.2), session 11/16"}}
 out["gpt6sol_rerun_identical"] = all(G["final_v1"][q]["verdicts"] == G["final_v1_rerun"][q]["verdicts"] for q in G["final_v1"])
 dis = {}
-for run in ("final_v1", "narr_union"):
+for run in ("final_v1", "narr_union", "narr_long"):
     pairs, d = [], []
     for qid, q in G[run].items():
         for i, v in enumerate(q["verdicts"], 1):
