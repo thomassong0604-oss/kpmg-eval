@@ -1,0 +1,403 @@
+{
+ "_doc": "Week 9: score RAG's two narrative runs (final_v1 and the narrative-union retrieval variant) on the same 38 questions.",
+ "judge": {
+  "model": "Claude (Fable 5.2), working session 11/16, not an API run",
+  "rubric": "Week 8 run_narrative_judge.py",
+  "quote_guard": "every stated verdict carries a quote found in the answer"
+ },
+ "gold": "benchmark_v2_2.jsonl",
+ "required_points_differ_from_rag_file": [
+  "EV1R-005"
+ ],
+ "borderline_verdicts": {
+  "EV1-045": "A point 2: answer computes 28.5%; the filing prints 29%. Counted as stated (same figure, more digits).",
+  "EV1-070": "A point 2: names the three segments without saying 'three'. Counted as stated.",
+  "GSv0-MSFT-021": "point 3: the answer keeps the two periods apart but does not say they are not contradictory. Counted as stated.",
+  "GSv0-MSFT-022": "point 4: mentions other investing and investment activity, not component purchases. Counted as missing.",
+  "GSv0-MSFT-027": "point 2: gives the figures but does not say revenue grew faster than gross margin. Counted as missing.",
+  "GSv0-MSFT-028": "B point 3: 'already included in segment revenues' without naming the two segments. Counted as stated.",
+  "GSv0-MSFT-029": "B point 1: 'dilution gain' without saying ownership fell. Counted as stated.",
+  "GSv0-MSFT-030": "B point 3: 'different scopes' without saying commercial versus company-wide. Counted as stated."
+ },
+ "runs": {
+  "final_v1": {
+   "rag_run": "eval/results/round1/reader/gpt-6.1-terra_v2_k15_multi",
+   "all": {
+    "questions": 38,
+    "passed": {
+     "k": 26,
+     "n": 38,
+     "rate": 0.684
+    },
+    "points_stated": {
+     "k": 94,
+     "n": 108,
+     "rate": 0.87
+    },
+    "point_recall_mean": 0.892,
+    "points_contradicted": 0,
+    "points_literal_match": {
+     "k": 44,
+     "n": 108,
+     "rate": 0.407
+    },
+    "figures_supported": {
+     "k": 69,
+     "n": 69,
+     "rate": 1.0
+    },
+    "figures_printed_in_chunk": 61,
+    "figures_derived_and_checked": 8,
+    "answers_with_unsupported_figure": []
+   },
+   "by_group": {
+    "narrative": {
+     "questions": 27,
+     "passed": {
+      "k": 17,
+      "n": 27,
+      "rate": 0.63
+     },
+     "points_stated": {
+      "k": 66,
+      "n": 77,
+      "rate": 0.857
+     },
+     "point_recall_mean": 0.878,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 24,
+      "n": 77,
+      "rate": 0.312
+     },
+     "figures_supported": {
+      "k": 54,
+      "n": 54,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 46,
+     "figures_derived_and_checked": 8,
+     "answers_with_unsupported_figure": []
+    },
+    "categorical": {
+     "questions": 5,
+     "passed": {
+      "k": 5,
+      "n": 5,
+      "rate": 1.0
+     },
+     "points_stated": {
+      "k": 11,
+      "n": 11,
+      "rate": 1.0
+     },
+     "point_recall_mean": 1.0,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 9,
+      "n": 11,
+      "rate": 0.818
+     },
+     "figures_supported": {
+      "k": 2,
+      "n": 2,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 2,
+     "figures_derived_and_checked": 0,
+     "answers_with_unsupported_figure": []
+    },
+    "false_premise": {
+     "questions": 6,
+     "passed": {
+      "k": 4,
+      "n": 6,
+      "rate": 0.667
+     },
+     "points_stated": {
+      "k": 17,
+      "n": 20,
+      "rate": 0.85
+     },
+     "point_recall_mean": 0.861,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 11,
+      "n": 20,
+      "rate": 0.55
+     },
+     "figures_supported": {
+      "k": 13,
+      "n": 13,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 13,
+     "figures_derived_and_checked": 0,
+     "answers_with_unsupported_figure": []
+    }
+   },
+   "by_company": {
+    "MSFT": {
+     "questions": 31,
+     "passed": {
+      "k": 19,
+      "n": 31,
+      "rate": 0.613
+     },
+     "points_stated": {
+      "k": 77,
+      "n": 91,
+      "rate": 0.846
+     },
+     "point_recall_mean": 0.867,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 31,
+      "n": 91,
+      "rate": 0.341
+     },
+     "figures_supported": {
+      "k": 62,
+      "n": 62,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 54,
+     "figures_derived_and_checked": 8,
+     "answers_with_unsupported_figure": []
+    },
+    "other": {
+     "questions": 7,
+     "passed": {
+      "k": 7,
+      "n": 7,
+      "rate": 1.0
+     },
+     "points_stated": {
+      "k": 17,
+      "n": 17,
+      "rate": 1.0
+     },
+     "point_recall_mean": 1.0,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 13,
+      "n": 17,
+      "rate": 0.765
+     },
+     "figures_supported": {
+      "k": 7,
+      "n": 7,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 7,
+     "figures_derived_and_checked": 0,
+     "answers_with_unsupported_figure": []
+    }
+   }
+  },
+  "narr_union": {
+   "rag_run": "eval/results/round1/reader/dev_gpt-6.1-terra_v2_k15_multi_narr-union",
+   "all": {
+    "questions": 38,
+    "passed": {
+     "k": 28,
+     "n": 38,
+     "rate": 0.737
+    },
+    "points_stated": {
+     "k": 94,
+     "n": 108,
+     "rate": 0.87
+    },
+    "point_recall_mean": 0.886,
+    "points_contradicted": 0,
+    "points_literal_match": {
+     "k": 44,
+     "n": 108,
+     "rate": 0.407
+    },
+    "figures_supported": {
+     "k": 66,
+     "n": 66,
+     "rate": 1.0
+    },
+    "figures_printed_in_chunk": 61,
+    "figures_derived_and_checked": 5,
+    "answers_with_unsupported_figure": []
+   },
+   "by_group": {
+    "narrative": {
+     "questions": 27,
+     "passed": {
+      "k": 19,
+      "n": 27,
+      "rate": 0.704
+     },
+     "points_stated": {
+      "k": 67,
+      "n": 77,
+      "rate": 0.87
+     },
+     "point_recall_mean": 0.883,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 25,
+      "n": 77,
+      "rate": 0.325
+     },
+     "figures_supported": {
+      "k": 54,
+      "n": 54,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 49,
+     "figures_derived_and_checked": 5,
+     "answers_with_unsupported_figure": []
+    },
+    "categorical": {
+     "questions": 5,
+     "passed": {
+      "k": 5,
+      "n": 5,
+      "rate": 1.0
+     },
+     "points_stated": {
+      "k": 11,
+      "n": 11,
+      "rate": 1.0
+     },
+     "point_recall_mean": 1.0,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 9,
+      "n": 11,
+      "rate": 0.818
+     },
+     "figures_supported": {
+      "k": 2,
+      "n": 2,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 2,
+     "figures_derived_and_checked": 0,
+     "answers_with_unsupported_figure": []
+    },
+    "false_premise": {
+     "questions": 6,
+     "passed": {
+      "k": 4,
+      "n": 6,
+      "rate": 0.667
+     },
+     "points_stated": {
+      "k": 16,
+      "n": 20,
+      "rate": 0.8
+     },
+     "point_recall_mean": 0.805,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 10,
+      "n": 20,
+      "rate": 0.5
+     },
+     "figures_supported": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 10,
+     "figures_derived_and_checked": 0,
+     "answers_with_unsupported_figure": []
+    }
+   },
+   "by_company": {
+    "MSFT": {
+     "questions": 31,
+     "passed": {
+      "k": 21,
+      "n": 31,
+      "rate": 0.677
+     },
+     "points_stated": {
+      "k": 77,
+      "n": 91,
+      "rate": 0.846
+     },
+     "point_recall_mean": 0.86,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 31,
+      "n": 91,
+      "rate": 0.341
+     },
+     "figures_supported": {
+      "k": 60,
+      "n": 60,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 55,
+     "figures_derived_and_checked": 5,
+     "answers_with_unsupported_figure": []
+    },
+    "other": {
+     "questions": 7,
+     "passed": {
+      "k": 7,
+      "n": 7,
+      "rate": 1.0
+     },
+     "points_stated": {
+      "k": 17,
+      "n": 17,
+      "rate": 1.0
+     },
+     "point_recall_mean": 1.0,
+     "points_contradicted": 0,
+     "points_literal_match": {
+      "k": 13,
+      "n": 17,
+      "rate": 0.765
+     },
+     "figures_supported": {
+      "k": 6,
+      "n": 6,
+      "rate": 1.0
+     },
+     "figures_printed_in_chunk": 6,
+     "figures_derived_and_checked": 0,
+     "answers_with_unsupported_figure": []
+    }
+   }
+  }
+ },
+ "final_v1_vs_narr_union": {
+  "answers_differ": 27,
+  "cited_chunks_differ": 20,
+  "gained_pass": [
+   "GSv0-MSFT-029",
+   "GSv0-MSFT-030"
+  ],
+  "lost_pass": [],
+  "more_points": {
+   "GSv0-MSFT-029": "4->5 of 5",
+   "GSv0-MSFT-030": "3->4 of 4"
+  },
+  "fewer_points": {
+   "EV1-070": "2->1 of 3",
+   "GSv0-MSFT-019": "2->1 of 3"
+  },
+  "failed_in_both": [
+   "EV1-070",
+   "EV1R-003",
+   "EV1R-005",
+   "GSv0-MSFT-006",
+   "GSv0-MSFT-007",
+   "GSv0-MSFT-011",
+   "GSv0-MSFT-018",
+   "GSv0-MSFT-019",
+   "GSv0-MSFT-022",
+   "GSv0-MSFT-027"
+  ]
+ }
+}

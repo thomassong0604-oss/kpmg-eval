@@ -1,0 +1,59 @@
+{
+ "_doc": "Holdout batch A for RAG's final_v1 (request of 11/16). Questions are sealed until the run; this file is the public commitment.",
+ "file": "holdout_A.jsonl",
+ "sha256": "a6cf275c092cd5ca5851414fab3b0f6c300370ea207ead2e9824c3cb44bf0680",
+ "built": "2026-11-16",
+ "questions": 40,
+ "by_answer_type": {
+  "exact_numeric": 30,
+  "narrative": 5,
+  "refusal": 5
+ },
+ "by_type": {
+  "extraction": 25,
+  "calculation": 3,
+  "derived": 2,
+  "narrative": 4,
+  "event": 1,
+  "unanswerable": 5
+ },
+ "msft": 10,
+ "stress": 14,
+ "by_stress_type": {
+  "misspelled_name": 4,
+  "analyst_wording": 3,
+  "multi_step": 2,
+  "relative_period": 2,
+  "cross_filing": 2,
+  "narrative_multi_section": 1
+ },
+ "by_form": {
+  "10-K": 26,
+  "10-Q": 8,
+  "several or none": 6
+ },
+ "tickers": {
+  "AAPL": 6,
+  "CASY": 3,
+  "MCK": 2,
+  "MDT": 3,
+  "MU": 7,
+  "NKE": 3,
+  "PH": 2,
+  "TTWO": 3,
+  "MSFT": 10,
+  "NVDA": 1
+ },
+ "numeric_with_text_anchor": 25,
+ "questions_whose_facts_are_all_new": 37,
+ "questions_combining_a_new_fact_with_a_dev_fact": [
+  "HA-025",
+  "HA-029",
+  "HA-030"
+ ],
+ "source_of_answers": "Data's fact store, 20 filings (corpus_version data-api-raw:20); text anchors checked in chunks_C1",
+ "status": {
+  "auto_verified": 30,
+  "needs_human_review": 10
+ }
+}
