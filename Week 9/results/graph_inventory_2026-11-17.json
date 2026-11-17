@@ -1,0 +1,63 @@
+{
+ "_doc": "GraphRAG's live Aura graph (instance 'Graph on 1st Extraction PP', AuraDB Free), read-only count queries run in the Aura console by Eval on 2026-11-17. Transcribed from the console's result table.",
+ "nodes": {
+  "Claim": 10774,
+  "Subsidiary": 752,
+  "Section": 48,
+  "Filing": 20,
+  "Company": 10,
+  "RiskFactor": 10,
+  "total": 11614
+ },
+ "relationships": {
+  "SUPPORTS": 10774,
+  "CONCERNS_RISK": 6198,
+  "OWNS": 752,
+  "CONTAINS": 48,
+  "FILES": 20,
+  "total": 17792
+ },
+ "subsidiaries_per_company": {
+  "MDT": 364,
+  "TTWO": 144,
+  "PH": 85,
+  "NTAP": 77,
+  "MU": 21,
+  "AAPL": 19,
+  "MCK": 13,
+  "NKE": 12,
+  "CASY": 9,
+  "MSFT": 8
+ },
+ "countries_per_company": {
+  "MDT": 70,
+  "TTWO": 23,
+  "PH": 17,
+  "NTAP": 44,
+  "MU": 10,
+  "AAPL": 13,
+  "MCK": 4,
+  "NKE": 7,
+  "CASY": 1,
+  "MSFT": 2
+ },
+ "check_against_gold_v2_2": {
+  "MSFT": "8 in graph, gold EV1R-001: eight subsidiaries",
+  "MU": "21 in graph, gold EV3-001: 21 subsidiaries",
+  "CASY": "9 in graph, gold EV3-004: 9 listed subsidiaries"
+ },
+ "finding": "Exhibit 21 is loaded in the served graph (752 Subsidiary nodes, 752 OWNS edges). The seven questions marked not_in_graph_yet on 11/11 can now be scored on the graph arm.",
+ "queries": [
+  "MATCH (n) WITH labels(n)[0] AS name, count(*) AS c RETURN 'node' AS kind, name, c UNION ALL MATCH ()-[r]->() WITH type(r) AS name, count(*) AS c RETURN 'rel' AS kind, name, c",
+  "MATCH (c)-[:OWNS]->(s:Subsidiary) RETURN coalesce(c.ticker, c.name, c.entity_key) AS owner, count(s) AS subsidiaries, count(DISTINCT s.country) AS countries ORDER BY subsidiaries DESC",
+  "MATCH (c)-[:OWNS]->(s:Subsidiary) WHERE c.ticker = 'MSFT' OR c.ticker = 'CASY' OR s.name CONTAINS 'Israel' OR ... RETURN c.ticker, s.name, s.country, s.jurisdiction_raw ORDER BY owner, name"
+ ],
+ "exhibit21_answers_read_from_the_live_graph": {
+  "EV3-003": "matches gold: Apple Insurance Company, Inc. (Arizona); CARES Captive Insurance Company (Iowa); S-Squared Insurance Company, Inc. (Hawaii)",
+  "EV3-004": "matches gold: Casey's 9 subsidiaries, Iowa 6, Texas 2, Delaware 1",
+  "EV3-006": "matches gold: Braeburn Capital, Inc. (Nevada) is owned by AAPL, not MU",
+  "EV1R-001": "matches gold on the counts: 8 Microsoft subsidiaries in 2 countries; 6 of the 8 names read on screen, all in the gold list",
+  "EV3-005": "4 of the 5 gold names read on screen under NTAP with country Israel (Cognigo Research Ltd, NetApp Israel R&D Ltd., NetApp Israel Sales Limited, Plexistor Ltd.); the row for Spotinst was cut off",
+  "note": "read by Cypher on the OWNS edges, not through GraphRAG's search function; this shows the data is there, not that graph search returns it"
+ }
+}

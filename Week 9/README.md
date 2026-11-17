@@ -113,3 +113,26 @@ question's Gold Set v2.2 record, by perturbation, and paired with the same syste
 
 One caution for whoever runs the messy suite: if the company is also passed as a filter, the 129 misspelled-company
 rewrites cannot fail, so that run measures the reader's tolerance of typos and not the system's.
+
+## 6. GraphRAG's live graph, read directly (11/17)
+
+Read-only count queries in the Aura console (`results/graph_inventory_2026-11-17.json`): 11,614 nodes and 17,792
+relationships, of which **752 Subsidiary nodes with 752 OWNS edges across all ten companies. Exhibit 21 is loaded.**
+Counts match Gold Set v2.2 for the three companies we checked (Microsoft 8, Micron 21, Casey's 9), and four Exhibit 21
+answers read straight from the edges match the gold answer (EV3-003, EV3-004, EV3-006, EV1R-001). This shows the data
+is in the graph; whether GraphRAG's search returns it still needs their re-run on v2.2.
+
+## 7. Deck and script for 11/19
+
+`deck/KPMG_Eval_Week9_11-19.pptx` (+ PDF): 6 slides and 2 appendix slides; `SCRIPT_W9.md` is the spoken script (also
+in the speaker notes). `scripts/build_deck_w9.py` asserts every number the script says against the results files.
+
+## Team paragraph, week 9
+
+This week we moved from measuring the systems to checking our own measurements. We judged three versions of RAG's
+answers on the same 38 questions: the next version, with fuller answers, states every required point on 34 of 38
+(26 for the frozen version), and all 80 figures in it are supported by a cited passage. We compared our judge with
+RAG's and they agree on 72 of 74 points; where they disagreed, we reported no gain. We wrote and sealed a 40-question
+holdout set that no team has seen, published its hash, and reviewed RAG's pre-registered test plan. We also read
+GraphRAG's live graph for the first time and confirmed that Exhibit 21 is loaded (752 subsidiaries). Next: hand labels
+on 11/18, the holdout run on 11/20, and the Agents, graph and cost tests by 11/24.
