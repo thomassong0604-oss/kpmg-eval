@@ -109,3 +109,20 @@ Thank you, all five points work for us, and thank you for switching the hand lab
 4. Messy wording (427) and abstention (56) on final_v1: yes, please run each once. grade_answer_blocks.py cannot read them as they are, because the ids differ, so we added Week 9/scripts/grade_suite_answers.py. Please return one AnswerBlock per item keyed vid (messy) or sid (abstention), plus your clean per-question file, and we will score both, paired with clean.
 
 What we need from you, in one place: the metric rows export and builder commit; your view on rule changes a to e; and the messy and abstention AnswerBlocks when run.
+
+## Reply to three questions after the 11/19 meeting (Chinese, draft)
+
+1. RAG 和 GraphRAG 的对比（按题型）：
+   - 现在就能给：同一份 Microsoft 10-Q、同样 84 道题、同样取前 8 条的对比，按题型分。数字题 RAG 49/50、GraphRAG 25/50；文字题 RAG 22/27、GraphRAG 0/27。
+   - 全部 155 道题、20 份 filing 的完整版：11/24 给。指标统一为“所需证据是否在前 10 条里”，按题型和路由分，并把“语料里没有”的题单独列出。
+   - 依赖：GraphRAG 在 Gold Set v2.2 上重跑一次 graph search（Exhibit 21 已经入图，这次可以算关系题）。
+2. 11/24 在 Agents 上重跑，需要 Agents 提供：
+   - 一个能访问的 /query 地址（API v0.2）；或者他们自己跑我们的一条命令（Week 8/scripts/run_agent_api.py），把结果文件发回来。
+   - 原样返回我们传入的 trace_id（用来对应题号）。
+   - 一个关闭 fallback 的开关，这样可以比较有无 fallback。
+   - 每题的耗时和 token 数；如果已经有 answer 字段，也请一起返回。
+   - 只要符合 v0.2 合同就不需要适配函数；字段有变化的话，给我们一份字段对应说明即可。
+3. UI 前端测试：之前没有计划，可以加一个小的冒烟测试。
+   - 用 Playwright 让浏览器自动把约 20 道题提交到 UI，检查四件事：答案和 API 返回的一致；引用能显示并能点开；该拒答的题显示为拒答；每题的响应时间。
+   - 需要 UI 组提供：UI 地址，以及输入框、提交按钮、答案区和引用区的稳定选择器（最好是 data-testid）。
+   - UI 可用后两天内给结果，目标 11/26。
