@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><title>Mock UI for the smoke test</title>
+<!-- Stand-in for the real UI: answers a revenue question with a figure and a citation, declines anything about Nvidia. -->
+<input data-testid="question"><button data-testid="ask">Ask</button>
+<div data-testid="answer"></div><ul data-testid="citations"></ul>
+<script>
+document.querySelector('[data-testid=ask]').onclick = () => setTimeout(() => {
+  const q = document.querySelector('[data-testid=question]').value, a = document.querySelector('[data-testid=answer]');
+  const c = document.querySelector('[data-testid=citations]');
+  if (/revenue/i.test(q) && /Microsoft/i.test(q) && !/Nvidia|Tesla|2019/i.test(q)) { a.innerText = 'Total revenue was $82,886 million.'; c.innerHTML = '<li class="cite">10-Q, Item 1</li>'; }
+  else { a.innerText = 'The filings in the corpus do not contain this information.'; c.innerHTML = ''; }
+}, 50);
+</script>

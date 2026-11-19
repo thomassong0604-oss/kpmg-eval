@@ -136,3 +136,55 @@ RAG's and they agree on 72 of 74 points; where they disagreed, we reported no ga
 holdout set that no team has seen, published its hash, and reviewed RAG's pre-registered test plan. We also read
 GraphRAG's live graph for the first time and confirmed that Exhibit 21 is loaded (752 subsidiaries). Next: hand labels
 on 11/18, the holdout run on 11/20, and the Agents, graph and cost tests by 11/24.
+
+## 8. RAG and GraphRAG by question type: same questions, same metric (11/19)
+
+`scripts/compare_by_type.py` → `results/rag_vs_graphrag_by_type.json` and `.csv`. Metric for every system: the evidence
+the gold answer needs is in the top 10 results. Gold Set v2.2, 20 filings. RAG is RAG's own retriever (commit 5bfafeb,
+BM25) built over its round-1 chunks; GraphRAG structured search is main a1e7cf7 on its 20-filing store; graph search is
+GraphRAG's own run of 11/11, before Exhibit 21 was loaded.
+
+| Question type | Questions | RAG (BM25) | GraphRAG structured | GraphRAG graph | Either |
+|---|---|---|---|---|---|
+| **All answerable** | 143 | 100/136 | 63/136 | 15/132 | 116/136 |
+| Lookup | 60 | 48/60 | 51/60 | 5/60 | 59/60 |
+| Narrative | 32 | 26/32 | 0/32 | 9/29 | 27/32 |
+| Calculation | 30 | 24/30 | 11/30 | 0/30 | 28/30 |
+| Relationship (Exhibit 21) | 9 | 0/8 | 0/8 | 0/8 | 0/8 |
+| Cross-company | 6 | 2/6 | 1/6 | 1/5 | 2/6 |
+| Microsoft only | 87 | 73/83 | 27/83 | 10/83 | 75/83 |
+| Other nine companies | 56 | 27/53 | 36/53 | 5/49 | 41/53 |
+
+- **The two are complements, not rivals.** Of 136 questions both can be scored on, 48 are found by both,
+  52 only by RAG and 15 only by GraphRAG. A router that always picked the right one would reach
+  116/136, against 100/136 for RAG alone.
+- **By type:** GraphRAG's structured search is at least as good as RAG on lookups; RAG is far ahead on calculations and
+  narrative, where an answer needs several facts or prose.
+- **By company:** RAG leads clearly on Microsoft, GraphRAG's structured search on the other nine companies.
+- **Limits.** This is evidence in the top 10, not answer accuracy. RAG here is BM25; RAG's own hybrid run with its
+  production embeddings found 105/124 on its scored subset. Exhibit 21 questions score zero for every system because the
+  text is not in RAG's chunks and the graph run predates the load; they need GraphRAG's re-run. False-premise questions
+  have no evidence anchor and are not scored here.
+
+## 9. Holdout batch B (sealed, 11/19)
+
+30 questions for RAG's `final_v2` (tag 789bf81), built to fill batch A's thin categories. Only
+`results/holdout_B_manifest.json` (counts and SHA-256) is in the repository.
+
+| | Batch B | A and B together |
+|---|---|---|
+| Numeric / narrative / unanswerable | 6 / 18 / 6 | 36 / 23 / 11 |
+| Microsoft | 7 of 30 | 17 of 70 |
+| Stress questions | 18 | 32: every stress type has 5 or 6 |
+
+Numeric answers come from Data's fact store and share no fact with batch A; one question pairs a new fact with a dev
+fact and is flagged. Every narrative anchor was checked against the filing text. The grader passes the right answer
+and fails a 7% error on 6/6 numeric questions. 24 questions (narrative and unanswerable) need a human read before
+release.
+
+## 10. UI smoke test (ready, waiting for the UI)
+
+`ui_smoke/run_ui_smoke.py` drives a browser with Playwright: it types gold questions into the UI and checks, on the
+rendered page, that an answer appears, that the gold figure is shown, that unanswerable questions are declined, that a
+citation is displayed, and how long each answer takes. It needs the UI's address and four selectors from the UI team.
+`ui_smoke/mock_ui.html` is a stand-in page used by the test; nothing has been run against the real UI yet.

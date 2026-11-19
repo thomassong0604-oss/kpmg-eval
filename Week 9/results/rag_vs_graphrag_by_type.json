@@ -1,0 +1,401 @@
+{
+ "_doc": "Week 9: RAG and GraphRAG on the same questions with the same metric, by question type.",
+ "gold": "benchmark_v2_2.jsonl",
+ "k": 10,
+ "answerable_questions": 143,
+ "rag_commit": "5bfafeb",
+ "graphrag_commit_structured": "a1e7cf7",
+ "graph_search_run": "GraphRAG, 11/11 (before Exhibit 21 was loaded)",
+ "rag_errors": [],
+ "all": {
+  "questions": 143,
+  "rag_bm25": {
+   "k": 100,
+   "n": 136,
+   "rate": 0.735
+  },
+  "rag_hybrid": {
+   "k": 96,
+   "n": 136,
+   "rate": 0.706
+  },
+  "graphrag_structured": {
+   "k": 63,
+   "n": 136,
+   "rate": 0.463
+  },
+  "graphrag_graph": {
+   "k": 15,
+   "n": 132,
+   "rate": 0.114
+  },
+  "either": {
+   "k": 116,
+   "n": 136,
+   "rate": 0.853
+  },
+  "rag_bm25_vs_graphrag_structured": {
+   "scored_by_both": 136,
+   "both": 48,
+   "only_rag": 52,
+   "only_graphrag": 15,
+   "neither": 21
+  }
+ },
+ "by_question_type": {
+  "Lookup": {
+   "questions": 60,
+   "rag_bm25": {
+    "k": 48,
+    "n": 60,
+    "rate": 0.8
+   },
+   "rag_hybrid": {
+    "k": 45,
+    "n": 60,
+    "rate": 0.75
+   },
+   "graphrag_structured": {
+    "k": 51,
+    "n": 60,
+    "rate": 0.85
+   },
+   "graphrag_graph": {
+    "k": 5,
+    "n": 60,
+    "rate": 0.083
+   },
+   "either": {
+    "k": 59,
+    "n": 60,
+    "rate": 0.983
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 60,
+    "both": 40,
+    "only_rag": 8,
+    "only_graphrag": 11,
+    "neither": 1
+   }
+  },
+  "Narrative": {
+   "questions": 32,
+   "rag_bm25": {
+    "k": 26,
+    "n": 32,
+    "rate": 0.812
+   },
+   "rag_hybrid": {
+    "k": 23,
+    "n": 32,
+    "rate": 0.719
+   },
+   "graphrag_structured": {
+    "k": 0,
+    "n": 32,
+    "rate": 0.0
+   },
+   "graphrag_graph": {
+    "k": 9,
+    "n": 29,
+    "rate": 0.31
+   },
+   "either": {
+    "k": 27,
+    "n": 32,
+    "rate": 0.844
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 32,
+    "both": 0,
+    "only_rag": 26,
+    "only_graphrag": 0,
+    "neither": 6
+   }
+  },
+  "Calculation": {
+   "questions": 30,
+   "rag_bm25": {
+    "k": 24,
+    "n": 30,
+    "rate": 0.8
+   },
+   "rag_hybrid": {
+    "k": 26,
+    "n": 30,
+    "rate": 0.867
+   },
+   "graphrag_structured": {
+    "k": 11,
+    "n": 30,
+    "rate": 0.367
+   },
+   "graphrag_graph": {
+    "k": 0,
+    "n": 30,
+    "rate": 0.0
+   },
+   "either": {
+    "k": 28,
+    "n": 30,
+    "rate": 0.933
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 30,
+    "both": 7,
+    "only_rag": 17,
+    "only_graphrag": 4,
+    "neither": 2
+   }
+  },
+  "Relationship (Exhibit 21)": {
+   "questions": 9,
+   "rag_bm25": {
+    "k": 0,
+    "n": 8,
+    "rate": 0.0
+   },
+   "rag_hybrid": {
+    "k": 0,
+    "n": 8,
+    "rate": 0.0
+   },
+   "graphrag_structured": {
+    "k": 0,
+    "n": 8,
+    "rate": 0.0
+   },
+   "graphrag_graph": {
+    "k": 0,
+    "n": 8,
+    "rate": 0.0
+   },
+   "either": {
+    "k": 0,
+    "n": 8,
+    "rate": 0.0
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 8,
+    "both": 0,
+    "only_rag": 0,
+    "only_graphrag": 0,
+    "neither": 8
+   }
+  },
+  "Cross-company": {
+   "questions": 6,
+   "rag_bm25": {
+    "k": 2,
+    "n": 6,
+    "rate": 0.333
+   },
+   "rag_hybrid": {
+    "k": 2,
+    "n": 6,
+    "rate": 0.333
+   },
+   "graphrag_structured": {
+    "k": 1,
+    "n": 6,
+    "rate": 0.167
+   },
+   "graphrag_graph": {
+    "k": 1,
+    "n": 5,
+    "rate": 0.2
+   },
+   "either": {
+    "k": 2,
+    "n": 6,
+    "rate": 0.333
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 6,
+    "both": 1,
+    "only_rag": 1,
+    "only_graphrag": 0,
+    "neither": 4
+   }
+  },
+  "False premise": {
+   "questions": 6,
+   "rag_bm25": {
+    "k": 0,
+    "n": 0,
+    "rate": null
+   },
+   "rag_hybrid": {
+    "k": 0,
+    "n": 0,
+    "rate": null
+   },
+   "graphrag_structured": {
+    "k": 0,
+    "n": 0,
+    "rate": null
+   },
+   "graphrag_graph": {
+    "k": 0,
+    "n": 0,
+    "rate": null
+   },
+   "either": {
+    "k": 0,
+    "n": 0,
+    "rate": null
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 0,
+    "both": 0,
+    "only_rag": 0,
+    "only_graphrag": 0,
+    "neither": 0
+   }
+  }
+ },
+ "by_evidence_kind": {
+  "number": {
+   "questions": 94,
+   "rag_bm25": {
+    "k": 73,
+    "n": 94,
+    "rate": 0.777
+   },
+   "rag_hybrid": {
+    "k": 72,
+    "n": 94,
+    "rate": 0.766
+   },
+   "graphrag_structured": {
+    "k": 63,
+    "n": 94,
+    "rate": 0.67
+   },
+   "graphrag_graph": {
+    "k": 5,
+    "n": 94,
+    "rate": 0.053
+   },
+   "either": {
+    "k": 88,
+    "n": 94,
+    "rate": 0.936
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 94,
+    "both": 48,
+    "only_rag": 25,
+    "only_graphrag": 15,
+    "neither": 6
+   }
+  },
+  "prose": {
+   "questions": 42,
+   "rag_bm25": {
+    "k": 27,
+    "n": 42,
+    "rate": 0.643
+   },
+   "rag_hybrid": {
+    "k": 24,
+    "n": 42,
+    "rate": 0.571
+   },
+   "graphrag_structured": {
+    "k": 0,
+    "n": 42,
+    "rate": 0.0
+   },
+   "graphrag_graph": {
+    "k": 10,
+    "n": 38,
+    "rate": 0.263
+   },
+   "either": {
+    "k": 28,
+    "n": 42,
+    "rate": 0.667
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 42,
+    "both": 0,
+    "only_rag": 27,
+    "only_graphrag": 0,
+    "neither": 15
+   }
+  }
+ },
+ "by_company": {
+  "Microsoft": {
+   "questions": 87,
+   "rag_bm25": {
+    "k": 73,
+    "n": 83,
+    "rate": 0.88
+   },
+   "rag_hybrid": {
+    "k": 72,
+    "n": 83,
+    "rate": 0.867
+   },
+   "graphrag_structured": {
+    "k": 27,
+    "n": 83,
+    "rate": 0.325
+   },
+   "graphrag_graph": {
+    "k": 10,
+    "n": 83,
+    "rate": 0.12
+   },
+   "either": {
+    "k": 75,
+    "n": 83,
+    "rate": 0.904
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 83,
+    "both": 26,
+    "only_rag": 47,
+    "only_graphrag": 1,
+    "neither": 9
+   }
+  },
+  "other": {
+   "questions": 56,
+   "rag_bm25": {
+    "k": 27,
+    "n": 53,
+    "rate": 0.509
+   },
+   "rag_hybrid": {
+    "k": 24,
+    "n": 53,
+    "rate": 0.453
+   },
+   "graphrag_structured": {
+    "k": 36,
+    "n": 53,
+    "rate": 0.679
+   },
+   "graphrag_graph": {
+    "k": 5,
+    "n": 49,
+    "rate": 0.102
+   },
+   "either": {
+    "k": 41,
+    "n": 53,
+    "rate": 0.774
+   },
+   "rag_bm25_vs_graphrag_structured": {
+    "scored_by_both": 53,
+    "both": 22,
+    "only_rag": 5,
+    "only_graphrag": 14,
+    "neither": 12
+   }
+  }
+ }
+}

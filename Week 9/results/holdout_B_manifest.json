@@ -1,0 +1,67 @@
+{
+ "_doc": "Holdout batch B for RAG's final_v2 (tag 789bf81). Questions are sealed until the run; this file is the public commitment.",
+ "file": "holdout_B.jsonl",
+ "sha256": "f6d3782d8db09a2e5ada9eac5f3d1521d7f79b32f06c40c4516c4f0b5811785b",
+ "built": "2026-11-19",
+ "questions": 30,
+ "by_answer_type": {
+  "narrative": 18,
+  "exact_numeric": 6,
+  "refusal": 6
+ },
+ "msft": 7,
+ "stress": 18,
+ "by_stress_type": {
+  "analyst_wording": 3,
+  "relative_period": 3,
+  "misspelled_name": 2,
+  "narrative_multi_section": 4,
+  "multi_step": 3,
+  "cross_filing": 3
+ },
+ "by_form": {
+  "10-K": 18,
+  "10-Q": 5,
+  "several or none": 7
+ },
+ "tickers": {
+  "PH": 4,
+  "MSFT": 7,
+  "NKE": 4,
+  "AAPL": 5,
+  "MU": 3,
+  "MCK": 1,
+  "NTAP": 2,
+  "TTWO": 1,
+  "CASY": 1,
+  "INTC": 1,
+  "MDT": 1
+ },
+ "questions_combining_a_new_fact_with_a_dev_fact": [
+  "HB-020"
+ ],
+ "facts_shared_with_batch_A": 0,
+ "source_of_answers": "numeric: Data's fact store, 20 filings; narrative: filing text, every anchor checked in chunks_C1",
+ "status": {
+  "auto_verified": 6,
+  "needs_human_review": 24
+ },
+ "A_and_B_together": {
+  "questions": 70,
+  "by_answer_type": {
+   "exact_numeric": 36,
+   "narrative": 23,
+   "refusal": 11
+  },
+  "msft": 17,
+  "stress": 32,
+  "by_stress_type": {
+   "misspelled_name": 6,
+   "analyst_wording": 6,
+   "multi_step": 5,
+   "relative_period": 5,
+   "cross_filing": 5,
+   "narrative_multi_section": 5
+  }
+ }
+}

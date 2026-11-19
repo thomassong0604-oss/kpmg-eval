@@ -49,3 +49,16 @@ def test_judge_guard_needs_a_real_quote():
 def test_figures_and_literal():
     assert sj.figures("rose to $54.5 billion, or 29%, from 42,400") == ["54.5", "29", "42400"]
     assert sj.literal("approximately 27 percent | approximately 25%", "an approximately 25% stake")
+
+
+def test_ui_smoke_runs_on_the_mock_page():
+    import pytest
+    pytest.importorskip("playwright")
+    sys.path.insert(0, str(ROOT / "ui_smoke"))
+    import run_ui_smoke as ui
+    a = SimpleNamespace(url=(ROOT / "ui_smoke" / "mock_ui.html").as_uri(), input="[data-testid=question]", submit="[data-testid=ask]",
+                        answer="[data-testid=answer]", citation="[data-testid=citations] .cite", n=10, timeout=10)
+    summ, rows = ui.run(a)
+    assert summ["questions"] == 10 and summ["answered"]["k"] == 10 and not summ["errors"]
+    assert summ["declines_unanswerable"]["k"] == summ["declines_unanswerable"]["n"] == 2      # the mock declines them
+    assert summ["figure_shown"]["k"] >= 1 and summ["figure_shown"]["k"] < summ["figure_shown"]["n"]   # it only knows one figure
