@@ -126,3 +126,23 @@ What we need from you, in one place: the metric rows export and builder commit; 
    - 用 Playwright 让浏览器自动把约 20 道题提交到 UI，检查四件事：答案和 API 返回的一致；引用能显示并能点开；该拒答的题显示为拒答；每题的响应时间。
    - 需要 UI 组提供：UI 地址，以及输入框、提交按钮、答案区和引用区的稳定选择器（最好是 data-testid）。
    - UI 可用后两天内给结果，目标 11/26。
+
+## Slack reply to RAG (six points of 11/19), draft
+
+Thanks, all six work. Point by point:
+
+1. Holdout A: you will have the file by DM on 11/20. The hash is unchanged (a6cf275c...). Answers within 24 hours is perfect.
+
+2. Category counts (no questions). Batch A, 40 questions:
+   - Type: numeric 30 (Microsoft 6, others 24), narrative 5 (2, 3), unanswerable 5 (2, 3). Microsoft 10 of 40.
+   - Stress, 14: misspelled name 4, analyst wording 3, multi-step 2, relative period 2, cross-filing 2, narrative across sections 1.
+   - Form: 10-K 26, 10-Q 8, several filings or none 6.
+   Yes, B will fill the thin categories. Planned B, about 30: narrative 18, numeric 6 (all stress), unanswerable 6; stress about 18: misspelled name 2, analyst wording 3, multi-step 3, relative period 3, cross-filing 3, narrative across sections 4; Microsoft about 8. With A and B together every category then has at least 5: narrative 23, unanswerable 11, and each stress type 5 or 6.
+
+3. Batch B: by 11/24 with its hash, for final_v2 at 789bf81. Same delivery as A.
+
+4. Messy wording and abstention: please run Week 9/scripts/grade_suite_answers.py yourselves, then send us the AnswerBlocks (keyed vid and sid) and your clean per-question file. We re-score from the blocks and that is the official score, within a day of receiving them. Please run messy wording without the company filter as the primary run.
+
+5. XBRL sets: we have not generated them yet, because we have not received the metric rows export (the --from-json input) or the builder commit to use. Once we have both, manifests and hashes for A and C follow within a day. On our side nothing waits for the 233-filing index except what your pre-registration assigns to it (sets B and C), so please confirm which sets you want generated now.
+
+6. Cost and latency: agreed, same method. Tokens times list price plus wall-clock time per question. Three details so the numbers match: fix the price list and its date in the report; log retrieval and reader time separately, as your per_question.csv already does; report the median and the 95th percentile, not only the mean.
