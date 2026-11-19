@@ -60,7 +60,7 @@ def s_summary(s, n, D):
                 f"Exhibit 21 is now in the graph: {gi['nodes']['Subsidiary']} subsidiaries, matching our reference for Microsoft, "
                 "Micron and Casey's"]),
             ("What comes next", [
-                [("Nov 18: ", True), ("hand labels, then judge agreement", False)],
+                [("Done: ", True), ("RAG's hand labels, kappa 0.93 / 0.90", False)],
                 [("Nov 20: ", True), ("batch A goes to RAG, run once", False)],
                 [("Nov 24: ", True), ("batch B; Agents and graph re-runs", False)],
                 [("Open: ", True), ("cost and latency per question", False)]])]
@@ -98,8 +98,8 @@ def s_narrative(s, n, D):
 def s_judge(s, n, D):
     ag = D["ag"]
     frame(s, n, "Can we trust the judge?", "Two independent judges agree on most points, and where they differed we did not claim a gain",
-          "An LLM judge is an instrument and needs its own check. Ours has two so far: a second judge and a quote rule. Hand labels "
-          "on 11/18 are the third.",
+          "An LLM judge is an instrument and needs its own check. Ours now has three: a second judge, a quote rule, and RAG's blind hand labels "
+          "(kappa 0.93 and 0.90).",
           "Source: Week 9/results/judge_agreement_w9.json. RAG ran Week 8's judge script unchanged with gpt-6-sol; Eval's verdicts are "
           "Claude's. Each 'stated' verdict must quote the answer")
     row = lambda name, k: [B(name), f"{ag[k]['agree']}/{ag[k]['points']}", f"{ag[k]['kappa']:.2f}",  # noqa: E731
@@ -111,9 +111,9 @@ def s_judge(s, n, D):
     bullets(s, X0, 3.2, 4.6, 1.1, [
         "The retrieval variant looked like +2 questions with one judge and 0 with the other. We reported no measurable change, and RAG dropped it",
         "The fuller-answers gain holds under both judges: +6 and +7 on the 26 questions both saw"], size=9.5)
-    head(s, X0 + 4.9, 2.95, 4.6, "What is not done yet")
+    head(s, X0 + 4.9, 2.95, 4.6, "The human check")
     bullets(s, X0 + 4.9, 3.2, 4.6, 1.1, [
-        "No human labels yet. Two Eval members label 87 points and RAG labels 20 questions blind, both by Nov 18",
+        "RAG's blind hand labels are done: 20 questions, 126 points, kappa against the judge 0.93 (final_v1) and 0.90 (final_v2), as reported by RAG. Eval's 87 points are in progress",
         "One gold answer to fix: a growth rate the filing prints as 29% and the answer computes as 28.5%"], size=9.5)
 
 
@@ -174,7 +174,7 @@ def s_next(s, n, D):
           "That is what makes the next numbers believable.",
           "Source: Week 9/README.md and COMMS_W9.md; Assignments/Benchmark and Experimental Protocol (team report, section 5)", lead="Thank you:")
     rows = [["By", "Test", "Owner", "Depends on"],
-            [B("Nov 18"), "Hand labels on 87 points; agreement of the judge with humans", "Fei Huang, Thomas Song", "RAG's 20 blind labels"],
+            [B("Nov 21"), "Eval's hand labels on 87 points; agreement of the judge with humans", "Fei Huang, Thomas Song", "RAG's labels done (kappa 0.93 / 0.90)"],
             [B("Nov 20"), "Holdout batch A delivered; run once on the frozen version", "Shenyi Feng, Shuhan Bian", "RAG returns answers within 24 hours"],
             [B("Nov 24"), "Agents' API scored with and without fallback", "Binyu Wang, Yupin Wang", "Agents' first full run"],
             [B("Nov 24"), "Graph search on Gold Set v2.2, including Exhibit 21 questions", "Ruofei Duan", "GraphRAG runs our script on its graph"],
@@ -230,8 +230,8 @@ SCRIPT = [
   "same answers independently. On the frozen version the two agree on 71 of 74 points, and on the fuller answers on 72 of 74. The "
   "middle row is the useful one. For the retrieval variant, our judge showed a gain of two questions and RAG's showed none. Because "
   "the judges disagreed, we reported no measurable change, and RAG dropped that variant. The gain for fuller answers holds under both "
-  "judges. What is not done yet is the human check. Two of us are labelling 87 points and RAG is labelling 20 questions blind, both "
-  "by November 18."),
+  "judges. The human check has started too. RAG labelled 20 questions blind, 126 points, and reports agreement with the judge of "
+  "0.93 on the frozen version and 0.90 on the next one. Our own 87-point labels are in progress."),
  ("A test nobody tuned on", "2 min",
   "Every number you have seen from any team was tuned on the same 155 questions. So this week we wrote holdout batch A: 40 new "
   "questions, 30 numeric, 5 narrative and 5 unanswerable. Ten are on Microsoft, which is 25 percent, against more than 60 percent in "
@@ -246,7 +246,7 @@ SCRIPT = [
   "now be scored. Separately, GraphRAG's ranking fixes took the right figure at rank one from 26 to 60 of 93 questions. The next "
   "step is for GraphRAG to re-run graph search on the current gold set."),
  ("Next steps", "1 min",
-  "Six tests remain before the code freeze on November 30, each with an owner and a date. Hand labels by the 18th. Batch A goes to "
+  "Six tests remain before the code freeze on November 30, each with an owner and a date. Our hand labels come first. Batch A goes to "
   "RAG on the 20th. The Agents' API, the graph re-run, and cost and latency per question by the 24th. Batch B on RAG's next version "
   "by the 29th. I want to thank the RAG team in particular. They froze their settings before asking for a test, wrote their plan "
   "down in advance, and invited us to change any rule that favoured them. That is what will make the final numbers believable."),
