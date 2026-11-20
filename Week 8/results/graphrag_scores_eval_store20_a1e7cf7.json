@@ -1,0 +1,139 @@
+{
+ "_doc": "GraphRAG arms: top-1 relevance score, gap to rank 2 and ties, by whether the needed evidence was returned (--scores)",
+ "tag": "eval_store20_a1e7cf7",
+ "k": 10,
+ "gold": "benchmark_v2_2.jsonl",
+ "graphrag_commit": "a1e7cf7",
+ "summary": {
+  "structured|gold": {
+   "answerable_found": {
+    "calls": 63,
+    "returned_nothing": 0,
+    "top1_score": {
+     "n": 63,
+     "min": 0.275,
+     "p25": 1.0,
+     "median": 1.0,
+     "p75": 1.0,
+     "max": 1.2
+    },
+    "top1_minus_top2": {
+     "n": 63,
+     "min": 0.0,
+     "p25": 0.0,
+     "median": 0.0,
+     "p75": 0.0,
+     "max": 0.0
+    },
+    "share_with_a_tie_at_rank_1": 1.0
+   },
+   "answerable_missed": {
+    "calls": 70,
+    "returned_nothing": 1,
+    "top1_score": {
+     "n": 69,
+     "min": 0.042445,
+     "p25": 0.320068,
+     "median": 1.0,
+     "p75": 1.05,
+     "max": 1.2
+    },
+    "top1_minus_top2": {
+     "n": 69,
+     "min": 0.0,
+     "p25": 0.0,
+     "median": 0.0,
+     "p75": 0.0,
+     "max": 0.05
+    },
+    "share_with_a_tie_at_rank_1": 0.855
+   },
+   "unanswerable_or_false_premise": {
+    "calls": 19,
+    "returned_nothing": 2,
+    "top1_score": {
+     "n": 17,
+     "min": 0.189394,
+     "p25": 0.322414,
+     "median": 1.0,
+     "p75": 1.0,
+     "max": 1.05
+    },
+    "top1_minus_top2": {
+     "n": 17,
+     "min": 0.0,
+     "p25": 0.0,
+     "median": 0.0,
+     "p75": 0.0,
+     "max": 0.041357
+    },
+    "share_with_a_tie_at_rank_1": 0.882
+   }
+  },
+  "structured|translated": {
+   "answerable_found": {
+    "calls": 63,
+    "returned_nothing": 0,
+    "top1_score": {
+     "n": 63,
+     "min": 0.275,
+     "p25": 1.0,
+     "median": 1.0,
+     "p75": 1.0,
+     "max": 1.2
+    },
+    "top1_minus_top2": {
+     "n": 63,
+     "min": 0.0,
+     "p25": 0.0,
+     "median": 0.0,
+     "p75": 0.0,
+     "max": 0.0
+    },
+    "share_with_a_tie_at_rank_1": 1.0
+   },
+   "answerable_missed": {
+    "calls": 70,
+    "returned_nothing": 1,
+    "top1_score": {
+     "n": 69,
+     "min": 0.042445,
+     "p25": 0.320068,
+     "median": 1.0,
+     "p75": 1.05,
+     "max": 1.2
+    },
+    "top1_minus_top2": {
+     "n": 69,
+     "min": 0.0,
+     "p25": 0.0,
+     "median": 0.0,
+     "p75": 0.0,
+     "max": 0.05
+    },
+    "share_with_a_tie_at_rank_1": 0.855
+   },
+   "unanswerable_or_false_premise": {
+    "calls": 19,
+    "returned_nothing": 2,
+    "top1_score": {
+     "n": 17,
+     "min": 0.177551,
+     "p25": 0.322414,
+     "median": 1.0,
+     "p75": 1.0,
+     "max": 1.05
+    },
+    "top1_minus_top2": {
+     "n": 17,
+     "min": 0.0,
+     "p25": 0.0,
+     "median": 0.0,
+     "p75": 0.0,
+     "max": 0.041357
+    },
+    "share_with_a_tie_at_rank_1": 0.882
+   }
+  }
+ }
+}

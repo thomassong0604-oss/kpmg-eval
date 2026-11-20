@@ -146,3 +146,17 @@ Thanks, all six work. Point by point:
 5. XBRL sets: we have not generated them yet, because we have not received the metric rows export (the --from-json input) or the builder commit to use. Once we have both, manifests and hashes for A and C follow within a day. On our side nothing waits for the 233-filing index except what your pre-registration assigns to it (sets B and C), so please confirm which sets you want generated now.
 
 6. Cost and latency: agreed, same method. Tokens times list price plus wall-clock time per question. Three details so the numbers match: fix the price list and its date in the report; log retrieval and reader time separately, as your per_question.csv already does; report the median and the 95th percentile, not only the mean.
+
+## Slack reply to GraphRAG (Adeline), gold set version and scores, 11/20 (draft)
+
+Hi Adeline, yes, still Gold Set v2.2 (Week 8/data/benchmark_v2_2.jsonl, hash 416304a91b4aa400). Same 155 questions and answers as v2.1; only grading rules changed.
+
+a) top1_score: it did not have one, so we added it. Run the round-1 script with --scores:
+python scripts/run_graphrag_round1.py --tag <name> --scores
+It writes results/graphrag_scores_<name>.json and .csv with, per question and arm: top1_score, top2_score, top1_minus_top2, how many results tie at rank 1, the score at rank 10, and whether the needed evidence was returned. The summary splits calls into answerable and found, answerable and missed, and unanswerable.
+
+b) top1_minus_top2: yes, same file. In RAG's round-1 file that figure came from RAG's own script (its RRF scores), not from our harness, so the scales are not comparable across systems.
+
+One thing we saw running it on your 20-filing store at a1e7cf7 (structured arm), which may save you time: the score does not separate the groups today. The median top-1 score is 1.0 for found, missed and unanswerable questions alike, and rank 1 is tied with rank 2 in 100% of found calls, 86% of missed and 88% of unanswerable. So a threshold on top1_score or on the gap will not work for the structured arm as scored now; a signal such as "did the company and period in the question match a filing in the store" may calibrate better. An out-of-corpus company (Nvidia) returned three results, all at 1.0.
+
+We could not run the graph arm (no Aura from our side), so that one needs your run with --scores. Send us the two files and we will add the same breakdown.

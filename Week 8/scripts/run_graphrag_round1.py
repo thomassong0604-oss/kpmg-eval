@@ -98,6 +98,16 @@ def _git(path: Path) -> str | None:
         return None
 
 
+def score_fields(ev: list[dict]) -> dict:
+    """The arm's own relevance scores for the top results (--scores): what an abstention threshold would be set on."""
+    sc = [e.get("score") for e in ev if isinstance(e.get("score"), (int, float))]
+    if not sc:
+        return {"top1_score": None, "top2_score": None, "top1_minus_top2": None, "tied_at_top": 0, "score_at_k": None}
+    return {"top1_score": round(sc[0], 6), "top2_score": round(sc[1], 6) if len(sc) > 1 else None,
+            "top1_minus_top2": round(sc[0] - sc[1], 6) if len(sc) > 1 else None,
+            "tied_at_top": sum(abs(x - sc[0]) < 1e-9 for x in sc), "score_at_k": round(sc[-1], 6)}
+
+
 def score(q: dict, arm: str, ev: list[dict], need_accs: set[str]) -> dict:
     kind = sbs.kind(q)
     out = {"n_returned": len(ev)}
@@ -127,6 +137,44 @@ def rate(rows, key):
     return {"rate": round(sum(xs) / len(xs), 3) if xs else None, "hits": sum(xs), "n": len(xs)}
 
 
+def write_scores(rows: list[dict], args, meta: dict) -> None:
+    """Per call: the arm's top-1 score, the gap to rank 2 and ties, next to whether the needed evidence was returned."""
+    import statistics
+    srows = []
+    for r in rows:
+        if r["error"] or r["filing_in_store"] is False:
+            continue
+        unans = r["kind"] == "unanswerable_or_false_premise"
+        group = "unanswerable_or_false_premise" if unans else "answerable_found" if r.get("needed_in_evidence") else "answerable_missed"
+        srows.append({"qid": r["qid"], "arm": r["arm"], "filters_mode": r["filters_mode"], "kind": r["kind"], "type": r["type"], "group": group,
+                      "n_returned": r["n_returned"], **r["_scores"], "needed_in_evidence": r.get("needed_in_evidence"), "top1_right": r.get("top1_right")})
+
+    def dist(xs):
+        xs = sorted(x for x in xs if x is not None)
+        if not xs:
+            return None
+        return {"n": len(xs), "min": xs[0], "p25": xs[len(xs) // 4], "median": statistics.median(xs), "p75": xs[(3 * len(xs)) // 4], "max": xs[-1]}
+    summ = {}
+    for arm in sorted({r["arm"] for r in srows}):
+        for mode in ("gold", "translated"):
+            for g in ("answerable_found", "answerable_missed", "unanswerable_or_false_premise"):
+                rs = [r for r in srows if r["arm"] == arm and r["filters_mode"] == mode and r["group"] == g]
+                if rs:
+                    got = [r for r in rs if r["n_returned"]]
+                    summ.setdefault(f"{arm}|{mode}", {})[g] = {
+                        "calls": len(rs), "returned_nothing": len(rs) - len(got), "top1_score": dist(r["top1_score"] for r in got),
+                        "top1_minus_top2": dist(r["top1_minus_top2"] for r in got),
+                        "share_with_a_tie_at_rank_1": round(sum(r["tied_at_top"] > 1 for r in got) / len(got), 3) if got else None}
+    (RES / f"graphrag_scores_{args.tag}.json").write_text(json.dumps({
+        "_doc": "GraphRAG arms: top-1 relevance score, gap to rank 2 and ties, by whether the needed evidence was returned (--scores)",
+        "tag": args.tag, "k": args.k, "gold": meta["gold"], "graphrag_commit": meta["graphrag_commit"], "summary": summ}, indent=1))
+    with open(RES / f"graphrag_scores_{args.tag}.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(srows[0]))
+        w.writeheader()
+        w.writerows(srows)
+    print(f"[graphrag scores] {len(srows)} calls -> graphrag_scores_{args.tag}.json/.csv")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--graphrag", default=str(ROOT / "upstream" / "KPMG-GraphRAG"))
@@ -134,6 +182,8 @@ def main():
     ap.add_argument("--tag", default="eval_local")
     ap.add_argument("--k", type=int, default=K)
     ap.add_argument("--retries", type=int, default=3, help="attempts per call when the database drops the connection")
+    ap.add_argument("--scores", action="store_true", help="also write graphrag_scores_<tag>.{json,csv}: top1_score, top1_minus_top2 "
+                    "and ties per question, split by answerable-found / answerable-missed / unanswerable")
     args = ap.parse_args()
     if "MSFT_FACT_DB_PATH" not in os.environ and (ROOT / "upstream" / "graphrag_store_msft_10q.duckdb").exists():
         os.environ["MSFT_FACT_DB_PATH"] = str(ROOT / "upstream" / "graphrag_store_msft_10q.duckdb")
@@ -171,7 +221,7 @@ def main():
                     try:
                         ev = arms[arm](q["question"], filters=filters, top_k=args.k,
                                        trace_id=f"{args.tag}:{q['qid']}:{arm}:{mode}")
-                        rows.append({**base, "error": None, "error_class": None, "attempts": attempt,
+                        rows.append({**base, "error": None, "error_class": None, "attempts": attempt, "_scores": score_fields(ev),
                                      **score(q, arm, ev, need), "ms": round((time.perf_counter() - t0) * 1000, 1)})
                         break
                     except Exception as exc:  # noqa: BLE001 - recorded per call
@@ -209,6 +259,8 @@ def main():
            "store_filings": sorted(store[0]) if store else None,
            "filter_compatibility_of_gold_filters": dict(compat), "summary": summary}
     RES.mkdir(exist_ok=True)
+    if args.scores:
+        write_scores(rows, args, out)
     (RES / f"graphrag_round1_{args.tag}.json").write_text(json.dumps(out, indent=1))
     with open(RES / f"graphrag_round1_{args.tag}.csv", "w", newline="") as f:
         cols = ["qid", "arm", "filters_mode", "kind", "type", "route_expected", "required_filings", "translation",
