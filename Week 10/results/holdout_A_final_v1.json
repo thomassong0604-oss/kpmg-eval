@@ -1,0 +1,240 @@
+{
+ "_doc": "Week 10: official score of a sealed holdout batch (RAG's final_v1 on batch A; run by RAG once on 11/22-23).",
+ "batch": "A",
+ "system": "RAG final_v1 (tag 03a9220; code and index at main 0685fd4, Chroma chroma_C1 7a7ad9801f86)",
+ "sealed_file_sha256": "a6cf275c092cd5ca5851414fab3b0f6c300370ea207ead2e9824c3cb44bf0680",
+ "hash_matches_manifest": true,
+ "questions": 40,
+ "answers_received": 40,
+ "filters": {
+  "gold": 40
+ },
+ "from_cache": 0,
+ "numeric": {
+  "accuracy": {
+   "k": 28,
+   "n": 30,
+   "value": 0.933,
+   "ci95": [
+    0.787,
+    0.982
+   ]
+  },
+  "labels_of_misses": {
+   "wrong_sign": 1,
+   "false_refusal": 1
+  },
+  "misses": {
+   "HA-009": "wrong_sign",
+   "HA-029": "false_refusal"
+  },
+  "normal": {
+   "k": 17,
+   "n": 18,
+   "value": 0.944,
+   "ci95": [
+    0.742,
+    0.99
+   ]
+  },
+  "stress": {
+   "k": 11,
+   "n": 12,
+   "value": 0.917,
+   "ci95": [
+    0.646,
+    0.985
+   ]
+  },
+  "by_stress_type": {
+   "analyst_wording": {
+    "k": 3,
+    "n": 3,
+    "value": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ]
+   },
+   "cross_filing": {
+    "k": 1,
+    "n": 2,
+    "value": 0.5,
+    "ci95": [
+     0.095,
+     0.905
+    ]
+   },
+   "misspelled_name": {
+    "k": 3,
+    "n": 3,
+    "value": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ]
+   },
+   "multi_step": {
+    "k": 2,
+    "n": 2,
+    "value": 1.0,
+    "ci95": [
+     0.342,
+     1.0
+    ]
+   },
+   "relative_period": {
+    "k": 2,
+    "n": 2,
+    "value": 1.0,
+    "ci95": [
+     0.342,
+     1.0
+    ]
+   }
+  },
+  "microsoft": {
+   "k": 5,
+   "n": 6,
+   "value": 0.833,
+   "ci95": [
+    0.436,
+    0.97
+   ]
+  },
+  "other_companies": {
+   "k": 23,
+   "n": 24,
+   "value": 0.958,
+   "ci95": [
+    0.798,
+    0.993
+   ]
+  },
+  "by_form": {
+   "10-K": {
+    "k": 20,
+    "n": 20,
+    "value": 1.0,
+    "ci95": [
+     0.839,
+     1.0
+    ]
+   },
+   "10-Q": {
+    "k": 7,
+    "n": 8,
+    "value": 0.875,
+    "ci95": [
+     0.529,
+     0.978
+    ]
+   },
+   "several or none": {
+    "k": 1,
+    "n": 2,
+    "value": 0.5,
+    "ci95": [
+     0.095,
+     0.905
+    ]
+   }
+  }
+ },
+ "unanswerable_declined": {
+  "k": 5,
+  "n": 5,
+  "value": 1.0,
+  "ci95": [
+   0.566,
+   1.0
+  ]
+ },
+ "narrative": {
+  "every_point_stated": {
+   "k": 3,
+   "n": 5,
+   "value": 0.6,
+   "ci95": [
+    0.231,
+    0.882
+   ]
+  },
+  "points_stated": {
+   "k": 15,
+   "n": 17,
+   "value": 0.882,
+   "ci95": [
+    0.657,
+    0.967
+   ]
+  },
+  "per_question": {
+   "HA-031": "4/4",
+   "HA-032": "2/3",
+   "HA-033": "4/4",
+   "HA-034": "3/4",
+   "HA-035": "2/2"
+  },
+  "borderline_for_human_review": [
+   "HA-033",
+   "HA-034"
+  ],
+  "judge": "Claude (Fable 5.2), Week 8 rubric with quote guard; not an API run"
+ },
+ "citations": {
+  "cited_chunks_exist": {
+   "k": 49,
+   "n": 49,
+   "value": 1.0,
+   "ci95": [
+    0.927,
+    1.0
+   ]
+  },
+  "answers_citing_a_gold_filing": {
+   "k": 34,
+   "n": 34,
+   "value": 1.0,
+   "ci95": [
+    0.898,
+    1.0
+   ]
+  },
+  "lookup_figure_in_a_cited_chunk": {
+   "k": 25,
+   "n": 25,
+   "value": 1.0,
+   "ci95": [
+    0.867,
+    1.0
+   ]
+  }
+ },
+ "cost_and_latency": {
+  "method": "RAG's log: tokens x list price, wall-clock per question; one fresh API call per question",
+  "prompt_tokens": 254241,
+  "completion_tokens": 3748,
+  "cost_usd_total": 0.273,
+  "cost_usd_per_question": 0.00682,
+  "retrieval_ms": {
+   "median": 590.0,
+   "p95": 1717.1
+  },
+  "reader_ms": {
+   "median": 2128.0,
+   "p95": 5069.0
+  },
+  "total_ms": {
+   "median": 2977.5,
+   "p95": 6458.2
+  }
+ },
+ "eval_vs_rags_own_grader": {
+  "disagreements": []
+ },
+ "development_set_for_comparison": {
+  "final_v1_numeric_as_reported_by_RAG": "87/93 = 0.935 (Gold v2, RAG's subset)",
+  "round1_reader_numeric_eval_scored": "89/94 = 0.947 (Gold v2.2)"
+ }
+}

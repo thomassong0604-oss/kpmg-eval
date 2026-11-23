@@ -1,0 +1,1072 @@
+{
+ "_doc": "Week 10: official score of RAG's six filter-source arms on messy_wording_v1 (427 rewrites; exploratory, not pre-registered).",
+ "suite": "messy_wording_v1",
+ "gold": "benchmark_v2_2.jsonl (hash 416304a91b4aa400)",
+ "status": "exploratory; the agents_precheck arm was designed by RAG after seeing the other arms on this suite",
+ "number_questions": 264,
+ "out_of_corpus": {
+  "questions": [
+   "EV2-026",
+   "EV3-008",
+   "EV3-009"
+  ],
+  "rule": "NetApp's 10-Q is not in the round-1 corpus (20 filings); declining is the right behaviour, so these rewrites are left out of numeric accuracy and counted on their own line"
+ },
+ "arms": {
+  "none": {
+   "label": "No filters",
+   "rewrites": 427,
+   "missing": 0,
+   "numeric_accuracy": {
+    "k": 205,
+    "n": 264,
+    "value": 0.777,
+    "ci95": [
+     0.723,
+     0.823
+    ]
+   },
+   "by_perturbation": {
+    "typo_company": {
+     "k": 61,
+     "n": 82,
+     "value": 0.744,
+     "ci95": [
+      0.64,
+      0.826
+     ]
+    },
+    "typo_terms": {
+     "k": 68,
+     "n": 89,
+     "value": 0.764,
+     "ci95": [
+      0.666,
+      0.84
+     ]
+    },
+    "casual": {
+     "k": 76,
+     "n": 93,
+     "value": 0.817,
+     "ci95": [
+      0.727,
+      0.883
+     ]
+    }
+   },
+   "numeric_labels_of_misses": {
+    "too_imprecise": 2,
+    "false_refusal": 51,
+    "wrong_value": 5,
+    "wrong_period": 1
+   },
+   "numeric_accuracy_incl_out_of_corpus": {
+    "k": 205,
+    "n": 267,
+    "value": 0.768,
+    "ci95": [
+     0.714,
+     0.814
+    ]
+   },
+   "answerable_declined": {
+    "k": 102,
+    "n": 389,
+    "value": 0.262,
+    "ci95": [
+     0.221,
+     0.308
+    ]
+   },
+   "out_of_corpus_declined": {
+    "k": 9,
+    "n": 9,
+    "value": 1.0,
+    "ci95": [
+     0.701,
+     1.0
+    ]
+   },
+   "differs_from_rags_grader_on": [
+    "EV1-043~casual",
+    "EV1-043~typo_terms"
+   ],
+   "unanswerable_declined": {
+    "k": 29,
+    "n": 29,
+    "value": 1.0,
+    "ci95": [
+     0.883,
+     1.0
+    ]
+   },
+   "categorical_accuracy": {
+    "k": 10,
+    "n": 33,
+    "value": 0.303,
+    "ci95": [
+     0.174,
+     0.473
+    ]
+   },
+   "false_premise_corrected": {
+    "k": 12,
+    "n": 20,
+    "value": 0.6,
+    "ci95": [
+     0.387,
+     0.781
+    ]
+   },
+   "answers_citing_only_other_filings": {
+    "n": 20,
+    "numeric_of_which_right": 0,
+    "numeric": 0
+   },
+   "narrative_answered": {
+    "k": 52,
+    "n": 75,
+    "value": 0.693,
+    "ci95": [
+     0.582,
+     0.786
+    ]
+   },
+   "citations": {
+    "cited_chunks_exist": {
+     "k": 375,
+     "n": 375,
+     "value": 1.0,
+     "ci95": [
+      0.99,
+      1.0
+     ]
+    },
+    "answers_citing_a_gold_filing": {
+     "k": 267,
+     "n": 287,
+     "value": 0.93,
+     "ci95": [
+      0.895,
+      0.954
+     ]
+    },
+    "lookup_figure_in_a_cited_chunk": {
+     "k": 141,
+     "n": 147,
+     "value": 0.959,
+     "ci95": [
+      0.914,
+      0.981
+     ]
+    }
+   },
+   "rags_own_grader": {
+    "k": 203,
+    "n": 264
+   },
+   "difference_from_rags_grader": 2
+  },
+  "precheck": {
+   "label": "Rule pre-check",
+   "rewrites": 427,
+   "missing": 0,
+   "numeric_accuracy": {
+    "k": 217,
+    "n": 264,
+    "value": 0.822,
+    "ci95": [
+     0.771,
+     0.863
+    ]
+   },
+   "by_perturbation": {
+    "typo_company": {
+     "k": 70,
+     "n": 82,
+     "value": 0.854,
+     "ci95": [
+      0.761,
+      0.914
+     ]
+    },
+    "typo_terms": {
+     "k": 71,
+     "n": 89,
+     "value": 0.798,
+     "ci95": [
+      0.703,
+      0.868
+     ]
+    },
+    "casual": {
+     "k": 76,
+     "n": 93,
+     "value": 0.817,
+     "ci95": [
+      0.727,
+      0.883
+     ]
+    }
+   },
+   "numeric_labels_of_misses": {
+    "false_refusal": 42,
+    "wrong_value": 3,
+    "too_imprecise": 1,
+    "wrong_period": 1
+   },
+   "numeric_accuracy_incl_out_of_corpus": {
+    "k": 217,
+    "n": 267,
+    "value": 0.813,
+    "ci95": [
+     0.762,
+     0.855
+    ]
+   },
+   "answerable_declined": {
+    "k": 86,
+    "n": 389,
+    "value": 0.221,
+    "ci95": [
+     0.183,
+     0.265
+    ]
+   },
+   "out_of_corpus_declined": {
+    "k": 9,
+    "n": 9,
+    "value": 1.0,
+    "ci95": [
+     0.701,
+     1.0
+    ]
+   },
+   "differs_from_rags_grader_on": [
+    "EV1-043~casual",
+    "EV1-043~typo_terms"
+   ],
+   "unanswerable_declined": {
+    "k": 29,
+    "n": 29,
+    "value": 1.0,
+    "ci95": [
+     0.883,
+     1.0
+    ]
+   },
+   "categorical_accuracy": {
+    "k": 12,
+    "n": 33,
+    "value": 0.364,
+    "ci95": [
+     0.222,
+     0.534
+    ]
+   },
+   "false_premise_corrected": {
+    "k": 12,
+    "n": 20,
+    "value": 0.6,
+    "ci95": [
+     0.387,
+     0.781
+    ]
+   },
+   "answers_citing_only_other_filings": {
+    "n": 22,
+    "numeric_of_which_right": 0,
+    "numeric": 0
+   },
+   "narrative_answered": {
+    "k": 57,
+    "n": 75,
+    "value": 0.76,
+    "ci95": [
+     0.652,
+     0.842
+    ]
+   },
+   "citations": {
+    "cited_chunks_exist": {
+     "k": 400,
+     "n": 400,
+     "value": 1.0,
+     "ci95": [
+      0.99,
+      1.0
+     ]
+    },
+    "answers_citing_a_gold_filing": {
+     "k": 281,
+     "n": 303,
+     "value": 0.927,
+     "ci95": [
+      0.893,
+      0.952
+     ]
+    },
+    "lookup_figure_in_a_cited_chunk": {
+     "k": 150,
+     "n": 153,
+     "value": 0.98,
+     "ci95": [
+      0.944,
+      0.993
+     ]
+    }
+   },
+   "rags_own_grader": {
+    "k": 215,
+    "n": 264
+   },
+   "difference_from_rags_grader": 2
+  },
+  "rag_llm": {
+   "label": "A: RAG-side LLM + pre-check",
+   "rewrites": 427,
+   "missing": 0,
+   "numeric_accuracy": {
+    "k": 216,
+    "n": 264,
+    "value": 0.818,
+    "ci95": [
+     0.767,
+     0.86
+    ]
+   },
+   "by_perturbation": {
+    "typo_company": {
+     "k": 72,
+     "n": 82,
+     "value": 0.878,
+     "ci95": [
+      0.79,
+      0.932
+     ]
+    },
+    "typo_terms": {
+     "k": 70,
+     "n": 89,
+     "value": 0.787,
+     "ci95": [
+      0.69,
+      0.859
+     ]
+    },
+    "casual": {
+     "k": 74,
+     "n": 93,
+     "value": 0.796,
+     "ci95": [
+      0.703,
+      0.865
+     ]
+    }
+   },
+   "numeric_labels_of_misses": {
+    "false_refusal": 43,
+    "wrong_value": 3,
+    "too_imprecise": 1,
+    "wrong_period": 1
+   },
+   "numeric_accuracy_incl_out_of_corpus": {
+    "k": 216,
+    "n": 267,
+    "value": 0.809,
+    "ci95": [
+     0.758,
+     0.852
+    ]
+   },
+   "answerable_declined": {
+    "k": 86,
+    "n": 389,
+    "value": 0.221,
+    "ci95": [
+     0.183,
+     0.265
+    ]
+   },
+   "out_of_corpus_declined": {
+    "k": 9,
+    "n": 9,
+    "value": 1.0,
+    "ci95": [
+     0.701,
+     1.0
+    ]
+   },
+   "differs_from_rags_grader_on": [
+    "EV1-043~casual",
+    "EV1-043~typo_terms"
+   ],
+   "unanswerable_declined": {
+    "k": 29,
+    "n": 29,
+    "value": 1.0,
+    "ci95": [
+     0.883,
+     1.0
+    ]
+   },
+   "categorical_accuracy": {
+    "k": 13,
+    "n": 33,
+    "value": 0.394,
+    "ci95": [
+     0.247,
+     0.563
+    ]
+   },
+   "false_premise_corrected": {
+    "k": 13,
+    "n": 20,
+    "value": 0.65,
+    "ci95": [
+     0.433,
+     0.819
+    ]
+   },
+   "answers_citing_only_other_filings": {
+    "n": 20,
+    "numeric_of_which_right": 0,
+    "numeric": 0
+   },
+   "narrative_answered": {
+    "k": 56,
+    "n": 75,
+    "value": 0.747,
+    "ci95": [
+     0.638,
+     0.831
+    ]
+   },
+   "citations": {
+    "cited_chunks_exist": {
+     "k": 400,
+     "n": 400,
+     "value": 1.0,
+     "ci95": [
+      0.99,
+      1.0
+     ]
+    },
+    "answers_citing_a_gold_filing": {
+     "k": 283,
+     "n": 303,
+     "value": 0.934,
+     "ci95": [
+      0.9,
+      0.957
+     ]
+    },
+    "lookup_figure_in_a_cited_chunk": {
+     "k": 151,
+     "n": 154,
+     "value": 0.981,
+     "ci95": [
+      0.944,
+      0.993
+     ]
+    }
+   },
+   "rags_own_grader": {
+    "k": 214,
+    "n": 264
+   },
+   "difference_from_rags_grader": 2
+  },
+  "agents": {
+   "label": "B: Agents' LLM extractor (d89208c)",
+   "rewrites": 427,
+   "missing": 0,
+   "numeric_accuracy": {
+    "k": 217,
+    "n": 264,
+    "value": 0.822,
+    "ci95": [
+     0.771,
+     0.863
+    ]
+   },
+   "by_perturbation": {
+    "typo_company": {
+     "k": 69,
+     "n": 82,
+     "value": 0.841,
+     "ci95": [
+      0.747,
+      0.905
+     ]
+    },
+    "typo_terms": {
+     "k": 74,
+     "n": 89,
+     "value": 0.831,
+     "ci95": [
+      0.74,
+      0.895
+     ]
+    },
+    "casual": {
+     "k": 74,
+     "n": 93,
+     "value": 0.796,
+     "ci95": [
+      0.703,
+      0.865
+     ]
+    }
+   },
+   "numeric_labels_of_misses": {
+    "false_refusal": 42,
+    "wrong_value": 3,
+    "too_imprecise": 1,
+    "wrong_period": 1
+   },
+   "numeric_accuracy_incl_out_of_corpus": {
+    "k": 217,
+    "n": 267,
+    "value": 0.813,
+    "ci95": [
+     0.762,
+     0.855
+    ]
+   },
+   "answerable_declined": {
+    "k": 74,
+    "n": 389,
+    "value": 0.19,
+    "ci95": [
+     0.154,
+     0.232
+    ]
+   },
+   "out_of_corpus_declined": {
+    "k": 9,
+    "n": 9,
+    "value": 1.0,
+    "ci95": [
+     0.701,
+     1.0
+    ]
+   },
+   "differs_from_rags_grader_on": [
+    "EV1-043~casual",
+    "EV1-043~typo_terms"
+   ],
+   "unanswerable_declined": {
+    "k": 29,
+    "n": 29,
+    "value": 1.0,
+    "ci95": [
+     0.883,
+     1.0
+    ]
+   },
+   "categorical_accuracy": {
+    "k": 15,
+    "n": 33,
+    "value": 0.455,
+    "ci95": [
+     0.298,
+     0.62
+    ]
+   },
+   "false_premise_corrected": {
+    "k": 14,
+    "n": 20,
+    "value": 0.7,
+    "ci95": [
+     0.481,
+     0.855
+    ]
+   },
+   "answers_citing_only_other_filings": {
+    "n": 22,
+    "numeric_of_which_right": 0,
+    "numeric": 0
+   },
+   "narrative_answered": {
+    "k": 64,
+    "n": 75,
+    "value": 0.853,
+    "ci95": [
+     0.756,
+     0.916
+    ]
+   },
+   "citations": {
+    "cited_chunks_exist": {
+     "k": 417,
+     "n": 417,
+     "value": 1.0,
+     "ci95": [
+      0.991,
+      1.0
+     ]
+    },
+    "answers_citing_a_gold_filing": {
+     "k": 293,
+     "n": 315,
+     "value": 0.93,
+     "ci95": [
+      0.897,
+      0.953
+     ]
+    },
+    "lookup_figure_in_a_cited_chunk": {
+     "k": 156,
+     "n": 158,
+     "value": 0.987,
+     "ci95": [
+      0.955,
+      0.997
+     ]
+    }
+   },
+   "rags_own_grader": {
+    "k": 215,
+    "n": 264
+   },
+   "difference_from_rags_grader": 2
+  },
+  "agents_precheck": {
+   "label": "B + pre-check (post-hoc)",
+   "rewrites": 427,
+   "missing": 0,
+   "numeric_accuracy": {
+    "k": 217,
+    "n": 264,
+    "value": 0.822,
+    "ci95": [
+     0.771,
+     0.863
+    ]
+   },
+   "by_perturbation": {
+    "typo_company": {
+     "k": 71,
+     "n": 82,
+     "value": 0.866,
+     "ci95": [
+      0.776,
+      0.923
+     ]
+    },
+    "typo_terms": {
+     "k": 71,
+     "n": 89,
+     "value": 0.798,
+     "ci95": [
+      0.703,
+      0.868
+     ]
+    },
+    "casual": {
+     "k": 75,
+     "n": 93,
+     "value": 0.806,
+     "ci95": [
+      0.715,
+      0.874
+     ]
+    }
+   },
+   "numeric_labels_of_misses": {
+    "false_refusal": 42,
+    "wrong_value": 3,
+    "too_imprecise": 1,
+    "wrong_period": 1
+   },
+   "numeric_accuracy_incl_out_of_corpus": {
+    "k": 217,
+    "n": 267,
+    "value": 0.813,
+    "ci95": [
+     0.762,
+     0.855
+    ]
+   },
+   "answerable_declined": {
+    "k": 79,
+    "n": 389,
+    "value": 0.203,
+    "ci95": [
+     0.166,
+     0.246
+    ]
+   },
+   "out_of_corpus_declined": {
+    "k": 9,
+    "n": 9,
+    "value": 1.0,
+    "ci95": [
+     0.701,
+     1.0
+    ]
+   },
+   "differs_from_rags_grader_on": [
+    "EV1-043~casual",
+    "EV1-043~typo_terms"
+   ],
+   "unanswerable_declined": {
+    "k": 29,
+    "n": 29,
+    "value": 1.0,
+    "ci95": [
+     0.883,
+     1.0
+    ]
+   },
+   "categorical_accuracy": {
+    "k": 13,
+    "n": 33,
+    "value": 0.394,
+    "ci95": [
+     0.247,
+     0.563
+    ]
+   },
+   "false_premise_corrected": {
+    "k": 13,
+    "n": 20,
+    "value": 0.65,
+    "ci95": [
+     0.433,
+     0.819
+    ]
+   },
+   "answers_citing_only_other_filings": {
+    "n": 22,
+    "numeric_of_which_right": 0,
+    "numeric": 0
+   },
+   "narrative_answered": {
+    "k": 62,
+    "n": 75,
+    "value": 0.827,
+    "ci95": [
+     0.726,
+     0.896
+    ]
+   },
+   "citations": {
+    "cited_chunks_exist": {
+     "k": 412,
+     "n": 412,
+     "value": 1.0,
+     "ci95": [
+      0.991,
+      1.0
+     ]
+    },
+    "answers_citing_a_gold_filing": {
+     "k": 288,
+     "n": 310,
+     "value": 0.929,
+     "ci95": [
+      0.895,
+      0.953
+     ]
+    },
+    "lookup_figure_in_a_cited_chunk": {
+     "k": 152,
+     "n": 155,
+     "value": 0.981,
+     "ci95": [
+      0.945,
+      0.993
+     ]
+    }
+   },
+   "rags_own_grader": {
+    "k": 215,
+    "n": 264
+   },
+   "difference_from_rags_grader": 2
+  },
+  "gold": {
+   "label": "Gold filters (upper bound)",
+   "rewrites": 427,
+   "missing": 0,
+   "numeric_accuracy": {
+    "k": 231,
+    "n": 264,
+    "value": 0.875,
+    "ci95": [
+     0.83,
+     0.91
+    ]
+   },
+   "by_perturbation": {
+    "typo_company": {
+     "k": 75,
+     "n": 82,
+     "value": 0.915,
+     "ci95": [
+      0.834,
+      0.958
+     ]
+    },
+    "typo_terms": {
+     "k": 77,
+     "n": 89,
+     "value": 0.865,
+     "ci95": [
+      0.779,
+      0.921
+     ]
+    },
+    "casual": {
+     "k": 79,
+     "n": 93,
+     "value": 0.849,
+     "ci95": [
+      0.763,
+      0.908
+     ]
+    }
+   },
+   "numeric_labels_of_misses": {
+    "false_refusal": 27,
+    "wrong_value": 4,
+    "too_imprecise": 1,
+    "wrong_period": 1
+   },
+   "numeric_accuracy_incl_out_of_corpus": {
+    "k": 231,
+    "n": 267,
+    "value": 0.865,
+    "ci95": [
+     0.819,
+     0.901
+    ]
+   },
+   "answerable_declined": {
+    "k": 59,
+    "n": 389,
+    "value": 0.152,
+    "ci95": [
+     0.119,
+     0.191
+    ]
+   },
+   "out_of_corpus_declined": {
+    "k": 9,
+    "n": 9,
+    "value": 1.0,
+    "ci95": [
+     0.701,
+     1.0
+    ]
+   },
+   "differs_from_rags_grader_on": [
+    "EV1-043~casual",
+    "EV1-043~typo_terms"
+   ],
+   "unanswerable_declined": {
+    "k": 29,
+    "n": 29,
+    "value": 1.0,
+    "ci95": [
+     0.883,
+     1.0
+    ]
+   },
+   "categorical_accuracy": {
+    "k": 15,
+    "n": 33,
+    "value": 0.455,
+    "ci95": [
+     0.298,
+     0.62
+    ]
+   },
+   "false_premise_corrected": {
+    "k": 14,
+    "n": 20,
+    "value": 0.7,
+    "ci95": [
+     0.481,
+     0.855
+    ]
+   },
+   "answers_citing_only_other_filings": {
+    "n": 0,
+    "numeric_of_which_right": 0,
+    "numeric": 0
+   },
+   "narrative_answered": {
+    "k": 64,
+    "n": 75,
+    "value": 0.853,
+    "ci95": [
+     0.756,
+     0.916
+    ]
+   },
+   "citations": {
+    "cited_chunks_exist": {
+     "k": 442,
+     "n": 442,
+     "value": 1.0,
+     "ci95": [
+      0.991,
+      1.0
+     ]
+    },
+    "answers_citing_a_gold_filing": {
+     "k": 330,
+     "n": 330,
+     "value": 1.0,
+     "ci95": [
+      0.988,
+      1.0
+     ]
+    },
+    "lookup_figure_in_a_cited_chunk": {
+     "k": 156,
+     "n": 158,
+     "value": 0.987,
+     "ci95": [
+      0.955,
+      0.997
+     ]
+    }
+   },
+   "rags_own_grader": {
+    "k": 229,
+    "n": 264
+   },
+   "difference_from_rags_grader": 2
+  }
+ },
+ "pairwise_number_questions": {
+  "none vs precheck": {
+   "only_first_right": 3,
+   "only_second_right": 15,
+   "mcnemar_exact_p": 0.0075
+  },
+  "none vs rag_llm": {
+   "only_first_right": 8,
+   "only_second_right": 19,
+   "mcnemar_exact_p": 0.0522
+  },
+  "none vs agents": {
+   "only_first_right": 9,
+   "only_second_right": 21,
+   "mcnemar_exact_p": 0.0428
+  },
+  "none vs agents_precheck": {
+   "only_first_right": 6,
+   "only_second_right": 18,
+   "mcnemar_exact_p": 0.0227
+  },
+  "none vs gold": {
+   "only_first_right": 3,
+   "only_second_right": 29,
+   "mcnemar_exact_p": 0.0
+  },
+  "precheck vs rag_llm": {
+   "only_first_right": 6,
+   "only_second_right": 5,
+   "mcnemar_exact_p": 1.0
+  },
+  "precheck vs agents": {
+   "only_first_right": 8,
+   "only_second_right": 8,
+   "mcnemar_exact_p": 1.0
+  },
+  "precheck vs agents_precheck": {
+   "only_first_right": 3,
+   "only_second_right": 3,
+   "mcnemar_exact_p": 1.0
+  },
+  "precheck vs gold": {
+   "only_first_right": 2,
+   "only_second_right": 16,
+   "mcnemar_exact_p": 0.0013
+  },
+  "rag_llm vs agents": {
+   "only_first_right": 6,
+   "only_second_right": 7,
+   "mcnemar_exact_p": 1.0
+  },
+  "rag_llm vs agents_precheck": {
+   "only_first_right": 2,
+   "only_second_right": 3,
+   "mcnemar_exact_p": 1.0
+  },
+  "rag_llm vs gold": {
+   "only_first_right": 2,
+   "only_second_right": 17,
+   "mcnemar_exact_p": 0.0007
+  },
+  "agents vs agents_precheck": {
+   "only_first_right": 6,
+   "only_second_right": 6,
+   "mcnemar_exact_p": 1.0
+  },
+  "agents vs gold": {
+   "only_first_right": 0,
+   "only_second_right": 14,
+   "mcnemar_exact_p": 0.0001
+  },
+  "agents_precheck vs gold": {
+   "only_first_right": 2,
+   "only_second_right": 16,
+   "mcnemar_exact_p": 0.0013
+  }
+ },
+ "narrative_in_corpus": {
+  "rewrites": 72,
+  "answered": {
+   "none": 52,
+   "precheck": 57,
+   "rag_llm": 56,
+   "agents": 64,
+   "agents_precheck": 62,
+   "gold": 64
+  },
+  "pairwise_answered": {
+   "precheck vs agents": {
+    "only_first_answered": 1,
+    "only_second_answered": 8,
+    "mcnemar_exact_p": 0.0391
+   },
+   "precheck vs rag_llm": {
+    "only_first_answered": 5,
+    "only_second_answered": 4,
+    "mcnemar_exact_p": 1.0
+   },
+   "precheck vs agents_precheck": {
+    "only_first_answered": 1,
+    "only_second_answered": 6,
+    "mcnemar_exact_p": 0.125
+   },
+   "agents vs gold": {
+    "only_first_answered": 1,
+    "only_second_answered": 1,
+    "mcnemar_exact_p": 1.0
+   },
+   "none vs precheck": {
+    "only_first_answered": 0,
+    "only_second_answered": 5,
+    "mcnemar_exact_p": 0.0625
+   }
+  },
+  "note": "answered is not the same as right: these answers were not judged point by point"
+ },
+ "wrong_under_gold_filters": 33,
+ "right_under_gold_filters_but_wrong_in_arm": {
+  "none": 29,
+  "precheck": 16,
+  "rag_llm": 17,
+  "agents": 14,
+  "agents_precheck": 16
+ },
+ "not_done": "no pairing with clean wording: Eval has no per-question file for final_v1 on the clean questions"
+}
