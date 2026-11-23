@@ -1,8 +1,18 @@
 {
  "_doc": "Holdout batch B for RAG's final_v2 (tag 789bf81). Questions are sealed until the run; this file is the public commitment.",
  "file": "holdout_B.jsonl",
- "sha256": "f6d3782d8db09a2e5ada9eac5f3d1521d7f79b32f06c40c4516c4f0b5811785b",
+ "sha256": "f6326a3486460526e1088f515bfd7b8eadf448109cacf8ca955bd98b3bea2c54",
  "built": "2026-11-19",
+ "revised": "2026-11-23",
+ "supersedes_sha256": "f6d3782d8db09a2e5ada9eac5f3d1521d7f79b32f06c40c4516c4f0b5811785b",
+ "revision": "Review before delivery, after batch A showed one required point the question did not ask for. Rule applied: every required point must be something the question asks for. Four questions reworded to ask for a point they already required, one unasked point removed. No answer, source passage, count or category changed. Nobody outside Eval had seen the file.",
+ "revised_questions": [
+  "HB-006",
+  "HB-007",
+  "HB-013",
+  "HB-014",
+  "HB-016"
+ ],
  "questions": 30,
  "by_answer_type": {
   "narrative": 18,

@@ -40,7 +40,11 @@ The two numeric misses, both labelled the same way by RAG's own grader:
 Narrative, two things for a human to look at (scores above are the strict ones):
 
 - **HA-034** states 3 of 4 points. The missing point is a date the question does not ask for, and the answer gives a reason
-  from another passage that is arguably better than the gold answer. A reviewer should decide whether the date stays a required point.
+  from another passage that is arguably better than the gold answer.
+  **Decision (11/23):** the official score stays the strict one, because no gold answer changes after the answers are seen.
+  HA-034 is recorded as a disputed question; without the date point narrative would be 4/5 (15/16 points). The rule it
+  suggests (every required point must be something the question asks for) was applied to batch B before delivery
+  (`../Week 9/README.md`, section 9).
 - **HA-033** says "0.2 percentage points" where the filing says "20 basis points". Counted as stated.
 
 Our grader and RAG's own grader agree on all 35 questions that both score.

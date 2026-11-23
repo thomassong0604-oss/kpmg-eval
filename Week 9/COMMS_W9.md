@@ -139,7 +139,7 @@ Thanks, all six work. Point by point:
    - Form: 10-K 26, 10-Q 8, several filings or none 6.
    Yes, B will fill the thin categories. B is now written and sealed, 30 questions: narrative 18, numeric 6 (all stress), unanswerable 6; stress about 18: misspelled name 2, analyst wording 3, multi-step 3, relative period 3, cross-filing 3, narrative across sections 4; Microsoft 7. With A and B together every category then has at least 5: narrative 23, unanswerable 11, and each stress type 5 or 6.
 
-3. Batch B: written and sealed on 11/19 for final_v2 at 789bf81. Its hash is in Week 9/results/holdout_B_manifest.json (it starts f6d3782d). Same delivery as A, on or before 11/24.
+3. Batch B: written and sealed on 11/19 for final_v2 at 789bf81. Its hash is in Week 9/results/holdout_B_manifest.json (it starts f6d3782d). Same delivery as A, on or before 11/24. [Note 11/23: batch B was revised before delivery; the hash now starts f6326a34. See Week 10/COMMS_W10.md.]
 
 4. Messy wording and abstention: please run Week 9/scripts/grade_suite_answers.py yourselves, then send us the AnswerBlocks (keyed vid and sid) and your clean per-question file. We re-score from the blocks and that is the official score, within a day of receiving them. Please run messy wording without the company filter as the primary run.
 

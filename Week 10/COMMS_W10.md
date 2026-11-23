@@ -12,7 +12,7 @@ Hi Xiangxinrui, thank you, this is exactly what we needed: one run, the hash che
    - Cost and time, from your log: $0.273 in total, median 3.0 s per question, p95 6.5 s.
    - Our grader and yours agree on all 35 questions both score.
    - The two misses: HA-009 gives the right amount with a negative sign for a question about expenditures. HA-029 declines the derived fourth-quarter figure although both inputs were retrieved.
-   - One narrative question (HA-034) goes to a human reviewer on our side: your answer gives a reason that may be better than our gold answer. The score above is the strict one.
+   - One narrative question (HA-034) is recorded as disputed: your answer gives a reason that may be better than our gold answer, and the point it misses is a date the question does not ask for. The official score stays the strict one, since we do not change gold answers after seeing answers. Without that point it would be 4/5.
 
 2. Six arms on messy wording (official, exploratory)
    - Numeric: 0.777 / 0.822 / 0.818 / 0.822 / 0.822 / 0.875 of 264. Same ranking and the same paired tests as yours.
@@ -27,4 +27,19 @@ Hi Xiangxinrui, thank you, this is exactly what we needed: one run, the hash che
    c. The hand-label file from 11/17 (20 questions, 126 points). We still have not received it.
    d. If you have budget, the narrative judge on the pre-check and Agents arms. That settles point 2.
 
-4. Batch B comes by DM on 11/24 as planned, for final_v2 at 789bf81. The hash is in Week 9/results/holdout_B_manifest.json.
+4. Batch B comes by DM on 11/24 as planned, for final_v2 at 789bf81. We revised it on 11/23 before sending, so the hash changed: it now starts f6326a34 (Week 9/results/holdout_B_manifest.json).
+
+## DM to RAG (Xiangxinrui) with holdout batch B, 11/24 (draft)
+
+Hi Xiangxinrui, here is holdout batch B for final_v2 at 789bf81 (file attached: holdout_B.jsonl, 30 questions).
+
+SHA-256: f6326a3486460526e1088f515bfd7b8eadf448109cacf8ca955bd98b3bea2c54
+
+Please note the hash is new. We revised the file on 11/23, before anyone outside Eval saw it, and published the new hash in Week 9/results/holdout_B_manifest.json first (the old one started f6d3782d). Reason: batch A showed one required point that the question did not ask for (HA-034), so we checked batch B against one rule, every required point must be something the question asks for. Four questions were reworded to ask for a point they already required and one unasked point was removed. No answer, count or category changed.
+
+Same procedure as batch A, please:
+1. Check the hash before opening.
+2. One run, final_v2, pre-registered default filters, no changes after opening.
+3. Send back answer_blocks.jsonl and per_question.csv (with tokens, cost, retrieval and reader time), plus the commit and index version.
+
+Contents: narrative 18, numeric 6 (all stress), unanswerable 6; Microsoft 7; stress 18. We score within a day of receiving the answers.

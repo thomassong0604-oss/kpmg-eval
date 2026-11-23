@@ -171,6 +171,11 @@ GraphRAG's own run of 11/11, before Exhibit 21 was loaded.
 30 questions for RAG's `final_v2` (tag 789bf81), built to fill batch A's thin categories. Only
 `results/holdout_B_manifest.json` (counts and SHA-256) is in the repository.
 
+**Revised 11/23, before delivery** (hash f6326a34…2c54, replacing f6d3782d…785b). Batch A showed one required point the question
+did not ask for, so batch B was reviewed against one rule: every required point must be something the question asks for. Four
+questions were reworded to ask for a point they already required and one unasked point was removed. No answer, source passage,
+count or category changed, and nobody outside Eval had seen the file. The six unanswerable questions were re-checked against the corpus.
+
 | | Batch B | A and B together |
 |---|---|---|
 | Numeric / narrative / unanswerable | 6 / 18 / 6 | 36 / 23 / 11 |
