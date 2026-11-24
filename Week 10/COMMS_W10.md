@@ -43,3 +43,36 @@ Same procedure as batch A, please:
 3. Send back answer_blocks.jsonl and per_question.csv (with tokens, cost, retrieval and reader time), plus the commit and index version.
 
 Contents: narrative 18, numeric 6 (all stress), unanswerable 6; Microsoft 7; stress 18. We score within a day of receiving the answers.
+
+## Slack reply to RAG (Xiangxinrui), batch B and the four follow-ups, 11/24 (draft)
+
+Hi Xiangxinrui, thank you for all five messages. Batch B is scored and everything you sent is checked. Details are in Week 10/README.md, sections 3 to 6.
+
+1. Holdout B, final_v2 (official)
+- Narrative: 17/18 with every required point, 57/58 points. Your development result for this variant was 24/27, so the gain holds on unseen questions.
+- Numeric: 5/6. Unanswerable declined: 6/6.
+- Citations: all 33 cited chunks exist and every answer cites a gold filing.
+- Cost and time match your log: $0.222, median 2.9 s per question.
+- Our grader and yours agree on all 12 questions both score.
+- The two misses: HB-016 gives one of its two figures and says the other is not in its excerpts. HB-024 declines the change between the annual and the quarterly balance sheet. With HA-029, the two-filing questions are 3 of 5 across both batches, and both misses are declines, not wrong numbers.
+- HB-004 is our mistake: the question says revenue fell, but reported revenue rose slightly and the 2% fall is currency-neutral. Your answer corrected that and still gave every point, so it passes.
+- HB-001: thank you for disclosing the preview. It is in the record, and without it the narrative score is 16/17. We will send future files zipped so Slack cannot preview them.
+
+2. Human review of the 23 holdout narrative answers: yes, please go ahead by 11/27, same format as 11/17. The narrative scores above come from our judge, and your hand labels show it gives credit slightly too easily (point 3), so a human check matters here. We will keep our per-point verdicts back until your labels arrive, so your raters stay blind. We will also label the same 23 on our side so we can report agreement between raters.
+
+3. Hand labels from 11/17: received, thank you.
+- Your kappas reproduce: gpt-6-sol against your raters is 0.93 (final_v1) and 0.90 (final_v2), 124 of 126 points.
+- Our judge against your raters: 97 of 100 points, kappa 0.83.
+- Every disagreement, for both judges, is the judge giving credit where your raters did not. On EV1-045 your raters and gpt-6-sol are right and our judge was wrong.
+- With your labels applied, our Week 9 counts become 25/38 for final_v1 and 32/38 for final_v2 (were 26 and 34). The gain from v1 to v2 stays.
+
+4. Your follow-ups
+a. 29 against 26: understood, the three graph-route rewrites. Both counts are 100%.
+b. Clean against messy, paired: no rewrite is right where its clean question was wrong. Of the 252 pairs right when clean, 21 are lost with gold filters, 35 with the rule pre-check, 47 with no filters. With the pre-check, 30 of the 35 are declines, so it fails safely. Yes please to the re-run of final_v1 on the fixed index, so both sides of the pairing use one index.
+d. Thank you for running the judge on both arms. Every total in your message reproduces from your table, and your answered and citation flags match ours on all 72 rewrites. We agree with your reading and with the recommended setup. One thing we would add to the citation limitation: in each arm, 4 of the 5 contradictions come from answers that cite only another filing (4 of 22, against 1 of 35 and 1 of 42). It is two questions, so a lead, not a result.
+
+5. XBRL A and C: we are still missing the two inputs, so nothing is generated yet.
+a. The saved pull of the metric rows (the --from-json input), by DM.
+b. The commit of build_objective_set.py you want us to run.
+c. A yes or no on the four rule changes we proposed (leave out anything a dev or holdout question uses; unfiltered run as primary for messy wording; pre-check filters as co-primary; precision from the printed digits).
+Once we have these, manifests and hashes for A and C follow within a day.

@@ -1,0 +1,282 @@
+{
+ "_doc": "Week 10: official score of a sealed holdout batch (RAG's final_v1 on batch A, 11/22-23; final_v2 on batch B, 11/24; each run once by RAG).",
+ "batch": "B",
+ "system": "RAG final_v2 (tag 789bf81; code at main 69198ee, Chroma chroma_C1 7a7ad9801f86)",
+ "sealed_file_sha256": "f6326a3486460526e1088f515bfd7b8eadf448109cacf8ca955bd98b3bea2c54",
+ "hash_matches_manifest": true,
+ "questions": 30,
+ "answers_received": 30,
+ "filters": {
+  "gold": 30
+ },
+ "from_cache": 0,
+ "numeric": {
+  "accuracy": {
+   "k": 5,
+   "n": 6,
+   "value": 0.833,
+   "ci95": [
+    0.436,
+    0.97
+   ]
+  },
+  "labels_of_misses": {
+   "false_refusal": 1
+  },
+  "misses": {
+   "HB-024": "false_refusal"
+  },
+  "normal": {
+   "k": 0,
+   "n": 0,
+   "value": null,
+   "ci95": null
+  },
+  "stress": {
+   "k": 5,
+   "n": 6,
+   "value": 0.833,
+   "ci95": [
+    0.436,
+    0.97
+   ]
+  },
+  "by_stress_type": {
+   "cross_filing": {
+    "k": 2,
+    "n": 3,
+    "value": 0.667,
+    "ci95": [
+     0.208,
+     0.939
+    ]
+   },
+   "multi_step": {
+    "k": 3,
+    "n": 3,
+    "value": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ]
+   }
+  },
+  "microsoft": {
+   "k": 1,
+   "n": 1,
+   "value": 1.0,
+   "ci95": [
+    0.207,
+    1.0
+   ]
+  },
+  "other_companies": {
+   "k": 4,
+   "n": 5,
+   "value": 0.8,
+   "ci95": [
+    0.376,
+    0.964
+   ]
+  },
+  "by_form": {
+   "10-K": {
+    "k": 3,
+    "n": 3,
+    "value": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ]
+   },
+   "several or none": {
+    "k": 2,
+    "n": 3,
+    "value": 0.667,
+    "ci95": [
+     0.208,
+     0.939
+    ]
+   }
+  }
+ },
+ "unanswerable_declined": {
+  "k": 6,
+  "n": 6,
+  "value": 1.0,
+  "ci95": [
+   0.61,
+   1.0
+  ]
+ },
+ "narrative": {
+  "every_point_stated": {
+   "k": 17,
+   "n": 18,
+   "value": 0.944,
+   "ci95": [
+    0.742,
+    0.99
+   ]
+  },
+  "points_stated": {
+   "k": 57,
+   "n": 58,
+   "value": 0.983,
+   "ci95": [
+    0.909,
+    0.997
+   ]
+  },
+  "per_question": {
+   "HB-001": "4/4",
+   "HB-002": "4/4",
+   "HB-003": "4/4",
+   "HB-004": "4/4",
+   "HB-005": "3/3",
+   "HB-006": "2/2",
+   "HB-007": "3/3",
+   "HB-008": "4/4",
+   "HB-009": "3/3",
+   "HB-010": "2/2",
+   "HB-011": "4/4",
+   "HB-012": "2/2",
+   "HB-013": "4/4",
+   "HB-014": "3/3",
+   "HB-015": "3/3",
+   "HB-016": "1/2",
+   "HB-017": "4/4",
+   "HB-018": "3/3"
+  },
+  "borderline_for_human_review": [
+   "HB-004",
+   "HB-015",
+   "HB-016"
+  ],
+  "normal": {
+   "k": 7,
+   "n": 7,
+   "value": 1.0,
+   "ci95": [
+    0.646,
+    1.0
+   ]
+  },
+  "stress": {
+   "k": 10,
+   "n": 11,
+   "value": 0.909,
+   "ci95": [
+    0.623,
+    0.984
+   ]
+  },
+  "by_stress_type": {
+   "analyst_wording": {
+    "k": 3,
+    "n": 3,
+    "value": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ]
+   },
+   "misspelled_name": {
+    "k": 1,
+    "n": 1,
+    "value": 1.0,
+    "ci95": [
+     0.207,
+     1.0
+    ]
+   },
+   "narrative_multi_section": {
+    "k": 3,
+    "n": 4,
+    "value": 0.75,
+    "ci95": [
+     0.301,
+     0.954
+    ]
+   },
+   "relative_period": {
+    "k": 3,
+    "n": 3,
+    "value": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ]
+   }
+  },
+  "marked_not_answered_by_system": [
+   "HB-016"
+  ],
+  "previewed_before_run": [
+   "HB-001"
+  ],
+  "every_point_stated_excluding_previewed": {
+   "k": 16,
+   "n": 17,
+   "value": 0.941,
+   "ci95": [
+    0.73,
+    0.99
+   ]
+  },
+  "judge": "Claude (Fable 5.2), Week 8 rubric with quote guard; not an API run"
+ },
+ "citations": {
+  "cited_chunks_exist": {
+   "k": 33,
+   "n": 33,
+   "value": 1.0,
+   "ci95": [
+    0.896,
+    1.0
+   ]
+  },
+  "answers_citing_a_gold_filing": {
+   "k": 22,
+   "n": 22,
+   "value": 1.0,
+   "ci95": [
+    0.851,
+    1.0
+   ]
+  },
+  "lookup_figure_in_a_cited_chunk": {
+   "k": 0,
+   "n": 0,
+   "value": null,
+   "ci95": null
+  }
+ },
+ "cost_and_latency": {
+  "method": "RAG's log: tokens x list price, wall-clock per question; one fresh API call per question",
+  "prompt_tokens": 205211,
+  "completion_tokens": 3442,
+  "cost_usd_total": 0.2224,
+  "cost_usd_per_question": 0.00741,
+  "retrieval_ms": {
+   "median": 325.2,
+   "p95": 1770.7
+  },
+  "reader_ms": {
+   "median": 2272.0,
+   "p95": 4201.0
+  },
+  "total_ms": {
+   "median": 2850.6,
+   "p95": 5619.7
+  }
+ },
+ "eval_vs_rags_own_grader": {
+  "disagreements": []
+ },
+ "development_set_for_comparison": {
+  "final_v1_numeric_as_reported_by_RAG": "87/93 = 0.935",
+  "round1_reader_numeric_eval_scored": "89/94 = 0.947 (Gold v2.2)",
+  "narrative_every_point_gpt6sol_judge_scored_by_eval": "final_v1 17/27, final_v2 candidate 24/27 (Week 9)"
+ }
+}

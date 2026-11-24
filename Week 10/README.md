@@ -1,6 +1,6 @@
-# Week 10 (Nov 20 – Nov 26): first sealed-holdout score, and filter extraction on messy wording
+# Week 10 (Nov 20 – Nov 26): both sealed-holdout scores, filter extraction on messy wording, and the judge against hand labels
 
-Everything here is scored from files RAG sent on 11/23. The answer files, RAG's per-question logs and the holdout questions
+Everything here is scored from files RAG sent on 11/23 and 11/24. The answer files, RAG's per-question logs and the holdout questions
 stay in the git-ignored `private/` folder; the result files hold labels and ids only.
 
 ## 1. Holdout batch A, RAG `final_v1` (official score)
@@ -71,7 +71,8 @@ in the round-1 corpus; those 9 are left out of the rates above (RAG left them ou
 **Against RAG's own table.** Same ranking and the same paired tests; every arm is 2 higher in ours (for example 205 against 203).
 Both are rewrites of one question (EV1-043) where the answer states the figure in its text but leaves the value field empty.
 Our grader reads the text, as it did on the development set; RAG's labels them `no_value`. We count 29 unanswerable rewrites
-where RAG reports 26; we have asked which three differ.
+where RAG reports 26: RAG keeps three fabricated-relationship rewrites (graph route) in a separate group. All were declined in every arm,
+so both counts are 100%.
 
 **Paired comparison on the 264 number questions (exact McNemar).**
 
@@ -99,16 +100,115 @@ What it says:
    Number answers do not show this (every one cites a gold filing). These need the narrative judge or a human read.
 5. Categorical questions are declined often in every arm (18 to 23 of 33), including with gold filters.
 
-Not done: pairing each rewrite with its clean question, because we have no per-question file for `final_v1` on the clean
-development questions. Requested from RAG.
+## 3. Holdout batch B, RAG `final_v2` (official score)
 
-## 3. Files
+`python scripts/score_holdout.py --batch B --system final_v2` → `results/holdout_B_final_v2.json`, `_per_question.csv`
+
+Run by RAG once on 11/24: `final_v2` (tag 789bf81, code at main 69198ee), pre-registered default filters, 30 fresh API calls.
+The sealed file's SHA-256 matches the revised hash published on 11/23 (f6326a34…2c54). Batch B was built for the thin
+categories, so it is mostly narrative.
+
+| Measure | Holdout B | 95% interval | Note |
+|---|---|---|---|
+| Narrative, every required point | 17/18 = 0.944 | 0.742–0.990 | development set, same variant: 24/27 (22/27 with hand labels, section 4) |
+| Narrative, points stated | 57/58 | 0.909–0.997 | judge: Claude, Week 8 rubric with quote guard |
+| – normal / stress | 7/7 / 10/11 | | the miss is one of the 4 questions that need two sections |
+| Numeric accuracy (all stress questions) | 5/6 | 0.436–0.970 | multi-step 3/3, cross-filing 2/3 |
+| Unanswerable declined | 6/6 | 0.610–1.000 | |
+| Cited chunks exist | 33/33 | | |
+| Answers citing a gold filing | 22/22 | | |
+| Cost | $0.222 total, $0.0074 per question | | 205,211 prompt and 3,442 completion tokens (RAG's log) |
+| Time per question | median 2.9 s, p95 5.6 s | | retrieval 0.3 s / 1.8 s, reader 2.3 s / 4.2 s (nearest-rank percentiles) |
+
+What it says: `final_v2`'s narrative gain holds on questions it was not tuned on. Our grader and RAG's agree on all 12 questions both score.
+
+The two misses and what to keep in mind:
+
+- **HB-016, one of two points.** The answer gives the second figure and says the first is not in its excerpts, so the system marks it
+  not answered. A retrieval miss on one of two sections.
+- **HB-024, declined an answerable question.** A change between an annual and a quarterly balance sheet; RAG's log says retrieval did
+  not return the figures. With HA-029 in batch A, the two-filing questions are 3 of 5 across both batches, and both misses are declines, not wrong numbers.
+- **The narrative score is an upper bound until a human has rated it.** Section 4 shows the judge used here gives credit slightly too
+  easily. RAG has offered a blind human rating of all 23 holdout narrative answers.
+- **HB-004 is our error.** The question says revenue fell; in the filing reported revenue rose slightly and the 2% fall is
+  currency-neutral. The answer corrects this and still states every point, so it passes; the question is recorded as badly worded.
+  The review on 11/23 did not catch it.
+- **HB-001 was visible before the run** in a Slack message preview (reported by RAG; the system has been frozen since 11/17).
+  Without it the narrative score is 16/17.
+
+## 4. Both judges against RAG's hand labels
+
+`python scripts/validate_hand_labels.py` → `results/judge_vs_hand_labels.json`
+
+Two RAG members labelled 20 development questions blind on 11/17: 126 required points over `final_v1` and `final_v2`. The file reached us on 11/24.
+
+| Judge | Points compared | Agreement | Cohen's kappa | Disagreements |
+|---|---|---|---|---|
+| gpt-6-sol (RAG's run of our script) | 126 | 124 = 98.4% | 0.92 (0.93 `final_v1`, 0.90 `final_v2`) | 2, the same point in both runs |
+| Claude (Eval's judge, Week 9) | 100 | 97 = 97.0% | 0.83 (0.91 `final_v1`, 0.65 `final_v2`) | 3, on two questions |
+
+- RAG's reported kappas (0.93 and 0.90) reproduce from the file.
+- **Every disagreement goes the same way: the judge gave credit and the human did not.** Neither judge was ever stricter than the humans.
+  On EV1-045 the humans and gpt-6-sol both say a point is contradicted where our judge said stated, so our judge was wrong there.
+- With the human verdict used wherever one exists, our Week 9 counts drop by one or two: `final_v1` 26/38 → 25/38, the `final_v2`
+  variant 34/38 → 32/38 (narrative only: 17/27 → 16/27 and 24/27 → 22/27). The gain from v1 to v2 stays (+7 instead of +8).
+- Limits: only 15 of the 126 labels are not "stated", so kappa rests on few cases (the 0.65 comes from 2 disagreements in 50 points);
+  26 points on two questions were outside our judge's question set; the raters are RAG members, and Eval has not labelled these points itself.
+
+## 5. Clean wording against messy wording, question by question
+
+`python scripts/score_rewrite_followups.py` → `results/query_rewrite_followups.json`
+
+RAG sent `final_v1`'s per-question file on the 155 clean development questions. Re-graded with our grader it is 89/93 on in-corpus
+number questions (RAG's own grader: 87/93; the two differences are grading rules fixed in Gold Set v2.2). Each number rewrite is paired with its clean question.
+
+| Arm on the rewrites | Right in both | Right only when clean | Right only when messy | Wrong in both | Questions right clean but wrong in a rewrite |
+|---|---|---|---|---|---|
+| Gold filters | 231 | 21 | 0 | 12 | 16 of 89 |
+| Rule pre-check | 217 | 35 | 0 | 12 | 21 of 89 |
+| A: RAG-side LLM + pre-check | 216 | 36 | 0 | 12 | 21 of 89 |
+| B: Agents' LLM extractor | 217 | 35 | 0 | 12 | 20 of 89 |
+| No filters | 205 | 47 | 0 | 12 | 29 of 89 |
+
+- **Messy wording only ever loses answers**: no rewrite is right where its clean question was wrong (p < 0.0001 in every arm).
+- **The drop splits in two.** Clean 0.955 (252 of the 264 pairs) → 0.875 with perfect filters (wording alone, 21 answers) → 0.822 with the rule pre-check
+  (finding the filing, 14 more) → 0.777 with no filters.
+- **It fails safely.** With the pre-check, 30 of the 35 lost answers are declines; 5 are wrong or imprecise numbers.
+- Caveat: the clean run (11/16) used the index before the persistence fix, the arms the fixed one. RAG has offered to re-run it (about $1).
+  Rewrites of one question are not independent, so the question-level column is the safer figure.
+
+## 6. Narrative rewrites, judged (RAG's run of our judge)
+
+RAG ran the Week 8 judge script unchanged (gpt-6-sol) on the 72 in-corpus narrative rewrites of two arms. We did not run it; we checked
+every total in their message against their per-rewrite table and crossed it with our own citation check. All totals reproduce, and their
+answered and citation flags match ours on every rewrite.
+
+| | Rule pre-check | Agents' extractor |
+|---|---|---|
+| Every required point (not answered = not passed) | 29/72 = 0.40 | 34/72 = 0.47 |
+| Mean point recall | 0.635 | 0.729 |
+| Paired, every point | 1 only pre-check | 6 only Agents (p = 0.125) |
+| Answers citing a gold filing: every point / contradictions | 21 of 35 / 1 | 24 of 42 / 1 |
+| Answers citing only other filings: every point / contradictions | 8 of 22 / 4 | 10 of 22 / 4 |
+
+- Agents' extra narrative answers are mostly real (5 of the 8 it alone answers state every point), but the gain is not significant. RAG's recommended setup is unchanged, and we agree.
+- **What we add:** 4 of the 5 contradictions in each arm come from answers that cite only another filing (4 of 22, against 1 of 35 and 1 of 42;
+  Fisher exact p = 0.07 and 0.04). They come from two questions, so this is a lead, not a result. It suggests the wrong-filing answers
+  are an accuracy risk as well as a citation one.
+- Narrative answers are much more fragile to messy wording than numbers: 0.40 to 0.47 here against 17/30 for `final_v1` on the clean questions (RAG's figure).
+
+## 7. Files
 
 | File | What |
 |---|---|
 | `scripts/score_holdout.py` | scores a sealed batch from RAG's AnswerBlocks: numeric, refusals, narrative points, citations, cost and latency |
 | `scripts/score_query_rewrite.py` | scores the six arms with Week 9's messy-wording scorer and compares them pairwise |
+| `scripts/validate_hand_labels.py` | both judges against RAG's hand labels; last week's pass counts with the human verdicts applied |
+| `scripts/score_rewrite_followups.py` | clean against messy pairing; checks RAG's judged narrative table |
 | `results/holdout_A_final_v1.json`, `_per_question.csv` | section 1 |
+| `results/holdout_B_final_v2.json`, `_per_question.csv` | section 3 |
+| `results/judge_vs_hand_labels.json` | section 4 |
+| `results/query_rewrite_followups.json` | sections 5 and 6 |
 | `results/query_rewrite_arms.json`, `_per_item.csv` | section 2 |
 | `tests/test_week10.py` | consistency checks on the result files, and that no question or answer text is published |
 | `COMMS_W10.md` | message drafts |

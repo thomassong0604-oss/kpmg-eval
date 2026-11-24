@@ -1,5 +1,5 @@
 {
- "_doc": "Week 10: official score of a sealed holdout batch (RAG's final_v1 on batch A; run by RAG once on 11/22-23).",
+ "_doc": "Week 10: official score of a sealed holdout batch (RAG's final_v1 on batch A, 11/22-23; final_v2 on batch B, 11/24; each run once by RAG).",
  "batch": "A",
  "system": "RAG final_v1 (tag 03a9220; code and index at main 0685fd4, Chroma chroma_C1 7a7ad9801f86)",
  "sealed_file_sha256": "a6cf275c092cd5ca5851414fab3b0f6c300370ea207ead2e9824c3cb44bf0680",
@@ -180,6 +180,46 @@
    "HA-033",
    "HA-034"
   ],
+  "normal": {
+   "k": 2,
+   "n": 4,
+   "value": 0.5,
+   "ci95": [
+    0.15,
+    0.85
+   ]
+  },
+  "stress": {
+   "k": 1,
+   "n": 1,
+   "value": 1.0,
+   "ci95": [
+    0.207,
+    1.0
+   ]
+  },
+  "by_stress_type": {
+   "narrative_multi_section": {
+    "k": 1,
+    "n": 1,
+    "value": 1.0,
+    "ci95": [
+     0.207,
+     1.0
+    ]
+   }
+  },
+  "marked_not_answered_by_system": [],
+  "previewed_before_run": [],
+  "every_point_stated_excluding_previewed": {
+   "k": 3,
+   "n": 5,
+   "value": 0.6,
+   "ci95": [
+    0.231,
+    0.882
+   ]
+  },
   "judge": "Claude (Fable 5.2), Week 8 rubric with quote guard; not an API run"
  },
  "citations": {
@@ -234,7 +274,8 @@
   "disagreements": []
  },
  "development_set_for_comparison": {
-  "final_v1_numeric_as_reported_by_RAG": "87/93 = 0.935 (Gold v2, RAG's subset)",
-  "round1_reader_numeric_eval_scored": "89/94 = 0.947 (Gold v2.2)"
+  "final_v1_numeric_as_reported_by_RAG": "87/93 = 0.935",
+  "round1_reader_numeric_eval_scored": "89/94 = 0.947 (Gold v2.2)",
+  "narrative_every_point_gpt6sol_judge_scored_by_eval": "final_v1 17/27, final_v2 candidate 24/27 (Week 9)"
  }
 }

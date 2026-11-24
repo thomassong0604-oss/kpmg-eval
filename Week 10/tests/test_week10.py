@@ -39,3 +39,34 @@ def test_query_rewrite_arms_are_consistent():
     for arm, lost in d["right_under_gold_filters_but_wrong_in_arm"].items():
         p = d["pairwise_number_questions"][f"{arm} vs gold"]
         assert p["only_second_right"] == lost and d["arms"][arm]["numeric_accuracy"]["k"] == g - lost + p["only_first_right"]
+
+
+def test_holdout_B_and_hand_labels():
+    d = json.load(open(RES / "holdout_B_final_v2.json"))
+    man = json.load(open(W10.parent / "Week 9" / "results" / "holdout_B_manifest.json"))
+    assert d["sealed_file_sha256"] == man["sha256"] and d["questions"] == d["answers_received"] == 30
+    nar = d["narrative"]
+    assert nar["every_point_stated"]["n"] == nar["normal"]["n"] + nar["stress"]["n"] == 18
+    assert nar["every_point_stated_excluding_previewed"]["n"] == 18 - len(nar["previewed_before_run"])
+    j = json.load(open(RES / "judge_vs_hand_labels.json"))
+    assert j["labels"]["points"] == 126 == j["gpt6sol"]["both_runs"]["points"]
+    for judge in ("claude", "gpt6sol"):
+        for run in ("final_v1", "narr_long"):
+            x = j[judge][run]
+            assert x["points"] - x["agree"] == len(x["disagreements"])
+            assert all(v["human"] != "stated" and v["judge"] == "stated" for v in x["disagreements"])   # judges only ever over-credit
+    c = j["eval_pass_counts_with_hand_labels_applied"]
+    assert all(v["with_hand_labels"] <= v["judge_only"] for v in c.values())
+
+
+def test_clean_pairs_add_up():
+    d = json.load(open(RES / "query_rewrite_followups.json"))
+    arms = json.load(open(RES / "query_rewrite_arms.json"))["arms"]
+    for arm, x in d["clean_vs_messy_numbers"]["arms"].items():
+        assert x["both_right"] + x["only_clean_right"] + x["only_rewrite_right"] + x["neither"] == x["pairs"] == 264
+        assert x["both_right"] + x["only_rewrite_right"] == arms[arm]["numeric_accuracy"]["k"]
+    n = d["narrative_rewrites_judged_by_rag"]
+    for arm in ("precheck", "agents"):
+        a = n["arms"][arm]
+        assert a["answers_citing_a_gold_filing"]["n"] + a["answers_citing_only_other_filings"]["n"] == a["answered"]
+        assert not a["citation_flag_differs_from_ours"] and not a["answered_flag_differs_from_our_file"]

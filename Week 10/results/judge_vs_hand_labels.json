@@ -1,0 +1,224 @@
+{
+ "_doc": "Week 10: both narrative judges against RAG's blind hand labels (received 11/24; labelled 11/17 by two RAG members).",
+ "labels": {
+  "points": 126,
+  "questions": 20,
+  "by_run": {
+   "final_v1": 63,
+   "narr_long": 63
+  },
+  "verdicts": {
+   "stated": 111,
+   "missing": 13,
+   "contradicted": 2
+  }
+ },
+ "raters": "two RAG members, blind to the judges (as described by RAG); Eval has not labelled these points itself",
+ "claude": {
+  "missing_from_judge": [
+   "EV1R-002#1 final_v1",
+   "EV1R-002#1 narr_long",
+   "EV1R-002#2 final_v1",
+   "EV1R-002#2 narr_long",
+   "EV1R-002#3 final_v1",
+   "EV1R-002#3 narr_long",
+   "EV1R-002#4 final_v1",
+   "EV1R-002#4 narr_long",
+   "EV1R-002#5 final_v1",
+   "EV1R-002#5 narr_long",
+   "EV1R-002#6 final_v1",
+   "EV1R-002#6 narr_long",
+   "EV1R-006#1 final_v1",
+   "EV1R-006#1 narr_long",
+   "EV1R-006#2 final_v1",
+   "EV1R-006#2 narr_long",
+   "EV1R-006#3 final_v1",
+   "EV1R-006#3 narr_long",
+   "EV1R-006#4 final_v1",
+   "EV1R-006#4 narr_long",
+   "EV1R-006#5 final_v1",
+   "EV1R-006#5 narr_long",
+   "EV1R-006#6 final_v1",
+   "EV1R-006#6 narr_long",
+   "EV1R-006#7 final_v1",
+   "EV1R-006#7 narr_long"
+  ],
+  "final_v1": {
+   "points": 50,
+   "agree": 49,
+   "agreement": 0.98,
+   "kappa": 0.913,
+   "human/judge": {
+    "stated/stated": 43,
+    "contradicted/stated": 1,
+    "missing/missing": 6
+   },
+   "disagreements": [
+    {
+     "qid": "EV1-045",
+     "point": 2,
+     "human": "contradicted",
+     "judge": "stated"
+    }
+   ],
+   "questions": 18,
+   "pass_by_human": 12,
+   "pass_by_judge": 13,
+   "pass_verdict_differs": [
+    "EV1-045"
+   ]
+  },
+  "narr_long": {
+   "points": 50,
+   "agree": 48,
+   "agreement": 0.96,
+   "kappa": 0.65,
+   "human/judge": {
+    "stated/stated": 46,
+    "contradicted/stated": 1,
+    "missing/stated": 1,
+    "missing/missing": 2
+   },
+   "disagreements": [
+    {
+     "qid": "EV1-045",
+     "point": 2,
+     "human": "contradicted",
+     "judge": "stated"
+    },
+    {
+     "qid": "GSv0-MSFT-027",
+     "point": 2,
+     "human": "missing",
+     "judge": "stated"
+    }
+   ],
+   "questions": 18,
+   "pass_by_human": 15,
+   "pass_by_judge": 17,
+   "pass_verdict_differs": [
+    "EV1-045",
+    "GSv0-MSFT-027"
+   ]
+  },
+  "both_runs": {
+   "points": 100,
+   "agree": 97,
+   "agreement": 0.97,
+   "kappa": 0.828,
+   "human/judge": {
+    "stated/stated": 89,
+    "contradicted/stated": 2,
+    "missing/stated": 1,
+    "missing/missing": 8
+   }
+  }
+ },
+ "gpt6sol": {
+  "missing_from_judge": [],
+  "final_v1": {
+   "points": 63,
+   "agree": 62,
+   "agreement": 0.984,
+   "kappa": 0.933,
+   "human/judge": {
+    "stated/stated": 54,
+    "missing/missing": 7,
+    "contradicted/contradicted": 1,
+    "missing/stated": 1
+   },
+   "disagreements": [
+    {
+     "qid": "GSv0-MSFT-027",
+     "point": 2,
+     "human": "missing",
+     "judge": "stated"
+    }
+   ],
+   "questions": 20,
+   "pass_by_human": 13,
+   "pass_by_judge": 14,
+   "pass_verdict_differs": [
+    "GSv0-MSFT-027"
+   ]
+  },
+  "narr_long": {
+   "points": 63,
+   "agree": 62,
+   "agreement": 0.984,
+   "kappa": 0.902,
+   "human/judge": {
+    "stated/stated": 57,
+    "missing/missing": 4,
+    "contradicted/contradicted": 1,
+    "missing/stated": 1
+   },
+   "disagreements": [
+    {
+     "qid": "GSv0-MSFT-027",
+     "point": 2,
+     "human": "missing",
+     "judge": "stated"
+    }
+   ],
+   "questions": 20,
+   "pass_by_human": 16,
+   "pass_by_judge": 17,
+   "pass_verdict_differs": [
+    "GSv0-MSFT-027"
+   ]
+  },
+  "both_runs": {
+   "points": 126,
+   "agree": 124,
+   "agreement": 0.984,
+   "kappa": 0.921,
+   "human/judge": {
+    "stated/stated": 111,
+    "missing/missing": 11,
+    "contradicted/contradicted": 2,
+    "missing/stated": 2
+   }
+  }
+ },
+ "eval_pass_counts_with_hand_labels_applied": {
+  "final_v1_all_38": {
+   "judge_only": 26,
+   "with_hand_labels": 25,
+   "of": 38,
+   "questions_with_hand_labels": 18,
+   "changed": [
+    "EV1-045"
+   ]
+  },
+  "final_v1_narrative_27": {
+   "judge_only": 17,
+   "with_hand_labels": 16,
+   "of": 27,
+   "questions_with_hand_labels": 18,
+   "changed": [
+    "EV1-045"
+   ]
+  },
+  "narr_long_all_38": {
+   "judge_only": 34,
+   "with_hand_labels": 32,
+   "of": 38,
+   "questions_with_hand_labels": 18,
+   "changed": [
+    "EV1-045",
+    "GSv0-MSFT-027"
+   ]
+  },
+  "narr_long_narrative_27": {
+   "judge_only": 24,
+   "with_hand_labels": 22,
+   "of": 27,
+   "questions_with_hand_labels": 18,
+   "changed": [
+    "EV1-045",
+    "GSv0-MSFT-027"
+   ]
+  }
+ }
+}

@@ -1,0 +1,294 @@
+{
+ "_doc": "Week 10: two follow-ups on the messy-wording arms, from files RAG sent on 11/24.",
+ "clean_vs_messy_numbers": {
+  "clean_run": "RAG final_v1, gold filters, 155 clean questions, 11/16 (index before the persistence fix)",
+  "clean_numeric_accuracy_in_corpus": {
+   "k": 89,
+   "n": 93,
+   "value": 0.957,
+   "ci95": [
+    0.895,
+    0.983
+   ]
+  },
+  "clean_numeric_misses": {
+   "false_refusal": 4
+  },
+  "clean_differs_from_rags_own_grader": [
+   "EV1-015",
+   "EV1-043"
+  ],
+  "arms": {
+   "none": {
+    "pairs": 264,
+    "both_right": 205,
+    "only_clean_right": 47,
+    "only_rewrite_right": 0,
+    "neither": 12,
+    "mcnemar_exact_p": 0.0,
+    "lost_by_perturbation": {
+     "typo_company": 17,
+     "typo_terms": 17,
+     "casual": 13
+    },
+    "lost_by_label": {
+     "too_imprecise": 2,
+     "false_refusal": 39,
+     "wrong_value": 5,
+     "wrong_period": 1
+    },
+    "questions": 93,
+    "questions_right_clean_and_in_every_rewrite": 60,
+    "questions_right_clean_but_wrong_in_a_rewrite": 29
+   },
+   "precheck": {
+    "pairs": 264,
+    "both_right": 217,
+    "only_clean_right": 35,
+    "only_rewrite_right": 0,
+    "neither": 12,
+    "mcnemar_exact_p": 0.0,
+    "lost_by_perturbation": {
+     "typo_terms": 14,
+     "casual": 13,
+     "typo_company": 8
+    },
+    "lost_by_label": {
+     "false_refusal": 30,
+     "wrong_value": 3,
+     "too_imprecise": 1,
+     "wrong_period": 1
+    },
+    "questions": 93,
+    "questions_right_clean_and_in_every_rewrite": 68,
+    "questions_right_clean_but_wrong_in_a_rewrite": 21
+   },
+   "rag_llm": {
+    "pairs": 264,
+    "both_right": 216,
+    "only_clean_right": 36,
+    "only_rewrite_right": 0,
+    "neither": 12,
+    "mcnemar_exact_p": 0.0,
+    "lost_by_perturbation": {
+     "typo_terms": 15,
+     "casual": 15,
+     "typo_company": 6
+    },
+    "lost_by_label": {
+     "false_refusal": 31,
+     "wrong_value": 3,
+     "too_imprecise": 1,
+     "wrong_period": 1
+    },
+    "questions": 93,
+    "questions_right_clean_and_in_every_rewrite": 68,
+    "questions_right_clean_but_wrong_in_a_rewrite": 21
+   },
+   "agents": {
+    "pairs": 264,
+    "both_right": 217,
+    "only_clean_right": 35,
+    "only_rewrite_right": 0,
+    "neither": 12,
+    "mcnemar_exact_p": 0.0,
+    "lost_by_perturbation": {
+     "typo_terms": 11,
+     "casual": 15,
+     "typo_company": 9
+    },
+    "lost_by_label": {
+     "false_refusal": 30,
+     "wrong_value": 3,
+     "too_imprecise": 1,
+     "wrong_period": 1
+    },
+    "questions": 93,
+    "questions_right_clean_and_in_every_rewrite": 69,
+    "questions_right_clean_but_wrong_in_a_rewrite": 20
+   },
+   "agents_precheck": {
+    "pairs": 264,
+    "both_right": 217,
+    "only_clean_right": 35,
+    "only_rewrite_right": 0,
+    "neither": 12,
+    "mcnemar_exact_p": 0.0,
+    "lost_by_perturbation": {
+     "typo_terms": 14,
+     "casual": 14,
+     "typo_company": 7
+    },
+    "lost_by_label": {
+     "false_refusal": 30,
+     "wrong_value": 3,
+     "too_imprecise": 1,
+     "wrong_period": 1
+    },
+    "questions": 93,
+    "questions_right_clean_and_in_every_rewrite": 69,
+    "questions_right_clean_but_wrong_in_a_rewrite": 20
+   },
+   "gold": {
+    "pairs": 264,
+    "both_right": 231,
+    "only_clean_right": 21,
+    "only_rewrite_right": 0,
+    "neither": 12,
+    "mcnemar_exact_p": 0.0,
+    "lost_by_perturbation": {
+     "typo_terms": 8,
+     "casual": 10,
+     "typo_company": 3
+    },
+    "lost_by_label": {
+     "false_refusal": 15,
+     "wrong_value": 4,
+     "too_imprecise": 1,
+     "wrong_period": 1
+    },
+    "questions": 93,
+    "questions_right_clean_and_in_every_rewrite": 73,
+    "questions_right_clean_but_wrong_in_a_rewrite": 16
+   }
+  },
+  "note": "rewrites of one question are not independent, so the p-values are a guide; the question-level counts do not have that problem"
+ },
+ "narrative_rewrites_judged_by_rag": {
+  "source": "RAG's run of Week 8 run_narrative_judge.py, unchanged (gpt-6-sol, default temperature), each rewrite judged on its clean question's required points; not run by Eval",
+  "rewrites": 72,
+  "arms": {
+   "precheck": {
+    "answered": 57,
+    "all_points": {
+     "k": 29,
+     "n": 72,
+     "value": 0.403,
+     "ci95": [
+      0.297,
+      0.518
+     ]
+    },
+    "mean_point_recall_all": 0.635,
+    "contradicted": 5,
+    "by_perturbation": {
+     "typo_company": {
+      "k": 8,
+      "n": 17,
+      "value": 0.471,
+      "ci95": [
+       0.262,
+       0.69
+      ]
+     },
+     "typo_terms": {
+      "k": 12,
+      "n": 26,
+      "value": 0.462,
+      "ci95": [
+       0.288,
+       0.645
+      ]
+     },
+     "casual": {
+      "k": 9,
+      "n": 29,
+      "value": 0.31,
+      "ci95": [
+       0.173,
+       0.492
+      ]
+     }
+    },
+    "answers_citing_a_gold_filing": {
+     "n": 35,
+     "all_points": 21,
+     "mean_point_recall": 0.848,
+     "contradicted": 1
+    },
+    "answers_citing_only_other_filings": {
+     "n": 22,
+     "all_points": 8,
+     "mean_point_recall": 0.727,
+     "contradicted": 4
+    },
+    "answered_flag_differs_from_our_file": [],
+    "citation_flag_differs_from_ours": []
+   },
+   "agents": {
+    "answered": 64,
+    "all_points": {
+     "k": 34,
+     "n": 72,
+     "value": 0.472,
+     "ci95": [
+      0.361,
+      0.586
+     ]
+    },
+    "mean_point_recall_all": 0.729,
+    "contradicted": 5,
+    "by_perturbation": {
+     "typo_company": {
+      "k": 8,
+      "n": 17,
+      "value": 0.471,
+      "ci95": [
+       0.262,
+       0.69
+      ]
+     },
+     "typo_terms": {
+      "k": 13,
+      "n": 26,
+      "value": 0.5,
+      "ci95": [
+       0.321,
+       0.679
+      ]
+     },
+     "casual": {
+      "k": 13,
+      "n": 29,
+      "value": 0.448,
+      "ci95": [
+       0.284,
+       0.625
+      ]
+     }
+    },
+    "answers_citing_a_gold_filing": {
+     "n": 42,
+     "all_points": 24,
+     "mean_point_recall": 0.846,
+     "contradicted": 1
+    },
+    "answers_citing_only_other_filings": {
+     "n": 22,
+     "all_points": 10,
+     "mean_point_recall": 0.773,
+     "contradicted": 4
+    },
+    "answered_flag_differs_from_our_file": [],
+    "citation_flag_differs_from_ours": []
+   }
+  },
+  "paired_all_points": {
+   "only_precheck": 1,
+   "only_agents": 6,
+   "mcnemar_exact_p": 0.125
+  },
+  "answered_only_by_agents": {
+   "n": 8,
+   "all_points": 5,
+   "mean_point_recall": 0.888,
+   "clean_questions": [
+    "EV1-044",
+    "EV1R-006",
+    "GSv0-MSFT-005",
+    "GSv0-MSFT-012",
+    "GSv0-MSFT-022"
+   ]
+  }
+ }
+}
