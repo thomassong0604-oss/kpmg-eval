@@ -58,7 +58,7 @@ Hi Xiangxinrui, thank you for all five messages. Batch B is scored and everythin
 - HB-004 is our mistake: the question says revenue fell, but reported revenue rose slightly and the 2% fall is currency-neutral. Your answer corrected that and still gave every point, so it passes.
 - HB-001: thank you for disclosing the preview. It is in the record, and without it the narrative score is 16/17. We will send future files zipped so Slack cannot preview them.
 
-2. Human review of the 23 holdout narrative answers: yes, please go ahead by 11/27, same format as 11/17. The narrative scores above come from our judge, and your hand labels show it gives credit slightly too easily (point 3), so a human check matters here. We will keep our per-point verdicts back until your labels arrive, so your raters stay blind. We will also label the same 23 on our side so we can report agreement between raters.
+2. Human review of the 23 holdout narrative answers: yes, please go ahead by 11/27, same format as 11/17. The narrative scores above come from our judge, and your hand labels show it gives credit slightly too easily (point 3), so a human check matters here. Our scores per question are in this message and in the Week 10 README, so please have the two raters label from the answers and required points only, before reading either. We will also label the same 23 on our side so we can report agreement between raters.
 
 3. Hand labels from 11/17: received, thank you.
 - Your kappas reproduce: gpt-6-sol against your raters is 0.93 (final_v1) and 0.90 (final_v2), 124 of 126 points.
