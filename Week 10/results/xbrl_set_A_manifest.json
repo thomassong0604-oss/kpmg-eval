@@ -1,0 +1,148 @@
+{
+ "_doc": "XBRL objective set A: held by Eval, sealed until the run. Hashes, counts and check results only.",
+ "set": "A",
+ "file": "set_A.jsonl",
+ "sha256": "18794c0f4bb39da6977d39fe13d1171615c9b17937fcc64f5d9c284bc49020a5",
+ "built": "2026-11-25",
+ "questions": 150,
+ "builder": {
+  "repo": "Rachel-xs/KPMG_RAG",
+  "script": "scripts/build_objective_set.py",
+  "commit": "6b7d53b",
+  "script_sha256": "5e59a8a0f024847a5179564975fe04ea868293db1e484ed437b758850899c88d"
+ },
+ "metric_rows": {
+  "sha256": "7c7bb541375b3afc82880256a1500b86c266bc9831d19effed9fd34b677e8496",
+  "rows": 19474,
+  "pulled_by_RAG": "2026-11-16"
+ },
+ "seed": {
+  "sha256_of_seed": "041bbb3a057164b459d4c7f8e309be873ba2398f9c0dd2f2d5f6ee495a146100",
+  "bits": 128,
+  "chosen_by": "Eval, private",
+  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run."
+ },
+ "excluded_question_files": {
+  "benchmark_v2_2.jsonl": "416304a91b4aa40005342070b2c7d745992c22db95e296c3d7866530954d4ef9",
+  "holdout_A.jsonl": "a6cf275c092cd5ca5851414fab3b0f6c300370ea207ead2e9824c3cb44bf0680",
+  "holdout_B.jsonl": "f6326a3486460526e1088f515bfd7b8eadf448109cacf8ca955bd98b3bea2c54"
+ },
+ "used_keys": 122,
+ "population_after_exclusions": 359,
+ "exclusions": {
+  "2_no_linked_cell": 154,
+  "5_used_by_dev_or_holdout": 62,
+  "4_conflict_or_review": 3,
+  "1_zero_or_nil": 2,
+  "3_duplicate_period": 37
+ },
+ "by_statement": {
+  "income_statement": 59,
+  "balance_sheet": 51,
+  "cash_flow_statement": 40
+ },
+ "by_relation": {
+  "current": 88,
+  "prior": 62
+ },
+ "by_answer_unit": {
+  "USD millions": 125,
+  "USD per share": 13,
+  "USD thousands": 12
+ },
+ "by_metric": {
+  "net_income": 6,
+  "cost_of_revenue": 21,
+  "eps_diluted": 13,
+  "operating_income": 14,
+  "shareholders_equity": 5,
+  "total_assets": 12,
+  "total_liabilities": 12,
+  "long_term_debt_current": 5,
+  "dividends_paid": 4,
+  "operating_cash_flow": 18,
+  "capital_expenditures": 18,
+  "revenue": 5,
+  "long_term_debt_noncurrent": 3,
+  "cash_and_equivalents": 13,
+  "short_term_borrowings": 1
+ },
+ "by_form": {
+  "10-Q": 48,
+  "10-K": 102
+ },
+ "companies": 10,
+ "negative_gold_values": 7,
+ "cash_outflow_questions": {
+  "n": 22,
+  "printed_in_parentheses": 22,
+  "gold_is_positive": 22
+ },
+ "scoring_rules_fixed_before_the_run": {
+  "grader": "Eval's Week 8 grader, unchanged (grade_answer_blocks.grade), same precision floor and tolerance as the development set",
+  "trailing_zeros": "an answer equal to the gold value is correct even if it drops zeros printed after the decimal point; 4 questions have such a cell",
+  "sign": "strict is the primary score: the gold value carries the XBRL sign (cash paid is positive, a loss is negative). A second, labelled score ignores the sign on the cash-outflow questions only, because their cells are printed in parentheses"
+ },
+ "checks": {
+  "rule_a_overlap_by_concept": 0,
+  "rule_a_overlap_by_value": 0,
+  "duplicates_within_set": 0,
+  "rule_d_precision_floor_equals_printed_digits": "150/150",
+  "rule_d_asked_unit_equals_table_scale": "150/150",
+  "gold_value_equals_printed_figure": "150/150",
+  "questions_well_formed": "150/150",
+  "grader_dry_run": {
+   "perfect_answer_in_the_asked_unit": {
+    "n": 150,
+    "passed": 150,
+    "labels": {
+     "correct": 148,
+     "correct_trailing_zero_dropped": 2
+    }
+   },
+   "value_off_by_1_percent_or_5_cents_per_share": {
+    "n": 150,
+    "passed": 0,
+    "labels": {
+     "wrong_value": 150
+    }
+   },
+   "rounded_to_2_significant_figures": {
+    "n": 133,
+    "passed": 1,
+    "labels": {
+     "too_imprecise": 132,
+     "correct_trailing_zero_dropped": 1
+    }
+   },
+   "sign_flipped": {
+    "n": 150,
+    "passed": 0,
+    "labels": {
+     "wrong_sign": 150
+    }
+   }
+  },
+  "gold_filings": 20,
+  "gold_filing_in_frozen_index": "150/150",
+  "printed_figure_found_in_the_filings_chunks": "150/150"
+ },
+ "by_company": {
+  "AAPL": 15,
+  "CASY": 15,
+  "MCK": 15,
+  "MDT": 15,
+  "MSFT": 15,
+  "MU": 15,
+  "NKE": 15,
+  "NTAP": 15,
+  "PH": 15,
+  "TTWO": 15
+ },
+ "delivery": "sent to RAG by DM as a zip at run time; runs on the frozen round-1 index",
+ "zip": {
+  "file": "set_A.zip",
+  "sha256": "a7f6bc11260636a0188b89202dd6281be5ad12ca3433b5af7283276a13703b99"
+ },
+ "inspection": "Nobody has read the questions. Checks ran automatically; for the items a check flagged (2 in A, 2 in C) only the printed figure and value fields were looked at."
+}

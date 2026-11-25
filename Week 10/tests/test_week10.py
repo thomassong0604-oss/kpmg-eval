@@ -70,3 +70,17 @@ def test_clean_pairs_add_up():
         a = n["arms"][arm]
         assert a["answers_citing_a_gold_filing"]["n"] + a["answers_citing_only_other_filings"]["n"] == a["answered"]
         assert not a["citation_flag_differs_from_ours"] and not a["answered_flag_differs_from_our_file"]
+
+
+def test_xbrl_manifests():
+    for S, n in (("A", 150), ("C", 100)):
+        d = json.load(open(RES / f"xbrl_set_{S}_manifest.json"))
+        c = d["checks"]
+        assert d["questions"] == n and d["builder"]["commit"] == "6b7d53b" and len(d["sha256"]) == 64 and len(d["seed"]["sha256_of_seed"]) == 64
+        assert d["metric_rows"]["sha256"].startswith("7c7bb541") and c["rule_a_overlap_by_concept"] == c["rule_a_overlap_by_value"] == c["duplicates_within_set"] == 0
+        for k in ("rule_d_precision_floor_equals_printed_digits", "rule_d_asked_unit_equals_table_scale", "gold_value_equals_printed_figure", "questions_well_formed"):
+            assert c[k] == f"{n}/{n}", k
+        g = c["grader_dry_run"]
+        assert g["perfect_answer_in_the_asked_unit"]["passed"] == n and g["sign_flipped"]["passed"] == 0 and g["value_off_by_1_percent_or_5_cents_per_share"]["passed"] == 0
+        assert "seed.txt" not in json.dumps(d) and "question" not in {k for k in d if k != "questions"}
+    assert "by_company" not in json.load(open(RES / "xbrl_set_C_manifest.json"))

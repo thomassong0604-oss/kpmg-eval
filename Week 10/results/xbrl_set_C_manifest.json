@@ -1,0 +1,132 @@
+{
+ "_doc": "XBRL objective set C: held by Eval, sealed until the run. Hashes, counts and check results only.",
+ "set": "C",
+ "file": "set_C.jsonl",
+ "sha256": "53664be8bfd09d1a4c012c0fee8ad5722d2825d68d13dfbbcc6634782d6d3b13",
+ "built": "2026-11-25",
+ "questions": 100,
+ "builder": {
+  "repo": "Rachel-xs/KPMG_RAG",
+  "script": "scripts/build_objective_set.py",
+  "commit": "6b7d53b",
+  "script_sha256": "5e59a8a0f024847a5179564975fe04ea868293db1e484ed437b758850899c88d"
+ },
+ "metric_rows": {
+  "sha256": "7c7bb541375b3afc82880256a1500b86c266bc9831d19effed9fd34b677e8496",
+  "rows": 19474,
+  "pulled_by_RAG": "2026-11-16"
+ },
+ "seed": {
+  "sha256_of_seed": "041bbb3a057164b459d4c7f8e309be873ba2398f9c0dd2f2d5f6ee495a146100",
+  "bits": 128,
+  "chosen_by": "Eval, private",
+  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run."
+ },
+ "excluded_question_files": {
+  "benchmark_v2_2.jsonl": "416304a91b4aa40005342070b2c7d745992c22db95e296c3d7866530954d4ef9",
+  "holdout_A.jsonl": "a6cf275c092cd5ca5851414fab3b0f6c300370ea207ead2e9824c3cb44bf0680",
+  "holdout_B.jsonl": "f6326a3486460526e1088f515bfd7b8eadf448109cacf8ca955bd98b3bea2c54"
+ },
+ "used_keys": 122,
+ "population_after_exclusions": 7810,
+ "exclusions": {
+  "2_no_linked_cell": 3096,
+  "1_zero_or_nil": 70,
+  "no_ticker": 330,
+  "4_conflict_or_review": 75,
+  "unsupported_metric_or_period": 33,
+  "3_duplicate_period": 492
+ },
+ "by_statement": {
+  "income_statement": 43,
+  "balance_sheet": 39,
+  "cash_flow_statement": 18
+ },
+ "by_relation": {
+  "current": 100
+ },
+ "by_answer_unit": {
+  "USD millions": 67,
+  "USD per share": 8,
+  "USD thousands": 25
+ },
+ "by_metric": {
+  "operating_income": 9,
+  "total_assets": 13,
+  "capital_expenditures": 4,
+  "eps_diluted": 8,
+  "long_term_debt_current": 2,
+  "operating_cash_flow": 13,
+  "total_liabilities": 3,
+  "net_income": 9,
+  "cash_and_equivalents": 10,
+  "short_term_borrowings": 1,
+  "revenue": 8,
+  "cost_of_revenue": 9,
+  "long_term_debt_noncurrent": 4,
+  "shareholders_equity": 6,
+  "dividends_paid": 1
+ },
+ "by_form": {
+  "10-Q": 94,
+  "10-K": 6
+ },
+ "companies": 100,
+ "negative_gold_values": 3,
+ "cash_outflow_questions": {
+  "n": 5,
+  "printed_in_parentheses": 5,
+  "gold_is_positive": 5
+ },
+ "scoring_rules_fixed_before_the_run": {
+  "grader": "Eval's Week 8 grader, unchanged (grade_answer_blocks.grade), same precision floor and tolerance as the development set",
+  "trailing_zeros": "an answer equal to the gold value is correct even if it drops zeros printed after the decimal point; 1 questions have such a cell",
+  "sign": "strict is the primary score: the gold value carries the XBRL sign (cash paid is positive, a loss is negative). A second, labelled score ignores the sign on the cash-outflow questions only, because their cells are printed in parentheses"
+ },
+ "checks": {
+  "rule_a_overlap_by_concept": 0,
+  "rule_a_overlap_by_value": 0,
+  "duplicates_within_set": 0,
+  "rule_d_precision_floor_equals_printed_digits": "100/100",
+  "rule_d_asked_unit_equals_table_scale": "100/100",
+  "gold_value_equals_printed_figure": "100/100",
+  "questions_well_formed": "100/100",
+  "grader_dry_run": {
+   "perfect_answer_in_the_asked_unit": {
+    "n": 100,
+    "passed": 100,
+    "labels": {
+     "correct": 99,
+     "correct_trailing_zero_dropped": 1
+    }
+   },
+   "value_off_by_1_percent_or_5_cents_per_share": {
+    "n": 100,
+    "passed": 0,
+    "labels": {
+     "wrong_value": 100
+    }
+   },
+   "rounded_to_2_significant_figures": {
+    "n": 90,
+    "passed": 0,
+    "labels": {
+     "too_imprecise": 90
+    }
+   },
+   "sign_flipped": {
+    "n": 100,
+    "passed": 0,
+    "labels": {
+     "wrong_sign": 100
+    }
+   }
+  }
+ },
+ "delivery": "held until RAG has built and recorded index_full (the 412 non-core filings); then sent by DM as a zip",
+ "zip": {
+  "file": "set_C.zip",
+  "sha256": "03288850a89b2b5e9a0a01625bef2d97fb787ea033b579b3d48bfd6e7132f86e"
+ },
+ "inspection": "Nobody has read the questions. Checks ran automatically; for the items a check flagged (2 in A, 2 in C) only the printed figure and value fields were looked at."
+}

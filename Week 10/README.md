@@ -1,6 +1,6 @@
-# Week 10 (Nov 20 – Nov 26): both sealed-holdout scores, filter extraction on messy wording, and the judge against hand labels
+# Week 10 (Nov 20 – Nov 26): both sealed-holdout scores, filter extraction on messy wording, the judge against hand labels, and XBRL sets A and C
 
-Everything here is scored from files RAG sent on 11/23 and 11/24. The answer files, RAG's per-question logs and the holdout questions
+Everything here is scored or built from files RAG sent on 11/23, 11/24 and 11/25. The answer files, RAG's per-question logs and the holdout questions
 stay in the git-ignored `private/` folder; the result files hold labels and ids only.
 
 ## 1. Holdout batch A, RAG `final_v1` (official score)
@@ -197,7 +197,51 @@ answered and citation flags match ours on every rewrite.
   are an accuracy risk as well as a citation one.
 - Narrative answers are much more fragile to messy wording than numbers: 0.40 to 0.47 here against 17/30 for `final_v1` on the clean questions (RAG's figure).
 
-## 7. Files
+## 7. XBRL objective sets A and C (built and held by Eval)
+
+`python scripts/check_objective_sets.py` → `results/xbrl_set_A_manifest.json`, `results/xbrl_set_C_manifest.json`
+
+RAG pre-registered five objective sets drawn from Data's XBRL metrics. Eval holds A and C so RAG cannot see them before the run.
+On 11/25 RAG sent the three inputs: the saved metric rows (19,474 rows, SHA-256 7c7bb541…8496, verified), the builder commit
+(6b7d53b) and a yes to our four rules. We ran RAG's `scripts/build_objective_set.py` unchanged with a 128-bit seed only Eval
+knows, leaving out everything the development set and both holdout batches use.
+
+| | Set A | Set C |
+|---|---|---|
+| Questions | 150 (15 for each of the ten companies) | 100 (one for each of 100 other companies) |
+| Runs on | the frozen round-1 index (20 filings) | `index_full`, once RAG has added the 412 non-core filings |
+| SHA-256 of the question file | 18794c0f…20a5 | 53664be8…3b13 |
+| Filings | 10-K 102, 10-Q 48 | 10-K 6, 10-Q 94 |
+| Answer unit | millions 125, thousands 12, per share 13 | millions 67, thousands 25, per share 8 |
+| Rows left out because a dev or holdout question uses them | 62 | 0 (no core company is in C) |
+| Status | sent to RAG by DM at run time | sealed until `index_full` is recorded |
+
+Nobody has read the questions. The checks ran automatically; for four items a check flagged, only the printed figure and value were looked at.
+
+| Check | Set A | Set C |
+|---|---|---|
+| Overlap with dev or holdout questions, by XBRL concept and again by value | 0 | 0 |
+| Precision floor equals the digits printed in the gold cell | 150/150 | 100/100 |
+| Asked unit equals the table's scale | 150/150 | 100/100 |
+| Gold value equals the printed figure | 150/150 | 100/100 |
+| Gold filing is in the frozen index, and the printed figure is in its chunks | 150/150 | not applicable yet |
+| Grader dry run: perfect answers / 1% off / rounded to 2 figures / sign flipped | 150 / 0 / 1 of 133 / 0 pass | 100 / 0 / 0 of 90 / 0 pass |
+
+So every Set A question can be answered from the frozen index, and the grader passes exactly the answers it should.
+(The one rounded answer that passes is a figure printed as "30.0": two significant figures already equal it.)
+
+Two scoring rules fixed now, before any answer exists:
+
+- **Trailing zeros.** An answer equal to the gold value is correct even if it drops zeros printed after the decimal point
+  ("7,043" for a cell printed "7,043.0"). Without this the precision floor would fail an exact answer. 4 questions in A, 1 in C.
+- **Sign.** Strict is the primary score: the gold value carries the XBRL sign, so cash paid is positive and a loss is negative.
+  A second, labelled score ignores the sign on the cash-outflow questions only (capital expenditures and dividends: 22 in A,
+  5 in C), because every one of those cells is printed in parentheses and `final_v1` answered a question of this kind with a
+  negative number on holdout A.
+
+The seed is published after the last run; with it, the builder at 6b7d53b and the same rows reproduce both files exactly.
+
+## 8. Files
 
 | File | What |
 |---|---|
@@ -205,6 +249,8 @@ answered and citation flags match ours on every rewrite.
 | `scripts/score_query_rewrite.py` | scores the six arms with Week 9's messy-wording scorer and compares them pairwise |
 | `scripts/validate_hand_labels.py` | both judges against RAG's hand labels; last week's pass counts with the human verdicts applied |
 | `scripts/score_rewrite_followups.py` | clean against messy pairing; checks RAG's judged narrative table |
+| `scripts/check_objective_sets.py` | checks XBRL sets A and C without reading them, zips them, writes the public manifests; holds the scoring rules for the run |
+| `results/xbrl_set_A_manifest.json`, `xbrl_set_C_manifest.json` | section 7 |
 | `results/holdout_A_final_v1.json`, `_per_question.csv` | section 1 |
 | `results/holdout_B_final_v2.json`, `_per_question.csv` | section 3 |
 | `results/judge_vs_hand_labels.json` | section 4 |

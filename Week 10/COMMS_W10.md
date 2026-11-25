@@ -76,3 +76,40 @@ a. The saved pull of the metric rows (the --from-json input), by DM.
 b. The commit of build_objective_set.py you want us to run.
 c. A yes or no on the four rule changes we proposed (leave out anything a dev or holdout question uses; unfiltered run as primary for messy wording; pre-check filters as co-primary; precision from the printed digits).
 Once we have these, manifests and hashes for A and C follow within a day.
+
+## Slack reply to RAG (Xiangxinrui), XBRL sets A and C, 11/25 (draft)
+
+Hi Xiangxinrui, thank you, all three inputs arrived and both sets are built. No need to apologise, this was fast.
+
+1. What we did
+- Metric rows: hash checked, 7c7bb541…8496, 19,474 rows.
+- Built A and C with your scripts/build_objective_set.py at 6b7d53b, unchanged, with a 128-bit seed only we know, excluding the dev set and both holdout batches.
+- Manifests and hashes are public: Week 10/results/xbrl_set_A_manifest.json and xbrl_set_C_manifest.json in kpmg-eval. We publish the seed after the last run, so anyone can rebuild both files.
+
+2. Set A is ready: 150 questions, 15 per company. It comes by DM as set_A.zip.
+- SHA-256 of set_A.zip: a7f6bc11260636a0188b89202dd6281be5ad12ca3433b5af7283276a13703b99
+- SHA-256 of set_A.jsonl inside: 18794c0f4bb39da6977d39fe13d1171615c9b17937fcc64f5d9c284bc49020a5
+- Same procedure as the holdout: check the hash before opening, one run per pre-registered configuration (gold filters and pre-check filters), then answer_blocks.jsonl and per_question.csv for each.
+
+3. Checks we ran without anyone reading the questions
+- Exclusion: 62 rows left out because a dev or holdout question uses them. Zero overlap, by concept and again by value.
+- Precision floor equals the printed digits and the asked unit equals the table's scale: 150 of 150.
+- All 20 gold filings are in the frozen index and every printed figure is present in its filing's chunks, so every Set A question is answerable from the index.
+- Our grader, dry run: perfect answers pass 150 of 150; 1% off, rounded and sign-flipped answers fail.
+
+4. Two scoring rules we are fixing now, before any answer exists. Please say if you object.
+a. Trailing zeros: an answer equal to the gold value is correct even if it drops zeros printed after the decimal point ("7,043" for a cell printed "7,043.0"). This affects 4 questions in A and 1 in C.
+b. Sign: strict is primary, with the XBRL sign (cash paid is positive, a loss is negative). We will also report a second score that ignores the sign on the cash-outflow questions only (capital expenditures and dividends, 22 in A), since those cells are printed in parentheses. This is the HA-009 pattern.
+
+5. Set C is built and sealed: 100 questions, one per company, 94 of them from 10-Qs. Your scope note is fine with us. Once index_full is recorded, send us its id and filing count and C follows by DM the same way.
+
+6. Thank you for the final_v1 re-run and for the human review by 11/27. We will pair the re-run as soon as it arrives.
+
+## DM to RAG with Set A (draft)
+
+Hi Xiangxinrui, Set A is attached as set_A.zip (150 questions).
+
+SHA-256 of set_A.zip: a7f6bc11260636a0188b89202dd6281be5ad12ca3433b5af7283276a13703b99
+SHA-256 of set_A.jsonl inside: 18794c0f4bb39da6977d39fe13d1171615c9b17937fcc64f5d9c284bc49020a5
+
+Both are in Week 10/results/xbrl_set_A_manifest.json. Please check the hash before opening, then run once per pre-registered configuration on the frozen index and send back answer_blocks.jsonl and per_question.csv for each. Thank you!
