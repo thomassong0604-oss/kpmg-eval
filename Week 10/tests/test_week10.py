@@ -73,7 +73,7 @@ def test_clean_pairs_add_up():
 
 
 def test_xbrl_manifests():
-    for S, n in (("A", 150), ("C", 100)):
+    for S, n in (("A", 150), ("C", 100), ("C2", 100)):
         d = json.load(open(RES / f"xbrl_set_{S}_manifest.json"))
         c = d["checks"]
         assert d["questions"] == n and d["builder"]["commit"] == "6b7d53b" and len(d["sha256"]) == 64 and len(d["seed"]["sha256_of_seed"]) == 64
@@ -84,3 +84,20 @@ def test_xbrl_manifests():
         assert g["perfect_answer_in_the_asked_unit"]["passed"] == n and g["sign_flipped"]["passed"] == 0 and g["value_off_by_1_percent_or_5_cents_per_share"]["passed"] == 0
         assert "seed.txt" not in json.dumps(d) and "question" not in {k for k in d if k != "questions"}
     assert "by_company" not in json.load(open(RES / "xbrl_set_C_manifest.json"))
+    c, c2 = (json.load(open(RES / f"xbrl_set_{S}_manifest.json")) for S in ("C", "C2"))
+    assert c["status"].startswith("RETIRED") and c2["replaces"]["sha256"] == c["sha256"] != c2["sha256"]
+    assert c2["seed"]["sha256_of_seed"] != c["seed"]["sha256_of_seed"] and "by_company" not in c2
+
+
+def test_xbrl_B_score():
+    d = json.load(open(RES / "xbrl_B_final_v1.json"))
+    assert d["question_file_sha256"] == json.load(open(RES / "xbrl_set_A_manifest.json"))["sha256"] and d["questions"] == 150
+    p = d["gold_vs_precheck_filters"]
+    assert p["both_right"] + p["only_gold_filters_right"] + p["only_precheck_right"] + p["neither"] == 150
+    for cfg, x in d["configs"].items():
+        s = x["numeric_accuracy_strict"]
+        assert s["n"] == 150 == sum(x["labels"].values()) and x["declined"] + x["answered"]["k"] == 150
+        assert s["k"] == sum(v["k"] for v in x["by_company"].values()) == x["answered"]["k"] - x["wrong_answers_given"]
+        assert x["numeric_accuracy_sign_insensitive_on_cash_outflow"]["k"] == s["k"] + x["cash_outflow_questions"]["wrong_sign"]
+        assert not x["differs_from_rags_own_grader"]
+    assert d["configs"]["gold"]["numeric_accuracy_strict"]["k"] == p["both_right"] + p["only_gold_filters_right"]

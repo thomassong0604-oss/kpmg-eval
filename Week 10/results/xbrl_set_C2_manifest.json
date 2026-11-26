@@ -1,0 +1,136 @@
+{
+ "_doc": "XBRL objective set C2: held by Eval, sealed until the run. Hashes, counts and check results only.",
+ "set": "C",
+ "file": "set_C2.jsonl",
+ "sha256": "756e26b739ae90c1664010ff0588f5e371c805682e03912d7671acc8a9726e76",
+ "built": "2026-11-26",
+ "questions": 100,
+ "builder": {
+  "repo": "Rachel-xs/KPMG_RAG",
+  "script": "scripts/build_objective_set.py",
+  "commit": "6b7d53b",
+  "script_sha256": "5e59a8a0f024847a5179564975fe04ea868293db1e484ed437b758850899c88d"
+ },
+ "metric_rows": {
+  "sha256": "7c7bb541375b3afc82880256a1500b86c266bc9831d19effed9fd34b677e8496",
+  "rows": 19474,
+  "pulled_by_RAG": "2026-11-16"
+ },
+ "seed": {
+  "sha256_of_seed": "8861861a290cc407d03e594bde56c9869a29c5abe8fb6df9486459770757228e",
+  "bits": 128,
+  "chosen_by": "Eval, private",
+  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run."
+ },
+ "excluded_question_files": {
+  "benchmark_v2_2.jsonl": "416304a91b4aa40005342070b2c7d745992c22db95e296c3d7866530954d4ef9"
+ },
+ "used_keys": 85,
+ "population_after_exclusions": 7810,
+ "exclusions": {
+  "2_no_linked_cell": 3096,
+  "1_zero_or_nil": 70,
+  "no_ticker": 330,
+  "4_conflict_or_review": 75,
+  "unsupported_metric_or_period": 33,
+  "3_duplicate_period": 492
+ },
+ "by_statement": {
+  "balance_sheet": 34,
+  "income_statement": 47,
+  "cash_flow_statement": 19
+ },
+ "by_relation": {
+  "current": 100
+ },
+ "by_answer_unit": {
+  "USD millions": 72,
+  "USD per share": 6,
+  "USD thousands": 22
+ },
+ "by_metric": {
+  "total_assets": 5,
+  "net_income": 13,
+  "eps_diluted": 6,
+  "cash_and_equivalents": 11,
+  "revenue": 12,
+  "cost_of_revenue": 8,
+  "operating_cash_flow": 9,
+  "long_term_debt_noncurrent": 6,
+  "shareholders_equity": 5,
+  "dividends_paid": 2,
+  "operating_income": 8,
+  "capital_expenditures": 8,
+  "total_liabilities": 6,
+  "short_term_borrowings": 1
+ },
+ "by_form": {
+  "10-Q": 90,
+  "10-K": 10
+ },
+ "companies": 100,
+ "negative_gold_values": 2,
+ "cash_outflow_questions": {
+  "n": 10,
+  "printed_in_parentheses": 10,
+  "gold_is_positive": 10
+ },
+ "scoring_rules_fixed_before_the_run": {
+  "grader": "Eval's Week 8 grader, unchanged (grade_answer_blocks.grade), same precision floor and tolerance as the development set",
+  "trailing_zeros": "an answer equal to the gold value is correct even if it drops zeros printed after the decimal point; 1 questions have such a cell",
+  "sign": "strict is the primary score: the gold value carries the XBRL sign (cash paid is positive, a loss is negative). A second, labelled score ignores the sign on the cash-outflow questions only, because their cells are printed in parentheses"
+ },
+ "checks": {
+  "rule_a_overlap_by_concept": 0,
+  "rule_a_overlap_by_value": 0,
+  "duplicates_within_set": 0,
+  "rule_d_precision_floor_equals_printed_digits": "100/100",
+  "rule_d_asked_unit_equals_table_scale": "100/100",
+  "gold_value_equals_printed_figure": "100/100",
+  "questions_well_formed": "100/100",
+  "grader_dry_run": {
+   "perfect_answer_in_the_asked_unit": {
+    "n": 100,
+    "passed": 100,
+    "labels": {
+     "correct": 99,
+     "correct_trailing_zero_dropped": 1
+    }
+   },
+   "value_off_by_1_percent_or_5_cents_per_share": {
+    "n": 100,
+    "passed": 0,
+    "labels": {
+     "wrong_value": 100
+    }
+   },
+   "rounded_to_2_significant_figures": {
+    "n": 91,
+    "passed": 0,
+    "labels": {
+     "too_imprecise": 91
+    }
+   },
+   "sign_flipped": {
+    "n": 100,
+    "passed": 0,
+    "labels": {
+     "wrong_sign": 100
+    }
+   }
+  },
+  "core_companies_in_set": 0
+ },
+ "replaces": {
+  "sha256": "53664be8bfd09d1a4c012c0fee8ad5722d2825d68d13dfbbcc6634782d6d3b13",
+  "why": "The first Set C and the first seed reached RAG by mistake on 11/25, before the run (disclosed by RAG on 11/26; RAG reports the file unopened and the seed unused). Set C was drawn again with a new seed."
+ },
+ "index_fixed_before_this_draw": "index_full 37c4eb2f1628 was recorded in RAG's pre-registration at 0ca6fb3 (2026-11-24), before this set was drawn",
+ "exclusion_note": "Built with the development set as the only exclusion file: the holdout files were not in this workspace and cannot affect Set C, which contains no core company (population and exclusion counts are identical to the first build).",
+ "delivery": "sent to RAG by DM as set_C2.zip; runs on index_full",
+ "zip": {
+  "file": "set_C2.zip",
+  "sha256": "17ddd30ef763591f13c24783f449787b0f5d4a4f4a3a2bd2d702a7c3922f0308"
+ },
+ "inspection": "Nobody has read the questions. All checks ran automatically and none flagged an item."
+}

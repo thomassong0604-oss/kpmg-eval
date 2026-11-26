@@ -214,7 +214,7 @@ knows, leaving out everything the development set and both holdout batches use.
 | Filings | 10-K 102, 10-Q 48 | 10-K 6, 10-Q 94 |
 | Answer unit | millions 125, thousands 12, per share 13 | millions 67, thousands 25, per share 8 |
 | Rows left out because a dev or holdout question uses them | 62 | 0 (no core company is in C) |
-| Status | sent to RAG by DM at run time | sealed until `index_full` is recorded |
+| Status | sent to RAG by DM on 11/25; run as Sets A and B | **retired 11/26, never run** (see the update below) |
 
 Nobody has read the questions. The checks ran automatically; for four items a check flagged, only the printed figure and value were looked at.
 
@@ -241,7 +241,55 @@ Two scoring rules fixed now, before any answer exists:
 
 The seed is published after the last run; with it, the builder at 6b7d53b and the same rows reproduce both files exactly.
 
-## 8. Files
+**Update 11/26: Set C drawn again.** The first Set C file and the first seed reached RAG by mistake on 11/25, before the run. RAG
+disclosed it the next day, reports the file unopened and the seed unused, and suggested a new draw. The first Set C
+(53664be8…3b13) is retired and was never run. The replacement was drawn on 11/26 with a new 128-bit seed:
+`results/xbrl_set_C2_manifest.json`, SHA-256 756e26b7…6e76, 100 questions, one per company, 10-Q 90 and 10-K 10. Every check
+above passes on it (100/100, zero overlap, no core company, dry run 100 / 0 / 0 / 0) and no item was looked at.
+RAG's `index_full` (37c4eb2f1628) was recorded in their pre-registration at 0ca6fb3 on 11/24, which we verified in their
+repository, so the index was fixed before this draw. Sets A and B are not affected: RAG already held those questions for the run.
+
+## 8. XBRL Set B, RAG `final_v1` on the full index (official score)
+
+`python scripts/score_objective_set.py --set B --returns private/xbrl/returns/xbrl_B_return` → `results/xbrl_B_final_v1.json`, `_per_question.csv`
+
+Set B is Set A's 150 questions asked against `index_full`: 645 filings from 261 companies, 102,760 chunks, about 28 times the
+frozen index. RAG ran each pre-registered filter configuration once on 11/25 and returned the files with checksums (all verify).
+The workspace had been reset, so `scripts/rebuild_set_A.py` regenerated the question file from the returned questions and the
+metric rows; it reproduces the published SHA-256 exactly, so the gold answers used here are the sealed ones.
+
+| | Gold filters | Pre-check filters |
+|---|---|---|
+| Numeric accuracy, strict (primary) | 131/150 = 0.873 (0.811–0.917) | 115/150 = 0.767 (0.693–0.827) |
+| Ignoring the sign on the 22 cash-outflow questions | 136/150 = 0.907 | 117/150 = 0.780 |
+| Declined an answerable question | 10 | 29 |
+| Wrong answers given | 9 (7 sign, 2 value) | 6 (5 sign, 1 value) |
+| Accuracy when it answers | 131/140 = 0.936 | 115/121 = 0.950 |
+| Answers citing the gold filing | 140/140 | 86/121 |
+| Cost | $0.942 | $0.910 |
+| Reader time, median / p95 | 3.4 s / 6.0 s | 2.9 s / 5.0 s |
+
+Paired on the 150 questions: both right 107, only gold filters 24, only pre-check 8, neither 11 (exact McNemar p = 0.007).
+Our grader and RAG's own agree on all 300 answers. The trailing-zero rule was never needed.
+
+What it says:
+
+1. **On an index 28 times larger the reader still rarely gives a wrong number**: 2 and 1 wrong values in 150. The other wrong answers are signs.
+2. **Finding the filing is what costs accuracy.** With the rule pre-check instead of perfect filters accuracy falls 10.6 points, and
+   19 of the 24 lost answers are declines. Balance-sheet questions lose most (46/51 → 33/51).
+3. **Sign is a real, separate weakness.** 7 answers have the right amount with the wrong sign under gold filters: 5 on the
+   cash-outflow questions (the pattern seen on holdout A) and 2 on cost of revenue. Under pre-check it also appears on the current portion of long-term debt.
+4. **Misses concentrate in three companies.** With gold filters Apple is 8/15, McKesson 10/15 and Medtronic 11/15; the other seven are 102/105.
+   With the pre-check Medtronic falls to 6/15.
+5. **For numbers, citing another filing is mostly legitimate.** Under the pre-check 35 answers cite only a filing other than the gold
+   one; 34 of those are prior-period questions and 34 are right, which is consistent with the same figure being printed in the
+   filing whose own period it is. This differs from narrative answers (section 6), where wrong-filing answers carried the contradictions.
+
+Not yet done: Set A (the same questions on the frozen index) is run but its return file has not reached this workspace, so the
+frozen-against-full comparison, which is the point of Set B, is still open.
+
+
+## 9. Files
 
 | File | What |
 |---|---|
@@ -250,7 +298,10 @@ The seed is published after the last run; with it, the builder at 6b7d53b and th
 | `scripts/validate_hand_labels.py` | both judges against RAG's hand labels; last week's pass counts with the human verdicts applied |
 | `scripts/score_rewrite_followups.py` | clean against messy pairing; checks RAG's judged narrative table |
 | `scripts/check_objective_sets.py` | checks XBRL sets A and C without reading them, zips them, writes the public manifests; holds the scoring rules for the run |
-| `results/xbrl_set_A_manifest.json`, `xbrl_set_C_manifest.json` | section 7 |
+| `scripts/rebuild_set_A.py` | regenerates Set A's question file without the seed and accepts it only if the published hash matches |
+| `scripts/score_objective_set.py` | official score of an objective-set run, both filter configurations, with the rules fixed on 11/25 |
+| `results/xbrl_set_A_manifest.json`, `xbrl_set_C_manifest.json` (retired), `xbrl_set_C2_manifest.json` | section 7 |
+| `results/xbrl_B_final_v1.json`, `_per_question.csv` | section 8 |
 | `results/holdout_A_final_v1.json`, `_per_question.csv` | section 1 |
 | `results/holdout_B_final_v2.json`, `_per_question.csv` | section 3 |
 | `results/judge_vs_hand_labels.json` | section 4 |

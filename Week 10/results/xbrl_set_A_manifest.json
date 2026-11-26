@@ -20,7 +20,8 @@
   "sha256_of_seed": "041bbb3a057164b459d4c7f8e309be873ba2398f9c0dd2f2d5f6ee495a146100",
   "bits": 128,
   "chosen_by": "Eval, private",
-  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run."
+  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run.",
+  "disclosure": "The seed file reached RAG by mistake on 11/25, with the Set A delivery (disclosed by RAG on 11/26). This does not affect Sets A or B: RAG already held those questions for the run, and the seed adds nothing to them. Set C was drawn again with a new seed."
  },
  "excluded_question_files": {
   "benchmark_v2_2.jsonl": "416304a91b4aa40005342070b2c7d745992c22db95e296c3d7866530954d4ef9",
@@ -139,10 +140,11 @@
   "PH": 15,
   "TTWO": 15
  },
- "delivery": "sent to RAG by DM as a zip at run time; runs on the frozen round-1 index",
+ "delivery": "sent to RAG by DM on 11/25; run on the frozen index (Set A) and on index_full (Set B)",
  "zip": {
   "file": "set_A.zip",
   "sha256": "a7f6bc11260636a0188b89202dd6281be5ad12ca3433b5af7283276a13703b99"
  },
- "inspection": "Nobody has read the questions. Checks ran automatically; for the items a check flagged (2 in A, 2 in C) only the printed figure and value fields were looked at."
+ "inspection": "Nobody has read the questions. Checks ran automatically; for the items a check flagged (2 in A, 2 in C) only the printed figure and value fields were looked at.",
+ "recovered_without_seed": "scripts/rebuild_set_A.py regenerates this file from the returned questions and the metric rows and accepts it only if the SHA-256 above matches (it does)"
 }

@@ -113,3 +113,35 @@ SHA-256 of set_A.zip: a7f6bc11260636a0188b89202dd6281be5ad12ca3433b5af7283276a13
 SHA-256 of set_A.jsonl inside: 18794c0f4bb39da6977d39fe13d1171615c9b17937fcc64f5d9c284bc49020a5
 
 Both are in Week 10/results/xbrl_set_A_manifest.json. Please check the hash before opening, then run once per pre-registered configuration on the frozen index and send back answer_blocks.jsonl and per_question.csv for each. Thank you!
+
+## Slack reply to RAG (Xiangxinrui), Set B score and the new Set C, 11/26 (draft)
+
+Hi Xiangxinrui, thank you for both runs, and especially for telling us straight away about the seed file and Set C. That was our mistake in the DM, and your disclosure is exactly how this should work.
+
+1. Set C and the seed
+- We have retired the first Set C (53664be8…) and drawn it again with a new seed. It was never run, so nothing is lost.
+- New file: set_C2.zip, 100 questions. SHA-256 of the zip: 17ddd30ef763591f13c24783f449787b0f5d4a4f4a3a2bd2d702a7c3922f0308. SHA-256 of set_C2.jsonl inside: 756e26b739ae90c1664010ff0588f5e371c805682e03912d7671acc8a9726e76. Both are in Week 10/results/xbrl_set_C2_manifest.json. It comes by DM.
+- Please delete set_C.zip and xbrl_seed.txt.
+- Sets A and B are not affected: you already held those questions for the run, and the seed adds nothing to them. We have noted the disclosure in the Set A manifest.
+- We checked 0ca6fb3 in your repository: index_full 37c4eb2f1628 was recorded on 11/24, before this new draw. Same procedure for C: check the hash before opening, one run per configuration on index_full, then the same return files.
+
+2. Set B, final_v1 on index_full (official). All six files match your checksums, and our grader agrees with yours on all 300 answers.
+- Gold filters: 131/150 = 0.873 (95% interval 0.811 to 0.917). Pre-check filters: 115/150 = 0.767 (0.693 to 0.827).
+- Ignoring the sign on the 22 cash-outflow questions: 136/150 and 117/150.
+- Paired: 24 right only with gold filters, 8 only with the pre-check, p = 0.007. Of the 24, 19 are declines.
+- Wrong values are rare: 2 and 1 in 150. The other wrong answers are signs: 7 with gold filters (5 cash outflow, 2 cost of revenue).
+- Misses concentrate: with gold filters Apple 8/15, McKesson 10/15, Medtronic 11/15, the other seven companies 102/105.
+- With the pre-check, 35 answers cite only another filing, and 34 of them are right. Nearly all are prior-period questions, so this looks like the same figure printed in the earlier filing, which is a fair source for a number.
+
+3. Set A: thank you, the score follows separately, together with the frozen-against-full comparison.
+
+4. Thank you for confirming both scoring rules and for the human review labels tonight.
+
+## DM to RAG with the new Set C (draft)
+
+Hi Xiangxinrui, the new Set C is attached as set_C2.zip (100 questions). It replaces set_C.zip, which please delete along with xbrl_seed.txt.
+
+SHA-256 of set_C2.zip: 17ddd30ef763591f13c24783f449787b0f5d4a4f4a3a2bd2d702a7c3922f0308
+SHA-256 of set_C2.jsonl inside: 756e26b739ae90c1664010ff0588f5e371c805682e03912d7671acc8a9726e76
+
+Both are in Week 10/results/xbrl_set_C2_manifest.json. Please check the hash before opening, then run once per pre-registered configuration on index_full 37c4eb2f1628 and send back the same files as for A and B. Thank you!

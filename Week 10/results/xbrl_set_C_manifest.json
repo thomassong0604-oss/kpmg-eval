@@ -1,4 +1,5 @@
 {
+ "status": "RETIRED 2026-11-26, never run. This file and the first seed reached RAG by mistake on 11/25 (disclosed by RAG on 11/26; RAG reports the file unopened and the seed unused). Replaced by xbrl_set_C2_manifest.json.",
  "_doc": "XBRL objective set C: held by Eval, sealed until the run. Hashes, counts and check results only.",
  "set": "C",
  "file": "set_C.jsonl",
@@ -123,7 +124,7 @@
    }
   }
  },
- "delivery": "held until RAG has built and recorded index_full (the 412 non-core filings); then sent by DM as a zip",
+ "delivery": "not used",
  "zip": {
   "file": "set_C.zip",
   "sha256": "03288850a89b2b5e9a0a01625bef2d97fb787ea033b579b3d48bfd6e7132f86e"
