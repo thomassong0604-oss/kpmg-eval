@@ -145,3 +145,21 @@ SHA-256 of set_C2.zip: 17ddd30ef763591f13c24783f449787b0f5d4a4f4a3a2bd2d702a7c39
 SHA-256 of set_C2.jsonl inside: 756e26b739ae90c1664010ff0588f5e371c805682e03912d7671acc8a9726e76
 
 Both are in Week 10/results/xbrl_set_C2_manifest.json. Please check the hash before opening, then run once per pre-registered configuration on index_full 37c4eb2f1628 and send back the same files as for A and B. Thank you!
+
+## Slack reply to RAG (Xiangxinrui), C2 go-ahead and the human review, 11/27 (draft)
+
+Hi Xiangxinrui, thank you, and Happy Thanksgiving to you and the team!
+
+1. Set C2: please go ahead and run it as it is.
+- We agree with your reasoning. You hold the questions from that DM anyway, the system has been frozen since 11/17, and index_full was recorded on 11/24 before the draw, so the seed gives nothing the file did not.
+- Thank you for disclosing it again, and sorry for the repeated slip on our side. It is recorded in the C2 manifest.
+- One run per configuration on index_full 37c4eb2f1628, same return files as for B. We publish both seeds once C2 is back.
+
+2. Human review of the 23 holdout answers: thank you to all four raters, this is careful work and the adjudication log is very clear.
+- Your figures reproduce from the file: 71 of 75 points, kappa 0.58.
+- Your consensus equals our judge on all 75 points, not only on the 23 answers: the same three points are missing (HA-032 #3, HA-034 #4, HB-016 #1).
+- On the four points your raters split on, our judge gave credit each time, like the adjudication. We had flagged two of them as close calls ourselves (HA-033 #1 and HA-034 #1).
+- So the holdout narrative scores stand with a human check: A 3/5 (15/17 points), B 17/18 (57/58).
+- In the write-up we will state the limits the way your log does: the raters are RAG members, 71 of the 75 labels are two raters agreeing, and the 4 adjudications came after our per-question counts were public (one of them delegated to an assistant). We think saying so makes the result stronger.
+
+3. Set A: the official score and the frozen-against-full comparison still follow from us.

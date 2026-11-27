@@ -101,3 +101,12 @@ def test_xbrl_B_score():
         assert x["numeric_accuracy_sign_insensitive_on_cash_outflow"]["k"] == s["k"] + x["cash_outflow_questions"]["wrong_sign"]
         assert not x["differs_from_rags_own_grader"]
     assert d["configs"]["gold"]["numeric_accuracy_strict"]["k"] == p["both_right"] + p["only_gold_filters_right"]
+
+
+def test_holdout_hand_labels():
+    d = json.load(open(RES / "holdout_narrative_hand_labels.json"))
+    assert d["between_the_two_raters"]["points"] == 75 and d["between_the_two_raters"]["agree"] == 75 - len(d["points_the_raters_split_on"])
+    assert d["judge_vs_consensus"]["all"]["agree"] == d["judge_vs_consensus"]["batch_A_final_v1"]["agree"] + d["judge_vs_consensus"]["batch_B_final_v2"]["agree"]
+    a, b = (json.load(open(RES / f)) for f in ("holdout_A_final_v1.json", "holdout_B_final_v2.json"))
+    assert d["answers_with_every_point"]["A"]["judge"] == a["narrative"]["every_point_stated"]["k"] and d["points_stated"]["A"]["judge"] == a["narrative"]["points_stated"]["k"]
+    assert d["answers_with_every_point"]["B"]["judge"] == b["narrative"]["every_point_stated"]["k"] and d["points_stated"]["B"]["judge"] == b["narrative"]["points_stated"]["k"]

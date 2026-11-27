@@ -20,7 +20,8 @@
   "sha256_of_seed": "8861861a290cc407d03e594bde56c9869a29c5abe8fb6df9486459770757228e",
   "bits": 128,
   "chosen_by": "Eval, private",
-  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run."
+  "note": "With the seed, the builder at this commit and these rows reproduce the file exactly; the seed is published after the last run.",
+  "disclosure": "The seed file for this set also reached RAG by mistake, in the same DM as the set itself (disclosed by RAG on 11/27; RAG reports it unused and deleted). The set is run as it is: RAG held the questions from that DM anyway, the system has been frozen since 11/17 and index_full was recorded on 11/24, so the seed gives nothing the delivered file did not."
  },
  "excluded_question_files": {
   "benchmark_v2_2.jsonl": "416304a91b4aa40005342070b2c7d745992c22db95e296c3d7866530954d4ef9"

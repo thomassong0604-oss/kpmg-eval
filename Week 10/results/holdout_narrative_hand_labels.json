@@ -1,0 +1,141 @@
+{
+ "_doc": "Week 10: RAG's blind human rating of the 23 holdout narrative answers (received 11/27) against Eval's judge.",
+ "labels": {
+  "answers": 23,
+  "points": 75,
+  "raters": "two RAG members per answer (four raters in two pairs), blind to every judge and to Eval's scores, as described by RAG"
+ },
+ "between_the_two_raters": {
+  "points": 75,
+  "agree": 71,
+  "agreement": 0.947,
+  "kappa": 0.576,
+  "pairs": {
+   "stated/stated": 68,
+   "missing/missing": 3,
+   "stated/missing": 4
+  }
+ },
+ "judge_vs_consensus": {
+  "all": {
+   "points": 75,
+   "agree": 75,
+   "agreement": 1.0,
+   "kappa": 1.0,
+   "pairs": {
+    "stated/stated": 72,
+    "missing/missing": 3
+   }
+  },
+  "batch_A_final_v1": {
+   "points": 17,
+   "agree": 17,
+   "agreement": 1.0,
+   "kappa": 1.0,
+   "pairs": {
+    "stated/stated": 15,
+    "missing/missing": 2
+   }
+  },
+  "batch_B_final_v2": {
+   "points": 58,
+   "agree": 58,
+   "agreement": 1.0,
+   "kappa": 1.0,
+   "pairs": {
+    "stated/stated": 57,
+    "missing/missing": 1
+   }
+  }
+ },
+ "judge_vs_points_both_raters_agree_on": {
+  "points": 71,
+  "agree": 71,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "pairs": {
+   "stated/stated": 68,
+   "missing/missing": 3
+  }
+ },
+ "judge_vs_each_rater_as_labelled": {
+  "points": 150,
+  "agree": 146,
+  "agreement": 0.973,
+  "kappa": 0.737,
+  "pairs": {
+   "stated/stated": 140,
+   "missing/missing": 6,
+   "missing/stated": 4
+  }
+ },
+ "points_the_raters_split_on": [
+  {
+   "qid": "HA-033",
+   "point": 1,
+   "R1": "stated",
+   "R2": "missing",
+   "consensus": "stated",
+   "judge": "stated",
+   "flagged_borderline_by_eval_beforehand": true
+  },
+  {
+   "qid": "HA-034",
+   "point": 1,
+   "R1": "stated",
+   "R2": "missing",
+   "consensus": "stated",
+   "judge": "stated",
+   "flagged_borderline_by_eval_beforehand": true
+  },
+  {
+   "qid": "HB-008",
+   "point": 1,
+   "R1": "stated",
+   "R2": "missing",
+   "consensus": "stated",
+   "judge": "stated",
+   "flagged_borderline_by_eval_beforehand": false
+  },
+  {
+   "qid": "HB-008",
+   "point": 3,
+   "R1": "stated",
+   "R2": "missing",
+   "consensus": "stated",
+   "judge": "stated",
+   "flagged_borderline_by_eval_beforehand": false
+  }
+ ],
+ "answers_with_every_point": {
+  "A": {
+   "judge": 3,
+   "consensus": 3,
+   "of": 5,
+   "answer_level_differences": []
+  },
+  "B": {
+   "judge": 17,
+   "consensus": 17,
+   "of": 18,
+   "answer_level_differences": []
+  }
+ },
+ "points_stated": {
+  "A": {
+   "judge": 15,
+   "consensus": 15,
+   "of": 17
+  },
+  "B": {
+   "judge": 57,
+   "consensus": 57,
+   "of": 58
+  }
+ },
+ "limits": [
+  "The raters are members of the team whose system is rated; Eval has not labelled these answers itself.",
+  "71 of the 75 consensus labels are two independent raters agreeing. The other 4 were adjudicated by RAG after Eval's per-question counts were public: 3 by the RAG lead and 1 (HA-034 point 1) delegated to an AI assistant, as RAG's adjudication log states.",
+  "Only 3 consensus labels are not 'stated', so kappa rests on very few cases."
+ ]
+}

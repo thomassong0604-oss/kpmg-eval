@@ -194,6 +194,9 @@ def main():
             out["index_fixed_before_this_draw"] = "index_full 37c4eb2f1628 was recorded in RAG's pre-registration at 0ca6fb3 (2026-11-24), before this set was drawn"
             out["exclusion_note"] = ("Built with the development set as the only exclusion file: the holdout files were not in this workspace and cannot "
                                      "affect Set C, which contains no core company (population and exclusion counts are identical to the first build).")
+            out["seed"]["disclosure"] = ("The seed file for this set also reached RAG by mistake, in the same DM as the set itself (disclosed by RAG on 11/27; RAG reports it unused and deleted). "
+                                         "The set is run as it is: RAG held the questions from that DM anyway, the system has been frozen since 11/17 and index_full was recorded on 11/24, "
+                                         "so the seed gives nothing the delivered file did not.")
             out["checks"]["core_companies_in_set"] = 0
             out["delivery"] = "sent to RAG by DM as set_C2.zip; runs on index_full"
         # the file travels zipped so a chat preview cannot show a question; fixed timestamp, so the zip hash is reproducible

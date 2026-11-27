@@ -128,8 +128,8 @@ The two misses and what to keep in mind:
   not answered. A retrieval miss on one of two sections.
 - **HB-024, declined an answerable question.** A change between an annual and a quarterly balance sheet; RAG's log says retrieval did
   not return the figures. With HA-029 in batch A, the two-filing questions are 3 of 5 across both batches, and both misses are declines, not wrong numbers.
-- **The narrative score is an upper bound until a human has rated it.** Section 4 shows the judge used here gives credit slightly too
-  easily. RAG has offered a blind human rating of all 23 holdout narrative answers.
+- **The narrative score is now confirmed by human raters** (section 9): two RAG raters per answer, and their consensus equals our
+  judge on every one of the 58 points.
 - **HB-004 is our error.** The question says revenue fell; in the filing reported revenue rose slightly and the 2% fall is
   currency-neutral. The answer corrects this and still states every point, so it passes; the question is recorded as badly worded.
   The review on 11/23 did not catch it.
@@ -246,6 +246,8 @@ disclosed it the next day, reports the file unopened and the seed unused, and su
 (53664be8…3b13) is retired and was never run. The replacement was drawn on 11/26 with a new 128-bit seed:
 `results/xbrl_set_C2_manifest.json`, SHA-256 756e26b7…6e76, 100 questions, one per company, 10-Q 90 and 10-K 10. Every check
 above passes on it (100/100, zero overlap, no core company, dry run 100 / 0 / 0 / 0) and no item was looked at.
+The seed file for this set also reached RAG, in the same DM as the set (disclosed 11/27, unused and deleted). The set is run as it is:
+RAG held the questions from that DM anyway, so the seed gives nothing the delivered file did not.
 RAG's `index_full` (37c4eb2f1628) was recorded in their pre-registration at 0ca6fb3 on 11/24, which we verified in their
 repository, so the index was fixed before this draw. Sets A and B are not affected: RAG already held those questions for the run.
 
@@ -289,7 +291,33 @@ Not yet done: Set A (the same questions on the frozen index) is run but its retu
 frozen-against-full comparison, which is the point of Set B, is still open.
 
 
-## 9. Files
+## 9. Human rating of the 23 holdout narrative answers
+
+`python scripts/validate_holdout_labels.py` → `results/holdout_narrative_hand_labels.json`
+
+RAG had every holdout narrative answer (5 in batch A, 18 in batch B; 75 required points) labelled by two of its members,
+blind to both judges and to our scores, and sent the labels on 11/27 with an adjudication log.
+
+| Comparison | Points | Agree | Cohen's kappa |
+|---|---|---|---|
+| The two raters with each other | 75 | 71 = 94.7% | 0.58 |
+| Our judge with the raters' consensus | 75 | 75 = 100% | 1.00 |
+| Our judge on the points where both raters agree | 71 | 71 = 100% | 1.00 |
+| Our judge with each rater's own label | 150 | 146 = 97.3% | 0.74 |
+
+- **The holdout narrative scores stand, now with a human check:** batch A 3/5 answers with every point (15/17 points), batch B 17/18 (57/58).
+  The consensus names the same three missing points as our judge.
+- **The four points the raters split on are all ones where our judge gave credit** and one rater did not, in each case because the answer
+  paraphrases the point ("0.2 percentage points" for "20 basis points", "fell 6%" for "decreased"). The rubric counts a paraphrase as stated,
+  and the adjudication went that way. We had flagged two of the four as close calls when we published the scores.
+- This fits section 4: the judge does not miss points the humans see, and where humans hesitate it sides with the more generous reading.
+- RAG's rater agreement figures (71/75, kappa 0.58) reproduce from their file.
+
+Limits, stated plainly: the raters belong to the team whose system is rated, and Eval has not labelled these answers itself. 71 of the
+75 consensus labels are two independent raters agreeing; the other 4 were adjudicated after our per-question counts were public, 3 by the
+RAG lead and 1 by an AI assistant, as RAG's own log states. Only 3 labels are not "stated", so kappa rests on very few cases.
+
+## 10. Files
 
 | File | What |
 |---|---|
@@ -302,6 +330,7 @@ frozen-against-full comparison, which is the point of Set B, is still open.
 | `scripts/score_objective_set.py` | official score of an objective-set run, both filter configurations, with the rules fixed on 11/25 |
 | `results/xbrl_set_A_manifest.json`, `xbrl_set_C_manifest.json` (retired), `xbrl_set_C2_manifest.json` | section 7 |
 | `results/xbrl_B_final_v1.json`, `_per_question.csv` | section 8 |
+| `scripts/validate_holdout_labels.py`, `results/holdout_narrative_hand_labels.json` | section 9 |
 | `results/holdout_A_final_v1.json`, `_per_question.csv` | section 1 |
 | `results/holdout_B_final_v2.json`, `_per_question.csv` | section 3 |
 | `results/judge_vs_hand_labels.json` | section 4 |
