@@ -317,7 +317,49 @@ Limits, stated plainly: the raters belong to the team whose system is rated, and
 75 consensus labels are two independent raters agreeing; the other 4 were adjudicated after our per-question counts were public, 3 by the
 RAG lead and 1 by an AI assistant, as RAG's own log states. Only 3 labels are not "stated", so kappa rests on very few cases.
 
-## 10. Files
+## 10. XBRL Set C2, RAG `final_v1` on 100 companies it was never developed on (official score)
+
+`python scripts/score_objective_set.py --set C --name C2 --returns private/xbrl/returns/xbrl_C2_return` → `results/xbrl_C2_final_v1.json`, `_per_question.csv`
+`python scripts/review_wrong_values.py` → `results/xbrl_wrong_value_review.json`
+
+One question for each of 100 companies outside the ten, 90 of them from 10-Qs, asked against `index_full`. RAG ran each
+configuration once on 11/27 after our go-ahead; the six returned files match their checksums and the question file matches the C2 manifest.
+
+| | Gold filters | Pre-check filters |
+|---|---|---|
+| Numeric accuracy, strict (primary) | 76/100 = 0.760 (0.668–0.833) | 75/100 = 0.750 (0.657–0.825) |
+| Ignoring the sign on the 10 cash-outflow questions | 79/100 | 78/100 |
+| Declined an answerable question | 14 | 15 |
+| Wrong answers given | 10 (5 value, 3 sign, 2 rounded) | 10 (same) |
+| Accuracy when it answers | 76/86 = 0.884 | 75/85 = 0.882 |
+| Answers citing the gold filing | 86/86 | 85/85 |
+| Cost | $0.595 | $0.600 |
+| Reader time, median / p95 | 2.1 s / 3.9 s | 2.3 s / 3.9 s |
+
+Our grader and RAG's own agree on all 200 answers. The trailing-zero rule was never needed.
+
+What it says:
+
+1. **Accuracy is about 11 points lower on companies the system was not developed on**: 0.760 against 0.873 on the ten core companies
+   (Set B, same index and filters; Fisher exact p = 0.026). The two sets differ in mix (C2 is mostly 10-Qs and one question per
+   company), so this is an indication, not a controlled comparison.
+2. **Here the pre-check costs nothing** (75 against 76, one question). On Set B it cost 10.6 points. The difference fits the index:
+   the core companies have about 23 filings each to choose from, the others one or two.
+3. **Every wrong value on Sets B and C2 is the same thing, and it is partly our question's fault.** All 7 (2 on B, 5 on C2) are answers
+   that give the consolidated figure where the gold cell is the "attributable to the company" line. The question says only "net income"
+   or "total shareholders' equity". The reader did not once give a figure that is not in the filing. They stay wrong in the official
+   score; if the consolidated figure were accepted, B would be 133/150 and C2 81/100 (post-hoc, for information).
+4. **Two answers are rounded figures taken from prose** ("$1.0 billion" where the statement prints 1,048).
+5. **The sign pattern repeats**: 3 of the 10 cash-outflow questions are answered with a negative number.
+6. **Some line items are much weaker than others**: cost of revenue 2/8 (5 declines; on Set B it was also the weakest at 16/21),
+   capital expenditures 4/8, total liabilities 3/6, against 44/44 for revenue, cash, operating cash flow and diluted EPS.
+7. The known data issue RAG recorded before opening the file (missing section labels for 10 filings of six companies) touches
+   3 questions in this set; all 3 are answered correctly.
+
+Sets A and B run on the ten core companies; Set A's return file has still not reached this workspace, so the
+frozen-against-full comparison remains open.
+
+## 11. Files
 
 | File | What |
 |---|---|
@@ -331,6 +373,8 @@ RAG lead and 1 by an AI assistant, as RAG's own log states. Only 3 labels are no
 | `results/xbrl_set_A_manifest.json`, `xbrl_set_C_manifest.json` (retired), `xbrl_set_C2_manifest.json` | section 7 |
 | `results/xbrl_B_final_v1.json`, `_per_question.csv` | section 8 |
 | `scripts/validate_holdout_labels.py`, `results/holdout_narrative_hand_labels.json` | section 9 |
+| `results/xbrl_C2_final_v1.json`, `_per_question.csv` | section 10 |
+| `scripts/review_wrong_values.py`, `results/xbrl_wrong_value_review.json` | section 10: what the wrong values on B and C2 have in common |
 | `results/holdout_A_final_v1.json`, `_per_question.csv` | section 1 |
 | `results/holdout_B_final_v2.json`, `_per_question.csv` | section 3 |
 | `results/judge_vs_hand_labels.json` | section 4 |

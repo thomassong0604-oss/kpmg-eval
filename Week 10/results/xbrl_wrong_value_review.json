@@ -1,0 +1,204 @@
+{
+ "_doc": "Week 10: what the wrong-value answers on the objective sets have in common (post-hoc, after the runs; not a pre-registered score).",
+ "status": "post-hoc description; the official scores are the strict ones",
+ "sets": {
+  "B": {
+   "questions": 150,
+   "net_income_or_equity_questions_whose_gold_cell_is_parent_only": 3,
+   "configs": {
+    "gold": {
+     "strict_right": 131,
+     "wrong_value_or_imprecise": 2,
+     "by_kind": {
+      "consolidated figure given where the gold cell is the parent-only line": 2
+     },
+     "parent_only_questions_answered_with_the_consolidated_figure": "2/3",
+     "right_if_the_consolidated_figure_were_accepted": 133,
+     "right_if_also_ignoring_sign_on_cash_outflow": 138,
+     "detail": [
+      {
+       "qid": "OBJ-A-035",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0564,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-A-037",
+       "metric": "shareholders_equity",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0887,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      }
+     ]
+    },
+    "precheck": {
+     "strict_right": 115,
+     "wrong_value_or_imprecise": 1,
+     "by_kind": {
+      "consolidated figure given where the gold cell is the parent-only line": 1
+     },
+     "parent_only_questions_answered_with_the_consolidated_figure": "1/3",
+     "right_if_the_consolidated_figure_were_accepted": 116,
+     "right_if_also_ignoring_sign_on_cash_outflow": 118,
+     "detail": [
+      {
+       "qid": "OBJ-A-035",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0564,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      }
+     ]
+    }
+   }
+  },
+  "C2": {
+   "questions": 100,
+   "net_income_or_equity_questions_whose_gold_cell_is_parent_only": 7,
+   "configs": {
+    "gold": {
+     "strict_right": 76,
+     "wrong_value_or_imprecise": 7,
+     "by_kind": {
+      "consolidated figure given where the gold cell is the parent-only line": 5,
+      "rounded figure": 2
+     },
+     "parent_only_questions_answered_with_the_consolidated_figure": "5/7",
+     "right_if_the_consolidated_figure_were_accepted": 81,
+     "right_if_also_ignoring_sign_on_cash_outflow": 84,
+     "detail": [
+      {
+       "qid": "OBJ-C-014",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.1015,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-030",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0026,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-050",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0016,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-066",
+       "metric": "cost_of_revenue",
+       "label": "too_imprecise",
+       "gold_cell_is_parent_only_line": false,
+       "relative_difference": 0.0458,
+       "kind": "rounded figure"
+      },
+      {
+       "qid": "OBJ-C-073",
+       "metric": "capital_expenditures",
+       "label": "too_imprecise",
+       "gold_cell_is_parent_only_line": false,
+       "relative_difference": 0.0002,
+       "kind": "rounded figure"
+      },
+      {
+       "qid": "OBJ-C-076",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0038,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-083",
+       "metric": "shareholders_equity",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0001,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      }
+     ]
+    },
+    "precheck": {
+     "strict_right": 75,
+     "wrong_value_or_imprecise": 7,
+     "by_kind": {
+      "consolidated figure given where the gold cell is the parent-only line": 5,
+      "rounded figure": 2
+     },
+     "parent_only_questions_answered_with_the_consolidated_figure": "5/7",
+     "right_if_the_consolidated_figure_were_accepted": 80,
+     "right_if_also_ignoring_sign_on_cash_outflow": 83,
+     "detail": [
+      {
+       "qid": "OBJ-C-014",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.1015,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-030",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0026,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-050",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0016,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-066",
+       "metric": "cost_of_revenue",
+       "label": "too_imprecise",
+       "gold_cell_is_parent_only_line": false,
+       "relative_difference": 0.0458,
+       "kind": "rounded figure"
+      },
+      {
+       "qid": "OBJ-C-073",
+       "metric": "capital_expenditures",
+       "label": "too_imprecise",
+       "gold_cell_is_parent_only_line": false,
+       "relative_difference": 0.0002,
+       "kind": "rounded figure"
+      },
+      {
+       "qid": "OBJ-C-076",
+       "metric": "net_income",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0038,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      },
+      {
+       "qid": "OBJ-C-083",
+       "metric": "shareholders_equity",
+       "label": "wrong_value",
+       "gold_cell_is_parent_only_line": true,
+       "relative_difference": 0.0001,
+       "kind": "consolidated figure given where the gold cell is the parent-only line"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

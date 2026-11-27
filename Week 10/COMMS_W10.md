@@ -163,3 +163,25 @@ Hi Xiangxinrui, thank you, and Happy Thanksgiving to you and the team!
 - In the write-up we will state the limits the way your log does: the raters are RAG members, 71 of the 75 labels are two raters agreeing, and the 4 adjudications came after our per-question counts were public (one of them delegated to an assistant). We think saying so makes the result stronger.
 
 3. Set A: the official score and the frozen-against-full comparison still follow from us.
+
+## Slack reply to RAG (Xiangxinrui), Set C2 score, 11/27 (draft)
+
+Hi Xiangxinrui, thank you, C2 is scored. All six files match your checksums, the question file matches the C2 manifest, and our grader agrees with yours on all 200 answers. Details are in Week 10/README.md, section 10.
+
+1. Set C2, final_v1 on index_full (official)
+- Gold filters: 76/100 = 0.760 (95% interval 0.668 to 0.833). Pre-check filters: 75/100 = 0.750 (0.657 to 0.825).
+- Ignoring the sign on the 10 cash-outflow questions: 79 and 78.
+- Declined: 14 and 15. Accuracy when it answers: 0.884 and 0.882.
+- The pre-check costs one question here, against 10.6 points on Set B. That fits the index: the core companies have about 23 filings each to choose from, the other companies one or two.
+- Against Set B with gold filters (0.873), C2 is about 11 points lower (Fisher exact p = 0.026). The two sets differ in mix, so we will report it as an indication.
+
+2. One finding you will like, and one thing for us both to fix
+- Every wrong value on B and C2 (7 in all) is the consolidated figure where the gold cell is the "attributable to the company" line. Your reader never gave a figure that is not in the filing.
+- That is partly the question template: it says only "net income" or "total shareholders' equity". They stay wrong in the official score. For information, with the consolidated figure accepted B would be 133/150 and C2 81/100. For Sets D and E, or any later set, could the template say "attributable to the company" when the gold cell is that line?
+- Two answers are rounded figures taken from prose ("$1.0 billion" where the statement prints 1,048).
+- The sign pattern repeats: 3 of 10 cash-outflow questions.
+- Weakest line item: cost of revenue, 2/8 here and 16/21 on B, mostly declines.
+
+3. The data issue you recorded at 5fbc9a0: 3 questions in C2 are from those six companies, and all 3 are answered correctly, so it did not affect this run. Thank you for writing it down before opening the file.
+
+4. Set A: the official score and the frozen-against-full comparison still follow from us.

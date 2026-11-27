@@ -1,6 +1,7 @@
 """Week 10: official score of an XBRL objective set run (RAG final_v1; one run per pre-registered filter configuration).
 
     python scripts/score_objective_set.py --set B --returns private/xbrl/returns/xbrl_B_return
+    python scripts/score_objective_set.py --set C --name C2 --returns private/xbrl/returns/xbrl_C2_return
         <returns>/xbrl_<SET>_<config>_answer_blocks.jsonl, _per_question.csv   for config in gold, precheck (as returned by RAG)
         private/xbrl/out/set_A.jsonl     Set A's questions (Set B is the same 150 questions on index_full); hash checked
         -> results/xbrl_<SET>_final_v1.json, results/xbrl_<SET>_final_v1_per_question.csv   (labels and strata; no question or answer text)
@@ -90,15 +91,17 @@ def main():
     ap.add_argument("--returns", required=True)
     ap.add_argument("--index", default="")
     ap.add_argument("--questions", default=None)
+    ap.add_argument("--name", default=None, help="prefix of the returned files and of the outputs, if not the set letter (C2 for the redrawn Set C)")
     a = ap.parse_args()
     S, ret = a.set, Path(a.returns)
+    N = a.name or S
     qfile = Path(a.questions) if a.questions else cos.X / "out" / ("set_C2.jsonl" if S == "C" else "set_A.jsonl")
     man = json.load(open(ROOT / "results" / ("xbrl_set_C2_manifest.json" if S == "C" else "xbrl_set_A_manifest.json")))
     sha = hashlib.sha256(qfile.read_bytes()).hexdigest()
     assert sha == man["sha256"], "the question file does not match the published hash"
     items = [json.loads(l) for l in open(qfile)]
-    rows = {cfg: score_config(items, ret, S, cfg) for cfg in CONFIGS}
-    out = {"_doc": __doc__.strip().split("\n")[0], "set": S, "questions": len(items), "question_file_sha256": sha, "system": "RAG final_v1", "index": a.index,
+    rows = {cfg: score_config(items, ret, N, cfg) for cfg in CONFIGS}
+    out = {"_doc": __doc__.strip().split("\n")[0], "set": N, "questions": len(items), "question_file_sha256": sha, "system": "RAG final_v1", "index": a.index,
            "scoring_rules": man["scoring_rules_fixed_before_the_run"],
            "returned_files_sha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(ret.glob("*")) if p.suffix in (".jsonl", ".csv", ".json")},
            "configs": {cfg: summarise(rows[cfg]) for cfg in CONFIGS}}
@@ -109,9 +112,9 @@ def main():
                                        "neither": sum(not g[q]["passed"] and not p[q]["passed"] for q in g), "mcnemar_exact_p": mcnemar(b, c),
                                        "lost_with_precheck_by_label": dict(Counter(p[q]["label"] for q in g if g[q]["passed"] and not p[q]["passed"])),
                                        "lost_with_precheck_by_precheck_status": dict(Counter(p[q]["precheck_status"] or "none" for q in g if g[q]["passed"] and not p[q]["passed"]))}
-    (ROOT / "results" / f"xbrl_{S}_final_v1.json").write_text(json.dumps(out, indent=1))
+    (ROOT / "results" / f"xbrl_{N}_final_v1.json").write_text(json.dumps(out, indent=1))
     allr = rows["gold"] + rows["precheck"]
-    with open(ROOT / "results" / f"xbrl_{S}_final_v1_per_question.csv", "w", newline="") as f:
+    with open(ROOT / "results" / f"xbrl_{N}_final_v1_per_question.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(allr[0]))
         w.writeheader()
         w.writerows(allr)

@@ -110,3 +110,17 @@ def test_holdout_hand_labels():
     a, b = (json.load(open(RES / f)) for f in ("holdout_A_final_v1.json", "holdout_B_final_v2.json"))
     assert d["answers_with_every_point"]["A"]["judge"] == a["narrative"]["every_point_stated"]["k"] and d["points_stated"]["A"]["judge"] == a["narrative"]["points_stated"]["k"]
     assert d["answers_with_every_point"]["B"]["judge"] == b["narrative"]["every_point_stated"]["k"] and d["points_stated"]["B"]["judge"] == b["narrative"]["points_stated"]["k"]
+
+
+def test_xbrl_C2_score():
+    d = json.load(open(RES / "xbrl_C2_final_v1.json"))
+    assert d["question_file_sha256"] == json.load(open(RES / "xbrl_set_C2_manifest.json"))["sha256"] and d["questions"] == 100
+    for x in d["configs"].values():
+        assert x["numeric_accuracy_strict"]["n"] == 100 == sum(x["labels"].values()) and not x["differs_from_rags_own_grader"]
+    w = json.load(open(RES / "xbrl_wrong_value_review.json"))
+    for name in ("B", "C2"):
+        sc = json.load(open(RES / f"xbrl_{name}_final_v1.json"))
+        for cfg, x in w["sets"][name]["configs"].items():
+            assert x["strict_right"] == sc["configs"][cfg]["numeric_accuracy_strict"]["k"]
+            assert x["wrong_value_or_imprecise"] == sum(x["by_kind"].values()) == sc["configs"][cfg]["labels"].get("wrong_value", 0) + sc["configs"][cfg]["labels"].get("too_imprecise", 0)
+            assert "other" not in x["by_kind"]
