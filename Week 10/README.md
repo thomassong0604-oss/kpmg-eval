@@ -352,7 +352,7 @@ What it says:
 4. **Two answers are rounded figures taken from prose** ("$1.0 billion" where the statement prints 1,048).
 5. **The sign pattern repeats**: 3 of the 10 cash-outflow questions are answered with a negative number.
 6. **Some line items are much weaker than others**: cost of revenue 2/8 (5 declines; on Set B it was also the weakest at 16/21),
-   capital expenditures 4/8, total liabilities 3/6, against 44/44 for revenue, cash, operating cash flow and diluted EPS.
+   capital expenditures 4/8, total liabilities 3/6, against 38/38 for revenue, cash, operating cash flow and diluted EPS.
 7. The known data issue RAG recorded before opening the file (missing section labels for 10 filings of six companies) touches
    3 questions in this set; all 3 are answered correctly.
 
